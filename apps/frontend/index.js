@@ -3,7 +3,7 @@ const Koa = require("koa");
 const helmet = require("koa-helmet");
 const environment = require("./config/env");
 const config = require("./config/config");
-=const path = require("path");
+const path = require("path");
 
 const app = new Koa();
 
@@ -14,7 +14,7 @@ if (environment.isProduction) {
 }
 
 // Start server
-const server = app.listen(environment.port, () => {
+app.listen(environment.port, () => {
   /* eslint-disable-next-line no-console */
   console.log(
     `[FRONTEND] Started: PORT: ${environment.port} | ENV: ${

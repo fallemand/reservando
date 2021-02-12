@@ -1,6 +1,6 @@
 <template>
   <div :class="`page page-${id}`">
-    <PageHeader  />
+    <PageHeader />
     <main :class="`page-container--${type}`" class="page-container">
       <slot />
     </main>

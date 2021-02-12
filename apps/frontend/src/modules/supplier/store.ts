@@ -4,9 +4,6 @@
  * */
 /* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any */
 import { ActionTree, GetterTree, MutationTree, Module } from "vuex";
-import { GlobalType } from "@Types/globals";
-
-declare const GLOBAL: GlobalType;
 
 export interface SupplierStatusState {
   isLoggedIn: boolean;

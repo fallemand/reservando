@@ -41,5 +41,8 @@
   "npm-publish": {
     "git-email": "it@reservando.club",
     "git-name": "Reservando IT"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

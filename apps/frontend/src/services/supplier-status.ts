@@ -1,4 +1,4 @@
-import { urls } from "@Utils/url-helper";
+import urls from "@Utils/url-helper";
 import RestClient from "@Utils/rest-client";
 import { AxiosInstance } from "axios";
 import { SupplierStatusState } from "@Modules/supplier/store";
@@ -34,15 +34,8 @@ class SupplierStatus {
     };
   }
 
-  static validatePermission(permission, userData): void {
-    if (userData.isStaff) {
-      return;
-    }
-    if (!userData.isLoggedIn) {
-      window.location.assign(urls.login);
-      throw "Redirecting";
-    }
-    if (!userData.privileges.includes(permission)) {
+  static validatePermission(permission: string, privileges: string[]): void {
+    if (!privileges.includes(permission)) {
       window.location.assign(urls.home);
       throw "Redirecting";
     }

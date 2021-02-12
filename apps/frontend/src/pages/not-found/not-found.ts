@@ -1,12 +1,10 @@
 import { Component, Vue } from "vue-property-decorator";
 import Page from "@Components/Page/Page.vue";
 import NotFoundStore from "./store";
-import { GygButton } from "@reservando/design-system";
 
 @Component({
   components: {
     Page,
-    GygButton,
   },
 })
 export default class NotFoundPage extends Vue {

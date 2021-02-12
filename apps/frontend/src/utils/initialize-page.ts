@@ -1,9 +1,8 @@
 import Vue from "vue";
 import SupplierStatusService from "@Services/supplier-status";
-import config from "@Config/config";
 import { Commit } from "vuex";
 import Plugins from "./vue-plugins";
-import { urls } from "@Utils/url-helper";
+import urls from "@Utils/url-helper";
 import { GlobalType } from "@Types/globals";
 
 interface Params {
@@ -25,7 +24,7 @@ const initializePage = async (params?: Params): Promise<void> => {
   const sessionStatus = await supplierStatusService.getSupplierStatus();
 
   if (loginRequired) {
-    SupplierStatusService.validatePermission(params.permission, sessionStatus);
+    SupplierStatusService.validatePermission(params.permission, sessionStatus.privileges);
   }
 
   const shouldRedirect = params.redirectIfLoggedIn && sessionStatus.isLoggedIn;
@@ -45,7 +44,7 @@ const initializePage = async (params?: Params): Promise<void> => {
   }
 
   if (!GLOBAL.ENV.isDevelopment) {
-     // Logs
+    // Logs
   }
 };
 

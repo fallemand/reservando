@@ -1,7 +1,7 @@
-import { AxiosInstance, AxiosResponse } from "axios";
+import { AxiosInstance } from "axios";
 import RestClient from "@Utils/rest-client";
 import camelcaseKeys from "camelcase-keys";
-import { Author, Category, HomeModulesResponse, Media, ModulesQuery, Post, RawPost } from "./types";
+import { HomeModulesResponse, ModulesQuery } from "./types";
 
 export default class HomePageService {
   restClient: AxiosInstance;

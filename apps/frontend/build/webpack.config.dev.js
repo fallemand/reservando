@@ -1,14 +1,7 @@
 const webpack = require("webpack");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const webpackConfig = require("./webpack.config.common");
-const config = require("../config/config");
 const env = require("../config/env");
-const secrets = require("../config/secrets");
-
-if (config.shouldAnalyzeBuild()) {
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin());
-}
 
 module.exports = {
   ...webpackConfig,
@@ -21,7 +14,6 @@ module.exports = {
       GLOBAL: {
         // https://webpack.js.org/plugins/define-plugin/#feature-flags
         ENV: JSON.stringify(env),
-        SECRETS: JSON.stringify(secrets),
       },
     }),
   ],

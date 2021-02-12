@@ -44,7 +44,6 @@ export interface SupplierAccount {
 
 export type SupplierAccountResponse = SupplierAccount[] | AxiosResponse;
 
-
 export default class SupplierInfo {
   restClient: AxiosInstance;
 

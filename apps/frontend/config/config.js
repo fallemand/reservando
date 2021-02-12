@@ -7,7 +7,7 @@ const config = {
     folder: "assets",
   },
   entries: {
-    home: "./src/pages/home/index.ts",
+    ".": "./src/pages/home/index.ts",
   },
   paths: {
     "@Pages": path.resolve(__dirname, "../src/pages"),

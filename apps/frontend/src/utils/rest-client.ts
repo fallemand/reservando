@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import config from "@Config/config";
-import { urls } from "@Utils/url-helper";
+import urls from "@Utils/url-helper";
 import Cookie from "@Utils/cookie";
 import { GlobalType } from "@Types/globals";
 import SupplierStatus from "@Services/supplier-status";

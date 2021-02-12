@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import gettexts from "../../dist/gettexts.json";
+import gettexts from "../gettexts.json";
 
-const LOCALE_ENGLISH = "en";
+const LOCALE_SPANISH = "es";
 
 Vue.use(VueI18n);
 
@@ -13,7 +13,7 @@ const formatter = {
 };
 
 const i18n = new VueI18n({
-  locale: LOCALE_ENGLISH,
+  locale: LOCALE_SPANISH,
   formatter,
   silentTranslationWarn: true,
   messages: gettexts,

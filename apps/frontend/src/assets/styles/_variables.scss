@@ -1,15 +1,15 @@
-@import "~@reservando/design-system/styles/variables";
-
 $base-design-unit: 8px;
 $base-font-size: 16px;
 $border-radius: 4px;
-$border-color: $muted-blue;
+$border-color: #ccc;
 $container-max-width-medium: 970px;
-$container-max-width-large: $screen-xl;
+$container-max-width-large: 1024px;
 $container-min-width: 320px;
 $container-padding: $base-design-unit * 12;
 $container-single-column-width: 630px;
 $container-double-column-width: 307px;
+$font-weight-medium: 500;
+$screen-sm-max: 1200px;
 
 // Z-Index
 $z-index-base: 1;

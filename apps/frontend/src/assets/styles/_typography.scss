@@ -1,5 +1,4 @@
 @import "variables";
-@import "mixins";
 
 h1,
 h2,
@@ -11,31 +10,5 @@ h6 {
 }
 
 strong {
-  font-weight: $font-weight-medium;
-}
-
-h2.step-title {
-  margin: 0 0 $base-design-unit * 4;
-  padding: 0;
-
-  @include font-style("title-2");
-}
-
-.section-title {
-  margin: $base-design-unit 0 $base-design-unit / 2;
-  padding: 0;
-
-  @include font-style("title-3");
-}
-
-.caption {
-  @include font-style("caption");
-}
-
-.small-label {
-  @include font-style("label");
-}
-
-.is-bold {
   font-weight: $font-weight-medium;
 }

@@ -1,20 +1,2 @@
 .page-home {
-  background-color: $light-ash;
-
-  .page-content {
-    justify-content: center;
-  }
-
-  .info-box__home {
-    font-weight: $font-weight-regular;
-    margin-bottom: $base-design-unit * 2;
-
-    .info-box-item {
-      padding: $base-design-unit / 2;
-    }
-  }
-
-  .bookings-reviews {
-    flex-wrap: wrap;
-  }
 }

@@ -1,7 +1,4 @@
 import { actions } from "@Pages/home/store";
-import HomePageService from "@Pages/home/service";
-
-jest.mock("@Pages/home/service");
 
 describe("HomePage state store", () => {
   it("has action loadDefaultState which should call the load the default state", async () => {

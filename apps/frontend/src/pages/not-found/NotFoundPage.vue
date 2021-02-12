@@ -7,9 +7,6 @@
     <p class="page-not-found__text">
       {{ $t("pNotFound_cText_BodyText") }}
     </p>
-    <GygButton :href="redirectLink" modifier="outline-light" class="page-not-found__cta">
-      {{ $t("pNotFound_cText_BodyCta") }}
-    </GygButton>
   </Page>
 </template>
 

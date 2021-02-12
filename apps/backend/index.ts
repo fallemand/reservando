@@ -31,7 +31,7 @@ if (environment.isProduction) {
 }
 
 // Start server
-const server = app.listen(environment.port, () => {
+app.listen(environment.port, () => {
   console.log(
     `[BACKEND] Started: PORT: ${environment.port} | ENV: ${
       environment.env

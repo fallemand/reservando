@@ -1,7 +1,5 @@
 <template>
-  <header :class="cssClass" class="header">
-    Header
-  </header>
+  <header :class="cssClass" class="header">Header</header>
 </template>
 
 <script lang="ts">
