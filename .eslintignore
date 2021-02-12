@@ -1,0 +1,10 @@
+/.idea
+/.secret
+/coverage
+/dist
+/monitoring
+/node_modules
+/secrets
+/spinnaker
+/apps/backend/dist
+/apps/frontend/dist

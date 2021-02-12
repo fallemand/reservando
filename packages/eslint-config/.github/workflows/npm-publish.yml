@@ -1,0 +1,24 @@
+name: CI and Release
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+
+    # Echo out auth token used in npmrc
+    - name: AUTH_TOKEN npmrc env variable
+      run: echo "AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}" >> $GITHUB_ENV
+
+    - name: Dependencies
+      run: npm ci
+
+    - name: Publish library
+      run: npm run version:publish -- -b "${{ github.ref }}" -m "${{ github.event.head_commit.message }}"

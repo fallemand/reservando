@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+dist
+envfile
+.idea/
+.secret/
+.eslintcache
+.stylelintcache
+.gygdev-dc.yml
+.credential-scan-merged.yml
+.DS_Store
+.npmrc
+# Unit tests reports
+coverage

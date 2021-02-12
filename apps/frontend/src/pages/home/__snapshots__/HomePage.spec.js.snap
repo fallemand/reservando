@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage should render for non-confirmed 1`] = `
+"<page-stub title='pModules_Header Home' id='home' type='normal' header='[object Object]' footer='[object Object]' tracking='[object Object]' infoboxvisible='[function cleaned]' hideinfobox='() => '$storeAction'' snackbarmessage='' snackbartype='error' snackbardelay='5000'>
+  <homepagenotifications-stub summary='[object Object]'></homepagenotifications-stub>
+  <!---->
+  <!---->
+  <div class='bookings-reviews'>
+    <homepagebookings-stub hasbookings='true' bookings='[object Object]'></homepagebookings-stub>
+    <homepagereviews-stub hasreviews='true' hasrecentreviews='true' reviews='[object Object]'></homepagereviews-stub>
+  </div>
+  <homepageagenda-stub agendaitems='[object Object],[object Object]'></homepageagenda-stub>
+  <!---->
+  <!---->
+</page-stub>
+"
+`;
+
+exports[`HomePage should render with modules 1`] = `
+"<page-stub title='pModules_Header Home' id='home' type='normal' header='[object Object]' footer='[object Object]' tracking='[object Object]' infoboxvisible='[function cleaned]' hideinfobox='() => '$storeAction'' snackbarmessage='' snackbartype='error' snackbardelay='5000'>
+  <homepagenotifications-stub summary='[object Object]'></homepagenotifications-stub>
+  <!---->
+  <!---->
+  <div class='bookings-reviews'>
+    <homepagebookings-stub hasbookings='true' bookings='[object Object]'></homepagebookings-stub>
+    <homepagereviews-stub hasreviews='true' hasrecentreviews='true' reviews='[object Object]'></homepagereviews-stub>
+  </div>
+  <homepageagenda-stub agendaitems='[object Object],[object Object]'></homepageagenda-stub>
+  <homepageproductslist-stub productslist='' productscount='0' hasproducts='true'></homepageproductslist-stub>
+  <!---->
+</page-stub>
+"
+`;
+
+exports[`HomePage should render with modules and Account Status 1`] = `
+"<page-stub title='pModules_Header Home' id='home' type='normal' header='[object Object]' footer='[object Object]' tracking='[object Object]' infoboxvisible='[function cleaned]' hideinfobox='() => '$storeAction'' snackbarmessage='' snackbartype='error' snackbardelay='5000'>
+  <homepagenotifications-stub summary='[object Object]'></homepagenotifications-stub>
+  <!---->
+  <homepageaccountstatus-stub hascompanyregistrationexception='true' hasinsurancepolicyexception='true' hascompanyregistration='true' hasbusinessinsurance='true' haspaymentinfo='true'></homepageaccountstatus-stub>
+  <div class='bookings-reviews'>
+    <homepagebookings-stub hasbookings='true' bookings='[object Object]'></homepagebookings-stub>
+    <homepagereviews-stub hasreviews='true' hasrecentreviews='true' reviews='[object Object]'></homepagereviews-stub>
+  </div>
+  <homepageagenda-stub agendaitems='[object Object],[object Object]'></homepageagenda-stub>
+  <homepageproductslist-stub productslist='' productscount='0' hasproducts='true'></homepageproductslist-stub>
+  <!---->
+</page-stub>
+"
+`;

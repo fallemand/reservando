@@ -1,0 +1,18 @@
+.page-home {
+  align-items: flex-start;
+
+  .page-content {
+    flex-grow: 0;
+  }
+
+  .info-box__home {
+    width: $container-single-column-width;
+  }
+
+  .bookings-reviews {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+}

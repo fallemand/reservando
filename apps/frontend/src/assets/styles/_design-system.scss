@@ -1,0 +1,53 @@
+/**
+ * This file contains the global imported styles from the design-system
+ * and all the overrides of components to match our project ui.
+ */
+@import "~@reservando/design-system/styles/typography/fonts/GT-Eesti/gt_eesti";
+@import "~@reservando/design-system/lib/gyg-transition/gyg-transition";
+@import "~@reservando/design-system/lib/gyg-button/gyg-button";
+@import "~@reservando/design-system/lib/gyg-link/gyg-link";
+@import "~@reservando/design-system/lib/gyg-form-field/gyg-form-field";
+@import "~@reservando/design-system/lib/gyg-dropdown/gyg-dropdown";
+@import "~@reservando/design-system/lib/gyg-modal/gyg-modal";
+@import "~@reservando/design-system/lib/gyg-bottom-sheet/gyg-bottom-sheet";
+@import "~@reservando/design-system/lib/gyg-radio-group/gyg-radio-group";
+@import "~@reservando/design-system/lib/gyg-checkbox/gyg-checkbox";
+@import "~@reservando/design-system/lib/gyg-tabs/gyg-tabs";
+@import "~@reservando/design-system/lib/gyg-alert/gyg-alert";
+@import "~@reservando/design-system/lib/gyg-icon/gyg-icon";
+@import "~@reservando/design-system/lib/gyg-search/gyg-search";
+@import "~@reservando/design-system/lib/gyg-accordion/gyg-accordion";
+
+.gyg-button-link-light {
+  outline: 0;
+
+  &:focus {
+    color: $link-active;
+  }
+}
+
+[class*="gyg-button-outline-"] {
+  border-width: 1px;
+}
+
+.gyg-form-label {
+  font-weight: $font-weight-medium;
+  margin-bottom: $base-design-unit;
+}
+
+.gyg-radio {
+  align-items: flex-start;
+}
+
+.gyg-checkbox {
+  align-items: flex-start;
+}
+
+.gyg-input-field {
+  border-width: 1px;
+  border-radius: $base-design-unit / 2;
+}
+
+.gyg-search-results {
+  border: 0;
+}

@@ -1,0 +1,19 @@
+@import "~@reservando/design-system/styles/variables";
+
+$base-design-unit: 8px;
+$base-font-size: 16px;
+$border-radius: 4px;
+$border-color: $muted-blue;
+$container-max-width-medium: 970px;
+$container-max-width-large: $screen-xl;
+$container-min-width: 320px;
+$container-padding: $base-design-unit * 12;
+$container-single-column-width: 630px;
+$container-double-column-width: 307px;
+
+// Z-Index
+$z-index-base: 1;
+$z-index-loading: 5;
+$z-index-menu: 10; // Ex: On hover menu like Header menu
+$z-index-overlay: 20; // Ex: Dark overlay when modal opened
+$z-index-modal: 30; // Ex: Modal content

@@ -1,0 +1,160 @@
+.header {
+  width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid $border-color;
+
+  .header-container {
+    padding: $base-design-unit * 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .header-logo {
+    flex-grow: 1;
+    width: 58px;
+    height: 47px;
+    display: inline-block;
+  }
+
+  .header-hamburger {
+    padding: $base-design-unit $base-design-unit * 1.5;
+    border-radius: 4px;
+    border: 1px solid $white;
+    background: $midnight-blue;
+    color: $white;
+  }
+
+  .header-links {
+    display: none;
+    font-weight: $font-weight-regular;
+
+    @include font-style("caption");
+
+    flex-shrink: 0;
+    margin-left: $base-design-unit;
+    max-width: 50%;
+
+    a {
+      text-decoration: none;
+      color: $ui-blue;
+    }
+
+    a.header-links-muted,
+    a.header-links-muted:focus {
+      text-decoration: none;
+
+      @include font-style("body");
+
+      color: $ui-slate;
+    }
+  }
+
+  .header-menu {
+    flex-basis: 100%;
+    margin-left: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s linear;
+
+    &.is-visible {
+      max-height: 430px;
+    }
+  }
+
+  .header-menu-list {
+    margin-top: $base-design-unit * 2;
+  }
+
+  .header-submenu {
+    display: none;
+    width: 100%;
+    background: $white;
+  }
+
+  .header-menu-button {
+    font-weight: $font-weight-medium;
+  }
+
+  .header-menu-link {
+    text-decoration: none;
+    color: $ui-blue;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    line-height: 1.75rem;
+    font-weight: $font-weight-medium;
+    width: 100%;
+
+    .button-icon {
+      margin-bottom: 2px;
+    }
+
+    &:hover {
+      color: $midnight-blue;
+    }
+  }
+
+  .header-menu-item {
+    padding: $base-design-unit 0;
+    position: relative;
+    font-weight: $font-weight-medium;
+    border-bottom: 1px solid $light-slate;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &--toggle {
+      .header-menu-link {
+        pointer-events: none;
+      }
+    }
+
+    &.is-active {
+      padding-bottom: 0;
+
+      .header-submenu {
+        display: block;
+      }
+    }
+  }
+
+  .header-menu-arrow {
+    margin-left: $base-design-unit / 2;
+  }
+
+  .header-submenu-item {
+    line-height: 1.4;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .header-submenu-link {
+    text-decoration: none;
+    padding: $base-design-unit $base-design-unit $base-design-unit $base-design-unit * 2;
+    color: $midnight-blue;
+    display: block;
+    font-weight: $font-weight-regular;
+    border-radius: 0;
+    width: 100%;
+    text-align: left;
+
+    &:hover {
+      color: $white;
+      background: $ui-blue;
+    }
+  }
+
+  .header-arrow-left {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid $ui-blue;
+    margin-right: $base-design-unit / 2;
+  }
+}

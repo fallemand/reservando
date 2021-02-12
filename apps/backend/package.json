@@ -1,0 +1,40 @@
+{
+  "name": "@reservando/backend",
+  "version": "1.0.0",
+  "description": "Reservando api",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "NODE_ENV=production node dist/index.js",
+    "start:dev": "NODE_ENV=development nodemon --inspect=0.0.0.0:9229 dist/index.js",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "lint:fix": "npm run lint:prettier -- --write && npm run lint:eslint -- --fix",
+    "lint:eslint": "eslint '**/*.{js,ts,vue}'",
+    "lint:prettier": "prettier --check '**/*.{md,scss,json}'",
+    "build": "tsc",
+    "watch": "npm run build -- --watch"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.6",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-helmet": "^6.0.2",
+    "@types/koa-router": "^7.4.1",
+    "@types/node": "^14.14.25",
+    "nodemon": "^1.19.4",
+    "typescript": "^3.9.8"
+  },
+  "dependencies": {
+    "dd-trace": "^0.10.2",
+    "axios": ">=0.18.1",
+    "firebase-admin": "^9.4.2",
+    "if-env": "^1.0.4",
+    "hot-shots": "^6.8.7",
+    "koa": "2.5.3",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "4.0.0",
+    "koa-router": "7.4.0"
+  },
+  "nodemonConfig": {
+    "delay": "2000"
+  }
+}
