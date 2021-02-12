@@ -24,20 +24,6 @@ export default class NotFoundPage extends Vue {
     return {
       id: "not-found",
       pageTitle: this.$t("pNotFound_cText_BodyTitle"),
-      infoBoxVisible: this.isBoxVisible,
-      hideInfoBox: this.$storeAction("supplier/hideInfoBox"),
-      tracking: {
-        ga: true,
-        sentry: true,
-        gygCollector: {
-          containerName: "SupplierNotFound",
-          page: "SupplierNotFoundPageRequest",
-        },
-      },
-      header: {
-        supplier: this.state.supplier,
-        hasPrivilege: this.$store.getters["supplier/hasPrivilege"],
-      },
     };
   }
 }

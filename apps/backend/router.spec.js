@@ -14,8 +14,6 @@ jest.mock("koa-router", () =>
   })),
 );
 jest.mock("./controllers/accounts/routes", () => mockRouter);
-jest.mock("./controllers/contact/routes", () => mockRouter);
-jest.mock("./controllers/log-metric");
 jest.mock("./mocks", () => mockRouter);
 jest.mock("koa-bodyparser", () => () => "koa-bodyparser");
 
@@ -25,11 +23,9 @@ describe("router", () => {
   it("should have basic routes defined", () => {
     expect(mockUse.mock.calls).toEqual([
       ["koa-bodyparser"],
-      ["/contact", expect.any(Function), expect.any(Function)],
       ["/accounts", expect.any(Function), expect.any(Function)],
       ["/frontend-api", expect.any(Function), expect.any(Function)],
     ]);
-    expect(mockPost.mock.calls).toEqual([["/log-metric", expect.any(Function)]]);
     expect(mockAll.mock.calls).toEqual([["*", expect.any(Function)]]);
   });
 });

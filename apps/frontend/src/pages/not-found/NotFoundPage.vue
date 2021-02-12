@@ -1,9 +1,6 @@
 <template>
   <Page v-bind="pageProps">
-    <div
-      class="page-not-found__graphic"
-      :class="`page-not-found__graphic--${$browser.webp ? 'webp' : 'jpg'}`"
-    />
+    <div class="page-not-found__graphic page-not-found__graphic--webp" />
     <h3 class="page-not-found__title">
       {{ $t("pNotFound_cText_BodyTitle") }}
     </h3>

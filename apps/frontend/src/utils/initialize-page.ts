@@ -2,11 +2,9 @@ import Vue from "vue";
 import SupplierStatusService from "@Services/supplier-status";
 import config from "@Config/config";
 import { Commit } from "vuex";
-import Plugins, { EventLoggerPlugin } from "./vue-plugins";
+import Plugins from "./vue-plugins";
 import { urls } from "@Utils/url-helper";
 import { GlobalType } from "@Types/globals";
-import browserLogger from "@Utils/loggers/browser-logger";
-import rumLogger from "@Utils/loggers/rum-logger";
 
 interface Params {
   permission?: string;
@@ -44,17 +42,10 @@ const initializePage = async (params?: Params): Promise<void> => {
 
   if (params.store) {
     params.store.dispatch("supplier/setSupplierStatus", sessionStatus);
-
-    Vue.use(EventLoggerPlugin, {
-      ...sessionStatus,
-      sent_by: "gyg_new_supplier_portal",
-      collectorHost: config.collectorHost,
-    });
   }
 
   if (!GLOBAL.ENV.isDevelopment) {
-    browserLogger();
-    rumLogger();
+     // Logs
   }
 };
 

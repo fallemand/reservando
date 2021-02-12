@@ -1,7 +1,5 @@
 <template>
-  <Page v-bind="pageProps">
-    TEST
-  </Page>
+  <Page id="home">TEST</Page>
 </template>
 
 <script lang="ts" src="./home.ts" />

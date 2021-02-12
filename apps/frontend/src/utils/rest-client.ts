@@ -4,10 +4,7 @@ import { urls } from "@Utils/url-helper";
 import Cookie from "@Utils/cookie";
 import { GlobalType } from "@Types/globals";
 import SupplierStatus from "@Services/supplier-status";
-import DatadogMetrics from "@Services/datadog-metrics";
 import Firebase from "@Services/firebase";
-
-const datadogMetric = new DatadogMetrics();
 
 declare const GLOBAL: GlobalType;
 const X_CSRF_TOKEN = "x-csrf-token";
@@ -61,7 +58,7 @@ const RestClient = (params: Params = {}): AxiosInstance => {
 
       // 400 if CSRF Token is invalid, 401 if user lacks permissions, 403 if they are not logged in, 404 if API is dead
       const redirectStatuses = [400, 401, 403, 404];
-      const serverErrorStatuses = [500, 502, 503];
+      // const serverErrorStatuses = [500, 502, 503];
       const avoidRedirection = params.statusAllowed && params.statusAllowed.includes(status);
 
       if (redirectStatuses.includes(status) && !avoidRedirection) {
@@ -75,14 +72,14 @@ const RestClient = (params: Params = {}): AxiosInstance => {
         window.location.assign(urls.loginRedirect(window.location.href));
       }
 
-      if (serverErrorStatuses.includes(status)) {
-        datadogMetric.logMetric({
-          metricName: "supplier_api_returning_non_200",
-          values: {
-            status,
-          },
-        });
-      }
+      // if (serverErrorStatuses.includes(status)) {
+      //   datadogMetric.logMetric({
+      //     metricName: "supplier_api_returning_non_200",
+      //     values: {
+      //       status,
+      //     },
+      //   });
+      // }
 
       return Promise.reject(error);
     },

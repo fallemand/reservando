@@ -83,30 +83,4 @@ describe("HomePage", () => {
     });
     expect(cleanSnapshot(wrapper)).toMatchSnapshot();
   });
-
-  it("should render with modules and Account Status", () => {
-    storeData.state.summary = {
-      ...storeData.state.summary,
-      hasCompanyLogo: false,
-      hasPendingBookings: true,
-      hasProductWithMissingInformation: true,
-      hasExpiredAvailabilities: true,
-      hasAvailabilitiesExpiringSoon: true,
-    };
-    const wrapper = shallowMount(HomePage, {
-      store: new Vuex.Store(storeData),
-      localVue,
-    });
-    expect(cleanSnapshot(wrapper)).toMatchSnapshot();
-  });
-
-  it("should render for non-confirmed", () => {
-    storeData.modules.supplier.state.isConfirmed = false;
-
-    const wrapper = shallowMount(HomePage, {
-      store: new Vuex.Store(storeData),
-      localVue,
-    });
-    expect(cleanSnapshot(wrapper)).toMatchSnapshot();
-  });
 });

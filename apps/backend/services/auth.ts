@@ -1,6 +1,5 @@
 import { Context, Next } from "koa";
 import firebaseAdmin from "firebase-admin";
-import Fishfarm from "./fishfarm";
 
 export type Permission =
   | "portal_login"
@@ -24,8 +23,6 @@ export interface StaffClaims {
   user_permissions: Permission[];
   user_id: number;
 }
-
-const fishfarmService = new Fishfarm();
 
 const { firebaseConfig } = require("../config/env");
 const UNAUTHORIZED_STATUS = 401;
@@ -55,27 +52,14 @@ export default (permission: Permission) => async (ctx: Context, next: Next): Pro
       ctx.throw(UNAUTHORIZED_STATUS);
     }
 
-    let user, roles, id;
+    const user = await getFirebaseUser(bearerToken);
+    const roles = user["supplier_permissions"];
+    const id = user["supplier_login_id"];
 
-    if (bearerToken) {
-      user = await getFirebaseUser(bearerToken);
-      roles = user["supplier_permissions"];
-      id = user["supplier_login_id"];
-
-      ctx.state.user = {
-        type: "supplier",
-        id,
-      };
-    } else {
-      user = await fishfarmService.getStaffUser(sessionId);
-      roles = user["user_permissions"];
-      id = user["user_id"];
-
-      ctx.state.user = {
-        type: "staff",
-        id,
-      };
-    }
+    ctx.state.user = {
+      type: "supplier",
+      id,
+    };
 
     if (!roles.length || !roles.includes(permission)) {
       ctx.throw(UNAUTHORIZED_STATUS);
