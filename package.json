@@ -4,9 +4,9 @@
   "description": "Reservando monorepo",
   "main": "index.js",
   "scripts": {
-    "start": "lerna run start",
-    "build": "lerna run build",
-    "watch": "lerna run watch",
+    "start": "lerna run start --stream",
+    "build": "lerna run build --stream",
+    "watch": "lerna run watch --parallel",
     "test:unit": "NODE_ENV=test jest",
     "test:clean-cache": "npm run test:unit -- --clearCache",
     "test:unit:update": "npm run test:unit -- --updateSnapshot",

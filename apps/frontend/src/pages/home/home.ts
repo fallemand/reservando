@@ -1,6 +1,9 @@
 import { Component, Vue } from "vue-property-decorator";
 import Page from "@Components/Page/Page.vue";
 import HomeStore from "./store";
+import HomeService from "./service";
+
+const homeService = new HomeService();
 
 @Component({
   components: {
@@ -16,5 +19,7 @@ export default class Home extends Vue {
 
   async mounted(): Promise<void> {
     await this.$store.dispatch("loadDefaultState");
+    const response = await homeService.getModulesData();
+    console.log(response);
   }
 }

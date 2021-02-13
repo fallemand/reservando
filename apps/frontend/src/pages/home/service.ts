@@ -1,7 +1,6 @@
 import { AxiosInstance } from "axios";
 import RestClient from "@Utils/rest-client";
 import camelcaseKeys from "camelcase-keys";
-import { HomeModulesResponse, ModulesQuery } from "./types";
 
 export default class HomePageService {
   restClient: AxiosInstance;
@@ -12,16 +11,12 @@ export default class HomePageService {
 
   static get URLS(): { [key: string]: string } {
     return {
-      HOME_PAGE_MODULES: "/account_summary",
+      HOME_PAGE_MODULES: "/accounts/list",
     };
   }
 
-  async getModulesData(query: ModulesQuery): Promise<HomeModulesResponse> {
-    const response = await this.restClient.post(HomePageService.URLS.HOME_PAGE_MODULES, {
-      components: query.modules,
-    });
-
-    const { bookings, reviews, supplier } = response.data;
-    return camelcaseKeys({ bookings, reviews, supplier }, { deep: true }) as HomeModulesResponse;
+  async getModulesData(): Promise<string> {
+    const response = await this.restClient.post(HomePageService.URLS.HOME_PAGE_MODULES);
+    return camelcaseKeys(response.data, { deep: true }) as string;
   }
 }

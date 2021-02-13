@@ -1,37 +1,14 @@
 import { Context, Next } from "koa";
 import firebaseAdmin from "firebase-admin";
+import { Auth } from "@reservando/commons/types";
+import credential from "../config/firebase-admin-credential.json";
 
-export type Permission =
-  | "portal_login"
-  | "bookings_manage"
-  | "bookings_export"
-  | "inventory_manage"
-  | "products_manage"
-  | "reviews_manage"
-  | "deals_manage"
-  | "financials_manage"
-  | "account_manage"
-  | "user_management"
-  | "accept_terms_and_conditions";
-
-export interface UserClaims {
-  supplier_permissions: Permission[];
-  supplier_login_id: number;
-}
-
-export interface StaffClaims {
-  user_permissions: Permission[];
-  user_id: number;
-}
-
-const { firebaseConfig } = require("../config/env");
 const UNAUTHORIZED_STATUS = 401;
 
-const getFirebaseUser = async (bearerToken: string): Promise<UserClaims> => {
+const getFirebaseUser = async (bearerToken: string): Promise<Auth.UserClaims> => {
   if (!firebaseAdmin.apps.length) {
     firebaseAdmin.initializeApp({
-      ...firebaseConfig,
-      credential: firebaseAdmin.credential.cert(firebaseConfig.googleAppCredentials),
+      credential: firebaseAdmin.credential.cert(credential as firebaseAdmin.ServiceAccount),
     });
   }
 
@@ -39,29 +16,24 @@ const getFirebaseUser = async (bearerToken: string): Promise<UserClaims> => {
   const decoded = await firebaseAdmin.auth().verifyIdToken(jwt);
   const { uid } = decoded;
   const userData = await firebaseAdmin.auth().getUser(uid);
-
-  return userData.customClaims as UserClaims;
+  return userData.customClaims as Auth.UserClaims;
 };
 
-export default (permission: Permission) => async (ctx: Context, next: Next): Promise<void> => {
+export default (role: Auth.Role) => async (ctx: Context, next: Next): Promise<void> => {
   try {
-    const bearerToken = await ctx.get("Authorization");
-    const sessionId = ctx.cookies.get("PHPSESSID");
+    const bearerToken = ctx.get("Authorization");
 
-    if (!bearerToken && !sessionId) {
+    if (!bearerToken) {
       ctx.throw(UNAUTHORIZED_STATUS);
     }
 
     const user = await getFirebaseUser(bearerToken);
-    const roles = user["supplier_permissions"];
-    const id = user["supplier_login_id"];
 
     ctx.state.user = {
-      type: "supplier",
-      id,
+      role: user.roles,
     };
 
-    if (!roles.length || !roles.includes(permission)) {
+    if (!user.roles.length || !user.roles.includes(role)) {
       ctx.throw(UNAUTHORIZED_STATUS);
     }
 

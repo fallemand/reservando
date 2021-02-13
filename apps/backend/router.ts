@@ -23,5 +23,5 @@ router.all("*", (ctx: Context) => {
 });
 
 const baseRouter = new Router();
-baseRouter.use("/frontend-api", router.routes(), router.allowedMethods());
+baseRouter.use("/api", router.routes(), router.allowedMethods());
 export default baseRouter;

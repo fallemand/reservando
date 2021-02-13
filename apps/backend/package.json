@@ -25,11 +25,14 @@
     "typescript": "^3.9.8"
   },
   "dependencies": {
-    "dd-trace": "^0.10.2",
+    "@koa/cors": "^3.1.0",
+    "@reservando/commons": "^1.0.0",
     "axios": ">=0.18.1",
+    "commons": "^0.0.1-pre",
+    "dd-trace": "^0.10.2",
     "firebase-admin": "^9.4.2",
-    "if-env": "^1.0.4",
     "hot-shots": "^6.8.7",
+    "if-env": "^1.0.4",
     "koa": "2.5.3",
     "koa-bodyparser": "^4.3.0",
     "koa-helmet": "4.0.0",

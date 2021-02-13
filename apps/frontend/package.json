@@ -59,8 +59,10 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "@reservando/commons": "^1.0.0",
     "axios": ">=0.18.1",
     "camelcase-keys": "^6.2.2",
+    "commons": "^0.0.1-pre",
     "core-js": "^3.6.5",
     "cuid": "2.1.4",
     "dd-trace": "^0.10.2",
