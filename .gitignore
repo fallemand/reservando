@@ -12,3 +12,4 @@ envfile
 .npmrc
 # Unit tests reports
 coverage
+firebase-admin-credential.json
