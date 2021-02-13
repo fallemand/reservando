@@ -1,38 +1,39 @@
-import { GlobalType } from "../types/globals";
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { firebaseClientConfig } from "@Config/config";
+import urls from "@Utils/urls";
 
-declare const GLOBAL: GlobalType;
+export type Role = "admin" | "user" | "guest";
+
 class Firebase {
+  instance: firebase.app.App;
+
   constructor() {
-    if (!firebase.apps.length) {
-      const config =
-        typeof GLOBAL.SECRETS.firebase === "object"
-          ? GLOBAL.SECRETS.firebase
-          : JSON.parse(GLOBAL.SECRETS.firebase);
-      firebase.initializeApp(config);
-    }
+    this.instance = !firebase.apps.length
+      ? firebase.initializeApp(firebaseClientConfig)
+      : firebase.app();
   }
 
-  async createSession(email: string, password: string): Promise<void> {
-    await firebase.auth().signInWithEmailAndPassword(email, password);
-  }
-
-  async getTokenId(): Promise<string> {
-    return new Promise((resolve, reject) => {
-      firebase.auth().onAuthStateChanged(async (user) => {
-        if (user) {
-          const token = await user.getIdToken();
-          resolve(token);
-        } else {
-          resolve("");
-        }
-      }, reject);
+  getUser(): Promise<firebase.User> {
+    return new Promise<firebase.User>((resolve, reject) => {
+      firebase.auth().onAuthStateChanged(
+        (user) => {
+          resolve(user);
+        },
+        (err) => reject(err),
+      );
     });
   }
 
-  async deleteSession(): Promise<void> {
+  async getToken(): Promise<string> {
+    const user = await this.getUser();
+    const token = await user.getIdToken();
+    return token;
+  }
+
+  async logoutUser(): Promise<void> {
     await firebase.auth().signOut();
+    window.location.assign(urls.login);
   }
 }
 

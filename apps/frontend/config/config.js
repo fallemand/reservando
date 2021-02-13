@@ -8,6 +8,7 @@ const config = {
   },
   entries: {
     ".": "./src/pages/home/index.ts",
+    login: "./src/pages/login/index.ts",
   },
   paths: {
     "@Pages": path.resolve(__dirname, "../src/pages"),
@@ -19,6 +20,14 @@ const config = {
     "@Types": path.resolve(__dirname, "../src/types"),
     "@Config": path.resolve(__dirname, "../config"),
     "@Server": path.resolve(__dirname, "../server"),
+  },
+  firebaseClientConfig: {
+    apiKey: "AIzaSyBa6F9Xgl5tiSuCR75oR1-2lmsBSzbgjfk",
+    authDomain: "reservando-club.firebaseapp.com",
+    projectId: "reservando-club",
+    storageBucket: "reservando-club.appspot.com",
+    messagingSenderId: "660411980358",
+    appId: "1:660411980358:web:47e51c0e967db71336c847",
   },
   extensions: [".vue", ".ts", ".js", ".css", ".d.ts"],
   dateFormatOptions: {

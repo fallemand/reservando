@@ -1,7 +1,8 @@
 const urls = {
-  index: "/",
-  home: "/home",
+  home: "/",
   login: "/login",
+  termsOfService: "/home",
+  privacyPolicy: "/home",
   loginRedirect: (redirectUrl: string): string => {
     // Avoid adding the param infinitely
     if (redirectUrl.includes("redirectUrl")) {

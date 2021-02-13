@@ -1,4 +1,4 @@
-import urls from "@Utils/url-helper";
+import urls from "@Utils/urls";
 import RestClient from "@Utils/rest-client";
 import { AxiosInstance } from "axios";
 import { SupplierStatusState } from "@Modules/supplier/store";

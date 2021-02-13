@@ -1,5 +1,5 @@
 <template>
-  <Page id="home">TEST</Page>
+  <Page id="home">HOME</Page>
 </template>
 
 <script lang="ts" src="./home.ts" />

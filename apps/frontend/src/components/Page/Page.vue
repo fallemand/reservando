@@ -1,17 +1,23 @@
 <template>
-  <div :class="`page page-${id}`">
-    <PageHeader />
-    <main :class="`page-container--${type}`" class="page-container">
+  <div :class="`page ${id}`">
+    <header class="page__header header">
+      <a class="header__logo-link" :href="$urls.home">
+        <img class="header__logo" :src="logoImg" />
+      </a>
+    </header>
+    <main class="page__content">
       <slot />
     </main>
-    <PageFooter />
+    <footer v-if="$user">
+      <button type="button" @click="logoutUser">Logout</button>
+    </footer>
   </div>
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
-import PageHeader from "./PageHeader.vue";
-import PageFooter from "./PageFooter.vue";
+import FirebaseService from "@Services/firebase";
+import logoImg from "@Assets/images/logo.png";
 
 declare global {
   interface Window {
@@ -20,10 +26,7 @@ declare global {
 }
 
 @Component({
-  components: {
-    PageHeader,
-    PageFooter,
-  },
+  components: {},
 })
 export default class Page extends Vue {
   @Prop({ type: String, default: "" }) title!: string;
@@ -38,11 +41,20 @@ export default class Page extends Vue {
     }
   }
 
+  logoutUser(): void {
+    const firebaseService = new FirebaseService();
+    firebaseService.logoutUser();
+  }
+
   setMetaDescription(): void {
     const metaDescription = document.createElement("meta");
     metaDescription.setAttribute("name", "description");
     metaDescription.content = this.description;
     document.getElementsByTagName("head")[0].appendChild(metaDescription);
+  }
+
+  get logoImg(): string {
+    return logoImg;
   }
 }
 </script>

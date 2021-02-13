@@ -1,4 +1,4 @@
-import { urls, getUrlWithParams } from "@Utils/url-helper";
+import { urls, getUrlWithParams } from "@Utils/urls";
 
 describe("URL utility", () => {
   it("has a mapping of sections and pages urls", async () => {

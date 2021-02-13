@@ -1,2 +1,16 @@
 .page {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px;
+  overflow: hidden;
+
+  &__content {
+    padding: $bdu * 3;
+  }
+}
+
+.header {
+  &__logo {
+    width: 100%;
+  }
 }

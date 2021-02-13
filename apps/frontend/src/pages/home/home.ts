@@ -14,7 +14,7 @@ export default class Home extends Vue {
     "supplier/isBoxVisible"
   ];
 
-  async created(): Promise<void> {
+  async mounted(): Promise<void> {
     await this.$store.dispatch("loadDefaultState");
   }
 }

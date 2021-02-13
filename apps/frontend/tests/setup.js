@@ -1,5 +1,5 @@
 import { config } from "@vue/test-utils";
-import urls from "@Utils/url-helper";
+import urls from "@Utils/urls";
 import cleanSnapshot from "./clean-snapshot";
 
 const env = require("@Config/env");
