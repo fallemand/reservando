@@ -1,4 +1,4 @@
-import Router from "koa-router";
+import Router from "@koa/router";
 import auth from "../../services/auth";
 import { getSupplierAccounts } from "./controller";
 

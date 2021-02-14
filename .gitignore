@@ -13,3 +13,4 @@ envfile
 # Unit tests reports
 coverage
 firebase-admin-credential.json
+lerna-debug.log

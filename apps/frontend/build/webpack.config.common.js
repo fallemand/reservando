@@ -5,7 +5,6 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const sass = require("sass");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const autoprefixer = require("autoprefixer");
 const env = require("../config/env");
 const config = require("../config/config");
 
@@ -37,6 +36,9 @@ module.exports = {
   resolve: {
     alias: config.paths,
     extensions: config.extensions,
+    fallback: {
+      path: require.resolve("path-browserify"),
+    },
   },
   entry: config.entries,
   module: {
@@ -66,22 +68,19 @@ module.exports = {
             loader: "sass-loader",
             options: {
               sourceMap: true,
-              sourceMapContents: false,
               implementation: sass,
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              syntax: "postcss-scss",
-              plugins: [autoprefixer],
             },
           },
         ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|gif|png|jpg|webp|ico)(\?.*$|$)/,
-        loader: `url-loader?importLoaders=1&limit=100&name=${config.assets.folder}/images/[hash].[ext]`,
+        loader: `url-loader`,
+        options: {
+          limit: 100,
+          name: `${config.assets.folder}/images/[hash].[ext]`,
+          esModule: false,
+        },
       },
       {
         test: /\.svg$/,
@@ -101,9 +100,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      eslint: true,
-    }),
+    new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin({
       dry: false,
       cleanOnceBeforeBuildPatterns: ["../dist/*", "!../dist/gettexts*"],

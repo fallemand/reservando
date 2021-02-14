@@ -6,8 +6,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": true,
-  "dependencies": {
-    "commons": "^0.0.1-pre"
-  }
+  "private": true
 }

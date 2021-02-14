@@ -51,7 +51,7 @@ module.exports = {
     minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
     splitChunks: {
       cacheGroups: {
-        vendor: {
+        defaultVendors: {
           test: new RegExp(`(${vendorList.join("|")})`),
           chunks: "all",
           name: "vendors",

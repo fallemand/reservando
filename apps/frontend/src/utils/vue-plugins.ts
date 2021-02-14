@@ -2,10 +2,10 @@ import urls from "@Utils/urls";
 import sanitizeHTML from "@Utils/sanitize-html";
 import isMobile from "@Utils/is-mobile";
 import { VueConstructor } from "vue";
-import { User } from "firebase/app";
+import firebase from "firebase";
 
 export default {
-  async install(Vue: VueConstructor, user: User): Promise<void> {
+  async install(Vue: VueConstructor, user: firebase.User): Promise<void> {
     /* eslint-disable no-param-reassign, @typescript-eslint/no-explicit-any */
     Vue.prototype.$urls = urls;
     Vue.prototype.$user = user;

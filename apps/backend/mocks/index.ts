@@ -1,4 +1,4 @@
-import Router from "koa-router";
+import Router from "@koa/router";
 import { sendJson, sendSuccess } from "./mock-utils";
 import Permissions from "./data/permissions.json";
 import AccountsGet from "./data/accounts-get.json";

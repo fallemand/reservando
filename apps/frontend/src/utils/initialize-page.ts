@@ -11,7 +11,6 @@ interface Params {
 const initializePage = async (params: Params = {}): Promise<void> => {
   const firebaseService = new FirebaseService();
   const user = await firebaseService.getUser();
-  console.log(user);
   if (user && params.redirectIfLoggedIn) {
     window.location.assign(urls.home);
     throw "Redirecting";

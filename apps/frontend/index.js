@@ -17,11 +17,11 @@ if (environment.isProduction) {
 app.listen(environment.port, () => {
   /* eslint-disable-next-line no-console */
   console.log(
-    `[FRONTEND] Started: PORT: ${environment.port} | ENV: ${
+    `Started: PORT: ${environment.port} | ENV: ${
       environment.env
     } | DATE: ${new Date().toISOString()}`,
   );
-  if (environment.isDevelopment && config.useMocks) console.log("[FRONTEND] Using MOCKS");
+  if (environment.isDevelopment && config.useMocks) console.log("Using MOCKS");
   if (process.send) process.send("online");
 });
 
