@@ -62,7 +62,12 @@ module.exports = {
         test: /\.scss$/,
         use: [
           env.isDevelopment ? "vue-style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              esModule: false,
+            },
+          },
           "resolve-url-loader",
           {
             loader: "sass-loader",
