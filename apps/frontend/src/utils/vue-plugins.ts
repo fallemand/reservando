@@ -1,18 +1,13 @@
 import urls from "@Utils/urls";
 import sanitizeHTML from "@Utils/sanitize-html";
 import isMobile from "@Utils/is-mobile";
-import { VueConstructor } from "vue";
 import firebase from "firebase";
 
 export default {
-  async install(Vue: VueConstructor, user: firebase.User): Promise<void> {
-    /* eslint-disable no-param-reassign, @typescript-eslint/no-explicit-any */
-    Vue.prototype.$urls = urls;
-    Vue.prototype.$user = user;
-    Vue.prototype.$storeAction = function $storeAction(action: string) {
-      return (params: any): (() => void) => this.$store.dispatch(action, params);
-    };
-    Vue.prototype.$isMobile = isMobile;
-    Vue.prototype.$sanitizeHTML = (value: string): string => sanitizeHTML(value);
+  install: (app, user: firebase.User): void => {
+    app.config.globalProperties.$urls = urls;
+    app.config.globalProperties.$user = user;
+    app.config.globalProperties.$isMobile = isMobile;
+    app.config.globalProperties.$sanitizeHTML = sanitizeHTML;
   },
 };

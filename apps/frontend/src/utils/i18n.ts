@@ -1,10 +1,7 @@
-import Vue from "vue";
-import VueI18n from "vue-i18n";
+import { createI18n } from "vue-i18n";
 import gettexts from "../gettexts.json";
 
 const LOCALE_SPANISH = "es";
-
-Vue.use(VueI18n);
 
 // Custom Formatter implementation
 const formatter = {
@@ -12,10 +9,10 @@ const formatter = {
   interpolate: (message, values) => [message.replace(/%(\d+)/g, (_, m) => values[--m])],
 };
 
-const i18n = new VueI18n({
-  locale: LOCALE_SPANISH,
+const i18n = createI18n({
+  legacy: false,
   formatter,
-  silentTranslationWarn: true,
+  locale: LOCALE_SPANISH,
   messages: gettexts,
 });
 

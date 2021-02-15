@@ -50,8 +50,9 @@
     "ts-loader": "^8.0.17",
     "typescript": "^4.1.5",
     "url-loader": "^4.1.1",
+    "vue-i18n": "^9.0.0-rc.6",
     "vue-jest": "^3.0.7",
-    "vue-loader": "^15.9.6",
+    "vue-loader": "^16.1.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^5.21.2",
@@ -70,11 +71,9 @@
     "koa-helmet": "6.0.0",
     "koa-static": "5.0.0",
     "query-string": "^6.14.0",
-    "vue": "^2.6.12",
-    "vue-i18n": "8.22.4",
-    "vue-router": "^3.5.1",
-    "vuex": "^3.6.2",
-    "vuex-class": "^0.3.2"
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.0"
   },
   "nodemonConfig": {
     "delay": "2000",
