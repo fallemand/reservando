@@ -13,11 +13,11 @@ const initializePage = async (params: Params = {}): Promise<void> => {
   const user = await firebaseService.getUser();
   if (user && params.redirectIfLoggedIn) {
     window.location.assign(urls.home);
-    throw "Redirecting";
+    throw "Redirecting | logged user";
   }
   if (!user && params.requiredRole) {
     window.location.assign(urls.login);
-    throw "Redirecting";
+    throw "Redirecting | missing role";
   }
   Vue.use(Plugins, user);
 };

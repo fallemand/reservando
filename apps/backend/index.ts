@@ -30,6 +30,4 @@ app.listen(environment.port, () => {
 });
 
 // Create endpoints
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
+app.use(router.routes()).use(router.allowedMethods());

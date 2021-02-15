@@ -1,18 +1,14 @@
-import { Component, Vue } from "vue-property-decorator";
+import Vue from "vue";
 import * as firebaseui from "firebaseui";
 import firebase from "firebase/app";
 import Page from "@Components/Page/Page.vue";
-import FirebaseService from "@Services/firebase";
 
-@Component({
+const LoginPage = Vue.extend({
   components: {
     Page,
   },
-})
-export default class LoginPage extends Vue {
   async mounted(): Promise<void> {
-    const firebaseService = new FirebaseService();
-    const ui = new firebaseui.auth.AuthUI(firebaseService.instance.auth());
+    const ui = new firebaseui.auth.AuthUI(firebase.auth());
     const firebaseUiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: () => true,
@@ -26,5 +22,7 @@ export default class LoginPage extends Vue {
       privacyPolicyUrl: this.$urls.privacyPolicy,
     };
     ui.start("#firebaseui-auth-container", firebaseUiConfig);
-  }
-}
+  },
+});
+
+export default LoginPage;

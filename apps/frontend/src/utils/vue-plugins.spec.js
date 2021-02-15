@@ -1,6 +1,6 @@
 import plugins from "./vue-plugins";
 jest.mock("@Utils/sanitize-html", () => "__SANITIZE__");
-jest.mock("@Utils/urls", () => ({ urls: "__URLS__" }));
+jest.mock("@Utils/urls", () => "__URLS__");
 
 describe("Vue plugins", () => {
   it("should set up plugins", async () => {

@@ -1,20 +1,9 @@
 import Router from "@koa/router";
-import { sendJson, sendSuccess } from "./mock-utils";
-import Permissions from "./data/permissions.json";
-import AccountsGet from "./data/accounts-get.json";
+import { sendJson } from "./mock-utils";
+import Permissions from "./data/roles.json";
 
-// Frontend-api mocks
+// Mocks
 const router = new Router();
-
-/**
- * Frontend-api mocks
- */
-router.get("/api/roles/list", sendJson(Permissions));
-
-// Accounts
-router.get("/suppliers/*/accounts", sendJson(AccountsGet));
-router.post("/suppliers/*/accounts", sendSuccess());
-router.put("/accounts/*", sendSuccess());
-router.delete("accounts/*", sendSuccess());
+router.post("/roles", sendJson(Permissions));
 
 export default router;

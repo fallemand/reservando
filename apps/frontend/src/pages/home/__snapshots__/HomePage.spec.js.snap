@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage should render with modules 1`] = `
-"<page-stub title='' description='' id='home'>TEST</page-stub>
+"<page-stub title='' description='' id='home'>HOME</page-stub>
 "
 `;

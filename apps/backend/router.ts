@@ -1,7 +1,5 @@
 import { Context } from "koa";
 import Router from "@koa/router";
-import env from "./config/env";
-import mocks from "./mocks";
 import accounts from "./controllers/accounts/routes";
 
 const router = new Router();
@@ -14,12 +12,13 @@ router.use("/accounts", accounts.routes(), accounts.allowedMethods());
 //   router.use("/mocks", mocks.routes(), mocks.allowedMethods());
 // }
 
-// // 404 route - keep it at the end
-// router.all("*", (ctx: Context) => {
-//   ctx.body = "not found";
-//   ctx.status = 404;
-// });
+const baseRouter = new Router();
+baseRouter.use("/api", router.routes(), router.allowedMethods());
 
-// const baseRouter = new Router();
-// baseRouter.use("/api", router.routes(), router.allowedMethods());
-export default router;
+// 404 route - keep it at the end
+baseRouter.all("(.*)", (ctx: Context) => {
+  ctx.body = "not found";
+  ctx.status = 404;
+});
+
+export default baseRouter;

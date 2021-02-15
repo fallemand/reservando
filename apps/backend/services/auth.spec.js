@@ -4,18 +4,10 @@ const mockGetUser = jest.fn();
 import authenticate from "./auth";
 import FirebaseAdmin from "firebase-admin";
 
-jest.mock("../config/env", () => {
-  return {
-    firebaseConfig: {
-      projectId: "__PROJECT_ID__",
-      databaseURL: "__DATABASE_URL__",
-    },
-  };
-});
 jest.mock("firebase-admin", () => {
   return {
     credential: {
-      cert: jest.fn(),
+      cert: jest.fn(() => "credentials"),
     },
     auth: () => ({
       verifyIdToken: mockVerifyIdToken,
@@ -34,7 +26,7 @@ describe("Authentication Util", () => {
   beforeEach(() => {
     ctx = {
       state: {},
-      get: jest.fn(),
+      get: jest.fn(() => "Bearer 123321"),
       throw: jest.fn(),
       cookies: {
         get: jest.fn(),
@@ -64,18 +56,15 @@ describe("Authentication Util", () => {
   });
 
   it("Should initializes Firebase Admin SDK with credentials", async () => {
-    ctx.get.mockResolvedValue("Bearer 123321");
     const authenticateMiddleware = authenticate("permission");
     await authenticateMiddleware(ctx, next);
 
     expect(FirebaseAdmin.initializeApp).toHaveBeenCalledWith({
-      projectId: "__PROJECT_ID__",
-      databaseURL: "__DATABASE_URL__",
+      credential: "credentials",
     });
   });
 
   it("Should get the Authorization Token from Context", async () => {
-    ctx.get.mockResolvedValue("Bearer 123321");
     const authenticateMiddleware = authenticate("permission");
     await authenticateMiddleware(ctx, next);
 
@@ -83,8 +72,7 @@ describe("Authentication Util", () => {
   });
 
   it("Should Authenticate if Authorization token exists", async () => {
-    await ctx.get.mockResolvedValue("Bearer 123321");
-    await mockVerifyIdToken.mockResolvedValue({
+    mockVerifyIdToken.mockResolvedValue({
       uid: "__UID__",
     });
     const authenticateMiddleware = authenticate("permission");
@@ -94,7 +82,6 @@ describe("Authentication Util", () => {
   });
 
   it("Should get user data if Authorized", async () => {
-    await ctx.get.mockResolvedValue("Bearer 123321");
     await mockVerifyIdToken.mockResolvedValue({
       uid: "__UID__",
     });
@@ -110,20 +97,18 @@ describe("Authentication Util", () => {
   });
 
   it("Should call next middleware if user has correct permissions", async () => {
-    await ctx.get.mockResolvedValue("Bearer 123321");
     await mockVerifyIdToken.mockResolvedValue({
       uid: "__UID__",
     });
     await mockGetUser.mockResolvedValue({
       customClaims: {
-        supplier_permissions: ["financials_manage"],
-        supplier_login_id: 666,
+        roles: ["admin"],
       },
     });
-    const authenticateMiddleware = authenticate("financials_manage");
+    const authenticateMiddleware = authenticate("admin");
     await authenticateMiddleware(ctx, next);
 
-    expect(ctx.state.user).toEqual({ id: 666, type: "supplier" });
+    expect(ctx.state.user).toEqual({ roles: ["admin"] });
     expect(next).toHaveBeenCalled();
   });
 
@@ -136,7 +121,6 @@ describe("Authentication Util", () => {
   });
 
   it("Should send 401 as status if user has wrong permissions", async () => {
-    await ctx.get.mockResolvedValue("Bearer 123321");
     await mockVerifyIdToken.mockResolvedValue({
       permissions: ["financials_manage"],
     });
@@ -147,7 +131,6 @@ describe("Authentication Util", () => {
   });
 
   it("Should send 401 as status if any error occurs", async () => {
-    await ctx.get.mockResolvedValue("Bearer 123321");
     await mockVerifyIdToken.mockRejectedValue("Error!");
     const authenticateMiddleware = authenticate("not_financials_manage");
     await authenticateMiddleware(ctx, next);

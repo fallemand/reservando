@@ -8,7 +8,7 @@ describe("RequestLogger Middleware", () => {
     const next = jest.fn();
     await requestLogger(ctx, next);
     expect(global.console.info).toHaveBeenCalledWith(
-      "[BACKEND] url: test.com/path status: 200 timestamp: 2020-12-10 22:00",
+      "url: test.com/path status: 200 timestamp: 2020-12-10 22:00",
     );
   });
 });

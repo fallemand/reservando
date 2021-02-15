@@ -12,8 +12,8 @@ const getFirebaseUser = async (bearerToken: string): Promise<Auth.UserClaims> =>
     });
   }
 
-  const jwt = bearerToken.replace("Bearer ", "");
-  const decoded = await firebaseAdmin.auth().verifyIdToken(jwt);
+  const token = bearerToken.replace("Bearer ", "");
+  const decoded = await firebaseAdmin.auth().verifyIdToken(token);
   const { uid } = decoded;
   const userData = await firebaseAdmin.auth().getUser(uid);
   return userData.customClaims as Auth.UserClaims;
@@ -30,7 +30,7 @@ export default (role: Auth.Role) => async (ctx: Context, next: Next): Promise<vo
     const user = await getFirebaseUser(bearerToken);
 
     ctx.state.user = {
-      role: user.roles,
+      roles: user.roles,
     };
 
     if (!user.roles.length || !user.roles.includes(role)) {

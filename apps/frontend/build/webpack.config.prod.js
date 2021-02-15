@@ -9,21 +9,14 @@ const CompressionPlugin = require("compression-webpack-plugin");
 
 // Define list of dependencies to generate vendor.js
 const vendorList = [
-  "node_modules/core-js/stable",
   "node_modules/axios",
-  "node_modules/cuid",
-  "node_modules/dd-trace",
-  "node_modules/lodash",
   "node_modules/query-string",
   "node_modules/vue",
   "node_modules/vue-i18n",
   "node_modules/vue-router",
-  "node_modules/vuejs-datepicker",
-  "node_modules/vue-property-decorator",
   "node_modules/vue-line-clamp",
   "node_modules/vuex",
   "node_modules/vuex-class",
-  "node_modules/vue-class-component",
   "node_modules/camelcase-keys",
   "node_modules/core-js",
 ];

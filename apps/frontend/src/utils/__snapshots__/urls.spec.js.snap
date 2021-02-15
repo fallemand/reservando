@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`URL utility should have a list of urls 1`] = `
+Object {
+  "home": "/",
+  "login": "/login",
+  "loginRedirect": [Function],
+  "privacyPolicy": "/home",
+  "termsOfService": "/home",
+}
+`;

@@ -1,7 +1,9 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import config from "@Config/config";
 import FirebaseService from "@Services/firebase";
+import { GlobalType } from "@Types/globals";
 
+declare const GLOBAL: GlobalType;
 const firebaseService = new FirebaseService();
 
 interface Params {
@@ -12,7 +14,10 @@ interface Params {
 
 const RestClient = (params: Params = {}): AxiosInstance => {
   const mocksEnabled = config.useMocks;
-  const baseURL = mocksEnabled ? "/mocks" : params.baseURL || "http://localhost:3005/api/";
+  const baseURL =
+    mocksEnabled && GLOBAL.ENV.isDevelopment
+      ? "/mocks"
+      : params.baseURL || "http://localhost:3005/api/";
 
   const restClient = axios.create({
     ...params,
@@ -29,15 +34,6 @@ const RestClient = (params: Params = {}): AxiosInstance => {
       return request;
     },
     (error): Promise<AxiosError> => Promise.reject(error),
-  );
-
-  restClient.interceptors.response.use(
-    (response): AxiosResponse => response,
-    async (error): Promise<AxiosError> => {
-      const { status } = error.response;
-      console.log(`ERROR: ${status}`);
-      return Promise.reject(error);
-    },
   );
 
   return restClient;

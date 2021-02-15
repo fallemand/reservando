@@ -1,10 +1,8 @@
 /.idea
 /.secret
 /coverage
-/dist
 /monitoring
 /node_modules
 /secrets
 /spinnaker
-/backend/dist
-/frontend/dist
+dist

@@ -1,25 +1,15 @@
-import { Component, Vue } from "vue-property-decorator";
+import Vue from "vue";
 import Page from "@Components/Page/Page.vue";
-import HomeStore from "./store";
 import HomeService from "./service";
 
 const homeService = new HomeService();
 
-@Component({
-  components: {
-    Page,
-  },
-})
-export default class Home extends Vue {
-  $store: typeof HomeStore;
-  state = this.$store.state;
-  isBoxVisible: (page: string, boxId: string) => boolean = this.$store.getters[
-    "supplier/isBoxVisible"
-  ];
-
+const HomePage = Vue.extend({
+  components: { Page },
   async mounted(): Promise<void> {
     await this.$store.dispatch("loadDefaultState");
-    const response = await homeService.getModulesData();
-    console.log(response);
-  }
-}
+    await homeService.getModulesData();
+  },
+});
+
+export default HomePage;
