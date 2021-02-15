@@ -6,7 +6,7 @@ import LoginPage from "./LoginPage.vue";
 import plugins from "@Utils/vue-plugins";
 
 initializePage({
-  requiredRole: "user",
+  redirectIfLoggedIn: true,
 })
   .then((user): void => {
     createApp(LoginPage).use(i18n).use(plugins, user).mount("#app");

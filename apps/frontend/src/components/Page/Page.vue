@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import FirebaseService from "@Services/firebase";
 import logoImg from "@Assets/images/logo.png";
 
@@ -25,7 +25,7 @@ declare global {
   }
 }
 
-const Page = Vue.extend({
+const Page = defineComponent({
   props: {
     title: {
       type: String,
