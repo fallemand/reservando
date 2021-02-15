@@ -3,21 +3,11 @@ import urls from "@Utils/urls";
 import cleanSnapshot from "./clean-snapshot";
 
 const env = require("@Config/env");
-
 // Make $t available to all components
-config.mocks.$t = (key) => key;
-config.mocks.$urls = urls;
-// eslint-disable-next-line prettier/prettier
-config.mocks.$storeAction = jest.fn(() => () => '$storeAction');
-config.mocks.$logger = {
-  log: jest.fn(),
-};
-config.mocks.$sanitizeHTML = (value) => value;
-config.mocks.$isMobile = false;
-config.mocks.$browser = {
-  webp: true,
-  ie11: false,
-};
+config.global.mocks.$t = (key) => key;
+config.global.mocks.$urls = urls;
+config.global.mocks.$sanitizeHTML = (value) => value;
+config.global.mocks.$isMobile = false;
 
 // Remove unnecessary warnings from tests
 config.logModifiedComponents = false;
@@ -32,10 +22,6 @@ global.GLOBAL = {
     firebase: "{}",
   },
 };
-
-jest.mock("@Utils/i18n", () => ({
-  t: (key) => key,
-}));
 
 // Remove istanbul comments from snapshot
 global.cleanSnapshot = cleanSnapshot;

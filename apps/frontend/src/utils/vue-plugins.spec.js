@@ -4,13 +4,14 @@ jest.mock("@Utils/urls", () => "__URLS__");
 
 describe("Vue plugins", () => {
   it("should set up plugins", async () => {
-    const VueMock = {
-      prototype: {},
-      use: jest.fn(),
+    const appMock = {
+      config: {
+        globalProperties: {},
+      },
     };
 
-    await plugins.install(VueMock);
-    expect(VueMock.prototype.$sanitizeHTML).toEqual(expect.any(Function));
-    expect(VueMock.prototype.$urls).toEqual("__URLS__");
+    await plugins.install(appMock);
+    expect(appMock.config.globalProperties.$sanitizeHTML).toEqual("__SANITIZE__");
+    expect(appMock.config.globalProperties.$urls).toEqual("__URLS__");
   });
 });

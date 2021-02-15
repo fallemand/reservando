@@ -1,9 +1,9 @@
-import Vue from "vue";
+import { defineComponent } from "vue";
 import * as firebaseui from "firebaseui";
 import firebase from "firebase/app";
 import Page from "@Components/Page/Page.vue";
 
-const LoginPage = Vue.extend({
+const LoginPage = defineComponent({
   components: {
     Page,
   },

@@ -1,5 +1,3 @@
-import Vue from "vue";
-import Plugins from "./vue-plugins";
 import FirebaseService, { Role } from "@Services/firebase";
 import urls from "@Utils/urls";
 
@@ -19,7 +17,6 @@ const initializePage = async (params: Params = {}): Promise<void> => {
     window.location.assign(urls.login);
     throw "Redirecting | missing role";
   }
-  Vue.use(Plugins, user);
 };
 
 export default initializePage;
