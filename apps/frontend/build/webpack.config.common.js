@@ -105,7 +105,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        memoryLimit: 4092,
+      },
+    }),
     new CleanWebpackPlugin({
       dry: false,
       cleanOnceBeforeBuildPatterns: ["../dist/*", "!../dist/gettexts*"],

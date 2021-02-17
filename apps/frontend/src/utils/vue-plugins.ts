@@ -1,7 +1,7 @@
 import { App } from "vue";
-import urls from "@Utils/urls";
-import sanitizeHTML from "@Utils/sanitize-html";
-import isMobile from "@Utils/is-mobile";
+import urls from "@/utils/urls";
+import sanitizeHTML from "@/utils/sanitize-html";
+import isMobile from "@/utils/is-mobile";
 import firebase from "firebase";
 
 export default {

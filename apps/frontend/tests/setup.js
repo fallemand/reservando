@@ -1,8 +1,8 @@
 import { config } from "@vue/test-utils";
-import urls from "@Utils/urls";
+import urls from "@/utils/urls";
 import cleanSnapshot from "./clean-snapshot";
 
-const env = require("@Config/env");
+const env = require("@/config/env");
 // Make $t available to all components
 config.global.mocks.$t = (key) => key;
 config.global.mocks.$urls = urls;

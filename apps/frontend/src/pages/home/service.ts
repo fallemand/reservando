@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import RestClient from "@Utils/rest-client";
+import RestClient from "@/utils/rest-client";
 import camelcaseKeys from "camelcase-keys";
 
 export default class HomePageService {

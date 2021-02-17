@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import { firebaseClientConfig } from "@Config/config";
-import urls from "@Utils/urls";
+import { firebaseClientConfig } from "@/config/config";
+import urls from "@/utils/urls";
 
 export type Role = "admin" | "user" | "guest";
 

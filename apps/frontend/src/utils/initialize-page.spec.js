@@ -2,7 +2,7 @@ import initializePage from "./initialize-page";
 
 const mockGetUser = jest.fn();
 
-jest.mock("@Services/firebase", () =>
+jest.mock("@/services/firebase", () =>
   jest.fn(() => ({
     getUser: mockGetUser,
   })),

@@ -1,9 +1,9 @@
 import "core-js/stable";
 import { createApp } from "vue";
-import initializePage from "@Utils/initialize-page";
-import i18n from "@Utils/i18n";
+import initializePage from "@/utils/initialize-page";
+import i18n from "@/utils/i18n";
 import LoginPage from "./LoginPage.vue";
-import plugins from "@Utils/vue-plugins";
+import plugins from "@/utils/vue-plugins";
 
 initializePage({
   redirectIfLoggedIn: true,

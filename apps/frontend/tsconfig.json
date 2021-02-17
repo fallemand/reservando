@@ -12,16 +12,8 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@Pages/*": ["./src/pages/*"],
-      "@Assets/*": ["./src/assets/*"],
-      "@Types/*": ["./src/types/*"],
-      "@Utils/*": ["./src/utils/*"],
-      "@Components/*": ["./src/components/*"],
-      "@Services/*": ["./src/services/*"],
-      "@Modules/*": ["./src/modules/*"],
-      "@Toggles/*": ["./src/toggles/*"],
-      "@Config/*": ["./config/*"],
-      "@Server/*": ["./server/*"]
+      "@/config/*": ["./config/*"],
+      "@/*": ["./src/*"],
     }
   },
   "include": ["./src/**/*"]

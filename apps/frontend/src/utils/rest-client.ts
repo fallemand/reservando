@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
-import config from "@Config/config";
-import FirebaseService from "@Services/firebase";
-import { GlobalType } from "@Types/globals";
+import config from "@/config/config";
+import FirebaseService from "@/services/firebase";
+import { GlobalType } from "@/types/globals";
 
 declare const GLOBAL: GlobalType;
 const firebaseService = new FirebaseService();

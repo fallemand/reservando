@@ -1,5 +1,5 @@
-import FirebaseService, { Role } from "@Services/firebase";
-import urls from "@Utils/urls";
+import FirebaseService, { Role } from "@/services/firebase";
+import urls from "@/utils/urls";
 
 interface Params {
   requiredRole?: Role;

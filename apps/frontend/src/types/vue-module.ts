@@ -1,4 +1,4 @@
-import urls from "@Utils/urls";
+import urls from "@/utils/urls";
 import firebase from "firebase";
 
 declare module "@vue/runtime-core" {

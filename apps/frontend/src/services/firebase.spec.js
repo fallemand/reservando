@@ -1,4 +1,4 @@
-import Firebase from "@Services/firebase";
+import Firebase from "@/services/firebase";
 
 const assign = jest.fn();
 Object.defineProperty(window, "location", {

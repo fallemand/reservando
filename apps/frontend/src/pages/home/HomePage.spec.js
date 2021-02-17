@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import HomePage from "@Pages/home/HomePage.vue";
+import HomePage from "@/pages/home/HomePage.vue";
 jest.mock("./service");
 
 describe("HomePage", () => {

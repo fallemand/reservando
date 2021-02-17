@@ -1,4 +1,4 @@
-import { actions } from "@Pages/home/store";
+import { actions } from "./store";
 
 describe("HomePage state store", () => {
   it("has action loadDefaultState which should call the load the default state", async () => {

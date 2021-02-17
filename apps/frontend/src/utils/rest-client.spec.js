@@ -1,7 +1,7 @@
-import RestClient from "@Utils/rest-client";
+import RestClient from "@/utils/rest-client";
 import axios from "axios";
 
-jest.mock("@Services/firebase", () =>
+jest.mock("@/services/firebase", () =>
   jest.fn(() => ({
     getToken: () => 1234,
   })),
@@ -15,7 +15,7 @@ Object.defineProperty(window, "location", {
     assign,
   },
 });
-jest.mock("@Config/config", () => ({
+jest.mock("@/config/config", () => ({
   useMocks: true,
   urls: {},
 }));

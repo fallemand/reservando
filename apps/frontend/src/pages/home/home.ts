@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import Page from "@Components/Page/Page.vue";
+import Page from "@/components/Page/Page.vue";
 import HomeService from "./service";
 
 const homeService = new HomeService();

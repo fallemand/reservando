@@ -9,17 +9,11 @@ const config = {
   entries: {
     ".": "./src/pages/home/index.ts",
     login: "./src/pages/login/index.ts",
+    signup: "./src/pages/signup/index.ts",
   },
   paths: {
-    "@Pages": path.resolve(__dirname, "../src/pages"),
-    "@Services": path.resolve(__dirname, "../src/services"),
-    "@Components": path.resolve(__dirname, "../src/components"),
-    "@Assets": path.resolve(__dirname, "../src/assets"),
-    "@Modules": path.resolve(__dirname, "../src/modules"),
-    "@Utils": path.resolve(__dirname, "../src/utils"),
-    "@Types": path.resolve(__dirname, "../src/types"),
-    "@Config": path.resolve(__dirname, "../config"),
-    "@Server": path.resolve(__dirname, "../server"),
+    "@/config": path.resolve(__dirname, "../config"),
+    "@": path.resolve(__dirname, "../src"),
   },
   firebaseClientConfig: {
     apiKey: "AIzaSyBa6F9Xgl5tiSuCR75oR1-2lmsBSzbgjfk",

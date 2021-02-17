@@ -1,4 +1,4 @@
-import { RootState } from "@Types/globals";
+import { RootState } from "@/types/globals";
 
 export interface HomeState extends RootState {
   isLoading: boolean;

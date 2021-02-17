@@ -3,7 +3,7 @@ import HomePageService from "./service";
 const mockPost = jest.fn();
 const mockGet = jest.fn();
 
-jest.mock("@Utils/rest-client", () => () => ({
+jest.mock("@/utils/rest-client", () => () => ({
   post: mockPost,
   get: mockGet,
 }));

@@ -16,8 +16,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import FirebaseService from "@Services/firebase";
-import logoImg from "@Assets/images/logo.png";
+import FirebaseService from "@/services/firebase";
+import logoImg from "@/assets/images/logo.png";
 
 declare global {
   interface Window {
@@ -71,9 +71,9 @@ export default Page;
 </script>
 
 <style lang="scss">
-@import "~@Assets/styles/global";
-@import "~@Assets/styles/variables";
-@import "~@Assets/styles/mixins";
+@import "~@/assets/styles/global";
+@import "~@/assets/styles/variables";
+@import "~@/assets/styles/mixins";
 
 @import "./page__small";
 @media screen and (min-width: $screen-sm-max) {
