@@ -4,6 +4,7 @@ const helmet = require("koa-helmet");
 const environment = require("./config/env");
 const config = require("./config/config");
 const path = require("path");
+const Router = require("@koa/router");
 
 const app = new Koa();
 
@@ -26,4 +27,12 @@ app.listen(environment.port, () => {
 });
 
 // Serve pages
+const router = new Router();
+router.get("/signup/(.*)", async (ctx, next) => {
+  if (!ctx.request.url.includes(".")) {
+    ctx.request.url = "/signup";
+  }
+  await next();
+});
+app.use(router.routes()).use(router.allowedMethods());
 app.use(serve(path.resolve(__dirname, "./dist")));

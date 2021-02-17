@@ -33,6 +33,6 @@
     "koa-helmet": "6.0.0"
   },
   "nodemonConfig": {
-    "delay": "2000"
+    "delay": "1000"
   }
 }
