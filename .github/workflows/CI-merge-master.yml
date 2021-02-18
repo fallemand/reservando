@@ -1,5 +1,8 @@
-name: CI CD
-'on': pull_request
+name: Continuous Delivery
+'on':
+  push:
+    branches:
+      - master
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
