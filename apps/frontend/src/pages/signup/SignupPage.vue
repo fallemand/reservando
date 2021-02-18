@@ -1,6 +1,6 @@
 <template>
-  <Page id="signup">
-    <div class="signup__container">
+  <Page id="signup" :header="false" :footer="false">
+    <div class="signup">
       <router-view v-slot="{ Component }">
         <transition>
           <keep-alive>

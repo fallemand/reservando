@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
+import WelcomeStep from "./components/WelcomeStep.vue";
 
-const Home = { template: "<div>Home</div>" };
 const About = { template: "<div>About</div>" };
 
 const routes = [
-  { path: "/", component: Home },
+  { path: "/", component: WelcomeStep },
   { path: "/about", component: About },
 ];
 

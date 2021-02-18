@@ -79,28 +79,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|gif|png|jpg|webp|ico)(\?.*$|$)/,
+        test: /\.(woff|woff2|eot|ttf|gif|png|jpg|webp|ico|svg)(\?.*$|$)/,
         loader: `url-loader`,
         options: {
           limit: 100,
-          name: `${config.assets.folder}/images/[hash].[ext]`,
+          name: "[contenthash].[ext]",
+          outputPath: `${config.assets.folder}/images`,
           esModule: false,
         },
-      },
-      {
-        test: /\.svg$/,
-        oneOf: [
-          {
-            // SVGs that will be used as a component: They will be injected inline
-            include: path.resolve(__dirname, "../src/assets/images/icons/"),
-            use: "svg-inline-loader",
-          },
-          {
-            // Specific icons used as background-image: They will be saved as assets
-            exclude: path.resolve(__dirname, "../src/assets/images/icons/"),
-            use: "file-loader",
-          },
-        ],
       },
     ],
   },

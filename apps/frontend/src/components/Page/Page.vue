@@ -1,14 +1,14 @@
 <template>
   <div :class="`page ${id}`">
-    <header class="page__header header">
+    <header v-if="header" class="page__header header">
       <a class="header__logo-link" :href="$urls.home">
-        <img class="header__logo" :src="logoImg" />
+        <img class="header__logo" :src="logoSvg" />
       </a>
     </header>
     <main class="page__content">
       <slot />
     </main>
-    <footer v-if="$user">
+    <footer v-if="$user && footer">
       <button type="button" @click="logoutUser">Logout</button>
     </footer>
   </div>
@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import FirebaseService from "@/services/firebase";
-import logoImg from "@/assets/images/logo.png";
+import logoSvg from "@/assets/images/logo.svg";
 
 declare global {
   interface Window {
@@ -39,10 +39,18 @@ const Page = defineComponent({
       type: String,
       required: true,
     },
+    header: {
+      type: Boolean,
+      default: true,
+    },
+    footer: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
-    logoImg(): string {
-      return logoImg;
+    logoSvg(): string {
+      return logoSvg;
     },
   },
   methods: {

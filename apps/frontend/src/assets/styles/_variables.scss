@@ -1,5 +1,6 @@
 $base-design-unit: 8px;
 $bdu: $base-design-unit;
+
 $base-font-size: 16px;
 $border-radius: 4px;
 $border-color: #ccc;
@@ -21,3 +22,8 @@ $z-index-modal: 30; // Ex: Modal content
 $screen-md: 1024px !default;
 $screen-md-min: $screen-md !default;
 $screen-sm-max: ($screen-md-min - 1) !default;
+
+// Colors
+$grape: #624C67;
+$red-pastel: #EE7A6C;
+$background-color: #fffef8;
