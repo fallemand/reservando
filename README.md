@@ -1,6 +1,6 @@
 # Reservando Frontend
 
-> This repository contains the new supplier portal, which is the tool suppliers use to add, edit and manage their inventory as well as check their invoices and manage financial matters.
+> Monorepo with all the reservando modules, including the frontend and the api.
 
 ## Table of content
 
