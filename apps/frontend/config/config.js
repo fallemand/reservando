@@ -7,7 +7,7 @@ const config = {
     folder: "assets",
   },
   entries: {
-    ".": "./src/pages/home/index.ts",
+    home: "./src/pages/home/index.ts",
     login: "./src/pages/login/index.ts",
     signup: "./src/pages/signup/index.ts",
   },

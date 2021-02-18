@@ -10,6 +10,7 @@ envfile
 .credential-scan-merged.yml
 .DS_Store
 .npmrc
+.firebase
 # Unit tests reports
 coverage
 firebase-admin-credential.json
