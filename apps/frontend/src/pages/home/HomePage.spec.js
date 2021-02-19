@@ -13,6 +13,6 @@ describe("HomePage", () => {
         },
       },
     });
-    expect(cleanSnapshot(wrapper)).toMatchSnapshot();
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

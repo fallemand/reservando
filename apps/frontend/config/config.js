@@ -14,8 +14,6 @@ const config = {
   paths: {
     "@/config": path.resolve(__dirname, "../config"),
     "@": path.resolve(__dirname, "../src"),
-    vue: "vue/dist/vue.esm-bundler.js",
-    "vue-i18n": "vue-i18n/dist/vue-i18n.runtime.esm-bundler.js",
   },
   firebaseClientConfig: {
     apiKey: "AIzaSyBa6F9Xgl5tiSuCR75oR1-2lmsBSzbgjfk",

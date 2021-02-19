@@ -27,7 +27,6 @@ module.exports = {
   ],
   globals: {
     GLOBAL: true,
-    cleanSnapshot: true,
   },
   settings: {
     "import/resolver": {

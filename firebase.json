@@ -1,14 +1,10 @@
 {
   "hosting": {
     "public": "apps/frontend/dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "regex": "signup\/[^.]*$",
+        "regex": "signup/[^.]*$",
         "destination": "/signup"
       }
     ]

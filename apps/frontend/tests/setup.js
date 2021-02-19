@@ -1,6 +1,5 @@
 import { config } from "@vue/test-utils";
 import urls from "@/utils/urls";
-import cleanSnapshot from "./clean-snapshot";
 
 const env = require("@/config/env");
 // Make $t available to all components
@@ -22,9 +21,6 @@ global.GLOBAL = {
     firebase: "{}",
   },
 };
-
-// Remove istanbul comments from snapshot
-global.cleanSnapshot = cleanSnapshot;
 
 // Make tests fail if they throw warnings
 const error = console.error;
