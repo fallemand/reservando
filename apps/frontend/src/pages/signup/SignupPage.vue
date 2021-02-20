@@ -1,6 +1,7 @@
 <template>
   <Page id="signup" :header="false" :footer="false">
-    <div class="signup">
+    <SignupHeader />
+    <div class="signup__content">
       <router-view v-slot="{ Component }">
         <transition>
           <keep-alive>
@@ -17,8 +18,11 @@
 <style lang="scss">
 @import "~@/assets/styles/variables";
 
-@import "./signup__small";
-@media screen and (min-width: $screen-sm-max) {
-  @import "./signup__medium";
+.signup {
+  text-align: center;
+
+  &__content {
+    padding: 0 ($bdu * 4);
+  }
 }
 </style>

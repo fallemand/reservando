@@ -1,5 +1,11 @@
 {
   "es": {
-    "pHome Reserve": "Reservar"
+    "signup": {
+      "welcomeStep": {
+        "intro": "Bienvenido a",
+        "description": "Ahorramos tu tiempo de gestionar reservas, así podes enfocarte en lo importante.",
+        "cta": "Toca la pantalla para comenzar"
+      }
+    }
   }
 }

@@ -12,6 +12,7 @@ const formatter = {
 const i18n = createI18n({
   legacy: false,
   formatter,
+  globalInjection: true,
   locale: LOCALE_SPANISH,
   messages: gettexts,
 });

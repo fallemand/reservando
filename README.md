@@ -32,7 +32,6 @@ Browse
 #### Developing
 
 To compile the app while making changes, run the watcher.  
-If you have `npm` locally (faster):
 
 ```sh
 npm run watch
@@ -42,16 +41,12 @@ npm run watch
 
 ### Working with mocks
 
-> If you want to work without fishfarm you should enable the mocks:
-
 **Set `useMocks` to `true`:**
-Modify: `./config/config.js`:
+Modify: `apps/frontend/config/config.js`:
 
 ```sh
 useMocks: true,
 ```
-
-Compile the app using the commands above.
 
 ---
 
@@ -72,12 +67,6 @@ npm run test:unit:update
 ---
 
 ### Useful commands
-
-**Update translations:**
-
-```sh
-npm run build:i18n
-```
 
 **Fix code lints:**
 
