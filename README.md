@@ -55,13 +55,13 @@ useMocks: true,
 **Run unit tests:**
 
 ```sh
-npm run test:unit
+npm run test
 ```
 
 **Update test unit snapshots:**
 
 ```sh
-npm run test:unit:update
+npm run test:update
 ```
 
 ---

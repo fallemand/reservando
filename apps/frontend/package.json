@@ -82,8 +82,7 @@
   "nodemonConfig": {
     "delay": "1000",
     "events": {
-      "start": "kill-port 3000",
-      "restart": "kill-port 3000"
+      "start": "kill-port 3000"
     },
     "ignore": [
       "dist/*"

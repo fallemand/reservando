@@ -22,7 +22,7 @@ jobs:
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: |
-          npm run test:unit
+          npm run test
           npm run test:coverage
 
       - name: Build library

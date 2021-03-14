@@ -1,13 +1,15 @@
 <template>
   <Page id="signup" :header="false" :footer="false">
-    <SignupHeader class="signup__header" />
-    <div class="signup__content">
-      <router-view v-slot="{ Component, route }">
+    <router-view v-slot="{ Component, route }">
+      <transition name="fade">
+        <SignupHeader v-if="route.meta.header" class="signup__header" />
+      </transition>
+      <div class="signup__content">
         <transition :name="route.meta.transitionName">
           <component :is="Component" class="signup__pinned" />
         </transition>
-      </router-view>
-    </div>
+      </div>
+    </router-view>
   </Page>
 </template>
 
@@ -33,6 +35,7 @@ export default SignupPage;
 .signup {
   text-align: center;
   height: 100%;
+  position: relative;
 
   &__header {
     margin-bottom: $bdu * 4;
@@ -44,12 +47,11 @@ export default SignupPage;
     padding: 0 ($bdu * 4);
     height: 100%;
     width: 100%;
-    position: relative;
   }
 
   &__pinned {
     position: absolute;
-    top: 0;
+    top: $bdu * 12;
     bottom: 0;
     right: 0;
     left: 0;
@@ -81,5 +83,15 @@ export default SignupPage;
 }
 .slide-left-leave-to {
   transform: translate(100%, 0);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
