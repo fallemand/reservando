@@ -1,0 +1,24 @@
+{
+    "folders": [
+        {
+            "name": "✨ reservando",
+            "path": "."
+        },
+        {
+            "name": "🚀 @reservando/backend",
+            "path": "./apps/backend"
+        },
+        {
+            "name": "🚀 @reservando/frontend",
+            "path": "./apps/frontend"
+        },
+        {
+            "name": "📦 @reservando/commons",
+            "path": "./packages/commons"
+        },
+        {
+            "name": "📦 @reservando/eslint-config",
+            "path": "./packages/eslint-config"
+        }
+    ]
+}

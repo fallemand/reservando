@@ -4,7 +4,7 @@ import NameStep from "./components/NameStep.vue";
 
 const routes = [
   { path: "/", component: WelcomeStep, meta: { header: false } },
-  { path: "/name", component: NameStep, meta: { header: true }  },
+  { path: "/name", component: NameStep, meta: { header: true } },
 ];
 
 const router = createRouter({

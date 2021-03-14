@@ -1,6 +1,7 @@
 const config = require("./config/config");
 
 module.exports = {
+  extends: ["../../.eslint-config.js"],
   settings: {
     "import/resolver": {
       webpack: {

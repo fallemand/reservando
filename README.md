@@ -31,7 +31,7 @@ Browse
 
 #### Developing
 
-To compile the app while making changes, run the watcher.  
+To compile the app while making changes, run the watcher.
 
 ```sh
 npm run watch
