@@ -1,14 +1,6 @@
 <template>
-  <div class="welcome-step">
-    <p class="welcome-step__intro">{{ $t("signup.welcomeStep.intro") }}</p>
-    <img class="welcome-step__logo" :src="logoSvg" alt="Reservando" />
-    <p class="welcome-step__description">
-      {{ $t("signup.welcomeStep.description") }}
-    </p>
-    <router-link class="welcome-step__cta" to="/name">
-      {{ $t("signup.welcomeStep.cta") }}
-    </router-link>
-    <img class="welcome-step__image" :src="tableSvg" alt="Dinner table" />
+  <div class="name-step">
+    <p class="name-step__intro">{{ $t("signup.nameStep.question") }}</p>
   </div>
 </template>
 
@@ -17,7 +9,7 @@ import { defineComponent } from "vue";
 import tableSvg from "@/assets/images/table.svg";
 import logoSvg from "@/assets/images/logo.svg";
 
-const WelcomeHeader = defineComponent({
+const NameStep = defineComponent({
   props: {},
   computed: {
     tableSvg(): string {
@@ -31,16 +23,15 @@ const WelcomeHeader = defineComponent({
     setTitle(): void {},
   },
 });
-export default WelcomeHeader;
+export default NameStep;
 </script>
 
 <style lang="scss">
 @import "~@/assets/styles/variables";
 @import "~@/assets/styles/mixins";
 
-.welcome-step {
+.name-step {
   &__intro {
-    font-size: 14px;
     font-weight: 400;
     margin-bottom: $bdu * 2;
   }

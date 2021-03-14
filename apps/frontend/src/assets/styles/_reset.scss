@@ -1,3 +1,5 @@
+@import "variables";
+
 *,
 *::before,
 *::after {
@@ -13,7 +15,6 @@ body,
 p {
   padding: 0;
   margin: 0;
-  font-size: 16px;
 }
 
 ul,

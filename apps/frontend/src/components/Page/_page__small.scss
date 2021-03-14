@@ -1,7 +1,9 @@
 .page {
   overflow: hidden;
 
-  &__content {}
+  &__content {
+    height: 100%;
+  }
 }
 
 .header {
