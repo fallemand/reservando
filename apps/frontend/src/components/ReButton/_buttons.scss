@@ -1,0 +1,103 @@
+// -------------------------------------------------------------------------------
+//  Buttons
+//
+// 💁‍ use variables rather than hard-coded pixel/REM values
+// -------------------------------------------------------------------------------
+
+$btn-border-radius: 5rem;
+$btn-border-width: 2px;
+$btn-border-style: solid;
+
+/**
+* Cta styles
+*/
+@mixin cta-generator($color, $hover-color, $focus-color, $font-color: $white) {
+  color: $font-color;
+  background: $color;
+  border-color: $color;
+  border-style: $btn-border-style;
+  border-radius: $btn-border-radius;
+  border-width: $btn-border-width;
+  transition: background-color 0.2s ease-out;
+  outline: 0;
+
+  &:hover,
+  &:active {
+    color: $font-color;
+    background: $hover-color;
+    border-color: $hover-color;
+  }
+
+  &:disabled {
+    color: $white;
+    background: $border-color;
+    border-color: $border-color;
+    cursor: not-allowed;
+  }
+
+  &:focus:not(:hover) {
+    color: $font-color;
+    background: $color;
+    border-color: $focus-color;
+  }
+}
+
+/**
+* Outline styles
+*/
+@mixin outline-generator($color, $hover-color, $focus-color) {
+  color: $color;
+  background: transparent;
+  border-color: $color;
+  border-style: $btn-border-style;
+  border-radius: $btn-border-radius;
+  border-width: $btn-border-width;
+  transition: border-color 0.2s ease-out;
+  outline: 0;
+
+  &:hover,
+  &:active {
+    color: $hover-color;
+    background: transparent;
+    border-color: $hover-color;
+  }
+
+  &:disabled {
+    color: $border-color;
+    border-color: $border-color;
+    background: transparent;
+    cursor: not-allowed;
+  }
+
+  &:focus:not(:hover) {
+    border-color: $focus-color;
+  }
+}
+
+/**
+* Link styles
+*/
+@mixin link-generator($color, $hover-color, $focus-color) {
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  color: $color;
+  transition: color 0.2s ease-out;
+  padding: 0.25em 0.5em;
+  outline: 0;
+
+  &:hover,
+  &:active {
+    color: $hover-color;
+  }
+
+  &:disabled {
+    color: $border-color;
+    background: transparent;
+    cursor: not-allowed;
+  }
+
+  &:focus:not(:hover) {
+    color: $focus-color;
+  }
+}

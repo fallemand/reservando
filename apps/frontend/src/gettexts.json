@@ -1,13 +1,26 @@
 {
   "es": {
     "signup": {
+      "continue": "Continuar",
       "welcomeStep": {
         "intro": "Bienvenido a",
         "description": "Ahorramos tu tiempo de gestionar reservas, así podes enfocarte en lo importante.",
         "cta": "Toca la pantalla para comenzar"
       },
       "nameStep": {
-        "question": "¿Cuál es el nombre de tu bar o restaurante?"
+        "question": "¿Cuál es el nombre de tu bar o restaurante?",
+        "inputPlaceholder": "Deli Resto"
+      },
+      "calendarStep": {
+        "question": "Bienvenido Allemand Resto, crea tu primer calendario de reservas",
+        "inputPlaceholder": "Deli Resto",
+        "tips": {
+          "title": "PRO TIPS",
+          "description1": "Dale un nombre descriptivo a tu calendario",
+          "description2": "Agrupa los días que tienen los mismos horarios de reserva en un sólo calendario.",
+          "description3": "Puedes crear más de un calendario de ser necesario."
+        },
+        "cta": "Crear calendario"
       }
     }
   }

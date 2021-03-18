@@ -1,0 +1,55 @@
+@import "~@/assets/styles/variables";
+
+$padding-y: 0.5em;
+$padding-x: 0.75em;
+
+.re-input {
+  display: flex;
+  position: relative;
+  color: $grape;
+
+  &__field {
+    padding: $padding-y $padding-x;
+    width: 100%;
+    line-height: normal;
+    border: 0;
+    border-bottom: 2px solid $grape;
+    font-weight: 600;
+    text-align: center;
+    font-size: 2em;
+    font-family: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: 0;
+    letter-spacing: -1px;
+
+    &::placeholder {
+      color: $input-placeholder;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: inherit;
+    pointer-events: none;
+
+    &--preicon {
+      left: $padding-x;
+
+      & ~ .re-input__field {
+        padding-left: $padding-x * 3;
+      }
+    }
+
+    &--posticon {
+      right: $padding-x;
+
+      & ~ .re-input__field {
+        padding-right: $padding-x * 3;
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import WelcomeStep from "./components/WelcomeStep.vue";
 import NameStep from "./components/NameStep.vue";
+import CalendarStep from "./components/CalendarStep.vue";
 
 const routes = [
   { path: "/", component: WelcomeStep, meta: { header: false } },
   { path: "/name", component: NameStep, meta: { header: true } },
+  { path: "/calendar", component: CalendarStep, meta: { header: true } },
 ];
 
 const router = createRouter({

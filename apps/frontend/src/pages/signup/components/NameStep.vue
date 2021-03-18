@@ -1,26 +1,22 @@
 <template>
   <div class="name-step">
-    <p class="name-step__intro">{{ $t("signup.nameStep.question") }}</p>
+    <p class="name-step__intro signup__intro">{{ $t("signup.nameStep.question") }}</p>
+    <ReInput class="name-step__field" :placeholder="$t('signup.nameStep.inputPlaceholder')" />
+    <ReButton class="name-step__button" @click="$router.push('calendar')">
+      {{ $t("signup.continue") }}
+    </ReButton>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import tableSvg from "@/assets/images/table.svg";
-import logoSvg from "@/assets/images/logo.svg";
+import ReInput from "@/components/ReInput/ReInput.vue";
+import ReButton from "@/components/ReButton/ReButton.vue";
 
 const NameStep = defineComponent({
-  props: {},
-  computed: {
-    tableSvg(): string {
-      return tableSvg;
-    },
-    logoSvg(): string {
-      return logoSvg;
-    },
-  },
-  methods: {
-    setTitle(): void {},
+  components: {
+    ReInput,
+    ReButton,
   },
 });
 export default NameStep;
@@ -31,31 +27,8 @@ export default NameStep;
 @import "~@/assets/styles/mixins";
 
 .name-step {
-  &__intro {
-    font-weight: 400;
-    margin-bottom: $bdu * 2;
-  }
-
-  &__logo {
-    max-width: 300px;
-    margin-bottom: $bdu * 3;
-  }
-
-  &__description {
-    font-size: 18px;
-    margin-bottom: $bdu * 7;
-  }
-
-  &__cta {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: $bdu * 6;
-    color: $red-link;
-    display: block;
-  }
-
-  &__image {
-    max-width: 100%;
+  &__field {
+    margin-bottom: $bdu * 8;
   }
 }
 </style>

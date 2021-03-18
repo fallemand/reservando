@@ -37,6 +37,14 @@ export default SignupPage;
   height: 100%;
   position: relative;
 
+  &__intro {
+    font-weight: 400;
+    margin: 0 auto ($bdu * 6);
+    font-size: 18px;
+    max-width: 280px;
+    line-height: 1.8em;
+  }
+
   &__header {
     margin-bottom: $bdu * 4;
   }
@@ -44,7 +52,6 @@ export default SignupPage;
   &__content {
     display: flex;
     align-items: flex-end;
-    padding: 0 ($bdu * 4);
     height: 100%;
     width: 100%;
   }
@@ -52,6 +59,7 @@ export default SignupPage;
   &__pinned {
     position: absolute;
     top: $bdu * 12;
+    padding: 0 ($bdu * 4);
     bottom: 0;
     right: 0;
     left: 0;

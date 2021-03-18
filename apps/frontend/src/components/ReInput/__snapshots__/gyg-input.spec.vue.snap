@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReInput component should render with default props 1`] = `
+<div
+  class="re-input"
+>
+  <!---->
+
+  <!---->
+
+  <input
+    class="re-input-field"
+  />
+</div>
+`;
+
+exports[`ReInput component should render with posticon 1`] = `
+<div
+  class="re-input"
+>
+  <!---->
+
+  <span
+    class="re-input-icon re-input-icon-posticon"
+  >
+    __POSTICON__
+  </span>
+
+  <input
+    class="re-input-field"
+  />
+</div>
+`;
+
+exports[`ReInput component should render with preicon 1`] = `
+<div
+  class="re-input"
+>
+  <span
+    class="re-input-icon re-input-icon-preicon"
+  >
+    __PREICON__
+  </span>
+
+  <!---->
+
+  <input
+    class="re-input-field"
+  />
+</div>
+`;
