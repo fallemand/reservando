@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import Icon from "@/components/Icon/Icon.vue";
-import Vue, { defineComponent, nextTick } from "vue";
+import Vue, { defineComponent } from "vue";
 import ReDialog from "../ReDialog/ReDialog.vue";
 
 const ReBottomSheet = defineComponent({
@@ -82,7 +82,7 @@ const ReBottomSheet = defineComponent({
   },
   methods: {
     async checkScrollable(): Promise<void> {
-      await nextTick();
+      await this.$nextTick();
 
       const content = this.$refs.content as HTMLElement;
 

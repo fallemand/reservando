@@ -1,5 +1,5 @@
 <template>
-  <transition :appear="true" :name="`re-transition-${transition}`">
+  <transition :appear="true" :name="`re-transition-${transition}`" v-bind="$attrs">
     <slot />
   </transition>
 </template>

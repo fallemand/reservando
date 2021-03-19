@@ -1,5 +1,5 @@
 <template>
-  <ReTransition name="fade">
+  <ReTransition v-show="show" transition="fade">
     <div :class="['re-dialog', { 're-dialog--overlay': overlay }]" @click="handleOverlayClick">
       <ReTransition :transition="transition">
         <div
@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, nextTick } from "vue";
+import { defineComponent, PropType } from "vue";
 import ReTransition from "../ReTransition/ReTransition.vue";
 
 export const MODAL_OPEN = "re-dialog-open";
@@ -99,9 +99,11 @@ const ReDialog = defineComponent({
     },
     async close($evt?: Event): Promise<void> {
       this.show = false;
-      await nextTick();
+      await this.$nextTick();
       /** `($evt: Event)` */
-      this.$emit("close", $evt);
+      setTimeout(() => {
+        this.$emit("close", $evt);
+      }, 300);
     },
   },
 });

@@ -5,7 +5,7 @@
     overflow: hidden;
   }
 
-  &-enter,
+  &-enter-from,
   &-leave-to {
     height: 0;
   }
@@ -14,11 +14,11 @@
 .re-transition-fade {
   &-enter-active,
   &-leave-active {
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     opacity: 1;
   }
 
-  &-enter,
+  &-enter-from,
   &-leave-to {
     opacity: 0;
   }
@@ -32,7 +32,7 @@
     opacity: 1;
   }
 
-  &-enter,
+  &-enter-from,
   &-leave-to {
     opacity: 0;
     transform: scale(0.8);
@@ -46,7 +46,7 @@
     transform: translateY(0);
   }
 
-  &-enter,
+  &-enter-from,
   &-leave-to {
     transform: translateY(100%);
   }
@@ -59,7 +59,7 @@
     transform: translateX(0);
   }
 
-  &-enter,
+  &-enter-from,
   &-leave-to {
     transform: translateX(100%);
   }

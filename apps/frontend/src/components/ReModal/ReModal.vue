@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, nextTick } from "vue";
+import { defineComponent } from "vue";
 import ReDialog from "../re-dialog/ReDialog.vue";
 import IcClose from "../gyg-icon/components/ic-close.vue";
 
@@ -90,7 +90,7 @@ const ReModal = defineComponent({
   },
   methods: {
     async checkScrollable(): Promise<void> {
-      await nextTick();
+      await this.$nextTick();
 
       const content = this.$refs.content as HTMLElement;
 
