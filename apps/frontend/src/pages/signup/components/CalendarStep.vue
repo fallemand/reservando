@@ -15,19 +15,27 @@
         {{ $t("signup.calendarStep.tips.description3") }}
       </p>
     </div>
-    <ReButton class="calendar-step__button" modifier="cta-uva">
+    <ReButton class="calendar-step__button" modifier="cta-uva" @click="showModal = true">
       {{ $t("signup.calendarStep.cta") }}
     </ReButton>
+    <CalendarModal v-if="showModal" @close="showModal = false" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import ReButton from "@/components/ReButton/ReButton.vue";
+import CalendarModal from "./CalendarModal.vue";
 
 const CalendarStep = defineComponent({
   components: {
     ReButton,
+    CalendarModal,
+  },
+  data() {
+    return {
+      showModal: true,
+    };
   },
 });
 export default CalendarStep;

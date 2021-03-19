@@ -1,0 +1,55 @@
+@import "~@/assets/styles/variables";
+
+body.re-dialog-open {
+  overflow: hidden;
+}
+
+.re-dialog {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: $z-index-overlay;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &--overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    background: $white;
+    position: relative;
+    justify-self: flex-start;
+
+    &--top {
+      position: absolute;
+      top: 0;
+    }
+
+    &--bottom {
+      position: absolute;
+      bottom: 0;
+    }
+
+    &--middle {
+      margin: auto 0;
+    }
+
+    &--auto {
+      width: auto;
+    }
+
+    &--fullwidth {
+      width: 100%;
+    }
+
+    &--fullscreen {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
