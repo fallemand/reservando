@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReCheckboxGroup component should render with default props 1`] = `
+<div
+  class="re-checkbox-group re-checkbox-group--horizontal"
+  id="testName"
+/>
+`;

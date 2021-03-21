@@ -10,12 +10,12 @@ body {
 body {
   font-family: "Montserrat", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  color: $label-primary;
+  color: $text-primary;
   display: flex;
   font-size: $base-font-size;
   line-height: $base-line-height;
   font-weight: $base-font-weight;
   justify-content: center;
   align-items: center;
-  background-color: $background-color;
+  background-color: $background-primary;
 }

@@ -18,7 +18,7 @@
       <span class="re-bottom-sheet__close" tabindex="0" @click="close" @keydown.enter="close">
         <!-- @slot Change the default close icon -->
         <slot name="close">
-          <Icon :icon="$icons.close" class="re-bottom-sheet__close-icon" />
+          <Icon :icon="$icons.close" class="re-bottom-sheet__close-icon" size="40px" />
         </slot>
       </span>
 
@@ -36,8 +36,6 @@
         <slot name="action" />
       </span>
     </header>
-
-    <hr class="re-bottom-sheet__divider re-bottom-sheet__divider--header" />
 
     <main ref="content" class="re-bottom-sheet__content">
       <!-- @slot Sheet content -->

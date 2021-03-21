@@ -1,0 +1,155 @@
+@import "~@/assets/styles/variables";
+
+.re-checkbox {
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: flex-start;
+  color: $text-primary;
+
+  &--full {
+    flex-direction: row-reverse;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    border-radius: $bdu * 1.5;
+    color: $border-primary;
+
+    .re-checkbox-label {
+      padding: 0.75em 1em;
+      text-align: left;
+      flex-grow: 1;
+    }
+    .re-checkbox-input {
+      background-color: transparent;
+      border-color: $border-secondary;
+      border-radius: 50%;
+
+      &:checked {
+        & ~ .re-checkbox-label {
+          color: $white;
+          background-color: $border-primary;
+        }
+      }
+    }
+    .re-checkbox-check {
+      $width-full: 0.875em;
+      $height-full: 0.425em;
+      left: calc(50% - #{$width-full/2});
+      top: calc(50% - #{$height-full/2});
+      height: $height-full;
+      width: $width-full;
+    }
+    .re-checkbox-container {
+      margin-right: 1em;
+    }
+  }
+
+  &--checked {
+    &.re-checkbox--full {
+      background-color: $border-primary;
+      color: $white;
+    }
+  }
+
+  &-container {
+    position: relative;
+    display: flex;
+    margin-right: 0.5em;
+  }
+
+  &-input {
+    cursor: pointer;
+    background-color: $white;
+    height: 1em;
+    width: 1em;
+    font-size: 1em;
+    padding: 0;
+    // Add margin to the container, not here.
+    // It will cause a misalignment in the check.
+    margin: 0 !important;
+    border: $border-primary 1px solid;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+    border-radius: 2px;
+  }
+
+  &-label {
+    cursor: pointer;
+    align-self: stretch;
+    font-size: 1em;
+  }
+
+  &-check {
+    pointer-events: none;
+    $width: 0.625em;
+    $height: 0.25em;
+
+    display: block;
+    position: absolute;
+    left: calc(50% - #{$width/2});
+    top: calc(50% - #{$height/2});
+    height: $height;
+    width: $width;
+
+    &::before {
+      transition: border-color 0.3s ease;
+      border-color: $border-primary;
+      display: block;
+      content: "";
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &-input:focus {
+    outline: 0;
+    border-color: $border-primary;
+  }
+
+  &-input:checked {
+    background-color: $border-primary;
+    border-color: $border-primary;
+
+    & + .re-checkbox-check::before {
+      transform: rotate(-45deg);
+      border-left: 0.125em $white solid;
+      border-bottom: 0.125em $white solid;
+    }
+  }
+
+  &-input:indeterminate {
+    background-color: $background-primary;
+    border-color: $border-primary;
+
+    & + .re-checkbox-check {
+      $height: 0.125em;
+      $width: 0.5em;
+      left: calc(50% - #{$width/2});
+      top: calc(50% - #{$height/2});
+      height: $height;
+      width: $width;
+      border-bottom: $height $white solid;
+    }
+  }
+
+  &-input:disabled {
+    background: $surface-disabled;
+    border-color: $border-primary;
+    cursor: not-allowed;
+
+    &:checked {
+      background: $white;
+    }
+
+    & + .re-checkbox-check::before {
+      border-color: $border-primary;
+    }
+
+    & ~ .re-checkbox-label {
+      color: $text-secondary;
+      cursor: not-allowed;
+    }
+  }
+}

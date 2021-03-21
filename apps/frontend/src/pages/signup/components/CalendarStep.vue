@@ -48,7 +48,7 @@ export default CalendarStep;
 .calendar-step {
   &__tips {
     background-color: $white;
-    border: 1px solid $border-color;
+    border: 1px solid $border-secondary;
     border-radius: $border-radius;
     color: $grape;
     font-size: 14px;

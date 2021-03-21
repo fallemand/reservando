@@ -27,6 +27,7 @@ export const SIZES = ["xsmall", "small", "medium", "large"];
 export const MODIFIERS = [
   "cta-uva",
   "cta-red",
+  "outline-uva",
 ];
 
 const ReInput = defineComponent({

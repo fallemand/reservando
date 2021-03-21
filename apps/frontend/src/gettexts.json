@@ -20,8 +20,19 @@
           "description2": "Agrupa los días que tienen los mismos horarios de reserva en un sólo calendario.",
           "description3": "Puedes crear más de un calendario de ser necesario."
         },
-        "cta": "Crear calendario"
+        "cta": "Crear calendario",
+        "modal": {
+          "titlePlaceholder": "Agregar título",
+          "openHours": "¿En qué franja horaria se puede reservar?",
+          "addOpenHours": "Agregar otra franja horaria",
+          "repeat": "Repetir cada:"
+        }
       }
+    },
+    "controls": {
+      "save": "Guardar",
+      "from": "Desde",
+      "to": "Hasta"
     }
   }
 }

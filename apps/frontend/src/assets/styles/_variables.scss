@@ -1,7 +1,6 @@
 //Base
 $base-design-unit: 8px;
 $bdu: $base-design-unit;
-$border-color: #ccc;
 $border-radius: 4px;
 
 
@@ -33,10 +32,19 @@ $screen-sm-max: ($screen-md-min - 1) !default;
 
 // Colors
 $grape: #624c67;
+$black-purple: #320036;
 $red-pastel: #ee7a6c;
 $red-link: #d3424b;
 $white: #fff;
-$background-color: #fffef8;
+$background-primary: #fffef8;
 
-$label-primary: #2b2b2b;
-$input-placeholder: #c5c5c5;
+$border-primary: $grape;
+$border-secondary: #ccc;
+
+$text-primary: #2b2b2b;
+$text-secondary: #949494;
+$text-highlight: $black-purple;
+$btn-disabled: #EEEBEF;
+
+$surface-disabled: #ccc;
+

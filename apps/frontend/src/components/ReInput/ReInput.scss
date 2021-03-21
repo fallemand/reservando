@@ -7,24 +7,33 @@ $padding-x: 0.75em;
   display: flex;
   position: relative;
   color: $grape;
+  font-weight: 500;
 
   &__field {
     padding: $padding-y $padding-x;
     width: 100%;
     line-height: normal;
-    border: 0;
-    border-bottom: 2px solid $grape;
-    font-weight: 600;
-    text-align: center;
-    font-size: 2em;
+    font-size: 1em;
+    font-weight: inherit;
+    text-align: inherit;
     font-family: inherit;
     color: inherit;
-    background-color: transparent;
     outline: 0;
-    letter-spacing: -1px;
+
+    &--underline {
+      border: 0;
+      border-bottom: 2px solid $grape;
+      background-color: transparent;
+    }
+
+    &--outline {
+      border: 1px solid $border-primary;
+      border-radius: $bdu * 1.5;
+      background-color: $white;
+    }
 
     &::placeholder {
-      color: $input-placeholder;
+      color: $text-secondary;
     }
   }
 

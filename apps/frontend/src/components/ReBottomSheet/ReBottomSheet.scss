@@ -4,10 +4,11 @@
   max-height: 90%;
   display: flex;
   flex-direction: column;
-  padding: ($bdu * 3) 0;
+  padding: ($bdu * 1.5) ($bdu * 2.5) ($bdu * 3);
   border-top-left-radius: $bdu;
   border-top-right-radius: $bdu;
   box-shadow: 0 0 $bdu/2 rgba(0, 0, 0, 0.25);
+  background-color: $background-primary;
 
   &__title-container {
     padding: 0 ($bdu * 1.5);
@@ -35,8 +36,8 @@
 
   &__header {
     display: flex;
-    align-items: baseline;
-    padding: 0 ($bdu * 2);
+    align-items: center;
+    margin-bottom: $bdu * 3;
 
     &--with-actions {
       .re-bottom-sheet__title-container {
@@ -54,25 +55,11 @@
     display: flex;
     font-size: 14px;
     padding: $bdu;
-    margin: -$bdu;
-  }
-
-  &__divider {
-    margin: ($bdu * 3) (-$bdu * 2);
-    border-width: 1px 0 0 0;
-    border-color: $border-color;
-    border-style: solid;
-
-    &--header {
-      margin-left: 0;
-      margin-right: 0;
-    }
   }
 
   &__content {
     flex-grow: 1;
     overflow-y: auto;
-    padding: 0 ($bdu * 2);
   }
 
   &__footer {

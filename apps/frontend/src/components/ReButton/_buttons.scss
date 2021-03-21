@@ -4,8 +4,7 @@
 // 💁‍ use variables rather than hard-coded pixel/REM values
 // -------------------------------------------------------------------------------
 
-$btn-border-radius: 5rem;
-$btn-border-width: 2px;
+$btn-border-width: 1px;
 $btn-border-style: solid;
 
 /**
@@ -16,9 +15,9 @@ $btn-border-style: solid;
   background: $color;
   border-color: $color;
   border-style: $btn-border-style;
-  border-radius: $btn-border-radius;
+  border-radius: 5rem;
   border-width: $btn-border-width;
-  transition: background-color 0.2s ease-out;
+  transition: background-primary 0.2s ease-out;
   outline: 0;
 
   &:hover,
@@ -30,8 +29,8 @@ $btn-border-style: solid;
 
   &:disabled {
     color: $white;
-    background: $border-color;
-    border-color: $border-color;
+    background: $border-secondary;
+    border-color: $border-secondary;
     cursor: not-allowed;
   }
 
@@ -50,7 +49,7 @@ $btn-border-style: solid;
   background: transparent;
   border-color: $color;
   border-style: $btn-border-style;
-  border-radius: $btn-border-radius;
+  border-radius: $bdu * 1.5;
   border-width: $btn-border-width;
   transition: border-color 0.2s ease-out;
   outline: 0;
@@ -63,8 +62,8 @@ $btn-border-style: solid;
   }
 
   &:disabled {
-    color: $border-color;
-    border-color: $border-color;
+    color: $border-secondary;
+    border-color: $border-secondary;
     background: transparent;
     cursor: not-allowed;
   }
@@ -92,7 +91,7 @@ $btn-border-style: solid;
   }
 
   &:disabled {
-    color: $border-color;
+    color: $border-secondary;
     background: transparent;
     cursor: not-allowed;
   }

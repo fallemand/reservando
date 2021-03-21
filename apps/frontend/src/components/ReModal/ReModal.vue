@@ -61,7 +61,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ReDialog from "../re-dialog/ReDialog.vue";
-import IcClose from "../gyg-icon/components/ic-close.vue";
+import IcClose from "../re-icon/components/ic-close.vue";
 
 const ReModal = defineComponent({
   name: "ReModal",

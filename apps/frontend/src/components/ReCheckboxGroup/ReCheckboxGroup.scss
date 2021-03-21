@@ -1,0 +1,12 @@
+.re-checkbox-group {
+  display: flex;
+  flex-direction: row;
+
+  &--vertical {
+    flex-direction: column;
+
+    .re-checkbox:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+  }
+}

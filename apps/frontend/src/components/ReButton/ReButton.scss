@@ -13,7 +13,8 @@
   }
 
   &-small {
-    font-size: 0.75em;
+    font-size: 14px;
+    padding: $bdu;
   }
 
   &-medium {
@@ -58,10 +59,11 @@
   // }
 }
 
-// .re-button-outline {
-//   &-light {
-//     @include outline-generator($cta, $cta-active, $midnight-blue);
-//   }
+.re-button-outline {
+  &-uva {
+    @include outline-generator($grape, darken($grape, 10%), black);
+  }
+}
 //   &-dark {
 //     @include outline-generator($midnight-blue, darken($midnight-blue, 10%), $ui-blue);
 //   }
