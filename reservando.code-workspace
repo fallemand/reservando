@@ -3,6 +3,10 @@
         {
             "name": "🚀 @reservando/frontend",
             "path": "apps/frontend"
+        },
+        {
+            "name": "📦 @reservando/eslint-config",
+            "path": "packages/eslint-config"
         }
     ]
 }

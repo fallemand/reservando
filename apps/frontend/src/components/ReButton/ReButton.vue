@@ -24,11 +24,7 @@ import { defineComponent, PropType } from "vue";
 
 export const TYPES = ["button", "submit", "reset"];
 export const SIZES = ["xsmall", "small", "medium", "large"];
-export const MODIFIERS = [
-  "cta-uva",
-  "cta-red",
-  "outline-uva",
-];
+export const MODIFIERS = ["cta-uva", "cta-red", "outline-uva"];
 
 const ReInput = defineComponent({
   name: "ReButton",

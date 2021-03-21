@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Vue, { defineComponent } from "vue";
 import ReDialog from "../re-dialog/ReDialog.vue";
 import IcClose from "../re-icon/components/ic-close.vue";
 
@@ -99,7 +99,7 @@ const ReModal = defineComponent({
       }
     },
     close($evt?: Event): void {
-      const dialog = this.$refs.dialog as Vue & { close: ($evt?: Event) => void };
+      const dialog = this.$refs.dialog as typeof Vue & { close: ($evt?: Event) => void };
       dialog.close($evt);
     },
     emitClose($evt: Event): void {
