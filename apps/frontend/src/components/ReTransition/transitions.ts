@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign  */
 export const heightTransition = {
-  afterEnter(element: HTMLDivElement): void {
+  onAfterEnter(element: HTMLDivElement): void {
     element.style.height = "auto";
   },
-  enter(element: HTMLDivElement): void {
+  onEnter(element: HTMLDivElement): void {
     const { width } = getComputedStyle(element);
     element.style.width = width;
     element.style.position = "absolute";
@@ -18,7 +18,7 @@ export const heightTransition = {
       element.style.height = height;
     });
   },
-  leave(element: HTMLDivElement): void {
+  onLeave(element: HTMLDivElement): void {
     const { height } = getComputedStyle(element);
     element.style.height = height;
     requestAnimationFrame(() => {

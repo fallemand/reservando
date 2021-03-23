@@ -1,11 +1,19 @@
 <template>
-  <transition :appear="true" :name="`re-transition-${transition}`" v-bind="$attrs">
+  <transition
+    :appear="true"
+    :name="`re-transition-${transition}`"
+    v-bind="{
+      ...$attrs,
+      ...heightTransition,
+    }"
+  >
     <slot />
   </transition>
 </template>
 
 <script lang="ts">
 import { PropType, defineComponent } from "vue";
+import { heightTransition } from "./transitions";
 
 /**
  * This is a functional component that will animate the transitions of any content. <br />
@@ -18,6 +26,11 @@ const ReTransition = defineComponent({
     transition: {
       type: String as PropType<"fade" | "expand" | "height" | "slide-right" | "slide-bottom">,
       default: "fade",
+    },
+  },
+  computed: {
+    heightTransition() {
+      return this.transition === "height" ? heightTransition : {};
     },
   },
 });

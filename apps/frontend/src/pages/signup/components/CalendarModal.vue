@@ -10,14 +10,18 @@
       :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
     />
     <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>
-    <div class="time-selector calendar-modal__time-selector">
-      <label class="time-selector__label" for="from">{{ $t("controls.from") }}:</label>
-      <ReInput id="from" class="time-selector__input" modifier="outline" value="09:00 hs" />
-    </div>
-    <div class="time-selector calendar-modal__time-selector">
-      <label class="time-selector__label" for="from">{{ $t("controls.to") }}:</label>
-      <ReInput id="from" class="time-selector__input" modifier="outline" value="09:00 hs" />
-    </div>
+    <CalendarTimeSelector
+      id="from"
+      v-model="timeFrom"
+      class="calendar-modal__time-selector"
+      :label="`${$t('controls.from')}:`"
+    />
+    <CalendarTimeSelector
+      id="to"
+      v-model="timeTo"
+      class="calendar-modal__time-selector"
+      :label="`${$t('controls.to')}:`"
+    />
     <ReButton class="calendar-modal__add-times" modifier="outline-uva">
       {{ $t("signup.calendarStep.modal.addOpenHours") }}
     </ReButton>
@@ -39,6 +43,7 @@ import ReButton from "@/components/ReButton/ReButton.vue";
 import ReInput from "@/components/ReInput/ReInput.vue";
 import ReCheckbox from "@/components/ReCheckbox/ReCheckbox.vue";
 import ReCheckboxGroup from "@/components/ReCheckboxGroup/ReCheckboxGroup.vue";
+import CalendarTimeSelector from "./CalendarTimeSelector.vue";
 
 const CalendarStep = defineComponent({
   components: {
@@ -47,11 +52,14 @@ const CalendarStep = defineComponent({
     ReInput,
     ReCheckbox,
     ReCheckboxGroup,
+    CalendarTimeSelector,
   },
   data() {
     return {
       checkedDays: ["sunday"],
       wednesday: false,
+      timeFrom: "20:00",
+      timeTo: "00:00",
     };
   },
 });
@@ -82,21 +90,6 @@ export default CalendarStep;
   &__separator {
     color: $border-primary;
     margin: ($bdu * 4) 0;
-  }
-}
-
-.time-selector {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  &__label {
-    flex-grow: 1;
-    text-align: left;
-    color: $text-secondary;
-  }
-  &__input {
-    flex-shrink: 0;
-    flex-basis: 40%;
   }
 }
 </style>
