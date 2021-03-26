@@ -34,7 +34,7 @@ const CalendarStep = defineComponent({
   },
   data() {
     return {
-      showModal: true,
+      showModal: false,
     };
   },
 });
