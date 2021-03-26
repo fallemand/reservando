@@ -21,8 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReInput from "@/components/ReInput/ReInput.vue";
-import ReTransition from "@/components/ReTransition/ReTransition.vue";
+import { ReInput, ReTransition } from "@reservando/design-system";
 import TimeSelector from "@/components/TimeSelector/TimeSelector.vue";
 
 const CalendarStep = defineComponent({
@@ -46,8 +45,8 @@ export default CalendarStep;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
-@import "~@/assets/styles/mixins";
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/mixins";
 
 .calendar-time-selector {
   display: flex;

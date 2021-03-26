@@ -1,0 +1,97 @@
+@import "../../styles/variables";
+@import "./buttons";
+
+.re-button {
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 1em;
+  text-decoration: none;
+
+  &-xsmall {
+    font-size: 0.5em;
+  }
+
+  &-small {
+    font-size: 14px;
+    padding: $bdu;
+  }
+
+  &-medium {
+    font-size: 1em;
+  }
+
+  &-large {
+    font-size: 1.5em;
+  }
+
+  &-with-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-icon {
+    display: flex;
+    margin-right: 0.5em;
+
+    .svg-icon {
+      display: flex;
+    }
+  }
+}
+
+.re-button-cta {
+  &-red {
+    @include cta-generator($red-link, darken($red-link, 10%), black);
+  }
+  &-uva {
+    @include cta-generator($grape, darken($grape, 10%), black);
+  }
+  // &-success {
+  //   @include cta-generator($success, $success-active, $midnight-blue);
+  // }
+  // &-error {
+  //   @include cta-generator($danger, $danger-active, $midnight-blue);
+  // }
+  // &-white {
+  //   @include cta-generator($white, darken($white, 10%), $ui-blue, $ui-blue);
+  // }
+}
+
+.re-button-outline {
+  &-uva {
+    @include outline-generator($grape, darken($grape, 10%), black);
+  }
+}
+//   &-dark {
+//     @include outline-generator($midnight-blue, darken($midnight-blue, 10%), $ui-blue);
+//   }
+//   &-success {
+//     @include outline-generator($success, $success-active, $midnight-blue);
+//   }
+//   &-error {
+//     @include outline-generator($danger, $danger-active, $midnight-blue);
+//   }
+//   &-white {
+//     @include outline-generator($white, darken($white, 10%), $ui-blue);
+//   }
+// }
+
+// .re-button-link {
+//   &-light {
+//     @include link-generator($cta, $cta-active, $midnight-blue);
+//   }
+//   &-dark {
+//     @include link-generator($midnight-blue, darken($midnight-blue, 10%), $ui-blue);
+//   }
+//   &-success {
+//     @include link-generator($success, $success-active, $midnight-blue);
+//   }
+//   &-error {
+//     @include link-generator($danger, $danger-active, $midnight-blue);
+//   }
+//   &-white {
+//     @include link-generator($white, darken($white, 10%), $ui-blue);
+//   }
+// }

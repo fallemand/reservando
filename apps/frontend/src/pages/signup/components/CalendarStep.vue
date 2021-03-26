@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReButton from "@/components/ReButton/ReButton.vue";
+import { ReButton } from "@reservando/design-system";
 import CalendarModal from "./CalendarModal.vue";
 
 const CalendarStep = defineComponent({
@@ -42,8 +42,8 @@ export default CalendarStep;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
-@import "~@/assets/styles/mixins";
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/mixins";
 
 .calendar-step {
   &__tips {

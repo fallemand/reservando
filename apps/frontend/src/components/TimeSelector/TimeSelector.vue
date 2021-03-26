@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReScrollPicker from "@/components/ReScrollPicker/ReScrollPicker.vue";
+import { ReScrollPicker } from "@reservando/design-system";
 
 const CalendarStep = defineComponent({
   components: {

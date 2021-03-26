@@ -8,16 +8,7 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const env = require("../config/env");
 const config = require("../config/config");
 
-const modulesToTranspile = [
-  "camelcase-keys",
-  "map-obj",
-  "camelcase",
-  "quick-lru",
-  "strict-uri-encode",
-  "decode-uri-component",
-  "split-on-first",
-  "query-string",
-];
+const modulesToTranspile = ["@reservando/design-system"];
 
 module.exports = {
   optimization: {
@@ -36,7 +27,7 @@ module.exports = {
   resolve: {
     alias: {
       ...config.paths,
-      vue: "vue/dist/vue.esm-bundler.js",
+      vue: path.resolve("./node_modules/vue/dist/vue.esm-bundler.js"),
       "vue-i18n": "vue-i18n/dist/vue-i18n.esm-bundler.js",
     },
     extensions: config.extensions,

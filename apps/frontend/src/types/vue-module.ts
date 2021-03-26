@@ -1,6 +1,6 @@
 import urls from "@/utils/urls";
 import firebase from "firebase";
-import icons from "@/components/Icon/icons";
+import icons from "@reservando/design-system/components/Icon/icons";
 
 declare module "@vue/runtime-core" {
   //Bind to `this` keyword

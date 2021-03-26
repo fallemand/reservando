@@ -5,7 +5,7 @@
 <script lang="ts" src="./home.ts" />
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
+@import "~@reservando/design-system/styles/variables";
 
 @import "./home__small";
 @media screen and (min-width: $screen-sm-max) {

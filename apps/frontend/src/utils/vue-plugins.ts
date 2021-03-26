@@ -2,8 +2,8 @@ import { App } from "vue";
 import urls from "@/utils/urls";
 import sanitizeHTML from "@/utils/sanitize-html";
 import isMobile from "@/utils/is-mobile";
-import icons from "@/components/Icon/icons";
-import Icon from "@/components/Icon/Icon.vue";
+import icons from "@reservando/design-system/components/Icon/icons";
+import { Icon } from "@reservando/design-system";
 import firebase from "firebase";
 
 export default {

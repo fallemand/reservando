@@ -10,8 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReInput from "@/components/ReInput/ReInput.vue";
-import ReButton from "@/components/ReButton/ReButton.vue";
+import { ReInput, ReButton } from "@reservando/design-system";
 
 const NameStep = defineComponent({
   components: {
@@ -23,8 +22,8 @@ export default NameStep;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
-@import "~@/assets/styles/mixins";
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/mixins";
 
 .name-step {
   &__field {

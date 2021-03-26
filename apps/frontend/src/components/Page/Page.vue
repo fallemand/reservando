@@ -79,9 +79,9 @@ export default Page;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/global";
-@import "~@/assets/styles/variables";
-@import "~@/assets/styles/mixins";
+@import "~@reservando/design-system/styles/global";
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/mixins";
 
 @import "./page__small";
 @media screen and (min-width: $screen-sm-max) {

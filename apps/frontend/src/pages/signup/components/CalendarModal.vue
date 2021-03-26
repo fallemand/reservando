@@ -38,11 +38,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReBottomSheet from "@/components/ReBottomSheet/ReBottomSheet.vue";
-import ReButton from "@/components/ReButton/ReButton.vue";
-import ReInput from "@/components/ReInput/ReInput.vue";
-import ReCheckbox from "@/components/ReCheckbox/ReCheckbox.vue";
-import ReCheckboxGroup from "@/components/ReCheckboxGroup/ReCheckboxGroup.vue";
+import {
+  ReBottomSheet,
+  ReButton,
+  ReInput,
+  ReCheckbox,
+  ReCheckboxGroup,
+} from "@reservando/design-system";
 import CalendarTimeSelector from "./CalendarTimeSelector.vue";
 
 const CalendarStep = defineComponent({
@@ -67,8 +69,8 @@ export default CalendarStep;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
-@import "~@/assets/styles/mixins";
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/mixins";
 
 .calendar-modal {
   &__label {

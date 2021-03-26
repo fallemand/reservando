@@ -30,8 +30,8 @@ export default Page;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
-@import "~@/assets/styles/mixins";
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/mixins";
 
 .signup-header {
   display: flex;

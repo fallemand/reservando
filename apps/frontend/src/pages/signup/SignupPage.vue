@@ -30,7 +30,7 @@ export default SignupPage;
 </script>
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
+@import "~@reservando/design-system/styles/variables";
 
 .signup {
   text-align: center;

@@ -1,0 +1,26 @@
+{
+  "name": "@reservando/storybook",
+  "version": "1.0.0",
+  "description": "Reservando design system",
+  "private": true,
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@reservando/design-system": "^1.0.0",
+    "vue": "^3.0.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.13",
+    "@storybook/addon-actions": "^6.2.0-rc.10",
+    "@storybook/addon-essentials": "^6.2.0-rc.10",
+    "@storybook/addon-links": "^6.2.0-rc.10",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/vue3": "^6.2.0-rc.10",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-loader": "^8.2.2",
+    "vue-loader": "^16.2.0"
+  }
+}

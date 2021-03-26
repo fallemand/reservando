@@ -7,7 +7,7 @@
 <script lang="ts" src="./login.ts" />
 
 <style lang="scss">
-@import "~@/assets/styles/variables";
+@import "~@reservando/design-system/styles/variables";
 
 @import "./login__small";
 @media screen and (min-width: $screen-sm-max) {
