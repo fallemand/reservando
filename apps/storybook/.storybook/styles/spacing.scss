@@ -1,0 +1,55 @@
+$spacingsizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 2,
+  5: 4,
+  6: 8,
+) !default;
+
+$sides: (
+  "": "all",
+  "t": "top",
+  "b": "bottom",
+  "l": "left",
+  "r": "right",
+  "x": (
+    "left",
+    "right",
+  ),
+  "y": (
+    "top",
+    "bottom",
+  ),
+);
+
+/*
+* Generate Spacing
+* @usage (.mb-1, .mx-6, .py-2, .p-4)
+*/
+@each $size, $space in $spacingsizes {
+  @each $prefix, $value in $sides {
+    $property: if($prefix == "", "", -#{$value});
+
+    .m#{$prefix}-#{$size} {
+      @if $prefix == "x" or $prefix == "y" {
+        @each $v in $value {
+          margin-#{$v}: #{$space * $bdu * 2} !important;
+        }
+      } @else {
+        margin#{$property}: #{$space * $bdu * 2} !important;
+      }
+    }
+
+    .p#{$prefix}-#{$size} {
+      @if $prefix == "x" or $prefix == "y" {
+        @each $v in $value {
+          padding-#{$v}: #{$space * $bdu * 2} !important;
+        }
+      } @else {
+        padding#{$property}: #{$space * $bdu * 2} !important;
+      }
+    }
+  }
+}

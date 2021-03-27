@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Code from './assets/code-brackets.svg';
 import Colors from './assets/colors.svg';
 import Comments from './assets/comments.svg';
@@ -8,7 +8,7 @@ import Plugin from './assets/plugin.svg';
 import Repo from './assets/repo.svg';
 import StackAlt from './assets/stackalt.svg';
 
-<Meta title="Example/Introduction" />
+<Meta title="Introduction/Getting started" />
 
 <style>{`
   .subheading {
@@ -73,7 +73,7 @@ import StackAlt from './assets/stackalt.svg';
     display: block;
     margin-bottom: 2px;
   }
-  
+
   .link-item img {
     height: 40px;
     width: 40px;
@@ -111,19 +111,14 @@ import StackAlt from './assets/stackalt.svg';
     display: inline-block;
   }
 
-  
+
 `}</style>
 
-# Welcome to Storybook
+# Reservando Design System
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
+The simple, intuitive and powerful ui library to develop faster great frontends at **[Reservando.club](https://reservando.club)**
 
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-<div className="subheading">Configure</div>
+<div className="subheading">Introduction</div>
 
 <div className="link-list">
   <a
@@ -172,23 +167,33 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
   </a>
 </div>
 
-<div className="subheading">Learn</div>
+<div className="subheading">Installation</div>
+
+```sh
+npm i @reservando/design-system --save
+```
+
+<span className="tip">Tip</span> Set up font and global styles
+
+```css
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/typography";
+
+.body {
+  color: $text;
+  font-family: $font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+}
+```
+
+Start using components! 😃
+
+<Story id="components-button--basic" />
+
+<div className="subheading">Get in touch</div>
 
 <div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
-    <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
-    </span>
-  </a>
-  <a className="link-item" href="https://storybook.js.org/tutorials/" target="_blank">
-    <img src={Direction} alt="direction" />
-    <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
-    </span>
-  </a>
   <a className="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
     <img src={Code} alt="code" />
     <span>
@@ -203,9 +208,4 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
       Chat with maintainers and the community
     </span>
   </a>
-</div>
-
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{' '}
-  <code>src/stories/Introduction.stories.mdx</code>
 </div>

@@ -1,4 +1,7 @@
 
+import theme from "./styles/theme";
+import "./styles/storybook.scss";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,5 +9,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  docs: {
+    theme,
   },
 }

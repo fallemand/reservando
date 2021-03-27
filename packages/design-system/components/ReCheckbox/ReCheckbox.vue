@@ -21,7 +21,7 @@
 
     <label v-if="label || $slots.label" class="re-checkbox-label" :for="id">
       <!-- @slot Useful to pass HTML or something custom -->
-      <slot name="label">
+      <slot name="label-slot">
         {{ label }}
       </slot>
     </label>
@@ -59,7 +59,7 @@ const ReCheckbox = defineComponent({
         const checkboxGroup = this.$parent;
         checkboxGroup.handleItemChange(checked, this.id);
       } else {
-        /** `(value: string, $evt: Event)` fired when changed */
+        /** `(value: string, $evt: Event)`<br /> fired when changed */
         this.$emit("update:checked", checked, $evt);
       }
     },

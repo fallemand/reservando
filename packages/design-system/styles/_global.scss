@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   color: $text-primary;
   display: flex;

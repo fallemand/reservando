@@ -1,0 +1,42 @@
+@import "@reservando/design-system/styles/typography";
+@import "@reservando/design-system/styles/variables";
+@import "./spacing";
+
+.sb-show-main {
+  color: $text-primary;
+  font-family: $font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.sbdocs {
+  .sbdocs-h1 {
+    color: $black-purple;
+    letter-spacing: -1px;
+    //@include font-style("title-1");
+  }
+
+  .sbdocs-h2 {
+    //@include font-style("title-2");
+  }
+
+  .sbdocs-h3 {
+    //@include font-style("title-3");
+  }
+
+  .sbdocs-h4 {
+    font-weight: $font-weight-medium;
+
+    //@include font-style("body");
+  }
+
+  .sbdocs-a {
+    font-weight: $font-weight-regular;
+  }
+}

@@ -1,0 +1,33 @@
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs/blocks";
+import { ReCheckbox } from "@reservando/design-system";
+
+<Meta
+  title="Components/Checkbox"
+  component={ReCheckbox}
+  argTypes={{
+    modifier: { control: { type: 'select', options: ['default', 'full'] } },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ReCheckbox },
+  template: '<ReCheckbox v-model:checked="checked" :id="id" :modifier="modifier" :label="label" />',
+});
+
+# ReCheckbox
+
+<Canvas>
+  <Story
+    name="basic"
+    args={{
+      id: 'checkbox-id',
+      label: 'Checkbox label',
+      checked: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="basic" />

@@ -1,0 +1,33 @@
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs/blocks";
+import { ReButton } from "@reservando/design-system";
+
+<Meta
+  title="Components/Button"
+  component={ReButton}
+  argTypes={{
+    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+    modifier: { control: { type: 'select', options: ['cta-red', 'cta-uva', 'outline-uva'] } },
+    type: { type: 'select', options: ['button', 'submit'] },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ReButton },
+  template: '<ReButton :size="size" :modifier="modifier">{{label}}</ReButton>',
+});
+
+# ReButton
+
+<Canvas>
+  <Story
+    name="basic"
+    args={{
+      label: 'My Button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="basic" />
