@@ -1,84 +1,18 @@
-# Reservando Frontend
+<img src="https://reservando.club/assets/images/6fa0435b311dd9235a7b7bfa0f461869.svg" width="400" />
 
 > Monorepo with all the reservando modules, including the frontend and the api.
 
-## Table of content
-
-- [Getting Started](#getting-started)
-  - [Install](#install)
-  - [Developing](#developing)
-  - [Working with mocks](#working-with-mocks)
-  - [Testing](#testing)
-  - [Useful Commands](#useful-commands)
-- [Deployment](#deployment)
-- [Contact](#contact)
-
-## Getting Started
-
-#### Install
-
 ```sh
-npm install
-npm build
-npm start
+supplier-portal
+├── apps
+│   ├── frontend   # Frontend App
+│   └── backend    # Node API
+│   └── storybook  # Docs website for the design system
+└── packages
+    └── commons         # Shared package
+    └── design-system   # Vue UI library
+    └── eslint-config   # Prettier & eslint-config
 ```
-
-Browse
-
-```
-  https://localhost:3000
-```
-
-#### Developing
-
-To compile the app while making changes, run the watcher.
-
-```sh
-npm run watch
-```
-
----
-
-### Working with mocks
-
-**Set `useMocks` to `true`:**
-Modify: `apps/frontend/config/config.js`:
-
-```sh
-useMocks: true,
-```
-
----
-
-### Testing
-
-**Run unit tests:**
-
-```sh
-npm run test
-```
-
-**Update test unit snapshots:**
-
-```sh
-npm run test:update
-```
-
----
-
-### Useful commands
-
-**Fix code lints:**
-
-```sh
-npm run lint:fix
-```
-
----
-
-## Deployment
-
-TODO
 
 ## Contact
 
