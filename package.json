@@ -14,7 +14,7 @@
     "lint": "npm run lint:prettier && npm run lint:eslint",
     "lint:fix": "npm run lint:prettier -- --write && npm run lint:eslint -- --fix",
     "lint:eslint": "eslint '**/*.{js,ts,vue}'",
-    "lint:prettier": "prettier --check '**/*.{md,scss,json}'",
+    "lint:prettier": "prettier --check '**/*.{md,mdx,scss,json}'",
     "create:page": "hygen page new",
     "prune:all": "npm prune --production && (cd ./frontend && npm prune --production) && (cd ./backend && npm prune --production)",
     "postinstall": "lerna bootstrap"

@@ -1,4 +1,3 @@
-
 import theme from "./styles/theme";
 import "./styles/storybook.scss";
 
@@ -13,4 +12,4 @@ export const parameters = {
   docs: {
     theme,
   },
-}
+};

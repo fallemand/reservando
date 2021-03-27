@@ -12,6 +12,7 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/ban-ts-comment": "off",
+    "vue/no-v-model-argument": "off",
     "jest/no-try-expect": "off",
     "jest/no-conditional-expect": "off",
   },

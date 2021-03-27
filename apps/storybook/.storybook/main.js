@@ -1,12 +1,12 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-  stories: ['../stories/**/*.story.mdx'],
+  stories: ["../stories/**/*.story.mdx"],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-postcss',
+    "@storybook/addon-links",
+    "@storybook/addon-postcss",
     {
-      name: '@storybook/addon-essentials',
+      name: "@storybook/addon-essentials",
       options: {
         backgrounds: false,
         actions: false,
@@ -16,8 +16,8 @@ module.exports = {
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
       test: /\.scss$/,
-      use: ['vue-style-loader', 'css-loader', 'sass-loader'],
-    })
-    return config
+      use: ["vue-style-loader", "css-loader", "sass-loader"],
+    });
+    return config;
   },
-}
+};

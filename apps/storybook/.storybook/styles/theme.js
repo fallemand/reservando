@@ -32,6 +32,5 @@ export default create({
 
   brandTitle: "Design System",
   brandUrl: "/",
-  brandImage:
-    "https://reservando.club/assets/images/6fa0435b311dd9235a7b7bfa0f461869.svg",
+  brandImage: "https://reservando.club/assets/images/6fa0435b311dd9235a7b7bfa0f461869.svg",
 });

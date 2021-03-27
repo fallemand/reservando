@@ -5,9 +5,9 @@ import { ReButton } from "@reservando/design-system";
   title="Components/Button"
   component={ReButton}
   argTypes={{
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-    modifier: { control: { type: 'select', options: ['cta-red', 'cta-uva', 'outline-uva'] } },
-    type: { type: 'select', options: ['button', 'submit'] },
+    size: { control: { type: "select", options: ["small", "medium", "large"] } },
+    modifier: { control: { type: "select", options: ["cta-red", "cta-uva", "outline-uva"] } },
+    type: { type: "select", options: ["button", "submit"] },
   }}
 />
 
@@ -23,7 +23,7 @@ export const Template = (args, { argTypes }) => ({
   <Story
     name="basic"
     args={{
-      label: 'My Button',
+      label: "My Button",
     }}
   >
     {Template.bind({})}
