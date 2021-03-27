@@ -16,10 +16,7 @@
       ]"
     >
       <span class="re-bottom-sheet__close" tabindex="0" @click="close" @keydown.enter="close">
-        <!-- @slot Change the default close icon -->
-        <slot name="close">
-          <Icon :icon="closeIcon" class="re-bottom-sheet__close-icon" size="40px" />
-        </slot>
+        <Icon :icon="closeIcon" class="re-bottom-sheet__close-icon" size="40px" />
       </span>
 
       <div v-if="title || $slots.title" class="re-bottom-sheet__title-container">

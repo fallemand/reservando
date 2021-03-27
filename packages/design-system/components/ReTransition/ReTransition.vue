@@ -22,6 +22,7 @@ import { heightTransition } from "./transitions";
  */
 const ReTransition = defineComponent({
   name: "ReTransition",
+  inheritAttrs: false,
   props: {
     transition: {
       type: String as PropType<"fade" | "expand" | "height" | "slide-right" | "slide-bottom">,

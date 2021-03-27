@@ -32,6 +32,11 @@
 import { defineComponent, PropType } from "vue";
 export const MODIFIERS = ["default", "full"];
 
+export enum CheckboxModifier {
+  full = "full",
+  default = "default",
+}
+
 const ReCheckbox = defineComponent({
   name: "ReCheckbox",
   inject: ["checkedItems"],
@@ -39,12 +44,14 @@ const ReCheckbox = defineComponent({
     /** Needed for the attribute `for`. Should be unique on the html doc level */
     id: { type: String, required: true },
     label: { type: String, default: null },
-    /** Sets `indeterminate` value, which puts checkbox in "maybe" state */
+    /** Put checkbox in "maybe" state */
     indeterminate: { type: Boolean, default: false },
+    /** One of: `default` `full` */
     modifier: {
       default: "default",
-      type: String as PropType<typeof MODIFIERS[number]>,
-      validator: (value: string): boolean => MODIFIERS.includes(value),
+      type: String as PropType<CheckboxModifier>,
+      validator: (value: string): boolean =>
+        Object.values(CheckboxModifier).includes(value as CheckboxModifier),
     },
   },
   computed: {

@@ -1,0 +1,168 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from "@storybook/addon-docs/blocks";
+import { ReBottomSheet, ReButton } from "@reservando/design-system";
+
+<Meta
+  title="Components/BottomSheet"
+  component={ReBottomSheet}
+  parameters={{
+    docs: {
+      inlineStories: false,
+    },
+    viewport: {
+      defaultViewport: "mobile1",
+    },
+  }}
+/>
+
+# ReBottomSheet
+
+<Description of={ReBottomSheet} />
+
+<Canvas>
+  <Story name="basic" height="300px">
+    {{
+      components: { ReBottomSheet, ReButton },
+      data() {
+        return {
+          show: true,
+        };
+      },
+      template: `
+      <div>
+        <ReButton @click="show = true">Open sheet</ReButton>
+        <ReBottomSheet v-if="show" title="Title" @close="show = false">
+          <div class="example-block">
+            Example content
+          </div>
+        </ReBottomSheet>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## How to use
+
+```html
+<template>
+  <ReBottomSheet v-if="show" @close="show = false">Content</ReBottomSheet>
+</template>
+
+<script lang="ts">
+  import { ReBottomSheet } from "@reservando/design-system";
+</script>
+```
+
+<ArgsTable of={ReBottomSheet} />
+
+It also supports all `GygDialog` props.
+
+## Examples
+
+#### Using the slots
+
+<Canvas>
+  <Story name="using slots" height="300px">
+    {{
+      components: { ReBottomSheet, ReButton },
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        alertAction() {
+          alert("action");
+        },
+      },
+      template: `
+      <div>
+        <ReButton @click="show = true">Open sheet</ReButton>
+        <ReBottomSheet v-if="show" @close="show = false">
+          <template #title>
+            <span>Title with <b>HTML</b></span>
+          </template>
+          <template #action>
+            <ReButton size="small" @keydown.enter="alertAction" @click="alertAction">Action</ReButton>
+          </template>
+          <div class="example-block">
+            Example content
+          </div>
+        </ReBottomSheet>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Using the footer slot
+
+The footer slot allows passing content that will be fixed to the bottom when the main content is too long. For example call to actions.
+Only the main content will be scrollable.
+
+<Canvas>
+  <Story name="footer" height="350px">
+    {{
+      components: { ReBottomSheet, ReButton },
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        alertAction() {
+          alert("Action");
+        },
+      },
+      template: `
+      <div>
+        <ReButton @click="show = true">Open sheet</ReButton>
+        <ReBottomSheet v-if="show" title="Title" @close="show=false">
+          <div class="example-block" style="height: 200px;">
+            Scroll the content
+          </div>
+          <template #footer>
+            <div style="text-align: right">
+              <ReButton @click="show=false">Cancel</ReButton>
+              <ReButton>Save</ReButton>
+            </div>
+          </template>
+        </ReBottomSheet>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Customizing the styles
+
+Pass `class-sheet="custom-sheet"` and use it to style your sheet
+
+<Canvas>
+  <Story name="customize styles" height="200px">
+    {{
+      components: { ReBottomSheet },
+      data() {
+        return {
+          show: true,
+        };
+      },
+      template: `
+      <ReBottomSheet
+        v-if="show"
+        title="Title"
+        class-sheet="custom-sheet"
+        @close="show = false"
+      >
+        Content
+      </ReBottomSheet>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+```css
+.custom-sheet {
+  height: 90%;
+}
+```

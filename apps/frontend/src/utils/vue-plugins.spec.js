@@ -1,7 +1,7 @@
 import plugins from "./vue-plugins";
 jest.mock("@/utils/sanitize-html", () => "__SANITIZE__");
 jest.mock("@/utils/urls", () => "__URLS__");
-jest.mock("@/components/Icon/icons", () => "__ICONS__");
+jest.mock("@reservando/design-system/components/Icon/icons", () => "__ICONS__");
 
 describe("Vue plugins", () => {
   it("should set up plugins", async () => {

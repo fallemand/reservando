@@ -22,27 +22,47 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 
-export const TYPES = ["button", "submit", "reset"];
-export const SIZES = ["xsmall", "small", "medium", "large"];
+export enum ReButtonType {
+  button = "button",
+  submit = "submit",
+  reset = "reset",
+}
+export enum ReButtonSize {
+  xsmall = "xsmall",
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
+export enum ReButtonModifier {
+  "cta-uva" = "cta-uva",
+  "cta-red" = "cta-red",
+  "outline-uva" = "outline-uva",
+}
 export const MODIFIERS = ["cta-uva", "cta-red", "outline-uva"];
 
 const ReButton = defineComponent({
   name: "ReButton",
   props: {
+    /** One of: `xsmall` `small` `medium` `large` */
     size: {
       default: "medium",
-      type: String as PropType<typeof SIZES[number]>,
-      validator: (value: string): boolean => SIZES.includes(value),
+      type: String as PropType<ReButtonSize>,
+      validator: (value: string): boolean =>
+        Object.values(ReButtonSize).includes(value as ReButtonSize),
     },
+    /** One of: `cta-red` `cta-uva` `outline-uva` */
     modifier: {
       default: "cta-red",
-      type: String as PropType<typeof MODIFIERS[number]>,
-      validator: (value: string): boolean => MODIFIERS.includes(value),
+      type: String as PropType<ReButtonModifier>,
+      validator: (value: string): boolean =>
+        Object.values(ReButtonModifier).includes(value as ReButtonModifier),
     },
+    /** One of: `button` `submit` `reset` */
     type: {
       default: "button",
-      type: String as PropType<typeof TYPES[number]>,
-      validator: (value: string): boolean => TYPES.includes(value),
+      type: String as PropType<ReButtonType>,
+      validator: (value: string): boolean =>
+        Object.values(ReButtonType).includes(value as ReButtonType),
     },
   },
   methods: {

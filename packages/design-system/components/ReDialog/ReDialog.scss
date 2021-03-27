@@ -11,7 +11,7 @@ body.re-dialog-open {
   bottom: 0;
   position: fixed;
   z-index: $z-index-overlay;
-  overflow: scroll;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;

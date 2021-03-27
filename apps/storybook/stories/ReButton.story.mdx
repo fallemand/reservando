@@ -20,14 +20,68 @@ export const Template = (args, { argTypes }) => ({
 # ReButton
 
 <Canvas>
-  <Story
-    name="basic"
-    args={{
-      label: "My Button",
+  <Story name="basic">
+    {{
+      components: { ReButton },
+      template: "<ReButton>My Button</ReButton>",
     }}
-  >
-    {Template.bind({})}
   </Story>
 </Canvas>
 
-<ArgsTable story="basic" />
+<ArgsTable of={ReButton} />
+
+## How to use
+
+```html
+<template>
+  <ReButton @click="">Label</ReButton>
+</template>
+
+<script lang="ts">
+  import { ReButton } from "@reservando/design-system";
+</script>
+```
+
+## Using modifiers
+
+<Canvas>
+  <Story name="modifiers">
+    {{
+      components: { ReButton },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+      <div>
+        <ReButton modifier="cta-red">cta-red</ReButton>
+        <ReButton modifier="cta-uva">cta-uva</ReButton>
+        <ReButton modifier="outline-uva">outline-uva</ReButton>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## Using sizes
+
+<Canvas>
+  <Story name="sizes">
+    {{
+      components: { ReButton },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+      <div>
+        <ReButton size="small">small</ReButton>
+        <ReButton size="medium">medium</ReButton>
+        <ReButton size="large">large</ReButton>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>

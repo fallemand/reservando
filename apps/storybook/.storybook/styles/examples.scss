@@ -1,0 +1,133 @@
+@import "~@reservando/design-system/styles/variables";
+@import "~@reservando/design-system/styles/typography";
+
+// Global
+.hint {
+  font-size: 14px;
+  margin: $bdu * 2 0 $bdu * 2;
+  font-weight: $font-weight-medium;
+
+  code {
+    background-color: #ddd;
+    padding: $bdu/2 $bdu $bdu/2;
+    border-radius: $bdu/2;
+    margin: 0 2px;
+    font-family: $font-family;
+  }
+}
+
+.separator {
+  width: $bdu * 4;
+  display: inline-block;
+}
+
+.example-block {
+  min-height: 120px;
+  width: 100%;
+  background-color: #efefef;
+  font-weight: $font-weight-medium;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+}
+
+.example-block-white {
+  @extend .example-block;
+  background-color: white;
+  min-height: 50px;
+}
+
+// GygIcon
+.icons-list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 600px;
+
+  li {
+    color: $text-primary;
+    min-width: 160px;
+    margin: $bdu 0;
+    font-weight: $font-weight-regular;
+    font-size: 14px;
+  }
+
+  .svg-icon {
+    vertical-align: middle;
+    margin-right: $bdu / 2;
+  }
+}
+
+// GygRating
+.rating-custom {
+  height: 40px;
+  width: 40px * 5;
+}
+
+// GygDialog
+body.gyg-dialog-open {
+  overflow: auto !important;
+}
+
+// GygModal
+.custom-modal {
+  width: 460px;
+}
+
+// GygBottomSheet
+.custom-sheet {
+  height: 90%;
+}
+
+// GygFullSheet
+.custom-full-sheet {
+  background: gray;
+}
+
+// GygBadge
+.red-badge {
+  background-color: red;
+}
+
+// GygSeparator
+.green-separator {
+  color: green;
+}
+
+.big-separator {
+  svg {
+    height: 5em;
+    width: 5em;
+  }
+}
+
+//GygLoadingBlock
+.my-awesome-card {
+  &__image {
+    width: 90px;
+    height: 90px;
+    margin-right: 24px;
+    flex-shrink: 0;
+  }
+  &__title {
+    height: 15px;
+    width: 70%;
+    margin: 4px 0;
+    flex-grow: 0;
+  }
+  &__description {
+    height: 15px;
+    margin: 16px 0 0;
+    flex-grow: 0;
+  }
+  &__cta {
+    height: 15px;
+    width: 50px;
+    margin-left: auto;
+    margin-top: 8px;
+    flex-grow: 0;
+  }
+}

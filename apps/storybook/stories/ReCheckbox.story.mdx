@@ -1,5 +1,5 @@
 import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs/blocks";
-import { ReCheckbox } from "@reservando/design-system";
+import { ReCheckbox, ReCheckboxGroup } from "@reservando/design-system";
 
 <Meta
   title="Components/Checkbox"
@@ -23,11 +23,97 @@ export const Template = (args, { argTypes }) => ({
     args={{
       id: "checkbox-id",
       label: "Checkbox label",
-      checked: true,
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
 
-<ArgsTable story="basic" />
+```html
+<template>
+  <ReCheckbox v-model:checked="isChecked" :id="my-checkbox" :label="Checkbox label" />
+</template>
+
+<script lang="ts">
+  import { ReCheckbox } from "@reservando/design-system";
+</script>
+```
+
+<ArgsTable components={{ ReCheckbox, ReCheckboxGroup }} />
+
+#### Using full modifier
+
+<Canvas>
+  <Story name="full mode">
+    {{
+      components: { ReCheckbox },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+      <div>
+        <ReCheckbox modifier="full" id="checked" v-model:checked="checked" label="Checked"/>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### You can pass input default attributes
+
+You can add the default attributes like `required` `disabled` `checked` on the element and they will be added to the input.
+
+<Canvas>
+  <Story name="attributes">
+    {{
+      components: { ReCheckbox },
+      template: `
+      <div>
+        <ReCheckbox id="checked-1" checked="checked" label="Checked"/> <br />
+        <ReCheckbox id="indeterminate-1" checked="checked" :indeterminate="true" label="Indeterminate"/> <br />
+        <ReCheckbox id="disabled-1" disabled="disabled" label="Disabled"/> <br />
+        <ReCheckbox id="disabled-checked-1" checked="checked" disabled="disabled" label="Disabled checked"/> <br />
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## Using ReCheckboxGroup
+
+<Canvas>
+  <Story name="checkbox group">
+    {{
+      components: { ReCheckboxGroup, ReCheckbox },
+      data() {
+        return {
+          itemsChecked: [],
+        };
+      },
+      template: `
+        <ReCheckboxGroup v-model:checked="itemsChecked">
+          <ReCheckbox id="checkbox-1" label="Checkbox 1" />
+          <ReCheckbox id="checkbox-2" label="Checkbox 2" />
+          <ReCheckbox id="checkbox-3" label="Checkbox 3" />
+        </ReCheckboxGroup>
+        <p class="hint mt-4">Selected: {{ itemsChecked }}</p>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+```html
+<template>
+  <ReCheckboxGroup v-model:checked="itemsChecked">
+    <ReCheckbox id="checkbox-1" label="Checkbox 1" />
+    <ReCheckbox id="checkbox-2" label="Checkbox 2" />
+    <ReCheckbox id="checkbox-3" label="Checkbox 3" />
+  </ReCheckboxGroup>
+</template>
+
+<script lang="ts">
+  import { ReCheckbox, ReCheckboxGroup } from "@reservando/design-system";
+</script>
+```

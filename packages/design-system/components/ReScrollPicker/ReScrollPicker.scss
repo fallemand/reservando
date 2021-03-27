@@ -2,9 +2,13 @@
 
 .re-scroll-picker {
   width: 100%;
-  height: 200px;
+  height: 100%;
 
   // Overrides
+  .column-container {
+    width: 100%;
+    text-align: center;
+  }
   .center-overlay-custom {
     background-color: rgba(98, 76, 103, 0.1);
     color: $text-primary;

@@ -1,0 +1,171 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from "@storybook/addon-docs/blocks";
+import { ReTransition, ReButton } from "@reservando/design-system";
+
+<Meta title="Components/Transition" component={ReTransition} />
+
+# ReTransition
+
+<Description of={ReTransition} />
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReTransition, ReButton },
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        handleToggle() {
+          this.show = !this.show;
+        },
+      },
+      template: `
+      <div>
+        <ReButton class="mb-3" @click="handleToggle">Toggle Block</ReButton>
+        <ReTransition transition="height">
+          <div v-if="show">
+            <div class="example-block">
+              I'm just a cool content
+            </div>
+          </div>
+        </ReTransition>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## How to use
+
+```html
+<template>
+  <ReTransition>
+    <div v-if="show">Content that I want to animate</div>
+  </ReTransition>
+</template>
+
+<script lang="ts">
+  import { ReTransition } from "@reservando/design-system";
+</script>
+```
+
+<ArgsTable of={ReTransition} />
+
+You can also pass any `<transition />` prop or listeners. `mode`, `enter-class`, etc.
+
+<br />
+
+#### Animations
+
+<Canvas>
+  <Story name="fade" height="170px">
+    {{
+      components: { ReTransition, ReButton },
+      data() {
+        return {
+          show: true,
+          transition: "",
+        };
+      },
+      methods: {
+        async toggle(name) {
+          this.transition = name;
+          await this.$nextTick();
+          this.show = !this.show;
+        },
+      },
+      template: `
+      <div>
+        <ReButton size="small" @click="toggle('fade')">fade</ReButton>
+        <ReButton size="small" @click="toggle('height')">height</ReButton>
+        <ReButton size="small" @click="toggle('slide-right')">slide-right</ReButton>
+        <ReButton size="small" @click="toggle('slide-bottom')">slide-bottom</ReButton>
+        <ReButton size="small" @click="toggle('expand')">expand</ReButton>
+        <br />
+        <br />
+        <ReTransition :transition="transition">
+          <div v-if="show">
+            <div class="example-block">I'm just a cool content</div>
+          </div>
+        </ReTransition>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Toggle between elements
+
+<Canvas>
+  <Story name="props" height="100px">
+    {{
+      components: { ReTransition, ReButton },
+      data() {
+        return {
+          show: true,
+        };
+      },
+      methods: {
+        handleToggle() {
+          this.show = !this.show;
+        },
+      },
+      template: `
+      <div>
+        <ReButton class="mb-3" size="small" @click="handleToggle">Toggle Block</ReButton>
+        <ReTransition transition="fade" mode="out-in">
+          <div v-if="show" key="red" style="width: 110px; height:40px; background-color: red" />
+          <div v-else key="green" style="width: 110px; height:40px; background-color: green" />
+        </ReTransition>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Customizing the css transition
+
+<Story name="slow fade" height="210px">
+  {{
+    components: { ReTransition, ReButton },
+    data() {
+      return {
+        show: true,
+      };
+    },
+    methods: {
+      handleToggle() {
+        this.show = !this.show;
+      },
+    },
+    template: `
+    <div>
+      <ReButton class="mb-3" size="small" @click="handleToggle">Toggle Block</ReButton>
+      <ReTransition transition="fade">
+        <div v-if="show" class="example-block" style="transition-duration: 3s;">
+          SLOOOOOW FADE
+        </div>
+      </ReTransition>
+    </div>
+  `,
+  }}
+</Story>
+
+```html
+<template>
+  <ReTransition transition="fade">
+    <div v-if="show" class="custom-transition">SLOOOOOW FADE</div>
+  </ReTransition>
+</template>
+
+<style lang="scss">
+  @import "~@getyourguide/design-system/lib/ReTransition/ReTransition";
+
+  .custom-transition {
+    transition-duration: 3s;
+    transition-timing-function: linear;
+  }
+</style>
+```

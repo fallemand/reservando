@@ -1,6 +1,7 @@
 @import "@reservando/design-system/styles/typography";
 @import "@reservando/design-system/styles/variables";
 @import "./spacing";
+@import "./examples";
 
 .sb-show-main {
   color: $text-primary;
@@ -16,27 +17,38 @@
 }
 
 .sbdocs {
+  // &.sbdocs-preview {
+  //   background-color: $background-primary;
+  // }
+
   .sbdocs-h1 {
     color: $black-purple;
     letter-spacing: -1px;
-    //@include font-style("title-1");
   }
 
   .sbdocs-h2 {
-    //@include font-style("title-2");
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: $font-weight-regular;
   }
 
   .sbdocs-h3 {
-    //@include font-style("title-3");
+    font-size: 18px;
+    font-weight: $font-weight-regular;
   }
 
   .sbdocs-h4 {
-    font-weight: $font-weight-medium;
-
-    //@include font-style("body");
+    font-size: 16px;
+    font-weight: $font-weight-regular;
   }
 
   .sbdocs-a {
     font-weight: $font-weight-regular;
+  }
+
+  .docblock-argstable-body {
+    button {
+      cursor: pointer !important;
+    }
   }
 }

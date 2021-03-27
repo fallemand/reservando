@@ -1,10 +1,10 @@
 <script lang="ts">
 import { shallowMount } from "@vue/test-utils";
-import GygButton from "./re-button.vue";
+import ReButton from "./re-button.vue";
 
-describe("GygButton component", () => {
+describe("ReButton component", () => {
   it("should render with default props", () => {
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       slots: {
         default: "__BUTTON-TEXT__",
       },
@@ -13,7 +13,7 @@ describe("GygButton component", () => {
   });
 
   it("should render disabled button", () => {
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       propsData: {
         disabled: true,
       },
@@ -25,7 +25,7 @@ describe("GygButton component", () => {
   });
 
   it("should render with props", () => {
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       propsData: {
         modifier: "cta-success",
         size: "large",
@@ -39,7 +39,7 @@ describe("GygButton component", () => {
   });
 
   it("should render as <a /> when href is passed", () => {
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       propsData: {
         href: "http://fake-url.com",
         target: "_blank",
@@ -52,7 +52,7 @@ describe("GygButton component", () => {
   });
 
   it("should support class attribute", () => {
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       slots: {
         default: "__BUTTON-TEXT__",
       },
@@ -65,7 +65,7 @@ describe("GygButton component", () => {
   });
 
   it("should render with icon", () => {
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       slots: {
         default: "__BUTTON-TEXT__",
         icon: "__ICON__",
@@ -80,7 +80,7 @@ describe("GygButton component", () => {
       mouseleave: jest.fn(),
       mouseover: jest.fn(),
     };
-    const wrapper = shallowMount(GygButton, {
+    const wrapper = shallowMount(ReButton, {
       listeners,
     });
     const input = wrapper.find("button");

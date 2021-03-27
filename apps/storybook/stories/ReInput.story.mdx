@@ -1,0 +1,166 @@
+import { Meta, Story, Canvas, Props } from "@storybook/addon-docs/blocks";
+import { ReInput, ReButton } from "@reservando/design-system";
+
+<Meta title="Components/Input" component={ReInput} />
+
+# ReInput
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReInput },
+      data() {
+        return {
+          value: "",
+        };
+      },
+      template: `
+      <div style="max-width: 400px;">
+        <ReInput placeholder="I'm just an input" v-model="value" />
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## How to use
+
+```html
+<script lang="ts">
+  import { ReInput } from "@reservando/design-system";
+</script>
+
+<style lang="scss">
+  @import "~@reservando/design-system/lib/ReInput/ReInput";
+</style>
+```
+
+<ArgsTable of={ReInput} />
+
+#### Input Attributes
+
+Pass any input attribute `id`, `name`, `type`, `placeholder`, `value`, `required`, `minlength`, etc.
+
+<Canvas>
+  <Story name="input attributes">
+    {{
+      components: { ReInput },
+      template: `
+      <div style="max-width: 400px;">
+        <ReInput class="mb-3" value="I have a value here" />
+        <ReInput class="mb-3" type="password" placeholder="Password here" />
+        <ReInput class="mb-3" type="number" placeholder="Only numbers from 0 to 10" :max="10" :min="0" />
+        <ReInput class="mb-3" placeholder="Im disabled" :disabled="true" />
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Using other events
+
+Pass any other input event `@mouseenter`, `@mouseleave`, `@keypressed`, etc. the same way you will do it with a `HTML input`
+
+<Canvas>
+  <Story name="html events">
+    {{
+      components: { ReInput },
+      methods: {
+        handleFocus($evt) {
+          $evt.target.value = "Thanks for doing that";
+        },
+        handleEnter($evt) {
+          alert("Awesome");
+        },
+        handleMouseOver($evt) {
+          $evt.target.value = "Don't do it any more!";
+        },
+        handleMouseLeave($evt) {
+          $evt.target.value = "Again again!!";
+        },
+      },
+      template: `
+      <div style="max-width: 400px;">
+        <ReInput class="mb-3" placeholder="Focus me" @focus="handleFocus" />
+        <ReInput class="mb-3" placeholder="Press Enter here" @keydown.enter="handleEnter" />
+        <ReInput class="mb-3" placeholder="Hover me" @mouseover="handleMouseOver" @mouseleave="handleMouseLeave"/>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## Examples
+
+#### Using `v-model`
+
+Using `v-model="text"` is the same than using `@input="(value, $evt) => text = value"` and `:value="text"`
+
+<Canvas>
+  <Story name="using v-model">
+    {{
+      components: { ReInput },
+      data() {
+        return {
+          text: "",
+        };
+      },
+      template: `
+      <div style="max-width: 400px;">
+        <ReInput v-model="text" />
+        <span class="hint">Value: {{ text }}</span>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Passing an icon
+
+<Canvas>
+  <Story name="with icon">
+    {{
+      components: { ReInput },
+      template: `
+      <div style="max-width: 400px;">
+        <ReInput class="mb-3" placeholder="With preicon">
+          <template slot="preicon">ICON</template>
+        </ReInput>
+        <ReInput class="mb-3" placeholder="With posticon">
+          <template slot="posticon">ICON</template>
+        </ReInput>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Using ref to access the HTML Input
+
+Use `$refs.{refName}.$refs.input` to access the `Input element`
+
+<Canvas>
+  <Story name="using ref">
+    {{
+      components: { ReInput, ReButton },
+      methods: {
+        checkValidity() {
+          alert(`valid: ${this.$refs.address.$refs.input.checkValidity()}`);
+        },
+      },
+      template: `
+      <div style="display: flex;">
+        <ReInput ref="address" required placeholder="Required input" />
+        <ReButton class="ml-3" @click="checkValidity">Check Validity</ReButton>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+#### Render with custom class
+
+```html
+<ReInput class="custom-input" />
+<ReInput :class="classObject" />
+```

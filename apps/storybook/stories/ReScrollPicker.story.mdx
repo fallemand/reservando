@@ -1,0 +1,40 @@
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs/blocks";
+import { ReScrollPicker } from "@reservando/design-system";
+
+<Meta title="Components/ScrollPicker" component={ReScrollPicker} />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ReScrollPicker },
+  template: '<ReScrollPicker :options="[options]" />',
+});
+
+# ReScrollPicker
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReScrollPicker },
+      data() {
+        return {
+          selected: "option3",
+          options: [
+            { value: "option1", label: "Option 1" },
+            { value: "option2", label: "Option 2" },
+            { value: "option3", label: "Option 3" },
+            { value: "option4", label: "Option 4" },
+            { value: "option5", label: "Option 5" },
+          ],
+        };
+      },
+      template: `
+        <div style="width:300px; height: 180px">
+          <ReScrollPicker v-model="selected" :options="options" />
+        </div>
+        <p class="hint mt-4">Selected: {{ selected }}</p>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ReScrollPicker} />

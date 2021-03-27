@@ -120,7 +120,7 @@
   }
 
   &-input:indeterminate {
-    background-color: $background-primary;
+    background-color: $border-primary;
     border-color: $border-primary;
 
     & + .re-checkbox-check {
