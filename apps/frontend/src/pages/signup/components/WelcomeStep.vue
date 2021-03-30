@@ -59,7 +59,7 @@ export default WelcomeHeader;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: $bdu * 6;
-    color: $red-link;
+    color: $btn-primary;
     display: block;
   }
 

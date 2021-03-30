@@ -19,3 +19,9 @@ body {
   align-items: center;
   background-color: $background-primary;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

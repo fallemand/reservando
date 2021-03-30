@@ -1,5 +1,5 @@
 <template>
-  <ReScrollPicker v-bind="$attrs" :options="[options]" />
+  <ReScrollPicker v-bind="$attrs" :options="options" />
 </template>
 
 <script lang="ts">

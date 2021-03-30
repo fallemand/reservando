@@ -20,19 +20,35 @@
           "description2": "Agrupa los días que tienen los mismos horarios de reserva en un sólo calendario.",
           "description3": "Puedes crear más de un calendario de ser necesario."
         },
-        "cta": "Crear calendario",
+        "ctaCreate": "Crear calendario",
+        "ctaAddNew": "Agregar otro calendario",
         "modal": {
           "titlePlaceholder": "Agregar título",
           "openHours": "¿En qué franja horaria se puede reservar?",
           "addOpenHours": "Agregar otra franja horaria",
           "repeat": "Repetir cada:"
         }
+      },
+      "sectorsStep": {
+        "question": "Selecciona los sectores disponibles y cantidad de mesas por sector."
       }
     },
     "controls": {
       "save": "Guardar",
       "from": "Desde",
-      "to": "Hasta"
+      "to": "Hasta",
+      "continue": "Continuar"
+    },
+    "general": {
+      "days": {
+        "monday": "Lunes",
+        "tuesday": "Martes",
+        "wednesday": "Miercoles",
+        "thursday": "Jueves",
+        "friday": "Viernes",
+        "saturday": "Saturday",
+        "sunday": "Domingo"
+      }
     }
   }
 }

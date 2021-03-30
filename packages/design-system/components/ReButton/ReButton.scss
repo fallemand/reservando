@@ -8,24 +8,22 @@
   padding: 1em;
   text-decoration: none;
 
-  &-xsmall {
-    font-size: 0.5em;
-  }
-
-  &-small {
+  &--small {
     font-size: 14px;
-    padding: $bdu;
+    padding: $bdu*1 $bdu*1.5;
   }
 
-  &-medium {
+  &--medium {
     font-size: 1em;
+    padding: $bdu*1.5 $bdu*2.5;
   }
 
-  &-large {
-    font-size: 1.5em;
+  &--large {
+    font-size: 1em;
+    padding: $bdu*2 $bdu*3;
   }
 
-  &-with-icon {
+  &--with-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -39,59 +37,20 @@
       display: flex;
     }
   }
-}
 
-.re-button-cta {
-  &-red {
-    @include cta-generator($red-link, darken($red-link, 10%), black);
+  &--primary {
+    @include cta-generator($primary-500, $primary-600,$primary-700, black, $white, $grey-300);
   }
-  &-uva {
-    @include cta-generator($grape, darken($grape, 10%), black);
-  }
-  // &-success {
-  //   @include cta-generator($success, $success-active, $midnight-blue);
-  // }
-  // &-error {
-  //   @include cta-generator($danger, $danger-active, $midnight-blue);
-  // }
-  // &-white {
-  //   @include cta-generator($white, darken($white, 10%), $ui-blue, $ui-blue);
-  // }
-}
 
-.re-button-outline {
-  &-uva {
-    @include outline-generator($grape, darken($grape, 10%), black);
+  &--secondary {
+    @include cta-generator($primary-100, $primary-200, $primary-300, black, $primary-500, transparent);
+  }
+
+  &--secondary-outline {
+    @include cta-generator(transparent, $primary-100, $primary-200, black, $primary-500, transparent, $primary-500);
+  }
+
+  &--link {
+    @include link-generator($primary-500, $primary-600, $primary-700, black);
   }
 }
-//   &-dark {
-//     @include outline-generator($midnight-blue, darken($midnight-blue, 10%), $ui-blue);
-//   }
-//   &-success {
-//     @include outline-generator($success, $success-active, $midnight-blue);
-//   }
-//   &-error {
-//     @include outline-generator($danger, $danger-active, $midnight-blue);
-//   }
-//   &-white {
-//     @include outline-generator($white, darken($white, 10%), $ui-blue);
-//   }
-// }
-
-// .re-button-link {
-//   &-light {
-//     @include link-generator($cta, $cta-active, $midnight-blue);
-//   }
-//   &-dark {
-//     @include link-generator($midnight-blue, darken($midnight-blue, 10%), $ui-blue);
-//   }
-//   &-success {
-//     @include link-generator($success, $success-active, $midnight-blue);
-//   }
-//   &-error {
-//     @include link-generator($danger, $danger-active, $midnight-blue);
-//   }
-//   &-white {
-//     @include link-generator($white, darken($white, 10%), $ui-blue);
-//   }
-// }

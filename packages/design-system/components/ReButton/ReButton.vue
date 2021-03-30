@@ -3,9 +3,9 @@
     :is="renderAsLink($attrs) ? 'a' : 'button'"
     :class="[
       're-button',
-      `re-button-${size}`,
-      `re-button-${modifier}`,
-      { 're-button-with-icon': $slots.icon },
+      `re-button--${size}`,
+      `re-button--${modifier}`,
+      { 're-button--with-icon': $slots.icon },
     ]"
     v-bind="$attrs"
     :type="renderAsLink($attrs) ? null : type"
@@ -28,31 +28,28 @@ export enum ReButtonType {
   reset = "reset",
 }
 export enum ReButtonSize {
-  xsmall = "xsmall",
   small = "small",
   medium = "medium",
   large = "large",
 }
 export enum ReButtonModifier {
-  "cta-uva" = "cta-uva",
-  "cta-red" = "cta-red",
-  "outline-uva" = "outline-uva",
+  primary = "primary",
+  secondary = "primary",
+  "secondary-outline" = "secondary-outline",
+  link = "link",
 }
-export const MODIFIERS = ["cta-uva", "cta-red", "outline-uva"];
 
 const ReButton = defineComponent({
   name: "ReButton",
   props: {
-    /** One of: `xsmall` `small` `medium` `large` */
     size: {
       default: "medium",
       type: String as PropType<ReButtonSize>,
       validator: (value: string): boolean =>
         Object.values(ReButtonSize).includes(value as ReButtonSize),
     },
-    /** One of: `cta-red` `cta-uva` `outline-uva` */
     modifier: {
-      default: "cta-red",
+      default: "primary",
       type: String as PropType<ReButtonModifier>,
       validator: (value: string): boolean =>
         Object.values(ReButtonModifier).includes(value as ReButtonModifier),

@@ -40,11 +40,11 @@ export default Page;
 
   &__back {
     flex-shrink: 0;
-    color: $red-link;
+    color: $btn-primary;
   }
 
   &__back-img {
-    color: $red-link;
+    color: $btn-primary;
   }
 
   &__logo {

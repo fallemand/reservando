@@ -11,6 +11,7 @@ envfile
 .DS_Store
 .npmrc
 .firebase
+public/
 # Unit tests reports
 coverage
 firebase-admin-credential.json

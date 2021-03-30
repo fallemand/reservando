@@ -6,7 +6,7 @@ $padding-x: 0.75em;
 .re-input {
   display: flex;
   position: relative;
-  color: $grape;
+  color: $text-primary;
   font-weight: 500;
 
   &__field {
@@ -22,7 +22,7 @@ $padding-x: 0.75em;
 
     &--underline {
       border: 0;
-      border-bottom: 2px solid $grape;
+      border-bottom: 2px solid $border-primary;
       background-color: transparent;
     }
 

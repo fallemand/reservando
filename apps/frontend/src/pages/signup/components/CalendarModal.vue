@@ -1,7 +1,7 @@
 <template>
-  <ReBottomSheet class-sheet="calendar-modal" @close="$emit('close')">
+  <ReBottomSheet ref="bottomSheet" class-sheet="calendar-modal" @close="$emit('close')">
     <template #action>
-      <ReButton class="calendar-modal__save" modifier="cta-uva" size="small">
+      <ReButton class="calendar-modal__save" size="small" @click="handleSave">
         {{ $t("controls.save") }}
       </ReButton>
     </template>
@@ -22,7 +22,7 @@
       class="calendar-modal__time-selector"
       :label="`${$t('controls.to')}:`"
     />
-    <ReButton class="calendar-modal__add-times" modifier="outline-uva">
+    <ReButton class="calendar-modal__add-times" modifier="secondary-outline">
       {{ $t("signup.calendarStep.modal.addOpenHours") }}
     </ReButton>
     <hr class="calendar-modal__separator" />
@@ -30,8 +30,13 @@
       {{ $t("signup.calendarStep.modal.repeat") }}
     </p>
     <ReCheckboxGroup v-model:checked="checkedDays">
-      <ReCheckbox id="sunday" modifier="full" label="Domingo" />
-      <ReCheckbox id="monday" modifier="full" label="Lunes" />
+      <ReCheckbox id="monday" modifier="full" :label="$t('general.days.monday')" />
+      <ReCheckbox id="tuesday" modifier="full" :label="$t('general.days.tuesday')" />
+      <ReCheckbox id="wednesday" modifier="full" :label="$t('general.days.wednesday')" />
+      <ReCheckbox id="thursday" modifier="full" :label="$t('general.days.thursday')" />
+      <ReCheckbox id="friday" modifier="full" :label="$t('general.days.friday')" />
+      <ReCheckbox id="saturday" modifier="full" :label="$t('general.days.saturday')" />
+      <ReCheckbox id="sunday" modifier="full" :label="$t('general.days.sunday')" />
     </ReCheckboxGroup>
   </ReBottomSheet>
 </template>
@@ -63,6 +68,12 @@ const CalendarStep = defineComponent({
       timeFrom: "20:00",
       timeTo: "00:00",
     };
+  },
+  methods: {
+    handleSave(): void {
+      this.$emit("add-calendar");
+      this.$refs.bottomSheet.close();
+    },
   },
 });
 export default CalendarStep;

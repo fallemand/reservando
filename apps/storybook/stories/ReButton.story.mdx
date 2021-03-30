@@ -34,7 +34,7 @@ export const Template = (args, { argTypes }) => ({
 
 ```html
 <template>
-  <ReButton @click="">Label</ReButton>
+  <ReButton @click="clickHandler">Label</ReButton>
 </template>
 
 <script lang="ts">
@@ -55,9 +55,15 @@ export const Template = (args, { argTypes }) => ({
       },
       template: `
       <div>
-        <ReButton modifier="cta-red">cta-red</ReButton>
-        <ReButton modifier="cta-uva">cta-uva</ReButton>
-        <ReButton modifier="outline-uva">outline-uva</ReButton>
+        <ReButton modifier="primary" class="mr-2">primary</ReButton>
+        <ReButton modifier="secondary" class="mr-2">secondary</ReButton>
+        <ReButton modifier="secondary-outline" class="mr-2">secondary-outline</ReButton>
+        <ReButton modifier="link" class="mr-2">link</ReButton>
+        <p class="hint mt-4">Disabled</p>
+        <ReButton modifier="primary" disabled="true" class="mr-2">primary</ReButton>
+        <ReButton modifier="secondary" disabled="true" class="mr-2">secondary</ReButton>
+        <ReButton modifier="secondary-outline" disabled="true" class="mr-2">secondary-outline</ReButton>
+        <ReButton modifier="link" disabled="true" class="mr-2">link</ReButton>
       </div>
     `,
     }}
@@ -77,9 +83,9 @@ export const Template = (args, { argTypes }) => ({
       },
       template: `
       <div>
-        <ReButton size="small">small</ReButton>
-        <ReButton size="medium">medium</ReButton>
-        <ReButton size="large">large</ReButton>
+        <ReButton size="small" class="mr-2">small</ReButton>
+        <ReButton size="medium" class="mr-2">medium</ReButton>
+        <ReButton size="large" class="mr-2">large</ReButton>
       </div>
     `,
     }}

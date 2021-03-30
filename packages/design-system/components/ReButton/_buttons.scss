@@ -10,73 +10,56 @@ $btn-border-style: solid;
 /**
 * Cta styles
 */
-@mixin cta-generator($color, $hover-color, $focus-color, $font-color: $white) {
-  color: $font-color;
+@mixin cta-generator($color, $hover, $press, $focus, $font, $disabled, $border: transparent) {
+  color: $font;
   background: $color;
-  border-color: $color;
+  @if $border {
+    border-color: $border;
+  } @else {
+    border-color: $color;
+  }
   border-style: $btn-border-style;
-  border-radius: 5rem;
+  border-radius: $bdu;
   border-width: $btn-border-width;
-  transition: background-primary 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
   outline: 0;
 
-  &:hover,
+  &:hover {
+    background: $hover;
+    @if $border {
+      border-color: $border;
+    } @else {
+      border-color: $hover;
+    }
+  }
+
   &:active {
-    color: $font-color;
-    background: $hover-color;
-    border-color: $hover-color;
+    background: $press;
+    @if $border {
+      border-color: $border;
+    } @else {
+      border-color: press;
+    }
   }
 
   &:disabled {
-    color: $white;
-    background: $border-secondary;
-    border-color: $border-secondary;
+    color: $grey-600;
+    background: $disabled;
+    border-color: $grey-300;
     cursor: not-allowed;
   }
 
   &:focus:not(:hover) {
-    color: $font-color;
+    color: $font;
     background: $color;
-    border-color: $focus-color;
-  }
-}
-
-/**
-* Outline styles
-*/
-@mixin outline-generator($color, $hover-color, $focus-color) {
-  color: $color;
-  background: transparent;
-  border-color: $color;
-  border-style: $btn-border-style;
-  border-radius: $bdu * 1.5;
-  border-width: $btn-border-width;
-  transition: border-color 0.2s ease-out;
-  outline: 0;
-
-  &:hover,
-  &:active {
-    color: $hover-color;
-    background: transparent;
-    border-color: $hover-color;
-  }
-
-  &:disabled {
-    color: $border-secondary;
-    border-color: $border-secondary;
-    background: transparent;
-    cursor: not-allowed;
-  }
-
-  &:focus:not(:hover) {
-    border-color: $focus-color;
+    border-color: $focus;
   }
 }
 
 /**
 * Link styles
 */
-@mixin link-generator($color, $hover-color, $focus-color) {
+@mixin link-generator($color, $hover, $press, $focus) {
   text-decoration: none;
   background: transparent;
   border: 0;
@@ -85,18 +68,21 @@ $btn-border-style: solid;
   padding: 0.25em 0.5em;
   outline: 0;
 
-  &:hover,
+  &:hover {
+    color: $hover;
+  }
+
   &:active {
-    color: $hover-color;
+    color: $press;
   }
 
   &:disabled {
-    color: $border-secondary;
+    color: $grey-600;
     background: transparent;
     cursor: not-allowed;
   }
 
   &:focus:not(:hover) {
-    color: $focus-color;
+    color: $focus;
   }
 }
