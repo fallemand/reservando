@@ -46,15 +46,12 @@
   flex-wrap: wrap;
 
   li {
-    color: $text-primary;
-    min-width: 160px;
-    margin: $bdu 0;
-    font-weight: $font-weight-regular;
+    margin: $bdu ($bdu * 2);
     font-size: 14px;
     display: flex;
     align-items: center;
   }
-  .icon__image {
+  .re-icon {
     margin-right: $bdu;
   }
 }

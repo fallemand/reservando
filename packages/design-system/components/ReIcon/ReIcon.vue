@@ -1,6 +1,6 @@
 <template>
   <span :style="{ width: size, height: size }" class="re-icon">
-    <svg>
+    <svg class="re-icon__image">
       <use v-bind="{ 'xlink:href': `${spriteUrl}#${name}` }" />
     </svg>
   </span>
@@ -42,8 +42,7 @@ export default ReIcon;
   &__image {
     height: 100%;
     width: 100%;
-    color: white;
-    fill: white;
+    fill: currentColor;
     display: inline-flex;
     align-items: center;
   }

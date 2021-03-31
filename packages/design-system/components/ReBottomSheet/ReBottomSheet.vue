@@ -16,7 +16,7 @@
       ]"
     >
       <span class="re-bottom-sheet__close" tabindex="0" @click="close" @keydown.enter="close">
-        <ReIcon icon="close" class="re-bottom-sheet__close-icon" size="40px" />
+        <ReIcon name="close" class="re-bottom-sheet__close-icon" size="40px" />
       </span>
 
       <div v-if="title || $slots.title" class="re-bottom-sheet__title-container">

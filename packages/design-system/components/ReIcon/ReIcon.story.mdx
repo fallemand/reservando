@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { ReIcon } from "@reservando/design-system";
+import { ReIcon, Icons } from "@reservando/design-system";
 
 <Meta title="Components/Icons" component={ReIcon} />
 
@@ -11,7 +11,7 @@ import { ReIcon } from "@reservando/design-system";
       components: { ReIcon },
       data() {
         return {
-          iconsList: ReIcon.icons,
+          iconsList: Object.values(Icons),
         };
       },
       template: `
