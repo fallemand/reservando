@@ -10,14 +10,15 @@
       ref="input"
       class="re-input__field"
       :class="`re-input__field--${modifier}`"
+      :value="modelValue"
       v-bind="{
         ...$attrs,
         class: undefined,
+        onChange: undefined,
+        onInput: undefined,
       }"
-      v-on="{
-        change: emitChange,
-        input: emitInput,
-      }"
+      @input="$emit('update:modelValue', $event.target.value)"
+      @change="$emit('change', $event.target.value)"
     />
   </div>
 </template>
@@ -35,15 +36,9 @@ const ReInput = defineComponent({
       type: String as PropType<typeof MODIFIERS[number]>,
       validator: (value: string): boolean => MODIFIERS.includes(value),
     },
-  },
-  methods: {
-    emitChange($evt: Event): void {
-      /** `(value: string, $evt: Event)` */
-      this.$emit("change", ($evt.target as HTMLInputElement).value, $evt);
-    },
-    emitInput($evt: Event): void {
-      /** `(value: string, $evt: Event)` */
-      this.$emit("input", ($evt.target as HTMLInputElement).value, $evt);
+    modelValue: {
+      required: true,
+      type: [String, Number],
     },
   },
 });

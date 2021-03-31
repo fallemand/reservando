@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas, Props } from "@storybook/addon-docs/blocks";
-import { ReInput, ReButton } from "@reservando/design-system";
+import { ReInput, ReButton, ReIcon } from "@reservando/design-system";
 
 <Meta title="Components/Input" component={ReInput} />
 
-# ReInput
+#### ReInput
 
 <Canvas>
   <Story name="basic">
@@ -11,12 +11,13 @@ import { ReInput, ReButton } from "@reservando/design-system";
       components: { ReInput },
       data() {
         return {
-          value: "",
+          text: "",
         };
       },
       template: `
       <div style="max-width: 400px;">
-        <ReInput placeholder="I'm just an input" v-model="value" />
+        <ReInput v-model="text" placeholder="Placeholder" />
+        <p class="hint mt-3">Value: {{ text }}</p>
       </div>
     `,
     }}
@@ -29,10 +30,6 @@ import { ReInput, ReButton } from "@reservando/design-system";
 <script lang="ts">
   import { ReInput } from "@reservando/design-system";
 </script>
-
-<style lang="scss">
-  @import "~@reservando/design-system/lib/ReInput/ReInput";
-</style>
 ```
 
 <ArgsTable of={ReInput} />
@@ -92,42 +89,19 @@ Pass any other input event `@mouseenter`, `@mouseleave`, `@keypressed`, etc. the
 
 ## Examples
 
-#### Using `v-model`
-
-Using `v-model="text"` is the same than using `@input="(value, $evt) => text = value"` and `:value="text"`
-
-<Canvas>
-  <Story name="using v-model">
-    {{
-      components: { ReInput },
-      data() {
-        return {
-          text: "",
-        };
-      },
-      template: `
-      <div style="max-width: 400px;">
-        <ReInput v-model="text" />
-        <span class="hint">Value: {{ text }}</span>
-      </div>
-    `,
-    }}
-  </Story>
-</Canvas>
-
 #### Passing an icon
 
 <Canvas>
   <Story name="with icon">
     {{
-      components: { ReInput },
+      components: { ReInput, ReIcon },
       template: `
       <div style="max-width: 400px;">
         <ReInput class="mb-3" placeholder="With preicon">
-          <template slot="preicon">ICON</template>
+          <template #preicon><ReIcon name="plus" /></template>
         </ReInput>
         <ReInput class="mb-3" placeholder="With posticon">
-          <template slot="posticon">ICON</template>
+          <template #posticon><ReIcon name="plus" /></template>
         </ReInput>
       </div>
     `,
@@ -157,10 +131,3 @@ Use `$refs.{refName}.$refs.input` to access the `Input element`
     }}
   </Story>
 </Canvas>
-
-#### Render with custom class
-
-```html
-<ReInput class="custom-input" />
-<ReInput :class="classObject" />
-```

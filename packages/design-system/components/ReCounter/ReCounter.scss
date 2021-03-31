@@ -1,0 +1,31 @@
+@import "../../styles/variables.scss";
+
+.re-counter {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+
+  &__cta {
+    flex-shrink: 0;
+  }
+
+  &__icon {
+    font-size: 1em;
+    margin: 0.5em 1em;
+    flex-shrink: 0;
+  }
+
+  &__input {
+    margin: 0 1em;
+    text-align: center;
+    flex-grow: 1;
+
+    .re-input__field,
+    .re-input__field::-webkit-outer-spin-button,
+    .re-input__field::-webkit-inner-spin-button {
+      -moz-appearance: textfield;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

@@ -7,11 +7,10 @@
       `re-button--${modifier}`,
       { 're-button--with-icon': $slots.icon },
     ]"
-    v-bind="$attrs"
     :type="renderAsLink($attrs) ? null : type"
   >
     <span v-if="$slots.icon" class="re-button-icon">
-      <!-- @slot Icon at the beginning of the button -->
+      <!-- @slot ReIcon at the beginning of the button -->
       <slot name="icon" />
     </span>
 

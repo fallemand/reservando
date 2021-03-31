@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReCounter component should render with default props 1`] = `
+<div
+  class="ReCounter"
+>
+  <button
+    class="ReCounter__cta"
+  >
+    <icminus-stub
+      additionalclass=""
+      class="ReCounter__icon"
+    />
+  </button>
+
+  <input
+    class="ReCounter__input"
+    type="number"
+  />
+
+  <button
+    class="ReCounter__cta"
+  >
+    <icplus-stub
+      additionalclass=""
+      class="ReCounter__icon"
+    />
+  </button>
+</div>
+`;

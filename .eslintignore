@@ -8,3 +8,5 @@
 /spinnaker
 /apps/backend/dist
 /apps/frontend/dist
+/apps/storybook/dist
+/public

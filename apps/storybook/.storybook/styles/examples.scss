@@ -39,13 +39,11 @@
   min-height: 50px;
 }
 
-// GygIcon
+// GygReIcon
 .icons-list {
   display: flex;
   list-style: none;
   flex-wrap: wrap;
-  flex-direction: column;
-  max-height: 600px;
 
   li {
     color: $text-primary;
@@ -53,11 +51,11 @@
     margin: $bdu 0;
     font-weight: $font-weight-regular;
     font-size: 14px;
+    display: flex;
+    align-items: center;
   }
-
-  .svg-icon {
-    vertical-align: middle;
-    margin-right: $bdu / 2;
+  .icon__image {
+    margin-right: $bdu;
   }
 }
 

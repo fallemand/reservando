@@ -16,7 +16,7 @@
       ]"
     >
       <span class="re-bottom-sheet__close" tabindex="0" @click="close" @keydown.enter="close">
-        <Icon :icon="closeIcon" class="re-bottom-sheet__close-icon" size="40px" />
+        <ReIcon icon="close" class="re-bottom-sheet__close-icon" size="40px" />
       </span>
 
       <div v-if="title || $slots.title" class="re-bottom-sheet__title-container">
@@ -52,13 +52,12 @@
 
 <script lang="ts">
 import Vue, { defineComponent } from "vue";
-import Icon from "../Icon/Icon.vue";
-import icons from "../Icon/icons";
+import ReIcon from "../ReIcon/ReIcon.vue";
 import ReDialog from "../ReDialog/ReDialog.vue";
 
 const ReBottomSheet = defineComponent({
   name: "ReBottomSheet",
-  components: { ReDialog, Icon },
+  components: { ReDialog, ReIcon },
   props: {
     /** Sheet title */
     title: {
@@ -75,11 +74,6 @@ const ReBottomSheet = defineComponent({
     return {
       scrollableContent: false,
     };
-  },
-  computed: {
-    closeIcon(): string {
-      return icons.close;
-    },
   },
   methods: {
     async checkScrollable(): Promise<void> {

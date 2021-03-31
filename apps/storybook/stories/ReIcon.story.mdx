@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ReIcon } from "@reservando/design-system";
+
+<Meta title="Components/Icons" component={ReIcon} />
+
+# Icons
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReIcon },
+      data() {
+        return {
+          iconsList: ReIcon.icons,
+        };
+      },
+      template: `
+      <ul class="icons-list">
+        <li v-for="icon in iconsList">
+          <ReIcon :name="icon" />
+          {{ icon }}
+        </li>
+      </ul>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## How to use
+
+```html
+<template>
+  <ReIcon name="arrowLeft" />
+</template>
+
+<script lang="ts">
+  import { ReIcon } from '@getyourguide/design-system';
+</script>
+```

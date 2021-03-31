@@ -24,7 +24,7 @@ import { defineComponent } from "vue";
 import { ReInput, ReTransition } from "@reservando/design-system";
 import TimeSelector from "@/components/TimeSelector/TimeSelector.vue";
 
-const CalendarStep = defineComponent({
+const CalendarTimeSelector = defineComponent({
   components: {
     ReInput,
     TimeSelector,
@@ -41,7 +41,7 @@ const CalendarStep = defineComponent({
     };
   },
 });
-export default CalendarStep;
+export default CalendarTimeSelector;
 </script>
 
 <style lang="scss">

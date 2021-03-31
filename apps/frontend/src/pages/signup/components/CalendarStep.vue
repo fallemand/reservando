@@ -31,7 +31,7 @@
         {{ $t("signup.calendarStep.ctaAddNew") }}
       </ReButton>
       <div class="calendar-step__continue-container">
-        <ReButton class="calendar-step__continue" size="large" @click="showModal = true">
+        <ReButton class="calendar-step__continue" size="large" @click="$router.push('sectors')">
           {{ $t("controls.continue") }}
         </ReButton>
       </div>

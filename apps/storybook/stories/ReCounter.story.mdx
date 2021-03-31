@@ -1,0 +1,62 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from '@storybook/addon-docs/blocks';
+import { ReCounter } from "@reservando/design-system";
+
+<Meta title="Components/Counter" component={ReCounter} />
+
+# ReCounter
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReCounter },
+      data() {
+        return {
+          value: 0,
+        };
+      },
+      template: `
+        <div style="max-width: 200px;">
+          <ReCounter v-model="value" />
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+
+## How to use
+
+```html
+<template>
+  <ReCounter v-model="value" />
+</template>
+
+<script lang="ts">
+  import { ReCounter } from '@reservando/design-system';
+</script>
+```
+
+<ArgsTable of={ReCounter} />
+
+## Examples
+
+#### Using params
+Step: `2` | min: `10` | max: `20`
+<Canvas>
+  <Story name="with params">
+    {{
+      components: { ReCounter },
+      data() {
+        return {
+          value: 10,
+        };
+      },
+      template: `
+        <div style="max-width: 200px;">
+          <ReCounter :min="10" :max="20" :step="2" v-model="value" />
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>
+
