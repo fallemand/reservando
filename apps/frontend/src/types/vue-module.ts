@@ -1,6 +1,6 @@
 import urls from "@/utils/urls";
 import firebase from "firebase";
-import icons from "@reservando/design-system/components/Icon/icons";
+import { Icons } from "@reservando/design-system";
 
 declare module "@vue/runtime-core" {
   //Bind to `this` keyword
@@ -9,6 +9,6 @@ declare module "@vue/runtime-core" {
     $user: firebase.User;
     $sanitizeHTML: (param: string) => string;
     $isMobile: boolean;
-    $icons: typeof icons;
+    $icons: typeof Icons;
   }
 }

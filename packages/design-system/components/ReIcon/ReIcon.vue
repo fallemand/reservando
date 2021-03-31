@@ -9,7 +9,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import spriteUrl from "./sprite.svg";
-const icons = ["arrow-left", "close", "minus", "plus"];
 
 const ReIcon = defineComponent({
   props: {
@@ -29,7 +28,6 @@ const ReIcon = defineComponent({
   },
 });
 
-ReIcon.icons = icons;
 export default ReIcon;
 </script>
 

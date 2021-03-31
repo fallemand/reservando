@@ -8,3 +8,4 @@ export { default as ReScrollPicker } from "./components/ReScrollPicker/ReScrollP
 export { default as ReTransition } from "./components/ReTransition/ReTransition.vue";
 export { default as ReCounter } from "./components/ReCounter/ReCounter.vue";
 export { default as ReIcon } from "./components/ReIcon/ReIcon.vue";
+export { default as Icons } from "./components/ReIcon/icons";
