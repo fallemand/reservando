@@ -60,7 +60,7 @@ You can also pass any `<transition />` prop or listeners. `mode`, `enter-class`,
 #### Animations
 
 <Canvas>
-  <Story name="fade" height="170px">
+  <Story name="fade" height="190px">
     {{
       components: { ReTransition, ReButton },
       data() {
@@ -78,10 +78,10 @@ You can also pass any `<transition />` prop or listeners. `mode`, `enter-class`,
       },
       template: `
       <div>
-        <ReButton size="small" @click="toggle('fade')">fade</ReButton>
-        <ReButton size="small" @click="toggle('height')">height</ReButton>
-        <ReButton size="small" @click="toggle('slide-right')">slide-right</ReButton>
-        <ReButton size="small" @click="toggle('slide-bottom')">slide-bottom</ReButton>
+        <ReButton size="small" @click="toggle('fade')" class="mr-2">fade</ReButton>
+        <ReButton size="small" @click="toggle('height')" class="mr-2">height</ReButton>
+        <ReButton size="small" @click="toggle('slide-right')" class="mr-2">slide-right</ReButton>
+        <ReButton size="small" @click="toggle('slide-bottom')" class="mr-2">slide-bottom</ReButton>
         <ReButton size="small" @click="toggle('expand')">expand</ReButton>
         <br />
         <br />

@@ -3,7 +3,6 @@
     :appear="true"
     :name="`re-transition-${transition}`"
     v-bind="{
-      ...$attrs,
       ...heightTransition,
     }"
   >

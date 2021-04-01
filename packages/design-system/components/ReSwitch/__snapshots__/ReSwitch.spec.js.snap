@@ -8,7 +8,7 @@ exports[`ReSwitch component should render with default props 1`] = `
     aria-checked="false"
     aria-label="checkbox"
     class="re-switch__input"
-    id="id"
+    id="SWITCH-ID"
     role="switch"
     type="checkbox"
   />

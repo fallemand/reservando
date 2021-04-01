@@ -1,7 +1,7 @@
 <template>
   <div class="signup-header">
     <a class="signup-header__back" @click="handleBack">
-      <Icon class="signup-header__back-img" :icon="$icons.arrowLeft" size="24px" />
+      <ReIcon class="signup-header__back-img" :name="$icons.arrowLeft" size="24px" />
     </a>
     <div class="signup-header__logo">
       <img class="signup-header__logo-img" :src="logoSvg" alt="Reservando" />

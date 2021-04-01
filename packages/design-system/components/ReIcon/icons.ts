@@ -3,4 +3,6 @@ export default {
   close: "close",
   minus: "minus",
   plus: "plus",
+  facebook: "facebook",
+  google: "google",
 };

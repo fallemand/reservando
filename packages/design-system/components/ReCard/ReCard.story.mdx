@@ -1,0 +1,36 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from '@storybook/addon-docs/blocks';
+import { ReCard } from "@reservando/design-system";
+
+<Meta title="Components/Card" component={ReCard} />
+
+# ReCard
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReCard },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+        <ReCard>
+          My card content
+        </ReCard>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+<Description of={ReCard} />
+
+## How to use
+
+```html
+<script lang="ts">
+  import { ReCard } from '@reservando/design-system';
+</script>
+```
+
+<ArgsTable of={ReCard} />

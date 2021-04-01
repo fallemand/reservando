@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "lerna run start --stream",
+    "start:storybook": "lerna run start --scope @reservando/storybook --stream",
+    "start:frontend": "lerna run start --scope @reservando/frontend --stream",
     "build": "lerna run build --stream",
     "watch": "lerna run watch --parallel",
+    "watch:frontend": "lerna run watch --scope @reservando/frontend --parallel",
     "test": "NODE_ENV=test jest",
     "test:clean-cache": "npm run test -- --clearCache",
     "test:update": "npm run test -- --updateSnapshot",

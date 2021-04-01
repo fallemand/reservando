@@ -30,7 +30,17 @@
         }
       },
       "sectorsStep": {
-        "question": "Selecciona los sectores disponibles y cantidad de mesas por sector."
+        "question": "Selecciona los sectores disponibles y cantidad de mesas por sector.",
+        "inside": "Interior",
+        "outside": "Exterior",
+        "tableFor": "Mesa para {0}"
+      },
+      "registerStep": {
+        "question": "Ya casi terminamos",
+        "title": "Crea tu cuenta en Reservando",
+        "facebook": "Registrarse con facebook",
+        "google": "Registrarse con google",
+        "email": "Registrarse con email"
       }
     },
     "controls": {

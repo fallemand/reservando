@@ -40,9 +40,9 @@ export default SignupPage;
   &__intro {
     font-weight: 400;
     margin: 0 auto ($bdu * 6);
-    font-size: 18px;
+    font-size: 16px;
     max-width: 280px;
-    line-height: 1.8em;
+    line-height: 1.6em;
   }
 
   &__header {
@@ -63,6 +63,8 @@ export default SignupPage;
     bottom: 0;
     right: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
   }
 }
 

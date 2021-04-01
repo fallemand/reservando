@@ -7,13 +7,13 @@
 import { defineComponent } from "vue";
 import { ReInput, ReButton } from "@reservando/design-system";
 
-const SectorsStep = defineComponent({
+const RegisterStep = defineComponent({
   components: {
     ReInput,
     ReButton,
   },
 });
-export default SectorsStep;
+export default RegisterStep;
 </script>
 
 <style lang="scss">

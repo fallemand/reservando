@@ -30,11 +30,9 @@
       >
         {{ $t("signup.calendarStep.ctaAddNew") }}
       </ReButton>
-      <div class="calendar-step__continue-container">
-        <ReButton class="calendar-step__continue" size="large" @click="$router.push('sectors')">
-          {{ $t("controls.continue") }}
-        </ReButton>
-      </div>
+      <ContinueButton @click="$router.push('sectors')">
+        {{ $t("controls.continue") }}
+      </ContinueButton>
     </template>
     <CalendarModal
       v-if="showModal"
@@ -47,14 +45,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ReButton } from "@reservando/design-system";
-import CalendarModal from "./CalendarModal.vue";
-import CalendarTime from "./CalendarTime.vue";
+import CalendarModal from "../components/CalendarModal.vue";
+import CalendarTime from "../components/CalendarTime.vue";
+import ContinueButton from "../components/ContinueButton.vue";
 
 const CalendarStep = defineComponent({
   components: {
     ReButton,
     CalendarModal,
     CalendarTime,
+    ContinueButton,
   },
   data() {
     return {
@@ -71,9 +71,6 @@ export default CalendarStep;
 @import "~@reservando/design-system/styles/mixins";
 
 .calendar-step {
-  display: flex;
-  flex-direction: column;
-
   &__tips {
     background-color: $white;
     border: 1px solid $border-secondary;
@@ -104,17 +101,6 @@ export default CalendarStep;
 
   &__add-new {
     width: 100%;
-  }
-
-  &__continue-container {
-    flex-grow: 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-
-  &__continue {
-    margin-bottom: $bdu * 4;
   }
 }
 </style>

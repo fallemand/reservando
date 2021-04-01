@@ -2,20 +2,22 @@
   <div class="name-step">
     <p class="name-step__intro signup__intro">{{ $t("signup.nameStep.question") }}</p>
     <ReInput class="name-step__field" :placeholder="$t('signup.nameStep.inputPlaceholder')" />
-    <ReButton class="name-step__button" size="large" @click="$router.push('calendar')">
+    <ContinueButton @click="$router.push('calendar')">
       {{ $t("signup.continue") }}
-    </ReButton>
+    </ContinueButton>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ReInput, ReButton } from "@reservando/design-system";
+import ContinueButton from "../components/ContinueButton.vue";
 
 const NameStep = defineComponent({
   components: {
     ReInput,
     ReButton,
+    ContinueButton
   },
 });
 export default NameStep;

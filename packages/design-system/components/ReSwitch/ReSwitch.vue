@@ -1,7 +1,7 @@
 <template>
   <div class="re-switch" :class="$attrs.class">
     <input
-      id="id"
+      :id="id"
       ref="input"
       type="checkbox"
       class="re-switch__input"
@@ -14,6 +14,7 @@
       :aria-checked="`${modelValue}`"
       :checked="modelValue"
       aria-label="checkbox"
+      @change="emitChange"
     />
     <button
       type="button"
