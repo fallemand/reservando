@@ -62,6 +62,14 @@ const ReCounter = defineComponent({
       return this.modelValue + this.step > this.max;
     },
   },
+  created(): void {
+    if (this.modelValue < this.min) {
+      this.$emit("update:modelValue", this.min);
+    }
+    if (this.max && this.modelValue > this.max) {
+      this.$emit("update:modelValue", this.max);
+    }
+  },
   methods: {
     lessThanMin(value: number): boolean {
       return value < this.min;

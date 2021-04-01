@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReSwitch component should render with default props 1`] = `
+<div
+  class="re-switch"
+>
+  <input
+    aria-checked="false"
+    aria-label="checkbox"
+    class="re-switch__input"
+    id="id"
+    role="switch"
+    type="checkbox"
+  />
+  <button
+    class="re-switch__control"
+    type="button"
+  />
+  <!--v-if-->
+</div>
+`;

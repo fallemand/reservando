@@ -1,0 +1,106 @@
+@import '../../styles/variables';
+$duration: 0.3s;
+
+.re-switch {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  &__label {
+    margin-left: 0.5em;
+  }
+
+  &__control {
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 1.5em;
+    line-height: calc(1em - 2px);
+    padding: 0;
+    vertical-align: middle;
+    border-radius: 1em;
+    background-color: $grey-400;
+    border: 0;
+    cursor: pointer;
+    transition: all $duration cubic-bezier(0.35, 0, 0.25, 1);
+    box-shadow: inset 0px 1px 2px rgba(0, 50, 77, 0.2);
+
+    &::after {
+      position: absolute;
+      width: calc(1.5em - 4px);
+      height: calc(1.5em - 4px);
+      left: 3px;
+      top: 2px;
+      border-radius: 50% 50%;
+      background-color: $white;
+      content: ' ';
+      cursor: pointer;
+      transform: scale(1);
+      transition: left $duration cubic-bezier(0.35, 0, 0.25, 1);
+      animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+      animation-duration: $duration;
+      animation-name: switchOff;
+      box-shadow: 0px 0px 1px rgba(0, 50, 77, 0.1), 0px 0px 2px rgba(0, 50, 77, 0.13), 0px 1px 4px rgba(0, 50, 77, 0.1);
+    }
+
+    &:hover::after {
+      transform: scale(1.1);
+      animation-name: switchOn;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px tint($primary-700 80%);
+      outline: none;
+    }
+
+    &--checked {
+      background-color: $primary-600;
+
+      &::after {
+        left: 1.5em;
+      }
+    }
+
+    &--disabled {
+      cursor: no-drop;
+
+      &::after {
+        animation-name: none;
+        cursor: no-drop;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+        animation-name: none;
+      }
+    }
+  }
+}
+
+@keyframes switchOn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes switchOff {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

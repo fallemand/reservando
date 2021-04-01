@@ -1,0 +1,58 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from '@storybook/addon-docs/blocks';
+import { ReSwitch } from "@reservando/design-system";
+
+<Meta title="Components/Switch" component={ReSwitch} />
+
+# ReSwitch
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReSwitch },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+        <div>
+          <ReSwitch v-model="checked" id="switch" label="Label" />
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+<Description of={ReSwitch} />
+
+## How to use
+
+```html
+<template>
+  <ReSwitch v-model="value" id="my-switch" label="Label" />
+</template>
+
+<script lang="ts">
+  import { ReSwitch } from '@reservando/design-system';
+</script>
+```
+
+<ArgsTable of={ReSwitch} />
+
+## Examples
+
+#### Different states
+
+<Canvas>
+  <Story name="disabled">
+    {{
+      components: { ReSwitch },
+      template: `
+        <div>
+          <ReSwitch id="disabled" disabled class="mb-2" label="Disabled" />
+          <ReSwitch id="disabled-checked" class="mb-2" :modelValue="true" disabled label="Disabled" />
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>

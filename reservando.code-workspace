@@ -1,6 +1,10 @@
 {
     "folders": [
       {
+        "name": "✨ reservando",
+        "path": "."
+      },
+      {
         "name": "🚀 @reservando/frontend",
         "path": "apps/frontend"
       },

@@ -15,7 +15,7 @@ describe("heightTransition", () => {
     const element: Partial<HTMLDivElement> = {
       style: ({} as unknown) as CSSStyleDeclaration,
     };
-    heightTransition.afterEnter(element as HTMLDivElement);
+    heightTransition.onAfterEnter(element as HTMLDivElement);
     expect(element.style?.height).toEqual("auto");
   });
 });
