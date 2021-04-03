@@ -1,9 +1,9 @@
-import { Meta, Story, Canvas, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, Props, ArgsTable } from "@storybook/addon-docs/blocks";
 import { ReInput, ReButton, ReIcon } from "@reservando/design-system";
 
 <Meta title="Components/Input" component={ReInput} />
 
-#### ReInput
+# ReInput
 
 <Canvas>
   <Story name="basic">
@@ -34,6 +34,23 @@ import { ReInput, ReButton, ReIcon } from "@reservando/design-system";
 
 <ArgsTable of={ReInput} />
 
+## Examples
+
+#### Using underline modifier
+
+<Canvas>
+  <Story name="underline">
+    {{
+      components: { ReInput },
+      template: `
+      <div style="max-width: 400px;">
+        <ReInput modifier="underline" placeholder="Password here" />
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
 #### Input Attributes
 
 Pass any input attribute `id`, `name`, `type`, `placeholder`, `value`, `required`, `minlength`, etc.
@@ -44,7 +61,6 @@ Pass any input attribute `id`, `name`, `type`, `placeholder`, `value`, `required
       components: { ReInput },
       template: `
       <div style="max-width: 400px;">
-        <ReInput class="mb-3" value="I have a value here" />
         <ReInput class="mb-3" type="password" placeholder="Password here" />
         <ReInput class="mb-3" type="number" placeholder="Only numbers from 0 to 10" :max="10" :min="0" />
         <ReInput class="mb-3" placeholder="Im disabled" :disabled="true" />

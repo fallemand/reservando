@@ -1,7 +1,7 @@
 <template>
   <div class="name-step">
     <p class="name-step__intro signup__intro">{{ $t("signup.nameStep.question") }}</p>
-    <ReInput class="name-step__field" :placeholder="$t('signup.nameStep.inputPlaceholder')" />
+    <ReInput class="name-step__field" modifier="underline" :placeholder="$t('signup.nameStep.inputPlaceholder')" />
     <ContinueButton @click="$router.push('calendar')">
       {{ $t("signup.continue") }}
     </ContinueButton>

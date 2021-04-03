@@ -10,4 +10,5 @@ export { default as ReCounter } from "./components/ReCounter/ReCounter.vue";
 export { default as ReIcon } from "./components/ReIcon/ReIcon.vue";
 export { default as ReSwitch } from "./components/ReSwitch/ReSwitch.vue";
 export { default as ReCard } from "./components/ReCard/ReCard.vue";
+export { default as ReCardToggle } from "./components/ReCardToggle/ReCardToggle.vue";
 export { default as Icons } from "./components/ReIcon/icons";

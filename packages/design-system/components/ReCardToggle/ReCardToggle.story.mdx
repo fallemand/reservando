@@ -1,0 +1,38 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from '@storybook/addon-docs/blocks';
+import { ReCardToggle } from "@reservando/design-system";
+
+<Meta title="Components/CardToggle" component={ReCardToggle} />
+
+# ReCardToggle
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReCardToggle },
+      data() {
+        return {
+          checked: false,
+        };
+      },
+      template: `
+        <div style="max-width: 300px;">
+          <ReCardToggle v-model="checked" label="My Label">
+            My card content
+          </ReCardToggle>
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+<Description of={ReCardToggle} />
+
+## How to use
+
+```html
+<script lang="ts">
+  import { ReCardToggle } from '@reservando/design-system';
+</script>
+```
+
+<ArgsTable of={ReCardToggle} />

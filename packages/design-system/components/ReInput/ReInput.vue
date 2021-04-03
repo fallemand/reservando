@@ -32,7 +32,7 @@ const ReInput = defineComponent({
   inheritAttrs: false,
   props: {
     modifier: {
-      default: "underline",
+      default: "outline",
       type: String as PropType<typeof MODIFIERS[number]>,
       validator: (value: string): boolean => MODIFIERS.includes(value),
     },

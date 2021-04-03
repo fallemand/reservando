@@ -7,6 +7,7 @@
     </template>
     <ReInput
       class="calendar-modal__input"
+      modifier="underline"
       :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
     />
     <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>

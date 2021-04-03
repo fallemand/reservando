@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReCardToggle component should render with default props 1`] = `
+<div
+  class="re-card re-card-toggle re-card-toggle"
+>
+  
+  <div
+    class="re-switch re-card-toggle__switch"
+  >
+    <input
+      aria-checked="true"
+      aria-label="checkbox"
+      class="re-switch__input"
+      id="__label__"
+      role="switch"
+      type="checkbox"
+    />
+    <button
+      class="re-switch__control re-switch__control--checked"
+      type="button"
+    />
+    <label
+      class="re-switch__label"
+      for="__label__"
+    >
+      __LABEL__
+    </label>
+  </div>
+  <transition-stub>
+    
+    <div>
+      <div
+        class="re-card-toggle__content"
+      >
+        
+        __CONTENT__
+        
+      </div>
+    </div>
+    
+  </transition-stub>
+  
+</div>
+`;

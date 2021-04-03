@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+.re-card-toggle {
+  &__switch {
+    flex-direction: row-reverse;
+  }
+
+  &__content {
+    margin-top: $bdu * 2;
+  }
+
+  .re-switch__label {
+    flex-grow: 1;
+    text-align: left;
+    font-weight: $font-weight-medium;
+    font-size: 18px;
+    margin-left: 0;
+  }
+}
