@@ -41,6 +41,10 @@
         "facebook": "Registrarse con facebook",
         "google": "Registrarse con google",
         "email": "Registrarse con email"
+      },
+      "notificationsStep": {
+        "lastStep": "¡Último paso!",
+        "question": "Donde quieres ser notificado cuando recibas una nueva reserva"
       }
     },
     "controls": {
@@ -58,6 +62,10 @@
         "friday": "Viernes",
         "saturday": "Saturday",
         "sunday": "Domingo"
+      },
+      "social": {
+        "whatsapp": "Whatsapp",
+        "email": "E-mail"
       }
     }
   }

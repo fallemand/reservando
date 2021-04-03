@@ -12,7 +12,7 @@
     <ReButton class="register-step__button">
       {{ $t("signup.registerStep.email") }}
     </ReButton>
-    <ContinueButton class="register-step__continue" @click="$router.push('register')">
+    <ContinueButton class="register-step__continue" @click="$router.push('notifications')">
       {{ $t("controls.continue") }}
     </ContinueButton>
   </div>
