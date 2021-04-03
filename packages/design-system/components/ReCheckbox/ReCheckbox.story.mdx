@@ -9,23 +9,23 @@ import { ReCheckbox, ReCheckboxGroup } from "@reservando/design-system";
   }}
 />
 
-export const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { ReCheckbox },
-  template: '<ReCheckbox v-model:checked="checked" :id="id" :modifier="modifier" :label="label" />',
-});
-
 # ReCheckbox
 
 <Canvas>
-  <Story
-    name="basic"
-    args={{
-      id: "checkbox-id",
-      label: "Checkbox label",
+  <Story name="basic">
+    {{
+      components: { ReCheckbox },
+      data() {
+        return {
+          checked: false,
+        };
+      },
+      template: `
+      <div>
+        <ReCheckbox id="basic" v-model:checked="checked" label="Checkbox label" />
+      </div>
+    `,
     }}
-  >
-    {Template.bind({})}
   </Story>
 </Canvas>
 
@@ -41,20 +41,28 @@ export const Template = (args, { argTypes }) => ({
 
 <ArgsTable components={{ ReCheckbox, ReCheckboxGroup }} />
 
-#### Using full modifier
+#### Using modifiers
 
 <Canvas>
-  <Story name="full mode">
+  <Story name="modifiers">
     {{
       components: { ReCheckbox },
       data() {
         return {
-          checked: true,
+          defaultChecked: false,
+          inverted: false,
+          contained: false,
         };
       },
       template: `
-      <div>
-        <ReCheckbox modifier="full" id="checked" v-model:checked="checked" label="Checked"/>
+      <div style="max-width: 300px;">
+        <ReCheckbox modifier="default" id="default" v-model:checked="defaultChecked" label="Default" />
+        <ReCheckbox modifier="inverted" id="inverted" v-model:checked="inverted" label="Inverted" class="mb-1" />
+        <ReCheckbox modifier="contained" id="contained" v-model:checked="contained" label="Contained" />
+        <br />
+        <ReCheckbox modifier="default" id="default-disabled" :disabled="true" v-model:checked="defaultChecked" label="Default disabled" />
+        <ReCheckbox modifier="inverted" id="inverted-disabled" :disabled="true" v-model:checked="inverted" label="Inverted disabled" class="mb-1" />
+        <ReCheckbox modifier="contained" id="contained-disabled" :disabled="true" v-model:checked="contained" label="Contained disabled" />
       </div>
     `,
     }}
@@ -71,10 +79,10 @@ You can add the default attributes like `required` `disabled` `checked` on the e
       components: { ReCheckbox },
       template: `
       <div>
-        <ReCheckbox id="checked-1" checked="checked" label="Checked"/> <br />
-        <ReCheckbox id="indeterminate-1" checked="checked" :indeterminate="true" label="Indeterminate"/> <br />
-        <ReCheckbox id="disabled-1" disabled="disabled" label="Disabled"/> <br />
-        <ReCheckbox id="disabled-checked-1" checked="checked" disabled="disabled" label="Disabled checked"/> <br />
+        <ReCheckbox id="checked-1" checked="checked" label="Checked"/>
+        <ReCheckbox id="indeterminate-1" checked="checked" :indeterminate="true" label="Indeterminate"/>
+        <ReCheckbox id="disabled-1" disabled="disabled" label="Disabled"/>
+        <ReCheckbox id="disabled-checked-1" checked="checked" disabled="disabled" label="Disabled checked"/>
       </div>
     `,
     }}

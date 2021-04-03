@@ -31,13 +31,13 @@
       {{ $t("signup.calendarStep.modal.repeat") }}
     </p>
     <ReCheckboxGroup v-model:checked="checkedDays">
-      <ReCheckbox id="monday" modifier="full" :label="$t('general.days.monday')" />
-      <ReCheckbox id="tuesday" modifier="full" :label="$t('general.days.tuesday')" />
-      <ReCheckbox id="wednesday" modifier="full" :label="$t('general.days.wednesday')" />
-      <ReCheckbox id="thursday" modifier="full" :label="$t('general.days.thursday')" />
-      <ReCheckbox id="friday" modifier="full" :label="$t('general.days.friday')" />
-      <ReCheckbox id="saturday" modifier="full" :label="$t('general.days.saturday')" />
-      <ReCheckbox id="sunday" modifier="full" :label="$t('general.days.sunday')" />
+      <ReCheckbox id="monday" modifier="contained" :label="$t('general.days.monday')" />
+      <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.days.tuesday')" />
+      <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.days.wednesday')" />
+      <ReCheckbox id="thursday" modifier="contained" :label="$t('general.days.thursday')" />
+      <ReCheckbox id="friday" modifier="contained" :label="$t('general.days.friday')" />
+      <ReCheckbox id="saturday" modifier="contained" :label="$t('general.days.saturday')" />
+      <ReCheckbox id="sunday" modifier="contained" :label="$t('general.days.sunday')" />
     </ReCheckboxGroup>
   </ReBottomSheet>
 </template>
