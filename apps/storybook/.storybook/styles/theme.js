@@ -1,6 +1,6 @@
 import { create } from "@storybook/theming";
 import colors from "!style-loader!css-loader!sass-loader!@reservando/design-system/styles/_colors.scss";
-import logoSvg from "!url-loader!@reservando/design-system/images/logo.svg";
+import logoSvg from "!url-loader!@reservando/design-system/images/logo-ui.svg";
 
 
 export default create({

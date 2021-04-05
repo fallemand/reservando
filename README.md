@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/fallemand/reservando/master/packages/design-system/images/logo.svg?token=AD24B7RVK72BN4DFLAD6WRTANNGBE" width="400" />
+<img src="https://raw.githubusercontent.com/fallemand/reservando/master/packages/design-system/images/logo-ui.svg?token=AD24B7RVK72BN4DFLAD6WRTANNGBE" width="400" />
 
 > Monorepo with all the reservando modules, including the frontend and the api.
 
