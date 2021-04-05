@@ -44,18 +44,18 @@ export default WelcomeHeader;
   &__logo {
     max-width: 300px;
     width: 100%;
-    margin-bottom: $bdu * 3;
+    margin: 0 auto ($bdu * 3);
   }
 
   &__description {
     @extend .re-body-18;
-    margin-bottom: $bdu * 7;
+    margin-bottom: $bdu * 6;
   }
 
   &__cta {
     @extend .re-body-strong-16;
-    margin-bottom: $bdu * 6;
-    color: $btn-primary;
+    margin-bottom: $bdu * 8;
+    color: $primary-700;
     text-decoration: none;
     display: block;
   }
