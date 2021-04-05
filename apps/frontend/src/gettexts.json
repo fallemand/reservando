@@ -9,7 +9,7 @@
       },
       "nameStep": {
         "question": "¿Cuál es el nombre de tu bar o restaurante?",
-        "inputPlaceholder": "Deli Resto"
+        "inputPlaceholder": "Nombre..."
       },
       "calendarStep": {
         "hint": "Bienvenido Allemand Resto,",
@@ -45,7 +45,7 @@
       },
       "notificationsStep": {
         "lastStep": "¡Último paso!",
-        "question": "Donde quieres ser notificado cuando recibas una nueva reserva"
+        "question": "¿Dónde quieres ser notificado en caso de una nueva reserva?"
       }
     },
     "controls": {

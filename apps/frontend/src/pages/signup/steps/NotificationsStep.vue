@@ -1,6 +1,6 @@
 <template>
   <div class="notifications-step">
-    <p class="notifications-step__hint">{{ $t("signup.notificationsStep.lastStep") }}</p>
+    <p class="notifications-step__hint signup__hint">{{ $t("signup.notificationsStep.lastStep") }}</p>
     <p class="notifications-step__intro signup__intro">{{ $t("signup.notificationsStep.question") }}</p>
     <ReCardToggle class="notifications-step__card" v-model="useWhatsapp" :label="$t('general.social.whatsapp')">
       <ReInput v-model="whatsapp" placeholder="3513160567" />
@@ -42,9 +42,6 @@ export default RegisterStep;
 @import "~@reservando/design-system/styles/mixins";
 
 .notifications-step {
-  &__hint {
-    font-size: 14px;
-  }
   &__intro{
     margin-bottom: $bdu * 4;
   }

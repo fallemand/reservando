@@ -4,9 +4,11 @@ exports[`ReCounter component should render with default props 1`] = `
 <div
   class="re-counter"
 >
-  <re-button-stub
+  <re-button-round-stub
     class="re-counter__cta"
     disabled="true"
+    icon="minus"
+    modifier="secondary"
     size="small"
   />
   <re-input-stub
@@ -16,9 +18,11 @@ exports[`ReCounter component should render with default props 1`] = `
     step="1"
     type="number"
   />
-  <re-button-stub
+  <re-button-round-stub
     class="re-counter__cta"
     disabled="false"
+    icon="minus"
+    modifier="secondary"
     size="small"
   />
 </div>

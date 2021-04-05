@@ -30,10 +30,7 @@ export default NameStep;
 .name-step {
   &__field {
     margin-bottom: $bdu * 8;
-    font-size: 32px;
-    letter-spacing: -1px;
-    font-weight: 600;
-    text-align: center;
+    @extend .re-title-32
   }
 }
 </style>
