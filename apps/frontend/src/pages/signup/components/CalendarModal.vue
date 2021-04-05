@@ -30,7 +30,7 @@
     <p class="calendar-modal__label">
       {{ $t("signup.calendarStep.modal.repeat") }}
     </p>
-    <ReCheckboxGroup v-model:checked="checkedDays">
+    <ReCheckboxGroup class="calendar-modal__days" v-model:checked="checkedDays">
       <ReCheckbox id="monday" modifier="contained" :label="$t('general.days.monday')" />
       <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.days.tuesday')" />
       <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.days.wednesday')" />
@@ -104,6 +104,11 @@ export default CalendarStep;
   &__separator {
     color: $border-primary;
     margin: ($bdu * 4) 0;
+  }
+  &__days {
+    .re-checkbox {
+      margin-bottom: 0.5em;
+    }
   }
 }
 </style>

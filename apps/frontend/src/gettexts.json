@@ -23,6 +23,7 @@
         },
         "ctaCreate": "Crear calendario",
         "ctaAddNew": "Agregar otro calendario",
+        "personalizeLater": "Podras personalizar aún mas tus reservas más adelante.",
         "modal": {
           "titlePlaceholder": "Agregar título",
           "openHours": "¿En qué franja horaria se puede reservar?",
@@ -37,7 +38,6 @@
         "tableFor": "Mesa para {0}"
       },
       "registerStep": {
-        "question": "Ya casi terminamos",
         "title": "Crea tu cuenta en Reservando",
         "facebook": "Registrarse con facebook",
         "google": "Registrarse con google",
@@ -52,7 +52,8 @@
       "save": "Guardar",
       "from": "Desde",
       "to": "Hasta",
-      "continue": "Continuar"
+      "continue": "Continuar",
+      "edit": "Editar"
     },
     "general": {
       "days": {

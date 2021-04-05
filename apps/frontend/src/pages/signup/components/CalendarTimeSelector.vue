@@ -53,6 +53,7 @@ export default CalendarTimeSelector;
   width: 100%;
   align-items: center;
   flex-wrap: wrap;
+  text-align: center;
 
   &__label {
     flex-grow: 1;

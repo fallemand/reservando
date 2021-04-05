@@ -1,5 +1,6 @@
 export { default as ReBottomSheet } from "./components/ReBottomSheet/ReBottomSheet.vue";
 export { default as ReButton } from "./components/ReButton/ReButton.vue";
+export { default as ReButtonRound } from "./components/ReButtonRound/ReButtonRound.vue";
 export { default as ReCheckbox } from "./components/ReCheckbox/ReCheckbox.vue";
 export { default as ReCheckboxGroup } from "./components/ReCheckboxGroup/ReCheckboxGroup.vue";
 export { default as ReDialog } from "./components/ReDialog/ReDialog.vue";

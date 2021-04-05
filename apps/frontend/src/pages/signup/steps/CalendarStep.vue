@@ -8,19 +8,19 @@
           {{ $t("signup.calendarStep.tips.title") }}
         </h3>
         <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.hash" size="20px" />
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.hash" />
           <span class="calendar-step__tip-description">
             {{ $t("signup.calendarStep.tips.description1") }}
           </span>
         </p>
         <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.grid" size="20px" />
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.grid"/>
           <span class="calendar-step__tip-description">
             {{ $t("signup.calendarStep.tips.description2") }}
           </span>
         </p>
         <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.plus" size="20px" />
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.plus" />
           <span class="calendar-step__tip-description">
             {{ $t("signup.calendarStep.tips.description3") }}
           </span>
@@ -43,6 +43,9 @@
       >
         {{ $t("signup.calendarStep.ctaAddNew") }}
       </ReButton>
+      <p class="calendar-step__hint">
+        {{ $t("signup.calendarStep.personalizeLater") }}
+      </p>
       <ContinueButton @click="$router.push('sectors')">
         {{ $t("controls.continue") }}
       </ContinueButton>
@@ -107,9 +110,11 @@ export default CalendarStep;
 
   &__tip-icon {
     flex-shrink: 0;
+    font-size: 20px;
     color: $primary-500;
     margin-right: $bdu * 1.5;
-    margin-top: 2px;
+    margin-top: $bdu/2;
+    align-items: flex-start;
   }
 
   &__tip-description {
@@ -122,10 +127,16 @@ export default CalendarStep;
 
   &__calendar-item {
     margin-bottom: $bdu * 3;
+    padding: $bdu * 3;
   }
 
   &__add-new {
     width: 100%;
+    margin-bottom: $bdu * 2;
+  }
+
+  &__hint {
+    color: $text-secondary;
   }
 }
 </style>

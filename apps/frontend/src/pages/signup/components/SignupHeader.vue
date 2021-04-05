@@ -1,7 +1,7 @@
 <template>
   <div class="signup-header">
     <a class="signup-header__back" @click="handleBack">
-      <ReIcon class="signup-header__back-img" :name="$icons.arrowLeft" size="24px" />
+      <ReIcon class="signup-header__back-img" :name="$icons.arrowLeft" />
     </a>
     <div class="signup-header__logo">
       <img class="signup-header__logo-img" :src="logoSvg" alt="Reservando" />
@@ -44,6 +44,7 @@ export default Page;
   }
 
   &__back-img {
+    font-size: 24px;
     color: $btn-primary;
   }
 

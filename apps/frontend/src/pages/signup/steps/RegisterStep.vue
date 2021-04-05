@@ -1,17 +1,16 @@
 <template>
   <div class="register-step">
     <img class="register-step__image" :src="signupSvg" alt="Singup" />
-    <p class="register-step__intro signup__intro">{{ $t("signup.registerStep.question") }}</p>
     <h2 class="register-step__title">{{ $t("signup.registerStep.title") }}</h2>
+    <ReButton class="register-step__button">
+      {{ $t("signup.registerStep.email") }}
+    </ReButton>
     <FacebookButton class="register-step__button">
       {{ $t("signup.registerStep.facebook") }}
     </FacebookButton>
     <GoogleButton class="register-step__button">
       {{ $t("signup.registerStep.google") }}
     </GoogleButton>
-    <ReButton class="register-step__button">
-      {{ $t("signup.registerStep.email") }}
-    </ReButton>
     <ContinueButton class="register-step__continue" @click="$router.push('notifications')">
       {{ $t("controls.continue") }}
     </ContinueButton>
@@ -50,19 +49,16 @@ export default RegisterStep;
   &__image {
     max-width: 100px;
     margin: 0 auto;
-    margin-bottom: $bdu * 3;
-  }
-  &__intro{
-    margin-bottom: $bdu * 2;
-  }
-  &__title {
-    font-size: 20px;
-    font-weight: $font-weight-bold;
     margin-bottom: $bdu * 4;
-    letter-spacing: -0.5px;
   }
+
+  &__title {
+    @extend .re-title-20;
+    margin-bottom: $bdu * 4;
+  }
+
   &__button {
-    margin-bottom: $bdu * 2;
+    margin-bottom: $bdu;
     height: 48px;
   }
 }

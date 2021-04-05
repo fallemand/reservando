@@ -5,15 +5,16 @@
     <p class="calendar-time__value">10:00hs a 13: 00hs</p>
     <p class="calendar-time__label">DÍAS:</p>
     <p class="calendar-time__value">Domingo - Jueves - Viernes - Sabado</p>
+    <ReButton class="calendar-time__edit" modifier="secondary">{{ $t("controls.edit") }}</ReButton>
   </ReCard>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ReCard } from "@reservando/design-system";
+import { ReCard, ReButton } from "@reservando/design-system";
 
 const CalendarTime = defineComponent({
-  components: { ReCard },
+  components: { ReCard, ReButton },
   data() {
     return {
       checkedDays: ["sunday"],
@@ -31,19 +32,24 @@ export default CalendarTime;
 @import "~@reservando/design-system/styles/mixins";
 
 .calendar-time {
-  text-align: left;
-  border-left: 4px solid $primary-500;
-
   &__title {
-    color: $primary-500;
-    font-size: 18px;
+    color: $primary-700;
+    @extend .re-title-20;
   }
 
   &__label {
-    text-transform: uppercase;
+    @extend .re-caption-up;
     color: $text-secondary;
     margin-top: $bdu * 2;
     margin-bottom: $bdu;
+  }
+
+  &__label {
+    @extend .re-body-14;
+  }
+
+  &__edit {
+    margin-top: $bdu * 2;
   }
 }
 </style>

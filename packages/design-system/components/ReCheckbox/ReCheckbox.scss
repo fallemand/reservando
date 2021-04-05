@@ -102,8 +102,8 @@
 
   &--checked {
     .re-checkbox__input {
-      background-color: $border-primary;
-      border-color: $border-primary;
+      background-color: $primary-500;
+      border-color: $primary-500;
     }
 
     .re-checkbox__check::before {

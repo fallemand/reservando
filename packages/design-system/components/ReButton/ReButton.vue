@@ -33,7 +33,7 @@ export enum ReButtonSize {
 }
 export enum ReButtonModifier {
   primary = "primary",
-  secondary = "primary",
+  secondary = "secondary",
   "secondary-outline" = "secondary-outline",
   link = "link",
 }

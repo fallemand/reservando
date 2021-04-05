@@ -1,6 +1,6 @@
 <script lang="ts">
 import { shallowMount } from "@vue/test-utils";
-import ReButton from "./re-button.vue";
+import ReButton from "./ReButton.vue";
 
 describe("ReButton component", () => {
   it("should render with default props", () => {
@@ -14,7 +14,7 @@ describe("ReButton component", () => {
 
   it("should render disabled button", () => {
     const wrapper = shallowMount(ReButton, {
-      propsData: {
+      props: {
         disabled: true,
       },
       slots: {
@@ -26,7 +26,7 @@ describe("ReButton component", () => {
 
   it("should render with props", () => {
     const wrapper = shallowMount(ReButton, {
-      propsData: {
+      props: {
         modifier: "cta-success",
         size: "large",
         type: "submit",
@@ -40,7 +40,7 @@ describe("ReButton component", () => {
 
   it("should render as <a /> when href is passed", () => {
     const wrapper = shallowMount(ReButton, {
-      propsData: {
+      props: {
         href: "http://fake-url.com",
         target: "_blank",
       },

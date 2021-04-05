@@ -1,5 +1,5 @@
 <template>
-  <span :style="{ width: size, height: size }" class="re-icon">
+  <span class="re-icon">
     <svg class="re-icon__image">
       <use v-bind="{ 'xlink:href': `${spriteUrl}#${name}` }" />
     </svg>
@@ -15,10 +15,6 @@ const ReIcon = defineComponent({
     name: {
       type: String,
       required: true,
-    },
-    size: {
-      type: String,
-      default: "16px",
     },
   },
   computed: {
@@ -40,8 +36,8 @@ export default ReIcon;
   justify-content: center;
 
   &__image {
-    height: 100%;
-    width: 100%;
+    height: 1em;
+    width: 1em;
     fill: currentColor;
     display: inline-flex;
     align-items: center;

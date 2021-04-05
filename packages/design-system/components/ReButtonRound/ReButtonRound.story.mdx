@@ -1,0 +1,93 @@
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs/blocks";
+import { ReButtonRound } from "@reservando/design-system";
+
+<Meta
+  title="Components/ButtonRound"
+  component={ReButtonRound}
+  argTypes={{
+    size: { control: { type: "select", options: ["small", "medium", "large"] } },
+    modifier: { control: { type: "select", options: ["cta-red", "cta-uva", "outline-uva"] } },
+    type: { type: "select", options: ["button", "submit"] },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ReButtonRound },
+  template: '<ReButtonRound :size="size" :modifier="modifier">{{label}}</ReButtonRound>',
+});
+
+# ReButtonRound
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReButtonRound },
+      template: `
+        <div>
+          <ReButtonRound icon="arrow-right" />
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ReButtonRound} />
+
+## How to use
+
+```html
+<template>
+  <ReButtonRound @click="clickHandler" icon="arrow-right" />
+</template>
+
+<script lang="ts">
+  import { ReButtonRound } from "@reservando/design-system";
+</script>
+```
+
+## Using modifiers
+
+<Canvas>
+  <Story name="modifiers">
+    {{
+      components: { ReButtonRound },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+      <div>
+        <ReButtonRound modifier="primary" class="mr-2" icon="arrow-right" />
+        <ReButtonRound modifier="secondary" class="mr-2" icon="arrow-right" />
+        <p class="hint mt-4">Disabled</p>
+        <ReButtonRound modifier="primary" disabled="true" class="mr-2" icon="arrow-right" />
+        <ReButtonRound modifier="secondary" disabled="true" class="mr-2" icon="arrow-right" />
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## Using sizes
+
+<Canvas>
+  <Story name="sizes">
+    {{
+      components: { ReButtonRound },
+      data() {
+        return {
+          checked: true,
+        };
+      },
+      template: `
+      <div>
+        <ReButtonRound size="small" class="mr-2" icon="arrow-right" />
+        <ReButtonRound size="medium" class="mr-2" icon="arrow-right" />
+        <ReButtonRound size="large" class="mr-2" icon="arrow-right" />
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
