@@ -12,7 +12,8 @@
         "inputPlaceholder": "Deli Resto"
       },
       "calendarStep": {
-        "question": "Bienvenido Allemand Resto, crea tu primer calendario de reservas",
+        "hint": "Bienvenido Allemand Resto,",
+        "intro": "Crea tu primer calendario de reservas",
         "inputPlaceholder": "Deli Resto",
         "tips": {
           "title": "PRO TIPS",

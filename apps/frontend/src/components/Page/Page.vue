@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import FirebaseService from "@/services/firebase";
-import logoSvg from "@/assets/images/logo.svg";
+import logoSvg from "@reservando/design-system/images/logo.svg";
 
 declare global {
   interface Window {

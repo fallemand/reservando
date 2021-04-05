@@ -1,6 +1,6 @@
 <template>
   <div class="welcome-step">
-    <p class="welcome-step__intro">{{ $t("signup.welcomeStep.intro") }}</p>
+    <p class="signup__hint">{{ $t("signup.welcomeStep.intro") }}</p>
     <img class="welcome-step__logo" :src="logoSvg" alt="Reservando" />
     <p class="welcome-step__description">
       {{ $t("signup.welcomeStep.description") }}
@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import tableSvg from "@/assets/images/table.svg";
-import logoSvg from "@/assets/images/logo.svg";
+import logoSvg from "@reservando/design-system/images/logo.svg";
 
 const WelcomeHeader = defineComponent({
   props: {},
@@ -39,27 +39,24 @@ export default WelcomeHeader;
 @import "~@reservando/design-system/styles/mixins";
 
 .welcome-step {
-  &__intro {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: $bdu * 2;
-  }
+  text-align: center;
 
   &__logo {
     max-width: 300px;
+    width: 100%;
     margin-bottom: $bdu * 3;
   }
 
   &__description {
-    font-size: 18px;
+    @extend .re-body-18;
     margin-bottom: $bdu * 7;
   }
 
   &__cta {
-    font-size: 14px;
-    font-weight: 600;
+    @extend .re-body-strong-16;
     margin-bottom: $bdu * 6;
     color: $btn-primary;
+    text-decoration: none;
     display: block;
   }
 

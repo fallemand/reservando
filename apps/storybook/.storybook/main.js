@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   stories: [
+    "../stories/Introduction.story.mdx",
     "../stories/**/*.story.mdx",
     "../node_modules/@reservando/design-system/**/*.story.mdx",
   ],

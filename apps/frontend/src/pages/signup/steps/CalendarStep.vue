@@ -1,7 +1,8 @@
 <template>
   <div class="calendar-step">
     <template v-if="!calendarCreated">
-      <p class="calendar-step__intro signup__intro">{{ $t("signup.calendarStep.question") }}</p>
+      <p class="signup__hint">{{ $t("signup.calendarStep.hint") }}</p>
+      <p class="signup__intro">{{ $t("signup.calendarStep.intro") }}</p>
       <div class="calendar-step__tips">
         <h3 class="calendar-step__tips-title">
           {{ $t("signup.calendarStep.tips.title") }}
@@ -72,23 +73,21 @@ export default CalendarStep;
 
 .calendar-step {
   &__tips {
-    background-color: $white;
-    border: 1px solid $border-secondary;
-    border-radius: $border-radius;
-    color: $text-highlight;
+    color: $text-secondary;
     font-size: 14px;
     text-align: left;
-    padding: $bdu * 3;
+    padding: 0 ($bdu * 2);
     margin-bottom: $bdu * 6;
   }
 
   &__tips-title {
-    font-weight: $font-weight-bold;
+    @extend .re-caption-up;
     margin: 0 0 $bdu * 2;
   }
 
   &__tips-description {
     margin-bottom: 2 * $bdu;
+    @extend .re-body-strong-16;
 
     &:last-child {
       margin-bottom: 0;

@@ -1,3 +1,7 @@
+
+@import "./colors";
+@import "./typography";
+
 //Base
 $base-design-unit: 8px;
 $bdu: $base-design-unit;
@@ -15,10 +19,6 @@ $base-font-size: 16px;
 $base-font-weight: 400;
 $base-line-height: 1.4em;
 $font-family: "Montserrat", Arial, sans-serif;
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 600;
 
 // Z-Index
 $z-index-base: 1;
@@ -30,43 +30,3 @@ $z-index-modal: 30; // Ex: Modal content
 $screen-md: 1024px !default;
 $screen-md-min: $screen-md !default;
 $screen-sm-max: ($screen-md-min - 1) !default;
-
-// Colors
-$white: #fff;
-$black: #000;
-$grey-200: #F4F5F8;
-$grey-300: #E9EBF0;
-$grey-400: #DDE0EA;
-$grey-500: #C7CCDD;
-$grey-600: #8893B2;
-$grey-700: #515C80;
-$grey-800: #292F40;
-$grey-900: #100817;
-
-$primary-100: #F6F0FA;
-$primary-200: #E3D2F0;
-$primary-300: #BE97DD;
-$primary-400: #9A66CD;
-$primary-500: #7135A1;
-$primary-600: #612D8A;
-$primary-700: #3B096D;
-$primary-800: #301745;
-$primary-900: #100817;
-
-$green-feedback: #56CCB5;
-$red-feedback: #C74760;
-
-// Variables
-$background-primary: #fffef8;
-
-$border-primary: $primary-500;
-$border-secondary: $grey-500;
-
-$text-primary: $primary-900;
-$text-secondary: $grey-600;
-$text-highlight: $primary-800;
-
-$btn-primary: $primary-500;
-$btn-disabled: $grey-900;
-
-$surface-disabled: $grey-400;

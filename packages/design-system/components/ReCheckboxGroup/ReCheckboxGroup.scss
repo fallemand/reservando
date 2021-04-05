@@ -4,9 +4,5 @@
 
   &--vertical {
     flex-direction: column;
-
-    .re-checkbox:not(:last-child) {
-      margin-bottom: 0.5em;
-    }
   }
 }

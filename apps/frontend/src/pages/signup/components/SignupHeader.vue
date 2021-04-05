@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import logoSvg from "@/assets/images/logo.svg";
+import logoSvg from "@reservando/design-system/images/logo.svg";
 
 const Page = defineComponent({
   props: {},

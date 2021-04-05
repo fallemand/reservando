@@ -1,6 +1,5 @@
 @import "reset";
 @import "variables";
-@import "typography";
 
 html,
 body {
@@ -12,12 +11,11 @@ body {
   -webkit-font-smoothing: antialiased;
   color: $text-primary;
   display: flex;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-  font-weight: $base-font-weight;
   justify-content: center;
   align-items: center;
   background-color: $background-primary;
+
+  @extend .re-body-16;
 }
 
 *,

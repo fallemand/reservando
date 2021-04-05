@@ -33,16 +33,17 @@ export default SignupPage;
 @import "~@reservando/design-system/styles/variables";
 
 .signup {
-  text-align: center;
   height: 100%;
   position: relative;
 
   &__intro {
-    font-weight: 400;
-    margin: 0 auto ($bdu * 6);
-    font-size: 16px;
-    max-width: 280px;
-    line-height: 1.6em;
+    @extend .re-title-20;
+    margin-bottom: $bdu * 6;
+  }
+
+  &__hint {
+    @extend .re-body-14;
+    margin-bottom: $bdu * 1.5;
   }
 
   &__header {

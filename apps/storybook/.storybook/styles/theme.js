@@ -1,14 +1,17 @@
 import { create } from "@storybook/theming";
+import colors from "!style-loader!css-loader!sass-loader!@reservando/design-system/styles/_colors.scss";
+import logoSvg from "!url-loader!@reservando/design-system/images/logo.svg";
+
 
 export default create({
   base: "light",
 
-  colorPrimary: "#1a2b49",
-  colorSecondary: "#624c67",
+  colorPrimary: colors["primary-500"],
+  colorSecondary: colors["primary-700"],
 
   // UI
-  appBg: "#fffef8",
-  appContentBg: "white",
+  appBg: colors["others-white"],
+  appContentBg: colors["others-white"],
   appBorderColor: "#fffef8",
   appBorderRadius: 4,
 
@@ -21,9 +24,9 @@ export default create({
   textInverseColor: "white",
 
   // Toolbar default and active colors
-  barTextColor: "white",
-  barSelectedColor: "#fffef8",
-  barBg: "#624c67",
+  barTextColor: colors["others-white"],
+  barSelectedColor: colors["others-white"],
+  barBg: colors["primary-700"],
 
   // Form colors
   inputBg: "white",
@@ -33,7 +36,7 @@ export default create({
 
   brandTitle: "Design System",
   brandUrl: "/",
-  brandImage: "https://reservando.club/assets/images/6fa0435b311dd9235a7b7bfa0f461869.svg",
+  brandImage: logoSvg,
 
   //fontCode: "Lucida Console",
   //gridCellSize: 900,
