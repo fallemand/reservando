@@ -1,4 +1,4 @@
-<img src="https://reservando.club/assets/images/6fa0435b311dd9235a7b7bfa0f461869.svg" width="400" />
+<img src="https://raw.githubusercontent.com/fallemand/reservando/master/packages/design-system/images/logo.svg?token=AD24B7RVK72BN4DFLAD6WRTANNGBE" width="400" />
 
 > Monorepo with all the reservando modules, including the frontend and the api.
 
