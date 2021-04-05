@@ -46,10 +46,6 @@ export default SignupPage;
     margin-bottom: $bdu * 1.5;
   }
 
-  &__header {
-    margin-bottom: $bdu * 4;
-  }
-
   &__content {
     display: flex;
     align-items: flex-end;
@@ -61,7 +57,7 @@ export default SignupPage;
     position: absolute;
     overflow-y: scroll;
     top: $bdu * 12;
-    padding: 0 ($bdu * 4);
+    padding: ($bdu * 4) ($bdu * 4) 0;
     bottom: 0;
     right: 0;
     left: 0;
