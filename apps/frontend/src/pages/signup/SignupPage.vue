@@ -59,6 +59,7 @@ export default SignupPage;
 
   &__pinned {
     position: absolute;
+    overflow-y: scroll;
     top: $bdu * 12;
     padding: 0 ($bdu * 4);
     bottom: 0;

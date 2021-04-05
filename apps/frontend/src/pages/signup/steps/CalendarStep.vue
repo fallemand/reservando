@@ -7,18 +7,30 @@
         <h3 class="calendar-step__tips-title">
           {{ $t("signup.calendarStep.tips.title") }}
         </h3>
-        <p class="calendar-step__tips-description">
-          {{ $t("signup.calendarStep.tips.description1") }}
+        <p class="calendar-step__tip">
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.hash" size="20px" />
+          <span class="calendar-step__tip-description">
+            {{ $t("signup.calendarStep.tips.description1") }}
+          </span>
         </p>
-        <p class="calendar-step__tips-description">
-          {{ $t("signup.calendarStep.tips.description2") }}
+        <p class="calendar-step__tip">
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.grid" size="20px" />
+          <span class="calendar-step__tip-description">
+            {{ $t("signup.calendarStep.tips.description2") }}
+          </span>
         </p>
-        <p class="calendar-step__tips-description">
-          {{ $t("signup.calendarStep.tips.description3") }}
+        <p class="calendar-step__tip">
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.plus" size="20px" />
+          <span class="calendar-step__tip-description">
+            {{ $t("signup.calendarStep.tips.description3") }}
+          </span>
         </p>
       </div>
       <ReButton class="calendar-step__button" size="large" @click="showModal = true">
         {{ $t("signup.calendarStep.ctaCreate") }}
+      </ReButton>
+      <ReButton class="calendar-step__button" size="large" modifier="secondary">
+        Ver ejemplos
       </ReButton>
     </template>
     <template v-else>
@@ -85,13 +97,27 @@ export default CalendarStep;
     margin: 0 0 $bdu * 2;
   }
 
-  &__tips-description {
+  &__tip {
+    display: flex;
     margin-bottom: 2 * $bdu;
-    @extend .re-body-strong-16;
-
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  &__tip-icon {
+    flex-shrink: 0;
+    color: $primary-500;
+    margin-right: $bdu * 1.5;
+    margin-top: 2px;
+  }
+
+  &__tip-description {
+    @extend .re-body-strong-16;
+  }
+
+  &__button {
+    margin-bottom: $bdu;
   }
 
   &__calendar-item {

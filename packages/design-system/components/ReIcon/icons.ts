@@ -1,6 +1,8 @@
 export default {
   arrowLeft: "arrow-left",
-  close: "close",
+  x: "x",
+  hash: "hash",
+  grid: "grid",
   minus: "minus",
   plus: "plus",
   facebook: "facebook",
