@@ -6,31 +6,42 @@
       </ReButton>
     </template>
     <ReInput
+      v-model="calendar.name"
       class="calendar-modal__input"
       modifier="underline"
       :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
     />
     <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>
-    <CalendarTimeSelector
-      id="from"
-      v-model="timeFrom"
-      class="calendar-modal__time-selector"
-      :label="`${$t('controls.from')}:`"
-    />
-    <CalendarTimeSelector
-      id="to"
-      v-model="timeTo"
-      class="calendar-modal__time-selector"
-      :label="`${$t('controls.to')}:`"
-    />
-    <ReButton class="calendar-modal__add-times" modifier="secondary-outline">
+    <div
+      v-for="(openingTime, index) in calendar.openingTimes"
+      :key="index"
+      class="calendar-modal__opening-times"
+    >
+      <CalendarTimeSelector
+        :id="`from-${index}`"
+        v-model="openingTime.from"
+        class="calendar-modal__time-selector"
+        :label="`${$t('controls.from')}:`"
+      />
+      <CalendarTimeSelector
+        :id="`to-${index}`"
+        v-model="openingTime.to"
+        class="calendar-modal__time-selector"
+        :label="`${$t('controls.to')}:`"
+      />
+    </div>
+    <ReButton
+      class="calendar-modal__add-times"
+      modifier="secondary-outline"
+      @click="addOpeningTime"
+    >
       {{ $t("signup.calendarStep.modal.addOpenHours") }}
     </ReButton>
     <hr class="calendar-modal__separator" />
     <p class="calendar-modal__label">
       {{ $t("signup.calendarStep.modal.repeat") }}
     </p>
-    <ReCheckboxGroup v-model:checked="checkedDays" class="calendar-modal__days">
+    <ReCheckboxGroup v-model:checked="calendar.days" class="calendar-modal__days">
       <ReCheckbox id="monday" modifier="contained" :label="$t('general.days.monday')" />
       <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.days.tuesday')" />
       <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.days.wednesday')" />
@@ -43,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import {
   ReBottomSheet,
   ReButton,
@@ -52,6 +63,7 @@ import {
   ReCheckboxGroup,
 } from "@reservando/design-system";
 import CalendarTimeSelector from "./CalendarTimeSelector.vue";
+import { Calendar } from "../types";
 
 const CalendarStep = defineComponent({
   components: {
@@ -62,19 +74,37 @@ const CalendarStep = defineComponent({
     ReCheckboxGroup,
     CalendarTimeSelector,
   },
-  data() {
-    return {
-      checkedDays: ["sunday"],
-      wednesday: false,
-      timeFrom: "20:00",
-      timeTo: "00:00",
+  setup(props, context) {
+    const calendar = ref<Calendar>({
+      name: "",
+      openingTimes: [
+        {
+          from: "08:00",
+          to: "00:00",
+        },
+      ],
+      days: [],
+    });
+    const bottomSheet = ref<{ close: () => void }>();
+
+    const handleSave = (): void => {
+      context.emit("add-calendar", calendar.value);
+      bottomSheet.value?.close();
     };
-  },
-  methods: {
-    handleSave(): void {
-      this.$emit("add-calendar");
-      this.$refs.bottomSheet.close();
-    },
+
+    const addOpeningTime = (): void => {
+      calendar.value.openingTimes.push({
+        from: "08:00",
+        to: "00:00",
+      });
+    };
+
+    return {
+      bottomSheet,
+      calendar,
+      handleSave,
+      addOpeningTime,
+    };
   },
 });
 export default CalendarStep;

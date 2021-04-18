@@ -1,27 +1,36 @@
 <template>
   <ReCard class="calendar-time">
-    <h3 class="calendar-time__title">Fin de la semana</h3>
+    <h3 class="calendar-time__title">
+      {{ calendar.name }}
+    </h3>
     <p class="calendar-time__label">HORARIOS:</p>
-    <p class="calendar-time__value">10:00hs a 13: 00hs</p>
+    <p
+      v-for="(openingTime, index) in calendar.openingTimes"
+      :key="index"
+      class="calendar-time__value"
+    >
+      {{ openingTime.from }} a {{ openingTime.to }}
+    </p>
     <p class="calendar-time__label">DÍAS:</p>
-    <p class="calendar-time__value">Domingo - Jueves - Viernes - Sabado</p>
+    <p class="calendar-time__value">
+      {{ calendar.days.join(", ") }}
+    </p>
     <ReButton class="calendar-time__edit" modifier="secondary">{{ $t("controls.edit") }}</ReButton>
   </ReCard>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import { ReCard, ReButton } from "@reservando/design-system";
+import { Calendar } from "../types";
 
 const CalendarTime = defineComponent({
   components: { ReCard, ReButton },
-  data() {
-    return {
-      checkedDays: ["sunday"],
-      wednesday: false,
-      timeFrom: "20:00",
-      timeTo: "00:00",
-    };
+  props: {
+    calendar: {
+      required: true,
+      type: Object as PropType<Calendar>,
+    },
   },
 });
 export default CalendarTime;

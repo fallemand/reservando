@@ -1,6 +1,6 @@
 import { InjectionKey } from "vue";
 import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from "vuex";
-import { SignupState, ChangeStatePayload } from "./types";
+import { SignupState, ChangeStatePayload, Calendar } from "./types";
 
 export const state: SignupState = {
   name: "",
@@ -36,11 +36,12 @@ export const state: SignupState = {
 export const actions: ActionTree<SignupState, SignupState> = {
   async loadDefaultState(): Promise<void> {},
   setName({ commit }, name: string): void {
-    const payload = { property: "name", value: name };
-    commit("changeState", payload);
+    commit("changeState", { property: "name", value: name });
   },
-  setCalendars({ commit }, sectors: SignupState["calendars"]): void {
-    commit("changeState", sectors);
+  addCalendar({ state, commit }, calendar: Calendar): void {
+    const calendars = state.calendars;
+    calendars.push(calendar);
+    commit("changeState", { property: "calendars", value: calendars });
   },
   setSectors({ commit }, sectors: SignupState["sectors"]): void {
     commit("changeState", sectors);

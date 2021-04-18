@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-step">
-    <template v-if="!calendarCreated">
+    <template v-if="!calendars.length">
       <p class="signup__hint">{{ $t("signup.calendarStep.hint") }}</p>
       <p class="signup__intro">{{ $t("signup.calendarStep.intro") }}</p>
       <div class="calendar-step__tips">
@@ -34,7 +34,12 @@
       </ReButton>
     </template>
     <template v-else>
-      <CalendarTime class="calendar-step__calendar-item" />
+      <CalendarTime
+        v-for="(calendar, index) in calendars"
+        :key="index"
+        :calendar="calendar"
+        class="calendar-step__calendar-item"
+      />
       <ReButton
         class="calendar-step__add-new"
         size="large"
@@ -50,20 +55,18 @@
         {{ $t("controls.continue") }}
       </ContinueButton>
     </template>
-    <CalendarModal
-      v-if="showModal"
-      @close="showModal = false"
-      @add-calendar="calendarCreated = true"
-    />
+    <CalendarModal v-if="showModal" @close="showModal = false" @add-calendar="handleAddCalendar" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { ReButton } from "@reservando/design-system";
 import CalendarModal from "../components/CalendarModal.vue";
 import CalendarTime from "../components/CalendarTime.vue";
 import ContinueButton from "../components/ContinueButton.vue";
+import { useStore } from "../store";
+import { Calendar } from "../types";
 
 const CalendarStep = defineComponent({
   components: {
@@ -72,10 +75,19 @@ const CalendarStep = defineComponent({
     CalendarTime,
     ContinueButton,
   },
-  data() {
+  setup() {
+    const store = useStore();
+    const showModal = ref(false);
+    const calendars = ref(store.state.calendars);
+
+    const handleAddCalendar = (calendar: Calendar) => {
+      store.dispatch("addCalendar", calendar);
+    };
+
     return {
-      calendarCreated: false,
-      showModal: false,
+      calendars,
+      showModal,
+      handleAddCalendar,
     };
   },
 });
