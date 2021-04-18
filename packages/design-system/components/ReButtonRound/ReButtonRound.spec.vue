@@ -4,12 +4,12 @@ import ReButtonRound from "./ReButtonRound.vue";
 
 describe("ReButtonRound component", () => {
   const props: {
-    icon: "__ICON__",
-    size: "large",
+    icon: "__ICON__";
+    size: "large";
   };
   it("should render with default props", () => {
     const wrapper = shallowMount(ReButtonRound, {
-      props
+      props,
     });
     expect(wrapper.element).toMatchSnapshot();
   });

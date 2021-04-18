@@ -1,5 +1,5 @@
-import { InjectionKey } from 'vue'
-import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from 'vuex'
+import { InjectionKey } from "vue";
+import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from "vuex";
 import { SignupState, ChangeStatePayload } from "./types";
 
 export const state: SignupState = {
@@ -36,7 +36,7 @@ export const state: SignupState = {
 export const actions: ActionTree<SignupState, SignupState> = {
   async loadDefaultState(): Promise<void> {},
   setName({ commit }, name: string): void {
-    const payload = { property: "name", value: name}
+    const payload = { property: "name", value: name };
     commit("changeState", payload);
   },
   setCalendars({ commit }, sectors: SignupState["calendars"]): void {
@@ -54,17 +54,17 @@ export const mutations: MutationTree<SignupState> = {
   changeState(state, payload: ChangeStatePayload) {
     const { property, value } = payload;
     state[property] = value;
-  }
+  },
 };
 
 export const store = createStore<SignupState>({
   state,
   actions,
   mutations,
-})
+});
 
 // Defining our typed `useStore`
-export const key: InjectionKey<Store<SignupState>> = Symbol()
-export function useStore () {
-  return baseUseStore(key)
+export const key: InjectionKey<Store<SignupState>> = Symbol();
+export function useStore(): Store<SignupState> {
+  return baseUseStore(key);
 }

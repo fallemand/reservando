@@ -4,7 +4,7 @@
     <ReInput
       class="name-step__field"
       modifier="underline"
-      :modelValue="state.name"
+      :model-value="state.name"
       :placeholder="$t('signup.nameStep.inputPlaceholder')"
       @update:modelValue="(value) => $store.dispatch('setName', value)"
     />
@@ -16,15 +16,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ReInput, ReButton } from "@reservando/design-system";
+import { ReInput } from "@reservando/design-system";
 import ContinueButton from "../components/ContinueButton.vue";
-import { useStore } from '../store';
+import { useStore } from "../store";
 
 const NameStep = defineComponent({
   components: {
     ReInput,
-    ReButton,
-    ContinueButton
+    ContinueButton,
   },
   setup() {
     const store = useStore();
@@ -35,7 +34,7 @@ const NameStep = defineComponent({
     return {
       state: store.state,
       changeName,
-    }
+    };
   },
 });
 export default NameStep;
@@ -48,7 +47,7 @@ export default NameStep;
 .name-step {
   &__field {
     margin-bottom: $bdu * 8;
-    @extend .re-title-32
+    @extend .re-title-32;
   }
 }
 </style>

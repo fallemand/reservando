@@ -30,7 +30,7 @@
     <p class="calendar-modal__label">
       {{ $t("signup.calendarStep.modal.repeat") }}
     </p>
-    <ReCheckboxGroup class="calendar-modal__days" v-model:checked="checkedDays">
+    <ReCheckboxGroup v-model:checked="checkedDays" class="calendar-modal__days">
       <ReCheckbox id="monday" modifier="contained" :label="$t('general.days.monday')" />
       <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.days.tuesday')" />
       <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.days.wednesday')" />

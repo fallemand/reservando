@@ -16,20 +16,19 @@
 
   &--medium {
     font-size: 24px;
-    padding: $bdu*1.5;
+    padding: $bdu * 1.5;
   }
 
   &--large {
     font-size: 24px;
-    padding: $bdu*2;
+    padding: $bdu * 2;
   }
 
   &--primary {
-    @include cta-generator($primary-500, $primary-600,$primary-700, $black, $white, $grey-300);
+    @include cta-generator($primary-500, $primary-600, $primary-700, $black, $white, $grey-300);
   }
 
   &--secondary {
     @include cta-generator($white, $grey-200, $grey-300, $black, $black, $grey-300, $grey-500);
   }
-
 }

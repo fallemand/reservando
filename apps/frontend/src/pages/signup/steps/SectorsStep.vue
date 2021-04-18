@@ -11,14 +11,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ReButton } from "@reservando/design-system";
 import SectorCard from "../components/SectorCard.vue";
 import ContinueButton from "../components/ContinueButton.vue";
 
 const RegisterStep = defineComponent({
   components: {
     SectorCard,
-    ReButton,
     ContinueButton,
   },
 });

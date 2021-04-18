@@ -1,23 +1,36 @@
 <template>
   <div class="re-counter">
-    <ReButtonRound class="re-counter__cta" size="small" modifier="secondary" :disabled="minDisabled" @click="decrease" icon="minus" />
+    <ReButtonRound
+      class="re-counter__cta"
+      size="small"
+      modifier="secondary"
+      :disabled="minDisabled"
+      icon="minus"
+      @click="decrease"
+    />
     <ReInput
       ref="input"
       type="number"
       class="re-counter__input"
-      :modelValue="modelValue"
+      :model-value="modelValue"
       :min="min"
       :max="max"
       :step="step"
       @change="inputChange"
     />
-    <ReButtonRound class="re-counter__cta" size="small" modifier="secondary" :disabled="maxDisabled" @click="increase" icon="plus" />
+    <ReButtonRound
+      class="re-counter__cta"
+      size="small"
+      modifier="secondary"
+      :disabled="maxDisabled"
+      icon="plus"
+      @click="increase"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReIcon from "../ReIcon/ReIcon.vue";
 import ReButtonRound from "../ReButtonRound/ReButtonRound.vue";
 import ReInput from "../ReInput/ReInput.vue";
 
@@ -26,7 +39,6 @@ const ReCounter = defineComponent({
   components: {
     ReButtonRound,
     ReInput,
-    ReIcon,
   },
   props: {
     /** Counter value */

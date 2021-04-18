@@ -6,7 +6,7 @@
  * @see https://eslint.org/docs/developer-guide/shareable-configs#sharing-multiple-configs
  */
 module.exports = {
-  extends: ["plugin:vue/vue3-recommended", "prettier/vue"],
+  extends: ["plugin:vue/vue3-strongly-recommended", "plugin:vue/vue3-recommended", "prettier/vue"],
 
   rules: {
     "vue/component-name-in-template-casing": ["error", "PascalCase"],

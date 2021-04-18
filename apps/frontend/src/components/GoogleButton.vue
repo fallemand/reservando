@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ReButton, ReIcon } from "@reservando/design-system";
+import { ReButton } from "@reservando/design-system";
 
 const GoogleButton = defineComponent({
   components: {
@@ -26,7 +26,8 @@ export default GoogleButton;
   $base-color: $white;
   color: $grey-800;
   background-color: $base-color;
-  box-shadow: 0px 0px 1px rgba(0, 50, 77, 0.1), 0px 0px 2px rgba(0, 50, 77, 0.13), 0px 1px 4px rgba(0, 50, 77, 0.1);
+  box-shadow: 0px 0px 1px rgba(0, 50, 77, 0.1), 0px 0px 2px rgba(0, 50, 77, 0.13),
+    0px 1px 4px rgba(0, 50, 77, 0.1);
 
   &:hover {
     background-color: darken($base-color, 10%);

@@ -1,10 +1,6 @@
 <template>
   <button
-    :class="[
-      're-button-round',
-      `re-button-round--${size}`,
-      `re-button-round--${modifier}`,
-    ]"
+    :class="['re-button-round', `re-button-round--${size}`, `re-button-round--${modifier}`]"
     type="button"
   >
     <ReIcon :name="icon" />
@@ -26,8 +22,8 @@ export enum ReButtonRoundModifier {
 }
 
 const ReButtonRound = defineComponent({
-  components: { ReIcon },
   name: "ReButtonRound",
+  components: { ReIcon },
   props: {
     size: {
       default: "medium",

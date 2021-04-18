@@ -1,6 +1,11 @@
 <template>
   <ReCard class="re-card-toggle" :class="$attrs.class">
-    <ReSwitch class="re-card-toggle__switch" :id="label.toLowerCase().replace(/\ /g, '')" :label="label" v-bind="{ ...$attrs, class: undefined }"/>
+    <ReSwitch
+      :id="label.toLowerCase().replace(/\ /g, '')"
+      class="re-card-toggle__switch"
+      :label="label"
+      v-bind="{ ...$attrs, class: undefined }"
+    />
     <ReTransition transition="height">
       <div v-show="$attrs.modelValue">
         <div class="re-card-toggle__content">
@@ -19,12 +24,12 @@ import ReSwitch from "../ReSwitch/ReSwitch.vue";
 
 const ReCardToggle = defineComponent({
   name: "ReCardToggle",
-  inheritAttrs: false,
   components: {
     ReCard,
     ReTransition,
     ReSwitch,
   },
+  inheritAttrs: false,
   props: {
     label: {
       type: String,

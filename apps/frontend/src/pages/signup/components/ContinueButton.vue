@@ -11,10 +11,10 @@ import { defineComponent } from "vue";
 import { ReButton } from "@reservando/design-system";
 
 const ContinueButton = defineComponent({
-  inheritAttrs: false,
   components: {
     ReButton,
   },
+  inheritAttrs: false,
 });
 export default ContinueButton;
 </script>

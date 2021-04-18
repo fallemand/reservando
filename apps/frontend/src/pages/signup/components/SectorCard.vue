@@ -1,5 +1,5 @@
 <template>
-  <ReCardToggle class="sector-card" v-model="checked" :label="label">
+  <ReCardToggle v-model="checked" class="sector-card" :label="label">
     <div class="sector-card__item">
       <label class="sector-card__item-label" for="table-for-2">
         {{ $t("signup.sectorsStep.tableFor", [2]) }}
@@ -36,6 +36,12 @@ const SectorCard = defineComponent({
     ReCardToggle,
     ReCounter,
   },
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       checked: false,
@@ -44,15 +50,9 @@ const SectorCard = defineComponent({
         for4: 0,
         for6: 0,
         for8: 0,
-      }
+      },
     };
   },
-  props: {
-    label: {
-      type: String,
-      required: true,
-    }
-  }
 });
 export default SectorCard;
 </script>

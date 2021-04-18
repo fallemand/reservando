@@ -14,7 +14,7 @@
           </span>
         </p>
         <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.grid"/>
+          <ReIcon class="calendar-step__tip-icon" :name="$icons.grid" />
           <span class="calendar-step__tip-description">
             {{ $t("signup.calendarStep.tips.description2") }}
           </span>

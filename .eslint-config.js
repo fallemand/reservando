@@ -13,7 +13,9 @@ module.exports = {
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "vue/no-v-model-argument": "off",
-    "vue/attribute-hyphenation": ["always", { "ignore": ["modelValue"] }],
+    // "vue/attribute-hyphenation": ["error", {
+    //   "ignore": ["modelValue"]
+    // }],
     "jest/no-try-expect": "off",
     "jest/no-conditional-expect": "off",
   },

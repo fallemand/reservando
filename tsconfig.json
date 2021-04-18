@@ -9,5 +9,6 @@
     "moduleResolution": "node",
     "allowJs": true,
     "baseUrl": "."
-  }
+  },
+  "exclude": ["node_modules"]
 }

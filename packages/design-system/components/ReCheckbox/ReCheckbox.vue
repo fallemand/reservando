@@ -1,7 +1,13 @@
 <template>
   <div
     class="re-checkbox"
-    :class="[`re-checkbox--${modifier}`, { 're-checkbox--checked': isChecked || indeterminate, 're-checkbox--disabled': $attrs.disabled }]"
+    :class="[
+      `re-checkbox--${modifier}`,
+      {
+        're-checkbox--checked': isChecked || indeterminate,
+        're-checkbox--disabled': $attrs.disabled,
+      },
+    ]"
   >
     <div class="re-checkbox__container">
       <input

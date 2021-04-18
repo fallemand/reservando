@@ -1,13 +1,13 @@
-import { Meta, ColorPalette, ColorItem, Heading } from '@storybook/addon-docs/blocks';
+import { Meta, ColorPalette, ColorItem, Heading } from "@storybook/addon-docs/blocks";
 import colors from "@reservando/design-system/styles/_colors.scss";
 const sections = {};
-Object.keys(colors).forEach(color => {
+Object.keys(colors).forEach((color) => {
   const section = color.split("-")[0];
   if (!sections[section]) {
     sections[section] = {};
   }
   sections[section][color] = colors[color];
-})
+});
 
 <Meta title="Introduction/Colors" />
 
@@ -19,10 +19,10 @@ Object.keys(colors).forEach(color => {
       <Fragment>
         <Heading>{section.charAt(0).toUpperCase() + section.slice(1)}</Heading>
         <br />
-        {Object.keys(sections[section]).map(color => (
+        {Object.keys(sections[section]).map((color) => (
           <ColorItem subtitle={`$${color}`} colors={[sections[section][color]]} />
         ))}
       </Fragment>
-  )})}
+    );
+  })}
 </Fragment>
-

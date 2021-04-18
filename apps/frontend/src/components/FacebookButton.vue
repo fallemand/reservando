@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ReButton, ReIcon } from "@reservando/design-system";
+import { ReButton } from "@reservando/design-system";
 
 const FacebookButton = defineComponent({
   components: {
@@ -23,7 +23,7 @@ export default FacebookButton;
 @import "~@reservando/design-system/styles/variables";
 
 .facebook-button {
-  $base-color: #41639D;
+  $base-color: #41639d;
   background-color: $base-color;
 
   &:hover {
