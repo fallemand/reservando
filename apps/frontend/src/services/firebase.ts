@@ -18,7 +18,9 @@ class Firebase {
     return new Promise<firebase.User>((resolve, reject) => {
       firebase.auth().onAuthStateChanged(
         (user) => {
-          resolve(user);
+          if (user) {
+            resolve(user);
+          }
         },
         (err) => reject(err),
       );

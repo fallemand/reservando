@@ -23,7 +23,6 @@ const SignupPage = defineComponent({
     Page,
     SignupHeader,
   },
-  mounted(): void {},
 });
 
 export default SignupPage;

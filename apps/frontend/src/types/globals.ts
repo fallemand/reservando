@@ -1,3 +1,5 @@
+import { SignupState } from "../pages/signup/types";
+
 export interface GlobalType {
   ENV: {
     [key: string]: boolean;
@@ -5,5 +7,5 @@ export interface GlobalType {
 }
 
 export interface RootState {
-  isLoading?: boolean;
+  signup?: SignupState;
 }
