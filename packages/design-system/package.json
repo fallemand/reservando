@@ -8,19 +8,15 @@
     "build:icons": "svg-sprite -s --symbol-sprite 'sprite.svg' --symbol-inline --symbol-dest '' -D ./components/ReIcon 'components/ReIcon/icons/*.svg'"
   },
   "peerDependencies": {
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "typescript": "4.x"
   },
   "private": true,
   "dependencies": {
-    "vue": "^3.0.5"
+    "vue3-scroll-picker": "^0.1.13"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
-    "@vue/compiler-sfc": "^3.0.10",
-    "@vue/test-utils": "^2.0.0-rc.4",
-    "svg-sprite": "^1.5.0",
-    "vue-jest": "^5.0.0-alpha.7",
-    "vue-template-compiler": "^2.6.12",
-    "vue3-scroll-picker": "^0.1.13"
+    "svg-sprite": "^1.5.0"
   }
 }
