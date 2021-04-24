@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+$padding-y: 0.5em;
+$padding-x: 0.75em;
+
+.re-form-field {
+  display: flex;
+  flex-direction: column;
+
+  &__error {
+    color: $red-feedback;
+    font-size: 0.875em;
+  }
+}

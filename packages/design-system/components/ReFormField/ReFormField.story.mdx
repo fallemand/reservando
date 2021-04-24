@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, Props, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import { ReFormField, ReInput } from "@reservando/design-system";
+
+<Meta title="Components/ReFormField" component={ReFormField} />
+
+# ReFormField
+
+<Description of={ReFormField} />
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReFormField, ReInput },
+      data() {
+        return {
+          text: "",
+        };
+      },
+      template: `
+      <div style="max-width: 400px;">
+        <ReFormField error="Please complete the value">
+          <ReInput ref="input" v-model="text" required />
+        </ReFormField>
+      </div>
+    `,
+    }}
+  </Story>
+</Canvas>
+
+## How to use
+
+```html
+<script lang="ts">
+  import { ReFormField } from "@reservando/design-system";
+</script>
+```
+
+<ArgsTable of={ReFormField} />

@@ -22,7 +22,7 @@
     "defaults"
   ],
   "devDependencies": {
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^26.0.22",
     "@types/koa": "^2.11.8",
     "@types/koa-helmet": "^6.0.2",
     "@types/koa-static": "^4.0.1",
