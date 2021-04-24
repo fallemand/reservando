@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReScrollPicker component should render with default props 1`] = `
+<scroll-picker-stub
+  active-class="re-scroll-picker__selected"
+  class="re-scroll-picker"
+  modelvalue=""
+  options=""
+/>
+`;
+
+exports[`ReScrollPicker component should render with posticon 1`] = `
+<scroll-picker-stub
+  active-class="re-scroll-picker__selected"
+  class="re-scroll-picker"
+  modelvalue=""
+  options=""
+/>
+`;
+
+exports[`ReScrollPicker component should render with preicon 1`] = `
+<scroll-picker-stub
+  active-class="re-scroll-picker__selected"
+  class="re-scroll-picker"
+  modelvalue=""
+  options=""
+/>
+`;

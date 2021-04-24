@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReButton component should render as <a /> when href is passed 1`] = `
+<a
+  class="re-button re-button--medium re-button--primary"
+  href="http://fake-url.com"
+  target="_blank"
+>
+  <!--v-if-->
+  
+  __BUTTON-TEXT__
+  
+</a>
+`;
+
+exports[`ReButton component should render disabled button 1`] = `
+<button
+  class="re-button re-button--medium re-button--primary"
+  disabled=""
+  type="button"
+>
+  <!--v-if-->
+  
+  __BUTTON-TEXT__
+  
+</button>
+`;
+
+exports[`ReButton component should render with default props 1`] = `
+<button
+  class="re-button re-button--medium re-button--primary"
+  type="button"
+>
+  <!--v-if-->
+  
+  __BUTTON-TEXT__
+  
+</button>
+`;
+
+exports[`ReButton component should render with icon 1`] = `
+<button
+  class="re-button re-button--medium re-button--primary re-button--with-icon"
+  type="button"
+>
+  <span
+    class="re-button-icon"
+  >
+    <!-- @slot ReIcon at the beginning of the button -->
+    
+    __ICON__
+    
+  </span>
+  
+  __BUTTON-TEXT__
+  
+</button>
+`;
+
+exports[`ReButton component should render with props 1`] = `
+<button
+  class="re-button re-button--large re-button--cta-success"
+  type="submit"
+>
+  <!--v-if-->
+  
+  __BUTTON-TEXT__
+  
+</button>
+`;
+
+exports[`ReButton component should support class attribute 1`] = `
+<button
+  class="re-button re-button--medium re-button--primary"
+  type="button"
+>
+  <!--v-if-->
+  
+  __BUTTON-TEXT__
+  
+</button>
+`;

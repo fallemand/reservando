@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReDialog component render with custom props 1`] = `
+<re-transition-stub
+  style=""
+  transition="fade"
+/>
+`;
+
+exports[`ReDialog component render with default props 1`] = `
+<re-transition-stub
+  style=""
+  transition="fade"
+/>
+`;

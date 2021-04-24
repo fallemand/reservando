@@ -17,5 +17,5 @@ module.exports = {
     ".+\\.(png|jpg|ico)$": "<rootDir>/../../apps/frontend/tests/mock-image.js",
     ".+\\.(svg)$": "<rootDir>/../../apps/frontend/tests/mock-svg.js",
   },
-  testMatch: ["<rootDir>/**/*.spec.js"],
+  testMatch: ["<rootDir>/**/*.spec.(js|vue)"],
 };

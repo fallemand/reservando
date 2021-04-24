@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReBottomSheet component should render with required props 1`] = `
+<re-dialog-stub
+  class="__CLASS__"
+  class-dialog="re-bottom-sheet,__CONTENT-CLASS__"
+  size="fullwidth"
+  transition="slide-bottom"
+  vertical-align="bottom"
+/>
+`;
+
+exports[`ReBottomSheet component using custom slots 1`] = `
+<re-dialog-stub
+  class="__CLASS__"
+  class-dialog="re-bottom-sheet,__CONTENT-CLASS__"
+  size="fullwidth"
+  transition="slide-bottom"
+  vertical-align="bottom"
+/>
+`;
