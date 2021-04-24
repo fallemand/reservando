@@ -26,7 +26,7 @@
           </span>
         </p>
       </div>
-      <ReButton class="calendar-step__button" size="large" @click="showModal = true">
+      <ReButton class="calendar-step__button" size="large" @click="handleShowModal">
         {{ $t("signup.calendarStep.ctaCreate") }}
       </ReButton>
       <ReButton class="calendar-step__button" size="large" modifier="secondary">
@@ -39,12 +39,13 @@
         :key="index"
         :calendar="calendar"
         class="calendar-step__calendar-item"
+        @update="handleUpdateCalendar"
       />
       <ReButton
         class="calendar-step__add-new"
         size="large"
         modifier="secondary-outline"
-        @click="showModal = true"
+        @click="calendarToUpdate = undefined"
       >
         {{ $t("signup.calendarStep.ctaAddNew") }}
       </ReButton>
@@ -55,7 +56,12 @@
         {{ $t("controls.continue") }}
       </ContinueButton>
     </template>
-    <CalendarModal v-if="showModal" @close="showModal = false" @add-calendar="handleAddCalendar" />
+    <CalendarModal
+      v-if="calendarToUpdate"
+      :calendar="calendarToUpdate"
+      @close="calendarToUpdate = undefined"
+      @add-calendar="handleAddCalendar"
+    />
   </div>
 </template>
 
@@ -77,17 +83,36 @@ const CalendarStep = defineComponent({
   },
   setup() {
     const store = useStore();
-    const showModal = ref(false);
     const calendars = ref(store.state.calendars);
+    const calendarToUpdate = ref<Calendar>();
 
+    const handleShowModal = () => {
+      const newCalendar: Calendar = {
+        name: "",
+        openingTimes: [
+          {
+            from: "08:00",
+            to: "00:00",
+          },
+        ],
+        days: [],
+      };
+      calendarToUpdate.value = newCalendar;
+    };
     const handleAddCalendar = (calendar: Calendar) => {
+      calendarToUpdate.value = undefined;
       store.dispatch("addCalendar", calendar);
+    };
+    const handleUpdateCalendar = (calendar: Calendar) => {
+      calendarToUpdate.value = calendar;
     };
 
     return {
       calendars,
-      showModal,
+      calendarToUpdate,
+      handleShowModal,
       handleAddCalendar,
+      handleUpdateCalendar,
     };
   },
 });

@@ -1,35 +1,41 @@
 <template>
-  <ReCardToggle v-model="checked" class="sector-card" :label="label">
+  <ReCardToggle
+    v-model="values.enabled"
+    class="sector-card"
+    :label="label"
+    @update:modelValue="handleChange"
+  >
     <div class="sector-card__item">
       <label class="sector-card__item-label" for="table-for-2">
         {{ $t("signup.sectorsStep.tableFor", [2]) }}
       </label>
-      <ReCounter id="table-for-2" v-model="tables.for2" />
+      <ReCounter id="table-for-2" v-model="values.for2" @update:modelValue="handleChange" />
     </div>
     <div class="sector-card__item">
       <label class="sector-card__item-label" for="table-for-4">
         {{ $t("signup.sectorsStep.tableFor", [4]) }}
       </label>
-      <ReCounter id="table-for-4" v-model="tables.for4" />
+      <ReCounter id="table-for-4" v-model="values.for4" @update:modelValue="handleChange" />
     </div>
     <div class="sector-card__item">
       <label class="sector-card__item-label" for="table-for-6">
         {{ $t("signup.sectorsStep.tableFor", [6]) }}
       </label>
-      <ReCounter id="table-for-6" v-model="tables.for6" />
+      <ReCounter id="table-for-6" v-model="values.for6" @update:modelValue="handleChange" />
     </div>
     <div class="sector-card__item">
       <label class="sector-card__item-label" for="table-for-8">
         {{ $t("signup.sectorsStep.tableFor", [8]) }}
       </label>
-      <ReCounter id="table-for-8" v-model="tables.for8" />
+      <ReCounter id="table-for-8" v-model="values.for8" @update:modelValue="handleChange" />
     </div>
   </ReCardToggle>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 import { ReCardToggle, ReCounter } from "@reservando/design-system";
+import { Sector } from "../types";
 
 const SectorCard = defineComponent({
   components: {
@@ -41,16 +47,22 @@ const SectorCard = defineComponent({
       type: String,
       required: true,
     },
+    sector: {
+      type: Object as PropType<Sector>,
+      required: true,
+    },
   },
-  data() {
+  emits: ["change"],
+  setup(props, context) {
+    const values = ref<Sector>(JSON.parse(JSON.stringify(props.sector)));
+
+    const handleChange = () => {
+      context.emit("change", values.value);
+    };
+
     return {
-      checked: false,
-      tables: {
-        for2: 0,
-        for4: 0,
-        for6: 0,
-        for8: 0,
-      },
+      handleChange,
+      values,
     };
   },
 });

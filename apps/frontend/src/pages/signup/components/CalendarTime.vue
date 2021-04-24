@@ -3,7 +3,7 @@
     <h3 class="calendar-time__title">
       {{ calendar.name }}
     </h3>
-    <p class="calendar-time__label">HORARIOS:</p>
+    <p class="calendar-time__label">{{ $t("general.openingHours") }}:</p>
     <p
       v-for="(openingTime, index) in calendar.openingTimes"
       :key="index"
@@ -11,11 +11,13 @@
     >
       {{ openingTime.from }} a {{ openingTime.to }}
     </p>
-    <p class="calendar-time__label">DÍAS:</p>
+    <p class="calendar-time__label">{{ $t("general.days") }}:</p>
     <p class="calendar-time__value">
       {{ calendar.days.join(", ") }}
     </p>
-    <ReButton class="calendar-time__edit" modifier="secondary">{{ $t("controls.edit") }}</ReButton>
+    <ReButton class="calendar-time__edit" modifier="secondary" @click="handleUpdate">
+      {{ $t("controls.edit") }}
+    </ReButton>
   </ReCard>
 </template>
 
@@ -31,6 +33,16 @@ const CalendarTime = defineComponent({
       required: true,
       type: Object as PropType<Calendar>,
     },
+  },
+  emits: ["update"],
+  setup(props, context) {
+    const handleUpdate = () => {
+      context.emit("update", props.calendar);
+    };
+
+    return {
+      handleUpdate,
+    };
   },
 });
 export default CalendarTime;
@@ -48,6 +60,7 @@ export default CalendarTime;
 
   &__label {
     @extend .re-caption-up;
+    text-transform: uppercase;
     color: $text-secondary;
     margin-top: $bdu * 2;
     margin-bottom: $bdu;

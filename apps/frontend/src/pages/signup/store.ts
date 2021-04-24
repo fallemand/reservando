@@ -1,12 +1,13 @@
 import { InjectionKey } from "vue";
 import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from "vuex";
-import { SignupState, ChangeStatePayload, Calendar } from "./types";
+import { SignupState, ChangeStatePayload, Calendar, Sector } from "./types";
 
 export const state: SignupState = {
   name: "",
   calendars: [],
   sectors: {
     inside: {
+      id: "inside",
       enabled: false,
       for2: 0,
       for4: 0,
@@ -14,6 +15,7 @@ export const state: SignupState = {
       for8: 0,
     },
     outside: {
+      id: "outside",
       enabled: false,
       for2: 0,
       for4: 0,
@@ -43,8 +45,9 @@ export const actions: ActionTree<SignupState, SignupState> = {
     calendars.push(calendar);
     commit("changeState", { property: "calendars", value: calendars });
   },
-  setSectors({ commit }, sectors: SignupState["sectors"]): void {
-    commit("changeState", sectors);
+  updateSector({ state, commit }, sector: Sector): void {
+    state.sectors[sector.id] = sector;
+    commit("changeState", { property: "sectors", value: state.sectors });
   },
   setNotifications({ commit }, notifications: SignupState["notifications"]): void {
     commit("changeState", notifications);

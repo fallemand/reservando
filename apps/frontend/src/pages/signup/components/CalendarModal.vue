@@ -6,14 +6,14 @@
       </ReButton>
     </template>
     <ReInput
-      v-model="calendar.name"
+      v-model="calendarValues.name"
       class="calendar-modal__input"
       modifier="underline"
       :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
     />
     <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>
     <div
-      v-for="(openingTime, index) in calendar.openingTimes"
+      v-for="(openingTime, index) in calendarValues.openingTimes"
       :key="index"
       class="calendar-modal__opening-times"
     >
@@ -41,20 +41,20 @@
     <p class="calendar-modal__label">
       {{ $t("signup.calendarStep.modal.repeat") }}
     </p>
-    <ReCheckboxGroup v-model:checked="calendar.days" class="calendar-modal__days">
-      <ReCheckbox id="monday" modifier="contained" :label="$t('general.days.monday')" />
-      <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.days.tuesday')" />
-      <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.days.wednesday')" />
-      <ReCheckbox id="thursday" modifier="contained" :label="$t('general.days.thursday')" />
-      <ReCheckbox id="friday" modifier="contained" :label="$t('general.days.friday')" />
-      <ReCheckbox id="saturday" modifier="contained" :label="$t('general.days.saturday')" />
-      <ReCheckbox id="sunday" modifier="contained" :label="$t('general.days.sunday')" />
+    <ReCheckboxGroup v-model:checked="calendarValues.days" class="calendar-modal__days">
+      <ReCheckbox id="monday" modifier="contained" :label="$t('general.weekdays.monday')" />
+      <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.weekdays.tuesday')" />
+      <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.weekdays.wednesday')" />
+      <ReCheckbox id="thursday" modifier="contained" :label="$t('general.weekdays.thursday')" />
+      <ReCheckbox id="friday" modifier="contained" :label="$t('general.weekdays.friday')" />
+      <ReCheckbox id="saturday" modifier="contained" :label="$t('general.weekdays.saturday')" />
+      <ReCheckbox id="sunday" modifier="contained" :label="$t('general.weekdays.sunday')" />
     </ReCheckboxGroup>
   </ReBottomSheet>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 import {
   ReBottomSheet,
   ReButton,
@@ -74,26 +74,23 @@ const CalendarStep = defineComponent({
     ReCheckboxGroup,
     CalendarTimeSelector,
   },
+  props: {
+    calendar: {
+      type: Object as PropType<Calendar>,
+      required: true,
+    },
+  },
   setup(props, context) {
-    const calendar = ref<Calendar>({
-      name: "",
-      openingTimes: [
-        {
-          from: "08:00",
-          to: "00:00",
-        },
-      ],
-      days: [],
-    });
+    const calendarValues = ref(props.calendar);
     const bottomSheet = ref<{ close: () => void }>();
 
     const handleSave = (): void => {
-      context.emit("add-calendar", calendar.value);
+      context.emit("add-calendar", calendarValues.value);
       bottomSheet.value?.close();
     };
 
     const addOpeningTime = (): void => {
-      calendar.value.openingTimes.push({
+      calendarValues.value.openingTimes.push({
         from: "08:00",
         to: "00:00",
       });
@@ -101,7 +98,7 @@ const CalendarStep = defineComponent({
 
     return {
       bottomSheet,
-      calendar,
+      calendarValues,
       handleSave,
       addOpeningTime,
     };

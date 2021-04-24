@@ -4,8 +4,7 @@ export interface SignupState extends RootState {
   name: string;
   calendars: Calendar[];
   sectors: {
-    inside: Sector;
-    outside: Sector;
+    [key in SectorId]: Sector;
   };
   notifications: {
     whatsapp: Notification;
@@ -23,7 +22,10 @@ export interface Calendar {
   days: Time.DayName[];
 }
 
+export type SectorId = "outside" | "inside";
+
 export interface Sector {
+  id: SectorId;
   enabled: boolean;
   for2: number;
   for4: number;
