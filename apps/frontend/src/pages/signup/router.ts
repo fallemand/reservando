@@ -5,6 +5,7 @@ import CalendarStep from "./steps/CalendarStep.vue";
 import SectorsStep from "./steps/SectorsStep.vue";
 import RegisterStep from "./steps/RegisterStep.vue";
 import NotificationsStep from "./steps/NotificationsStep.vue";
+import CongratsStep from "./steps/CongratsStep.vue";
 
 const routes = [
   { path: "/", component: WelcomeStep, meta: { header: false } },
@@ -13,6 +14,7 @@ const routes = [
   { path: "/sectors", component: SectorsStep, meta: { header: true } },
   { path: "/register", component: RegisterStep, meta: { header: true } },
   { path: "/notifications", component: NotificationsStep, meta: { header: true } },
+  { path: "/congrats", component: CongratsStep, meta: { header: true } },
 ];
 
 const router = createRouter({

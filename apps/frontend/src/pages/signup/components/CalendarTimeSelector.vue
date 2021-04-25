@@ -7,13 +7,14 @@
       readonly
       modifier="outline"
       :value="$attrs.modelValue"
-      @click="showSelecttor = !showSelecttor"
+      @click="showSelector = !showSelector"
     />
     <ReTransition name="height">
       <TimeSelector
-        v-show="showSelecttor"
+        v-show="showSelector"
         class="calendar-time-selector__scroll-picker"
         v-bind="$attrs"
+        @click="showSelector = false"
       />
     </ReTransition>
   </div>
@@ -37,7 +38,7 @@ const CalendarTimeSelector = defineComponent({
   },
   data() {
     return {
-      showSelecttor: false,
+      showSelector: false,
     };
   },
 });

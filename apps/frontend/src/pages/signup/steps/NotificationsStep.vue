@@ -22,7 +22,7 @@
     >
       <ReInput v-model="notifications.email.value" @change="updateNotifications" placeholder="bookings@my-restaurant.com" />
     </ReCardToggle>
-    <ContinueButton class="notifications-step__continue" @click="$router.push('register')">
+    <ContinueButton class="notifications-step__continue" @click="$router.push('congrats')">
       {{ $t("controls.continue") }}
     </ContinueButton>
   </div>

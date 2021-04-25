@@ -1,0 +1,31 @@
+import { Meta, Story, ArgsTable, Canvas, Description } from "@storybook/addon-docs/blocks";
+import { ReLoading } from "@reservando/design-system";
+
+<Meta title="Components/Loading" component={ReLoading} />
+
+# ReLoading
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: { ReLoading },
+      template: `
+        <div style="position: relative">
+          <ReLoading />
+        </div>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+<Description of={ReLoading} />
+
+## How to use
+
+```html
+<script lang="ts">
+  import { ReLoading } from "@reservando/design-system";
+</script>
+```
+
+<ArgsTable of={ReLoading} />

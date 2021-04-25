@@ -1,7 +1,7 @@
 <template>
   <div class="calendar-step">
     <ReTransition mode="out-in">
-      <div class="calendar-step__welcome" v-if="!calendars.length" key="no-calendar">
+      <div v-if="!calendars.length" class="calendar-step__welcome">
         <p class="signup__hint">{{ $t("signup.calendarStep.hint", [state.name]) }}</p>
         <p class="signup__intro">{{ $t("signup.calendarStep.intro") }}</p>
         <div class="calendar-step__tips">
@@ -34,7 +34,7 @@
           Ver ejemplos
         </ReButton>
       </div>
-      <div v-else key="with-calendar">
+      <div v-else>
         <ReTransitionGroup>
           <CalendarTime
             v-for="(calendar, index) in calendars"

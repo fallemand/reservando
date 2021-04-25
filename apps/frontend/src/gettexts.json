@@ -46,6 +46,12 @@
       "notificationsStep": {
         "lastStep": "¡Último paso!",
         "question": "¿Dónde quieres ser notificado en caso de una nueva reserva?"
+      },
+      "congratsStep": {
+        "title": "¡Felicitaciones!",
+        "description": "{0} esta listo para recibir reservas",
+        "simulateReservation": "Simular reserva",
+        "dashboard": "Ir al dashboard"
       }
     },
     "controls": {

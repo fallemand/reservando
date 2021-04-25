@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.re-loading {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    width: 200px;
+  }
+}

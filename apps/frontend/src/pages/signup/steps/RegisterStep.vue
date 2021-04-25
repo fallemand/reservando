@@ -55,6 +55,7 @@ export default RegisterStep;
   &__title {
     @extend .re-title-20;
     margin-bottom: $bdu * 4;
+    text-align: center;
   }
 
   &__button {
