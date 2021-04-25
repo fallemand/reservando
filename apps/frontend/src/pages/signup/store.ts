@@ -62,7 +62,7 @@ export const actions: ActionTree<SignupState, SignupState> = {
     state.sectors[sector.id] = sector;
     commit("changeState", { property: "sectors", value: state.sectors });
   },
-  setNotifications({ commit }, notifications: SignupState["notifications"]): void {
+  updateNotifications({ commit }, notifications: SignupState["notifications"]): void {
     commit("changeState", notifications);
   },
 };

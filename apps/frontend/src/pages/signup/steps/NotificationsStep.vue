@@ -7,18 +7,20 @@
       {{ $t("signup.notificationsStep.question") }}
     </p>
     <ReCardToggle
-      v-model="useWhatsapp"
+      v-model="notifications.whatsapp.enabled"
       class="notifications-step__card"
       :label="$t('general.social.whatsapp')"
+      @change="updateNotifications"
     >
-      <ReInput v-model="whatsapp" placeholder="3513160567" />
+      <ReInput v-model="notifications.whatsapp.value" @change="updateNotifications" placeholder="3513160567" />
     </ReCardToggle>
     <ReCardToggle
-      v-model="useEmail"
+      v-model="notifications.email.enabled"
       class="notifications-step__card"
       :label="$t('general.social.email')"
+      @change="updateNotifications"
     >
-      <ReInput v-model="email" placeholder="bookings@my-restaurant.com" />
+      <ReInput v-model="notifications.email.value" @change="updateNotifications" placeholder="bookings@my-restaurant.com" />
     </ReCardToggle>
     <ContinueButton class="notifications-step__continue" @click="$router.push('register')">
       {{ $t("controls.continue") }}
@@ -27,9 +29,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { ReCardToggle, ReInput } from "@reservando/design-system";
 import ContinueButton from "../components/ContinueButton.vue";
+import { useStore } from "../store";
 
 const RegisterStep = defineComponent({
   components: {
@@ -37,12 +40,17 @@ const RegisterStep = defineComponent({
     ReInput,
     ContinueButton,
   },
-  data() {
+  setup() {
+    const store = useStore();
+    const notifications = ref(store.state.notifications);
+
+    const updateNotifications = (): void => {
+      store.dispatch("updateNotifications", notifications.value);
+    };
+
     return {
-      useWhatsapp: false,
-      useEmail: false,
-      whatsapp: "",
-      email: "",
+      notifications,
+      updateNotifications,
     };
   },
 });
