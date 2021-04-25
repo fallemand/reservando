@@ -12,7 +12,7 @@
         "inputPlaceholder": "Nombre..."
       },
       "calendarStep": {
-        "hint": "Bienvenido Allemand Resto,",
+        "hint": "Bienvenido {0},",
         "intro": "Crea tu primer calendario de reservas",
         "inputPlaceholder": "Deli Resto",
         "tips": {
@@ -53,9 +53,13 @@
       "from": "Desde",
       "to": "Hasta",
       "continue": "Continuar",
-      "edit": "Editar"
+      "edit": "Editar",
+      "delete": "Eliminar"
     },
     "general": {
+      "validation": {
+        "required": "Por favor, completa este campo"
+      },
       "weekdays": {
         "monday": "Lunes",
         "tuesday": "Martes",

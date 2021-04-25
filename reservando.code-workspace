@@ -1,12 +1,8 @@
 {
     "folders": [
       {
-        "name": "🚀 @reservando/storybook",
-        "path": "apps/storybook"
-      },
-      {
-        "name": "📦 @reservando/design-system",
-        "path": "packages/design-system"
+        "name": "🚀 @reservando/frontend",
+        "path": "apps/frontend"
       }
     ]
 }

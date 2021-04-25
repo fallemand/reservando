@@ -1,39 +1,55 @@
 <template>
-  <div class="name-step">
+  <form class="name-step" novalidate @submit.prevent="handleContinue">
     <p class="name-step__intro signup__intro">{{ $t("signup.nameStep.question") }}</p>
-    <ReInput
-      class="name-step__field"
-      modifier="underline"
-      :model-value="state.name"
-      :placeholder="$t('signup.nameStep.inputPlaceholder')"
-      @update:modelValue="(value) => $store.dispatch('setName', value)"
-    />
-    <ContinueButton @click="$router.push('calendar')">
+    <ReFormField :error="isSubmitted && !state.name && $t('general.validation.required')">
+      <ReInput
+        class="name-step__field"
+        modifier="underline"
+        :model-value="state.name"
+        :required="true"
+        :placeholder="$t('signup.nameStep.inputPlaceholder')"
+        @update:modelValue="(value) => $store.dispatch('setName', value)"
+      />
+    </ReFormField>
+    <ContinueButton type="submit">
       {{ $t("signup.continue") }}
     </ContinueButton>
-  </div>
+  </form>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { ReInput } from "@reservando/design-system";
+import { defineComponent, ref } from "vue";
+import { ReInput, ReFormField } from "@reservando/design-system";
+import { useRouter } from "vue-router";
 import ContinueButton from "../components/ContinueButton.vue";
 import { useStore } from "../store";
 
 const NameStep = defineComponent({
   components: {
     ReInput,
+    ReFormField,
     ContinueButton,
   },
   setup() {
     const store = useStore();
+    const router = useRouter();
+    const isSubmitted = ref(false);
+
     const changeName = (name: string) => {
       store.dispatch("setName", name);
+    };
+    const handleContinue = () => {
+      isSubmitted.value = true;
+      if (store.state.name) {
+        router.push("calendar");
+      }
     };
 
     return {
       state: store.state,
+      isSubmitted,
       changeName,
+      handleContinue,
     };
   },
 });
@@ -46,7 +62,6 @@ export default NameStep;
 
 .name-step {
   &__field {
-    margin-bottom: $bdu * 8;
     @extend .re-title-32;
   }
 }

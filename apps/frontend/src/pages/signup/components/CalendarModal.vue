@@ -5,51 +5,63 @@
         {{ $t("controls.save") }}
       </ReButton>
     </template>
-    <ReInput
-      v-model="calendarValues.name"
-      class="calendar-modal__input"
-      modifier="underline"
-      :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
-    />
-    <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>
-    <div
-      v-for="(openingTime, index) in calendarValues.openingTimes"
-      :key="index"
-      class="calendar-modal__opening-times"
-    >
-      <CalendarTimeSelector
-        :id="`from-${index}`"
-        v-model="openingTime.from"
-        class="calendar-modal__time-selector"
-        :label="`${$t('controls.from')}:`"
-      />
-      <CalendarTimeSelector
-        :id="`to-${index}`"
-        v-model="openingTime.to"
-        class="calendar-modal__time-selector"
-        :label="`${$t('controls.to')}:`"
-      />
-    </div>
-    <ReButton
-      class="calendar-modal__add-times"
-      modifier="secondary-outline"
-      @click="addOpeningTime"
-    >
-      {{ $t("signup.calendarStep.modal.addOpenHours") }}
-    </ReButton>
-    <hr class="calendar-modal__separator" />
-    <p class="calendar-modal__label">
-      {{ $t("signup.calendarStep.modal.repeat") }}
-    </p>
-    <ReCheckboxGroup v-model:checked="calendarValues.days" class="calendar-modal__days">
-      <ReCheckbox id="monday" modifier="contained" :label="$t('general.weekdays.monday')" />
-      <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.weekdays.tuesday')" />
-      <ReCheckbox id="wednesday" modifier="contained" :label="$t('general.weekdays.wednesday')" />
-      <ReCheckbox id="thursday" modifier="contained" :label="$t('general.weekdays.thursday')" />
-      <ReCheckbox id="friday" modifier="contained" :label="$t('general.weekdays.friday')" />
-      <ReCheckbox id="saturday" modifier="contained" :label="$t('general.weekdays.saturday')" />
-      <ReCheckbox id="sunday" modifier="contained" :label="$t('general.weekdays.sunday')" />
-    </ReCheckboxGroup>
+    <form novalidate @submit="handleSave">
+      <ReFormField :error="isSubmitted && !calendarValues.name && $t('general.validation.required')">
+        <ReInput
+          v-model="calendarValues.name"
+          class="calendar-modal__input"
+          modifier="underline"
+          :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
+        />
+      </ReFormField>
+      <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>
+      <div
+        v-for="(openingTime, index) in calendarValues.openingTimes"
+        :key="index"
+        class="calendar-modal__opening-times"
+      >
+        <CalendarTimeSelector
+          :id="`from-${index}`"
+          v-model="openingTime.from"
+          class="calendar-modal__time-selector"
+          :label="`${$t('controls.from')}:`"
+        />
+        <CalendarTimeSelector
+          :id="`to-${index}`"
+          v-model="openingTime.to"
+          class="calendar-modal__time-selector"
+          :label="`${$t('controls.to')}:`"
+        />
+      </div>
+      <ReButton
+        class="calendar-modal__add-times"
+        modifier="secondary-outline"
+        @click="addOpeningTime"
+      >
+        {{ $t("signup.calendarStep.modal.addOpenHours") }}
+      </ReButton>
+      <hr class="calendar-modal__separator" />
+      <p class="calendar-modal__label">
+        {{ $t("signup.calendarStep.modal.repeat") }}
+      </p>
+      <ReFormField
+        :error="isSubmitted && !calendarValues.days.length && $t('general.validation.required')"
+      >
+        <ReCheckboxGroup v-model:checked="calendarValues.days" class="calendar-modal__days">
+          <ReCheckbox id="monday" modifier="contained" :label="$t('general.weekdays.monday')" />
+          <ReCheckbox id="tuesday" modifier="contained" :label="$t('general.weekdays.tuesday')" />
+          <ReCheckbox
+            id="wednesday"
+            modifier="contained"
+            :label="$t('general.weekdays.wednesday')"
+          />
+          <ReCheckbox id="thursday" modifier="contained" :label="$t('general.weekdays.thursday')" />
+          <ReCheckbox id="friday" modifier="contained" :label="$t('general.weekdays.friday')" />
+          <ReCheckbox id="saturday" modifier="contained" :label="$t('general.weekdays.saturday')" />
+          <ReCheckbox id="sunday" modifier="contained" :label="$t('general.weekdays.sunday')" />
+        </ReCheckboxGroup>
+      </ReFormField>
+    </form>
   </ReBottomSheet>
 </template>
 
@@ -59,6 +71,7 @@ import {
   ReBottomSheet,
   ReButton,
   ReInput,
+  ReFormField,
   ReCheckbox,
   ReCheckboxGroup,
 } from "@reservando/design-system";
@@ -70,6 +83,7 @@ const CalendarStep = defineComponent({
     ReBottomSheet,
     ReButton,
     ReInput,
+    ReFormField,
     ReCheckbox,
     ReCheckboxGroup,
     CalendarTimeSelector,
@@ -82,11 +96,20 @@ const CalendarStep = defineComponent({
   },
   setup(props, context) {
     const calendarValues = ref(props.calendar);
+    const isSubmitted = ref(false);
     const bottomSheet = ref<{ close: () => void }>();
 
+    const isValid = (): boolean => {
+      isSubmitted.value = true;
+      const { name, openingTimes, days } = calendarValues.value;
+      return !!name && openingTimes.length > 0 && days.length > 0;
+    };
+
     const handleSave = (): void => {
-      context.emit("add-calendar", calendarValues.value);
-      bottomSheet.value?.close();
+      if (isValid()) {
+        context.emit("add-calendar", calendarValues.value);
+        bottomSheet.value?.close();
+      }
     };
 
     const addOpeningTime = (): void => {
@@ -99,6 +122,7 @@ const CalendarStep = defineComponent({
     return {
       bottomSheet,
       calendarValues,
+      isSubmitted,
       handleSave,
       addOpeningTime,
     };

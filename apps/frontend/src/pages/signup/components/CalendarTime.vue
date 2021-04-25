@@ -13,7 +13,7 @@
     </p>
     <p class="calendar-time__label">{{ $t("general.days") }}:</p>
     <p class="calendar-time__value">
-      {{ calendar.days.join(", ") }}
+      {{ calendar.days.map((day) => $t(`general.weekdays.${day}`)).join(", ") }}
     </p>
     <ReButton class="calendar-time__edit" modifier="secondary" @click="handleUpdate">
       {{ $t("controls.edit") }}

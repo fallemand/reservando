@@ -25,6 +25,7 @@ export default ContinueButton;
 .continue-button {
   flex-grow: 1;
   display: flex;
+  margin-top: $bdu * 3;
   align-items: flex-end;
   justify-content: flex-end;
 

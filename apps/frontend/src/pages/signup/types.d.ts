@@ -17,6 +17,7 @@ export interface ModulesQuery {
 }
 
 export interface Calendar {
+  id: number;
   name: string;
   openingTimes: Time.OpeningTime[];
   days: Time.DayName[];

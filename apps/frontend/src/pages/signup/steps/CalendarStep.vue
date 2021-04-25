@@ -1,7 +1,7 @@
 <template>
   <div class="calendar-step">
     <template v-if="!calendars.length">
-      <p class="signup__hint">{{ $t("signup.calendarStep.hint") }}</p>
+      <p class="signup__hint">{{ $t("signup.calendarStep.hint", [state.name]) }}</p>
       <p class="signup__intro">{{ $t("signup.calendarStep.intro") }}</p>
       <div class="calendar-step__tips">
         <h3 class="calendar-step__tips-title">
@@ -45,7 +45,7 @@
         class="calendar-step__add-new"
         size="large"
         modifier="secondary-outline"
-        @click="calendarToUpdate = undefined"
+        @click="handleShowModal"
       >
         {{ $t("signup.calendarStep.ctaAddNew") }}
       </ReButton>
@@ -88,6 +88,7 @@ const CalendarStep = defineComponent({
 
     const handleShowModal = () => {
       const newCalendar: Calendar = {
+        id: store.state.calendars.length + 1,
         name: "",
         openingTimes: [
           {
@@ -108,6 +109,7 @@ const CalendarStep = defineComponent({
     };
 
     return {
+      state: store.state,
       calendars,
       calendarToUpdate,
       handleShowModal,

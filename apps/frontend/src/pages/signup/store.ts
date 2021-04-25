@@ -42,7 +42,12 @@ export const actions: ActionTree<SignupState, SignupState> = {
   },
   addCalendar({ state, commit }, calendar: Calendar): void {
     const calendars = state.calendars;
-    calendars.push(calendar);
+    const editIndex = calendars.findIndex((cal) => calendar.id === cal.id);
+    if (editIndex > -1) {
+      calendars.splice(editIndex, 1, calendar);
+    } else {
+      calendars.push(calendar);
+    }
     commit("changeState", { property: "calendars", value: calendars });
   },
   updateSector({ state, commit }, sector: Sector): void {
