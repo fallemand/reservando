@@ -18,6 +18,9 @@
     <ReButton class="calendar-time__edit" modifier="secondary" @click="handleUpdate">
       {{ $t("controls.edit") }}
     </ReButton>
+    <ReButton class="calendar-time__edit" modifier="link" @click="handleDelete">
+      {{ $t("controls.delete") }}
+    </ReButton>
   </ReCard>
 </template>
 
@@ -34,14 +37,18 @@ const CalendarTime = defineComponent({
       type: Object as PropType<Calendar>,
     },
   },
-  emits: ["update"],
+  emits: ["update", "delete"],
   setup(props, context) {
     const handleUpdate = () => {
       context.emit("update", props.calendar);
     };
+    const handleDelete = () => {
+      context.emit("delete", props.calendar);
+    };
 
     return {
       handleUpdate,
+      handleDelete,
     };
   },
 });
@@ -72,6 +79,7 @@ export default CalendarTime;
 
   &__edit {
     margin-top: $bdu * 2;
+    margin-right: $bdu * 2;
   }
 }
 </style>

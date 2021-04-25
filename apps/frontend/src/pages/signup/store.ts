@@ -50,6 +50,14 @@ export const actions: ActionTree<SignupState, SignupState> = {
     }
     commit("changeState", { property: "calendars", value: calendars });
   },
+  deleteCalendar({ state, commit }, calendar: Calendar): void {
+    const calendars = state.calendars;
+    const deleteIndex = calendars.findIndex((cal) => calendar.id === cal.id);
+    if (deleteIndex > -1) {
+      calendars.splice(deleteIndex, 1);
+      commit("changeState", { property: "calendars", value: calendars });
+    }
+  },
   updateSector({ state, commit }, sector: Sector): void {
     state.sectors[sector.id] = sector;
     commit("changeState", { property: "sectors", value: state.sectors });

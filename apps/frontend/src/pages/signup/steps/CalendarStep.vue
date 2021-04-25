@@ -40,6 +40,7 @@
         :calendar="calendar"
         class="calendar-step__calendar-item"
         @update="handleUpdateCalendar"
+        @delete="handleDeleteCalendar"
       />
       <ReButton
         class="calendar-step__add-new"
@@ -104,6 +105,9 @@ const CalendarStep = defineComponent({
       calendarToUpdate.value = undefined;
       store.dispatch("addCalendar", calendar);
     };
+    const handleDeleteCalendar = (calendar: Calendar) => {
+      store.dispatch("deleteCalendar", calendar);
+    };
     const handleUpdateCalendar = (calendar: Calendar) => {
       calendarToUpdate.value = calendar;
     };
@@ -115,6 +119,7 @@ const CalendarStep = defineComponent({
       handleShowModal,
       handleAddCalendar,
       handleUpdateCalendar,
+      handleDeleteCalendar,
     };
   },
 });
