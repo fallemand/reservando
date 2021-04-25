@@ -9,7 +9,7 @@
       :value="$attrs.modelValue"
       @click="showSelecttor = !showSelecttor"
     />
-    <ReTransition transition="height">
+    <ReTransition name="height">
       <TimeSelector
         v-show="showSelecttor"
         class="calendar-time-selector__scroll-picker"

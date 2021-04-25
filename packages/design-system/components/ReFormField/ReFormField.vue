@@ -1,7 +1,7 @@
 <template>
   <div class="re-form-field">
     <slot />
-    <ReTransition transition="height">
+    <ReTransition name="height">
       <p v-show="error" class="re-form-field__error">
         {{ error }}
       </p>
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReTransition from "../ReTransition/ReTransition.vue";
+import ReTransition from "../ReTransition/ReTransitionGroup.vue";
 
 /**
  * This component allows you to add `label` `hint` & `error` to any form component. <br />

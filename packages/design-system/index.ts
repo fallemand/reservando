@@ -8,6 +8,7 @@ export { default as ReInput } from "./components/ReInput/ReInput.vue";
 export { default as ReFormField } from "./components/ReFormField/ReFormField.vue";
 export { default as ReScrollPicker } from "./components/ReScrollPicker/ReScrollPicker.vue";
 export { default as ReTransition } from "./components/ReTransition/ReTransition.vue";
+export { default as ReTransitionGroup } from "./components/ReTransition/ReTransitionGroup.vue";
 export { default as ReCounter } from "./components/ReCounter/ReCounter.vue";
 export { default as ReIcon } from "./components/ReIcon/ReIcon.vue";
 export { default as ReSwitch } from "./components/ReSwitch/ReSwitch.vue";

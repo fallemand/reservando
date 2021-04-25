@@ -1,7 +1,7 @@
 <template>
-  <ReTransition v-show="show" transition="fade">
+  <ReTransition v-show="show" name="fade">
     <div :class="['re-dialog', { 're-dialog--overlay': overlay }]" @click="handleOverlayClick">
-      <ReTransition :transition="transition">
+      <ReTransition :name="transition">
         <div
           v-if="show"
           ref="content"
@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import ReTransition from "../ReTransition/ReTransition.vue";
+import ReTransition from "../ReTransition/ReTransitionGroup.vue";
 
 export const MODAL_OPEN = "re-dialog-open";
 

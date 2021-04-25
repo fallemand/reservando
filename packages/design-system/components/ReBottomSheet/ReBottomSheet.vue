@@ -4,7 +4,7 @@
     :class-dialog="['re-bottom-sheet', classSheet]"
     vertical-align="bottom"
     size="fullwidth"
-    transition="slide-bottom"
+    name="slide-bottom"
     v-bind="$attrs"
     @close="emitClose"
     @hook:mounted="checkScrollable"

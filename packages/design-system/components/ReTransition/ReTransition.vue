@@ -1,7 +1,8 @@
 <template>
   <transition
     :appear="true"
-    :name="`re-transition-${transition}`"
+    :name="`re-transition-${name}`"
+    :mode="$attrs.mode"
     v-bind="{
       ...heightTransition,
     }"
@@ -23,14 +24,19 @@ const ReTransition = defineComponent({
   name: "ReTransition",
   inheritAttrs: false,
   props: {
-    transition: {
+    name: {
       type: String as PropType<"fade" | "expand" | "height" | "slide-right" | "slide-bottom">,
       default: "fade",
+    },
+    /** Pass true if you are transitioning a list with v-for */
+    group: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
     heightTransition() {
-      return this.transition === "height" ? heightTransition : {};
+      return this.name === "height" ? heightTransition : {};
     },
   },
 });

@@ -6,7 +6,7 @@
       :label="label"
       v-bind="{ ...$attrs, class: undefined }"
     />
-    <ReTransition transition="height">
+    <ReTransition name="height">
       <div v-show="$attrs.modelValue">
         <div class="re-card-toggle__content">
           <slot />
@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ReCard from "../ReCard/ReCard.vue";
-import ReTransition from "../ReTransition/ReTransition.vue";
+import ReTransition from "../ReTransition/ReTransitionGroup.vue";
 import ReSwitch from "../ReSwitch/ReSwitch.vue";
 
 const ReCardToggle = defineComponent({

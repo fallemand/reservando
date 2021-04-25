@@ -3,13 +3,13 @@
 exports[`ReDialog component render with custom props 1`] = `
 <re-transition-stub
   style=""
-  transition="fade"
+  name="fade"
 />
 `;
 
 exports[`ReDialog component render with default props 1`] = `
 <re-transition-stub
   style=""
-  transition="fade"
+  name="fade"
 />
 `;

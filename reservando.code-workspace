@@ -3,6 +3,14 @@
       {
         "name": "🚀 @reservando/frontend",
         "path": "apps/frontend"
+      },
+      {
+        "name": "🚀 @reservando/storybook",
+        "path": "apps/storybook"
+      },
+      {
+        "name": "📦 @reservando/design-system",
+        "path": "packages/design-system"
       }
     ]
 }
