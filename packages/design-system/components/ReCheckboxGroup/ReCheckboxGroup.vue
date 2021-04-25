@@ -1,6 +1,6 @@
 <template>
   <div :class="`re-checkbox-group re-checkbox-group--${orientation}`">
-    <!-- @slot Default slot for GygRadio components -->
+    <!-- @slot Default slot for ReCheckbox components -->
     <slot />
   </div>
 </template>

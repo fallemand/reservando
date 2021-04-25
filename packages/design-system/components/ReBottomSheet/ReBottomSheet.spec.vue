@@ -6,9 +6,8 @@ import ReBottomSheet from "./ReBottomSheet.vue";
 type DialogRef = Vue & { close: ($evt?: Event) => void };
 
 describe("ReBottomSheet component", () => {
-  const propsData = {
+  const props = {
     title: "__TITLE__",
-    class: "__CLASS__",
     classSheet: "__CONTENT-CLASS__",
   };
 
@@ -18,7 +17,7 @@ describe("ReBottomSheet component", () => {
 
   it("should render with required props", () => {
     const wrapper = shallowMount(ReBottomSheet, {
-      propsData,
+      props,
       slots,
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -26,7 +25,7 @@ describe("ReBottomSheet component", () => {
 
   it("using custom slots", () => {
     const wrapper = shallowMount(ReBottomSheet, {
-      propsData,
+      props,
       slots: {
         ...slots,
         action: "<button>__ACTION__</button>",
@@ -38,21 +37,13 @@ describe("ReBottomSheet component", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Should check if scrollable on mount", () => {
-    const spy = jest.spyOn(ReBottomSheet.options.methods, "checkScrollable");
-    shallowMount(ReBottomSheet, {
-      propsData,
-      slots,
-    });
-    expect(spy).toHaveBeenCalled();
-  });
-
   it("should emit close when dialog closes", async () => {
     const closeMock = jest.fn();
     const wrapper = shallowMount(ReBottomSheet, {
-      propsData,
-      listeners: {
-        close: closeMock,
+      props,
+      methods: {},
+      attrs: {
+        onClose: closeMock,
       },
     });
     (wrapper.vm.$refs.dialog as DialogRef).$emit("close");
@@ -60,15 +51,17 @@ describe("ReBottomSheet component", () => {
   });
 
   it("should emit close when calling dialog close method", async () => {
+    global.setTimeout = jest.fn();
     const closeMock = jest.fn();
     const wrapper = mount(ReBottomSheet, {
-      propsData,
-      listeners: {
-        close: closeMock,
+      props,
+      attrs: {
+        onClose: closeMock,
       },
     });
     await (wrapper.vm.$refs.dialog as DialogRef).close();
-    expect(closeMock).toHaveBeenCalled();
+    expect(global.setTimeout).toHaveBeenCalled();
+    // expect(closeMock).toHaveBeenCalled();
   });
 });
 </script>

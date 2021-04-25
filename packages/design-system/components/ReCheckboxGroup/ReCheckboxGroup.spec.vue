@@ -9,38 +9,28 @@ describe("ReCheckboxGroup component", () => {
       props: {
         checked: [],
       },
+      slots: {
+        default: "__ReCheckbox-Items__",
+      },
     });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("should call @change and @input with args (value, $event)", () => {
-    const attrs = {
-      onChange: jest.fn(),
-      onInput: jest.fn(),
-    };
-    const wrapper = mount(ReCheckboxGroup, {
-      slots: {
-        default: `
-          <ReCheckbox id="single-ev" label="Single" value="single" />
-          <ReCheckbox id="divorced-ev" label="Divorced" value="divorced" />
-          <ReCheckbox id="married-ev" label="Married" value="married" />`,
-      },
-      stubs: {
-        ReCheckbox,
-      },
+  it("should call @update:checked on value change", () => {
+    const wrapper = shallowMount(ReCheckboxGroup, {
       props: {
         checked: [],
       },
-      attrs,
-      provide: {
-        name: "test",
-      },
     });
-    const input = wrapper.find("input");
-    input.trigger("change");
-    input.trigger("input");
-    expect(attrs.onChange).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
-    expect(attrs.onInput).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
+    // Check id-1
+    wrapper.vm.handleItemChange(true, "id-1");
+    expect(wrapper.emitted()["update:checked"][0]).toEqual([["id-1"]]);
+    // Check id-2
+    wrapper.vm.handleItemChange(true, "id-2");
+    expect(wrapper.emitted()["update:checked"][1]).toEqual([["id-1", "id-2"]]);
+    // Uncheck id-2
+    wrapper.vm.handleItemChange(false, "id-2");
+    expect(wrapper.emitted()["update:checked"][2]).toEqual([["id-1"]]);
   });
 });
 </script>

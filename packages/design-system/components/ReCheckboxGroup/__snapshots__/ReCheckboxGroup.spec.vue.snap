@@ -4,8 +4,9 @@ exports[`ReCheckboxGroup component should render with default props 1`] = `
 <div
   class="re-checkbox-group re-checkbox-group--vertical"
 >
-  <!-- @slot Default slot for GygRadio components -->
+  <!-- @slot Default slot for ReCheckbox components -->
   
+  __ReCheckbox-Items__
   
 </div>
 `;
