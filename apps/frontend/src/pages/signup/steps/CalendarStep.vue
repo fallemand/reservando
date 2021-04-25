@@ -1,62 +1,66 @@
 <template>
   <div class="calendar-step">
-    <template v-if="!calendars.length">
-      <p class="signup__hint">{{ $t("signup.calendarStep.hint", [state.name]) }}</p>
-      <p class="signup__intro">{{ $t("signup.calendarStep.intro") }}</p>
-      <div class="calendar-step__tips">
-        <h3 class="calendar-step__tips-title">
-          {{ $t("signup.calendarStep.tips.title") }}
-        </h3>
-        <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.hash" />
-          <span class="calendar-step__tip-description">
-            {{ $t("signup.calendarStep.tips.description1") }}
-          </span>
-        </p>
-        <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.grid" />
-          <span class="calendar-step__tip-description">
-            {{ $t("signup.calendarStep.tips.description2") }}
-          </span>
-        </p>
-        <p class="calendar-step__tip">
-          <ReIcon class="calendar-step__tip-icon" :name="$icons.plus" />
-          <span class="calendar-step__tip-description">
-            {{ $t("signup.calendarStep.tips.description3") }}
-          </span>
-        </p>
+    <ReTransition mode="out-in">
+      <div class="calendar-step__welcome" v-if="!calendars.length" key="no-calendar">
+        <p class="signup__hint">{{ $t("signup.calendarStep.hint", [state.name]) }}</p>
+        <p class="signup__intro">{{ $t("signup.calendarStep.intro") }}</p>
+        <div class="calendar-step__tips">
+          <h3 class="calendar-step__tips-title">
+            {{ $t("signup.calendarStep.tips.title") }}
+          </h3>
+          <p class="calendar-step__tip">
+            <ReIcon class="calendar-step__tip-icon" :name="$icons.hash" />
+            <span class="calendar-step__tip-description">
+              {{ $t("signup.calendarStep.tips.description1") }}
+            </span>
+          </p>
+          <p class="calendar-step__tip">
+            <ReIcon class="calendar-step__tip-icon" :name="$icons.grid" />
+            <span class="calendar-step__tip-description">
+              {{ $t("signup.calendarStep.tips.description2") }}
+            </span>
+          </p>
+          <p class="calendar-step__tip">
+            <ReIcon class="calendar-step__tip-icon" :name="$icons.plus" />
+            <span class="calendar-step__tip-description">
+              {{ $t("signup.calendarStep.tips.description3") }}
+            </span>
+          </p>
+        </div>
+        <ReButton class="calendar-step__button" size="large" @click="handleShowModal">
+          {{ $t("signup.calendarStep.ctaCreate") }}
+        </ReButton>
+        <ReButton class="calendar-step__button" size="large" modifier="secondary">
+          Ver ejemplos
+        </ReButton>
       </div>
-      <ReButton class="calendar-step__button" size="large" @click="handleShowModal">
-        {{ $t("signup.calendarStep.ctaCreate") }}
-      </ReButton>
-      <ReButton class="calendar-step__button" size="large" modifier="secondary">
-        Ver ejemplos
-      </ReButton>
-    </template>
-    <template v-else>
-      <CalendarTime
-        v-for="(calendar, index) in calendars"
-        :key="index"
-        :calendar="calendar"
-        class="calendar-step__calendar-item"
-        @update="handleUpdateCalendar"
-        @delete="handleDeleteCalendar"
-      />
-      <ReButton
-        class="calendar-step__add-new"
-        size="large"
-        modifier="secondary-outline"
-        @click="handleShowModal"
-      >
-        {{ $t("signup.calendarStep.ctaAddNew") }}
-      </ReButton>
-      <p class="calendar-step__hint">
-        {{ $t("signup.calendarStep.personalizeLater") }}
-      </p>
-      <ContinueButton @click="$router.push('sectors')">
-        {{ $t("controls.continue") }}
-      </ContinueButton>
-    </template>
+      <div v-else key="with-calendar">
+        <ReTransitionGroup>
+          <CalendarTime
+            v-for="(calendar, index) in calendars"
+            :key="index"
+            :calendar="calendar"
+            class="calendar-step__calendar-item"
+            @update="handleUpdateCalendar"
+            @delete="handleDeleteCalendar"
+          />
+        </ReTransitionGroup>
+        <ReButton
+          class="calendar-step__add-new"
+          size="large"
+          modifier="secondary-outline"
+          @click="handleShowModal"
+        >
+          {{ $t("signup.calendarStep.ctaAddNew") }}
+        </ReButton>
+        <p class="calendar-step__hint">
+          {{ $t("signup.calendarStep.personalizeLater") }}
+        </p>
+        <ContinueButton @click="$router.push('sectors')">
+          {{ $t("controls.continue") }}
+        </ContinueButton>
+      </div>
+    </ReTransition>
     <CalendarModal
       v-if="calendarToUpdate"
       :calendar="calendarToUpdate"
@@ -68,7 +72,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { ReButton } from "@reservando/design-system";
+import { ReButton, ReTransitionGroup, ReTransition } from "@reservando/design-system";
 import CalendarModal from "../components/CalendarModal.vue";
 import CalendarTime from "../components/CalendarTime.vue";
 import ContinueButton from "../components/ContinueButton.vue";
@@ -78,6 +82,8 @@ import { Calendar } from "../types";
 const CalendarStep = defineComponent({
   components: {
     ReButton,
+    ReTransition,
+    ReTransitionGroup,
     CalendarModal,
     CalendarTime,
     ContinueButton,
@@ -131,6 +137,11 @@ export default CalendarStep;
 @import "~@reservando/design-system/styles/mixins";
 
 .calendar-step {
+  &__welcome {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__tips {
     color: $text-secondary;
     font-size: 14px;
