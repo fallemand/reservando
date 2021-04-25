@@ -1,3 +1,4 @@
+<script>
 import { shallowMount } from "@vue/test-utils";
 import ReSwitch from "./ReSwitch.vue";
 
@@ -35,3 +36,4 @@ describe("ReSwitch component", () => {
     expect(wrapper.emitted()["update:modelValue"]).toEqual(undefined);
   });
 });
+</script>

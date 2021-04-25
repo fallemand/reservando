@@ -59,20 +59,8 @@ exports[`ReButton component should render with icon 1`] = `
 
 exports[`ReButton component should render with props 1`] = `
 <button
-  class="re-button re-button--large re-button--cta-success"
+  class="re-button re-button--large re-button--secondary"
   type="submit"
->
-  <!--v-if-->
-  
-  __BUTTON-TEXT__
-  
-</button>
-`;
-
-exports[`ReButton component should support class attribute 1`] = `
-<button
-  class="re-button re-button--medium re-button--primary"
-  type="button"
 >
   <!--v-if-->
   

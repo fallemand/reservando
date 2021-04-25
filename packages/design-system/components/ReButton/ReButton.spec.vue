@@ -14,7 +14,7 @@ describe("ReButton component", () => {
 
   it("should render disabled button", () => {
     const wrapper = shallowMount(ReButton, {
-      props: {
+      attrs: {
         disabled: true,
       },
       slots: {
@@ -27,7 +27,7 @@ describe("ReButton component", () => {
   it("should render with props", () => {
     const wrapper = shallowMount(ReButton, {
       props: {
-        modifier: "cta-success",
+        modifier: "secondary",
         size: "large",
         type: "submit",
       },
@@ -40,25 +40,12 @@ describe("ReButton component", () => {
 
   it("should render as <a /> when href is passed", () => {
     const wrapper = shallowMount(ReButton, {
-      props: {
+      attrs: {
         href: "http://fake-url.com",
         target: "_blank",
       },
       slots: {
         default: "__BUTTON-TEXT__",
-      },
-    });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it("should support class attribute", () => {
-    const wrapper = shallowMount(ReButton, {
-      slots: {
-        default: "__BUTTON-TEXT__",
-      },
-      context: {
-        staticClass: "custom-class1",
-        class: { "custom-class2": true, "custom-class3": true },
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -76,20 +63,20 @@ describe("ReButton component", () => {
 
   it("should bind all listeners to the button", () => {
     const listeners = {
-      click: jest.fn(),
-      mouseleave: jest.fn(),
-      mouseover: jest.fn(),
+      onClick: jest.fn(),
+      onMouseleave: jest.fn(),
+      onMouseover: jest.fn(),
     };
     const wrapper = shallowMount(ReButton, {
-      listeners,
+      attrs: listeners,
     });
     const input = wrapper.find("button");
     input.trigger("click");
     input.trigger("mouseleave");
     input.trigger("mouseover");
-    expect(listeners.click).toHaveBeenCalled();
-    expect(listeners.mouseleave).toHaveBeenCalled();
-    expect(listeners.mouseover).toHaveBeenCalled();
+    expect(listeners.onClick).toHaveBeenCalled();
+    expect(listeners.onMouseleave).toHaveBeenCalled();
+    expect(listeners.onMouseover).toHaveBeenCalled();
   });
 });
 </script>

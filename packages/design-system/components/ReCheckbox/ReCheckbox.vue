@@ -56,8 +56,8 @@ const ReCheckbox = defineComponent({
     modifier: {
       default: "default",
       type: String as PropType<CheckboxModifier>,
-      validator: (value: string): boolean =>
-        Object.values(CheckboxModifier).includes(value as CheckboxModifier),
+      validator: (value: CheckboxModifier): boolean =>
+        Object.values(CheckboxModifier).includes(value),
     },
   },
   computed: {
@@ -72,8 +72,8 @@ const ReCheckbox = defineComponent({
         const checkboxGroup = this.$parent;
         checkboxGroup.handleItemChange(checked, this.id);
       } else {
-        /** `(value: string, $evt: Event)`<br /> fired when changed */
-        this.$emit("update:checked", checked, $evt);
+        /** `(value: string)`<br /> fired when changed */
+        this.$emit("update:checked", checked);
       }
     },
   },

@@ -2,19 +2,23 @@
 
 exports[`ReButtonRound component should render disabled button 1`] = `
 <button
-  class="re-button-round re-button-round--medium re-button-round--primary"
+  class="re-button-round re-button-round--large re-button-round--primary"
   disabled=""
   type="button"
 >
-  <re-icon-stub />
+  <re-icon-stub
+    name="__ICON__"
+  />
 </button>
 `;
 
 exports[`ReButtonRound component should render with default props 1`] = `
 <button
-  class="re-button-round re-button-round--medium re-button-round--primary"
+  class="re-button-round re-button-round--large re-button-round--primary"
   type="button"
 >
-  <re-icon-stub />
+  <re-icon-stub
+    name="__ICON__"
+  />
 </button>
 `;

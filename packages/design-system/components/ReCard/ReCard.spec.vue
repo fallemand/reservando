@@ -1,3 +1,4 @@
+<script>
 import { shallowMount } from "@vue/test-utils";
 import ReCard from "./ReCard.vue";
 
@@ -11,3 +12,4 @@ describe("ReCard component", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 });
+</script>

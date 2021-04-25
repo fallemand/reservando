@@ -1,50 +1,37 @@
 <script lang="ts">
 import { shallowMount, mount } from "@vue/test-utils";
-import ReCheckboxGroup from "./re-checkbox-group.vue";
-import GygRadio from "../gyg-radio/gyg-radio.vue";
+import ReCheckboxGroup from "./ReCheckboxGroup.vue";
+import ReCheckbox from "../ReCheckbox/ReCheckbox.vue";
 
 describe("ReCheckboxGroup component", () => {
   it("should render with default props", () => {
     const wrapper = shallowMount(ReCheckboxGroup, {
-      propsData: {
-        id: "testName",
-        name: "test",
+      props: {
+        checked: [],
       },
     });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Renders component app", () => {
-    const wrapper = shallowMount(ReCheckboxGroup, {
-      propsData: {
-        id: "testName",
-        name: "test",
-      },
-    });
-    expect(wrapper.classes()).toContain("re-checkbox-group");
-    expect(wrapper.exists()).toBeTruthy();
-  });
-
   it("should call @change and @input with args (value, $event)", () => {
-    const listeners = {
-      change: jest.fn(),
-      input: jest.fn(),
+    const attrs = {
+      onChange: jest.fn(),
+      onInput: jest.fn(),
     };
     const wrapper = mount(ReCheckboxGroup, {
       slots: {
         default: `
-          <GygRadio id="single-ev" label="Single" value="__VALUE__" />
-          <GygRadio id="divorced-ev" label="Divorced" value="divorced" />
-          <GygRadio id="married-ev" label="Married" value="married" />`,
+          <ReCheckbox id="single-ev" label="Single" value="single" />
+          <ReCheckbox id="divorced-ev" label="Divorced" value="divorced" />
+          <ReCheckbox id="married-ev" label="Married" value="married" />`,
       },
       stubs: {
-        GygRadio,
+        ReCheckbox,
       },
-      propsData: {
-        name: "test",
-        value: "__VALUE__",
+      props: {
+        checked: [],
       },
-      listeners,
+      attrs,
       provide: {
         name: "test",
       },
@@ -52,8 +39,8 @@ describe("ReCheckboxGroup component", () => {
     const input = wrapper.find("input");
     input.trigger("change");
     input.trigger("input");
-    expect(listeners.change).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
-    expect(listeners.input).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
+    expect(attrs.onChange).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
+    expect(attrs.onInput).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
   });
 });
 </script>

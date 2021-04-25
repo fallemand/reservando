@@ -1,3 +1,4 @@
+<script>
 import { mount } from "@vue/test-utils";
 import ReCardToggle from "./ReCardToggle.vue";
 
@@ -17,3 +18,4 @@ describe("ReCardToggle component", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 });
+</script>

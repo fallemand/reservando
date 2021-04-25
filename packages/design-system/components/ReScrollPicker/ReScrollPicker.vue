@@ -29,7 +29,7 @@ const ReScrollPicker = defineComponent({
     },
   },
   methods: {
-    handleChange(value) {
+    handleChange(value: string[] | number[]) {
       this.$emit("update:modelValue", value[0]);
     },
   },

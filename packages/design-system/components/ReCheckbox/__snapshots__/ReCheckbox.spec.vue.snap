@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReCheckbox component should render with default props 1`] = `
+<div
+  class="re-checkbox re-checkbox--default"
+>
+  <div
+    class="re-checkbox__container"
+  >
+    <input
+      class="re-checkbox__input"
+      id="testName"
+      type="checkbox"
+    />
+    <span
+      class="re-checkbox__check"
+    />
+  </div>
+  <label
+    class="re-checkbox__label"
+    for="testName"
+  >
+    <!-- @slot Useful to pass HTML or something custom -->
+    
+    LABEL
+    
+  </label>
+</div>
+`;

@@ -3,13 +3,19 @@ import { shallowMount } from "@vue/test-utils";
 import ReInput from "./ReInput.vue";
 
 describe("ReInput component", () => {
+  const props = {
+    modelValue: "",
+  };
   it("should render with default props", () => {
-    const wrapper = shallowMount(ReInput);
+    const wrapper = shallowMount(ReInput, {
+      props,
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it("should render with preicon", () => {
     const wrapper = shallowMount(ReInput, {
+      props,
       slots: {
         preicon: "__PREICON__",
       },
@@ -19,6 +25,7 @@ describe("ReInput component", () => {
 
   it("should render with posticon", () => {
     const wrapper = shallowMount(ReInput, {
+      props,
       slots: {
         posticon: "__POSTICON__",
       },
@@ -26,54 +33,52 @@ describe("ReInput component", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("should call @change and @input with args (value, $event)", () => {
-    const listeners = {
-      change: jest.fn(),
-      input: jest.fn(),
+  it("should call @change with args (value)", () => {
+    const attrs = {
+      onChange: jest.fn(),
     };
     const wrapper = shallowMount(ReInput, {
-      propsData: {
-        value: "__VALUE__",
+      props: {
+        modelValue: "__VALUE__",
       },
-      listeners,
+      attrs,
     });
     const input = wrapper.find("input");
     input.trigger("change");
     input.trigger("input");
-    expect(listeners.change).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
-    expect(listeners.input).toHaveBeenCalledWith("__VALUE__", expect.any(Event));
+    expect(attrs.onChange).toHaveBeenCalledWith("__VALUE__");
   });
 
   it("should bind all attributes to the input", () => {
     const wrapper = shallowMount(ReInput, {
-      propsData: {
-        required: true,
+      attrs: {
         type: "number",
         min: 0,
       },
+      props,
     });
     const input = wrapper.find("input");
-    expect(input.attributes().required).toEqual("required");
     expect(input.attributes().type).toEqual("number");
     expect(input.attributes().min).toEqual("0");
   });
 
   it("should bind all listeners to the input", () => {
-    const listeners = {
-      click: jest.fn(),
-      keydown: jest.fn(),
-      blur: jest.fn(),
+    const attrs = {
+      onClick: jest.fn(),
+      onKeydown: jest.fn(),
+      onBlur: jest.fn(),
     };
     const wrapper = shallowMount(ReInput, {
-      listeners,
+      attrs,
+      props,
     });
     const input = wrapper.find("input");
     input.trigger("click");
     input.trigger("keydown");
     input.trigger("blur");
-    expect(listeners.click).toHaveBeenCalled();
-    expect(listeners.keydown).toHaveBeenCalled();
-    expect(listeners.blur).toHaveBeenCalled();
+    expect(attrs.onClick).toHaveBeenCalled();
+    expect(attrs.onKeydown).toHaveBeenCalled();
+    expect(attrs.onBlur).toHaveBeenCalled();
   });
 });
 </script>

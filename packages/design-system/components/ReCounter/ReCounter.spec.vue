@@ -1,3 +1,4 @@
+<script>
 import { shallowMount, mount } from "@vue/test-utils";
 import ReCounter from "./ReCounter.vue";
 
@@ -84,3 +85,4 @@ describe("ReCounter component", () => {
     expect(wrapper.vm.maxDisabled).toBe(true);
   });
 });
+</script>
