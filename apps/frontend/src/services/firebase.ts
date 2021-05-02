@@ -13,13 +13,11 @@ class Firebase {
       : firebase.app();
   }
 
-  getFirebaseUser(): Promise<firebase.User> {
-    return new Promise<firebase.User>((resolve, reject) => {
+  getFirebaseUser(): Promise<firebase.User | null> {
+    return new Promise<firebase.User | null>((resolve, reject) => {
       firebase.auth().onAuthStateChanged(
         (user) => {
-          if (user) {
-            resolve(user);
-          }
+          resolve(user);
         },
         (err) => reject(err),
       );
@@ -44,7 +42,7 @@ class Firebase {
 
   async getToken(): Promise<string> {
     const user = await this.getFirebaseUser();
-    const token = await user.getIdToken();
+    const token = user ? await user.getIdToken() : "";
     return token;
   }
 

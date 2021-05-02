@@ -1,5 +1,6 @@
 <template>
   <Page id="signup" :header="false" :footer="false">
+    {{ $user }}
     <button @click="handleLogout">Logout</button>
   </Page>
 </template>
