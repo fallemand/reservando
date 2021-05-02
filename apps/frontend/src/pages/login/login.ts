@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 import firebaseui from "firebaseui";
-import firebase from "firebase/app";
+import firebase from "firebase";
 import Page from "@/components/Page/Page.vue";
 
 const LoginPage = defineComponent({
@@ -8,7 +8,8 @@ const LoginPage = defineComponent({
     Page,
   },
   async mounted(): Promise<void> {
-    const ui = new firebaseui.auth.AuthUI(firebase.auth());
+    const auth = firebase.auth();
+    const ui = new firebaseui.auth.AuthUI(auth);
     const firebaseUiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: () => true,

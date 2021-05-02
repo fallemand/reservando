@@ -2,8 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { firebaseClientConfig } from "@/config/config";
 import urls from "@/utils/urls";
-
-export type Role = "admin" | "user" | "guest";
+import { Auth } from "@reservando/commons/types";
 
 class Firebase {
   instance: firebase.app.App;
@@ -14,7 +13,7 @@ class Firebase {
       : firebase.app();
   }
 
-  getUser(): Promise<firebase.User> {
+  getFirebaseUser(): Promise<firebase.User> {
     return new Promise<firebase.User>((resolve, reject) => {
       firebase.auth().onAuthStateChanged(
         (user) => {
@@ -27,8 +26,24 @@ class Firebase {
     });
   }
 
+  async getUser(): Promise<Auth.User | null> {
+    const firebaseUser = await this.getFirebaseUser();
+    if (!firebaseUser) {
+      return null;
+    }
+    const idTokenResult = await firebaseUser.getIdTokenResult();
+    const user: Auth.User = {
+      id: firebaseUser.uid,
+      email: firebaseUser.email || "",
+      emailVerified: firebaseUser.emailVerified,
+      displayName: firebaseUser.displayName || "",
+      role: idTokenResult.claims.roles ? idTokenResult.claims.roles[0] : null,
+    };
+    return user;
+  }
+
   async getToken(): Promise<string> {
-    const user = await this.getUser();
+    const user = await this.getFirebaseUser();
     const token = await user.getIdToken();
     return token;
   }

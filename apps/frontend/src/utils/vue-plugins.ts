@@ -3,7 +3,7 @@ import urls from "@/utils/urls";
 import sanitizeHTML from "@/utils/sanitize-html";
 import isMobile from "@/utils/is-mobile";
 import { ReIcon, Icons } from "@reservando/design-system";
-import firebase from "firebase";
+import type firebase from "firebase";
 
 export default {
   install: (app: App, user: firebase.User): void => {

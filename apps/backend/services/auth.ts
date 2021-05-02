@@ -4,12 +4,19 @@ import { Auth } from "@reservando/commons/types";
 
 const UNAUTHORIZED_STATUS = 401;
 
-const getFirebaseUser = async (bearerToken: string): Promise<Auth.UserClaims> => {
+const getUser = async (bearerToken: string): Promise<Auth.User> => {
   const token = bearerToken.replace("Bearer ", "");
   const decoded = await firebaseAdmin.auth().verifyIdToken(token);
   const { uid } = decoded;
-  const userData = await firebaseAdmin.auth().getUser(uid);
-  return userData.customClaims as Auth.UserClaims;
+  const firebaseUser = await firebaseAdmin.auth().getUser(uid);
+  const user: Auth.User = {
+    id: firebaseUser.uid,
+    email: firebaseUser.email || "",
+    emailVerified: firebaseUser.emailVerified,
+    displayName: firebaseUser.displayName || "",
+    role: firebaseUser.customClaims?.roles[0],
+  };
+  return user;
 };
 
 export default (role: Auth.Role) => async (ctx: Context, next: Next): Promise<void> => {
@@ -20,13 +27,10 @@ export default (role: Auth.Role) => async (ctx: Context, next: Next): Promise<vo
       ctx.throw(UNAUTHORIZED_STATUS);
     }
 
-    const user = await getFirebaseUser(bearerToken);
+    const user = await getUser(bearerToken);
+    ctx.state.user = user;
 
-    ctx.state.user = {
-      roles: user.roles,
-    };
-
-    if (!user.roles.length || !user.roles.includes(role)) {
+    if (!user.role || user.role !== role) {
       ctx.throw(UNAUTHORIZED_STATUS);
     }
 

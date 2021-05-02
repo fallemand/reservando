@@ -2,14 +2,11 @@ import "core-js/stable";
 import { createApp } from "vue";
 import initializePage from "@/utils/initialize-page";
 import i18n from "@/utils/i18n";
-import HomePage from "./HomePage.vue";
-import store from "./store";
 import plugins from "@/utils/vue-plugins";
+import SignupPage from "./HomePage.vue";
+import { store, key } from "./store";
 
-initializePage({
-  requiredRole: "user",
-})
-  .then((user): void => {
-    createApp(HomePage).use(i18n).use(store).use(plugins, user).mount("#app");
-  })
-  .catch((e) => e);
+(async () => {
+  const user = await initializePage({ requiredRole: "admin" });
+  createApp(SignupPage).use(i18n).use(store, key).use(plugins, user).mount("#app");
+})();

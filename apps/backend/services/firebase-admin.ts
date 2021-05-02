@@ -6,5 +6,6 @@ if (!firebaseAdmin.apps.length) {
     credential: firebaseAdmin.credential.cert(credential as firebaseAdmin.ServiceAccount),
   });
 }
+
 export const db = firebaseAdmin.firestore();
 export default firebaseAdmin;
