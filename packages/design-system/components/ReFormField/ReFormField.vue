@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ReTransition from "../ReTransition/ReTransitionGroup.vue";
+import ReTransition from "../ReTransition/ReTransition.vue";
 
 /**
  * This component allows you to add `label` `hint` & `error` to any form component. <br />

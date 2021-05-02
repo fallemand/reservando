@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import ReTransition from "../ReTransition/ReTransitionGroup.vue";
+import ReTransition from "../ReTransition/ReTransition.vue";
 
 export const MODAL_OPEN = "re-dialog-open";
 

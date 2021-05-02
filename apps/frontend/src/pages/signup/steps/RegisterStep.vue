@@ -48,6 +48,7 @@ export default RegisterStep;
 .register-step {
   &__image {
     max-width: 100px;
+    min-height: 105px;
     margin: 0 auto;
     margin-bottom: $bdu * 4;
   }

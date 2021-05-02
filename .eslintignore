@@ -1,7 +1,7 @@
 /.idea
 /.secret
 /coverage
-/dist
+dist
 /monitoring
 /node_modules
 /secrets

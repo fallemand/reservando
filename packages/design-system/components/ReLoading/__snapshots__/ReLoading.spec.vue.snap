@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReLoading component should render with default props 1`] = `
+<div
+  class="re-loading"
+>
+  <img
+    alt="loading"
+    class="re-loading__image"
+  />
+</div>
+`;

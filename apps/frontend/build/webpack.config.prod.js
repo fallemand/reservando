@@ -58,7 +58,6 @@ module.exports = {
   },
   output: {
     ...webpackConfig.output,
-    publicPath: config.assets.cdnUrl,
     filename: `${config.assets.folder}/[name].[contenthash].js`,
   },
 };

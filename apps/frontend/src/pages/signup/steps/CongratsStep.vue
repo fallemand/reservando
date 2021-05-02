@@ -33,7 +33,7 @@ const WelcomeHeader = defineComponent({
     const loading = ref(true);
     setTimeout(() => {
       loading.value = false;
-    }, 2500);
+    }, 3000);
 
     return {
       state: store.state,
@@ -60,6 +60,7 @@ export default WelcomeHeader;
 
   &__image {
     max-width: 200px;
+    min-height: 208px;
     margin: 0 auto;
     margin-bottom: $bdu * 6;
   }

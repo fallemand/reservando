@@ -8,6 +8,6 @@ import router from "./router";
 import { store, key } from "./store";
 
 (async () => {
-  const user = await initializePage();
-  createApp(SignupPage).use(router).use(i18n).use(store, key).use(plugins, user).mount("#app");
+  // const user = await initializePage();
+  createApp(SignupPage).use(router).use(i18n).use(store, key).use(plugins, null).mount("#app");
 })();

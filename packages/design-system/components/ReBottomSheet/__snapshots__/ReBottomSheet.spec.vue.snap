@@ -3,8 +3,8 @@
 exports[`ReBottomSheet component should render with required props 1`] = `
 <re-dialog-stub
   class-dialog="re-bottom-sheet,__CONTENT-CLASS__"
-  size="fullwidth"
   name="slide-bottom"
+  size="fullwidth"
   vertical-align="bottom"
 />
 `;
@@ -12,8 +12,8 @@ exports[`ReBottomSheet component should render with required props 1`] = `
 exports[`ReBottomSheet component using custom slots 1`] = `
 <re-dialog-stub
   class-dialog="re-bottom-sheet,__CONTENT-CLASS__"
-  size="fullwidth"
   name="slide-bottom"
+  size="fullwidth"
   vertical-align="bottom"
 />
 `;

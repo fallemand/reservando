@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ReCard from "../ReCard/ReCard.vue";
-import ReTransition from "../ReTransition/ReTransitionGroup.vue";
+import ReTransition from "../ReTransition/ReTransition.vue";
 import ReSwitch from "../ReSwitch/ReSwitch.vue";
 
 const ReCardToggle = defineComponent({

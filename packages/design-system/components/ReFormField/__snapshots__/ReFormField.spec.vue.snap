@@ -4,8 +4,8 @@ exports[`ReFormField component should render with default props 1`] = `
 <div
   class="re-form-field"
 >
-
-
+  
+  
   <re-transition-stub
     name="height"
   />

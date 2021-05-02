@@ -49,7 +49,7 @@
       },
       "congratsStep": {
         "title": "¡Felicitaciones!",
-        "description": "{0} esta listo para recibir reservas",
+        "description": "{0} está listo para recibir reservas",
         "simulateReservation": "Simular reserva",
         "dashboard": "Ir al dashboard"
       }
@@ -69,10 +69,10 @@
       "weekdays": {
         "monday": "Lunes",
         "tuesday": "Martes",
-        "wednesday": "Miercoles",
+        "wednesday": "Miércoles",
         "thursday": "Jueves",
         "friday": "Viernes",
-        "saturday": "Saturday",
+        "saturday": "Sábado",
         "sunday": "Domingo"
       },
       "days": "Días",

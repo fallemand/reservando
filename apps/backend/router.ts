@@ -1,24 +1,24 @@
 import { Context } from "koa";
 import Router from "@koa/router";
-import accounts from "./controllers/accounts/routes";
+import users from "./controllers/users";
+import auth from "./services/auth";
 
-const router = new Router();
+const router = new Router({
+  prefix: "/api",
+});
 
 // Add controllers routes
-router.use("/accounts", accounts.routes(), accounts.allowedMethods());
+router.post("/users/list", auth("admin"), users.getSupplierAccounts);
 
 // // Add mocks route
 // if (env.isDevelopment) {
 //   router.use("/mocks", mocks.routes(), mocks.allowedMethods());
 // }
 
-const baseRouter = new Router();
-baseRouter.use("/api", router.routes(), router.allowedMethods());
-
 // 404 route - keep it at the end
-baseRouter.all("(.*)", (ctx: Context) => {
+router.all("(.*)", (ctx: Context) => {
   ctx.body = "not found";
   ctx.status = 404;
 });
 
-export default baseRouter;
+export default router;

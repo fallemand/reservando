@@ -1,4 +1,4 @@
-import { getSupplierAccounts } from "./controller";
+import { getSupplierAccounts } from "./users";
 
 describe("Supplier Accounts Controller", () => {
   let ctx = {};

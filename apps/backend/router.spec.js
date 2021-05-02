@@ -13,16 +13,14 @@ jest.mock("@koa/router", () =>
     ...mockRouter,
   })),
 );
-jest.mock("./controllers/accounts/routes", () => mockRouter);
 jest.mock("./mocks", () => mockRouter);
 
 require("./router");
 
 describe("router", () => {
   it("should have basic routes defined", () => {
-    expect(mockUse.mock.calls).toEqual([
-      ["/accounts", expect.any(Function), expect.any(Function)],
-      ["/api", expect.any(Function), expect.any(Function)],
+    expect(mockPost.mock.calls).toEqual([
+      ["/users/list", expect.any(Function), expect.any(Function)],
     ]);
     expect(mockAll.mock.calls).toEqual([["(.*)", expect.any(Function)]]);
   });
