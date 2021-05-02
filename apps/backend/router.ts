@@ -8,7 +8,7 @@ const router = new Router({
 });
 
 // Add controllers routes
-router.post("/users/list", auth("admin"), users.getSupplierAccounts);
+router.post("/users/create", auth("admin"), users.create);
 
 // // Add mocks route
 // if (env.isDevelopment) {

@@ -1,17 +1,10 @@
 import { Context, Next } from "koa";
-import firebaseAdmin from "firebase-admin";
+import firebaseAdmin from "./firebase-admin";
 import { Auth } from "@reservando/commons/types";
-import credential from "../config/firebase-admin-credential.json";
 
 const UNAUTHORIZED_STATUS = 401;
 
 const getFirebaseUser = async (bearerToken: string): Promise<Auth.UserClaims> => {
-  if (!firebaseAdmin.apps.length) {
-    firebaseAdmin.initializeApp({
-      credential: firebaseAdmin.credential.cert(credential as firebaseAdmin.ServiceAccount),
-    });
-  }
-
   const token = bearerToken.replace("Bearer ", "");
   const decoded = await firebaseAdmin.auth().verifyIdToken(token);
   const { uid } = decoded;

@@ -1,10 +1,18 @@
 import { Context } from "koa";
+import { db } from "../services/firebase-admin";
 
-export const getSupplierAccounts = async (ctx: Context): Promise<void> => {
-  ctx.body = "success";
-  ctx.status = 200;
+export const create = async (ctx: Context): Promise<void> => {
+  try {
+    const docRef = await db.collection("users").add({
+      name: ctx.request.body.name,
+    });
+    ctx.status = 200;
+    ctx.body = docRef.id;
+  } catch (error) {
+    console.error("Error creating document: ", error);
+  }
 };
 
 export default {
-  getSupplierAccounts,
+  create,
 };

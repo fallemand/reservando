@@ -13,8 +13,8 @@ if (environment.isProduction) {
   app.use(helmet.frameguard());
   app.use(helmet.xssFilter());
   app.use(helmet.noSniff());
-  app.use(bodyParser());
 }
+app.use(bodyParser());
 app.use(cors());
 app.use(requestLogger);
 

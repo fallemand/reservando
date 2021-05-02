@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import * as firebaseui from "firebaseui";
+import firebaseui from "firebaseui";
 import firebase from "firebase/app";
 import Page from "@/components/Page/Page.vue";
 
