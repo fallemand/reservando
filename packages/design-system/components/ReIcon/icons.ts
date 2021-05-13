@@ -7,4 +7,5 @@ export default {
   plus: "plus",
   facebook: "facebook",
   google: "google",
+  loading: "loading",
 };

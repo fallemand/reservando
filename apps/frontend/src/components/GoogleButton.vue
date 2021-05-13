@@ -1,19 +1,46 @@
 <template>
-  <ReButton class="google-button" size="large" v-bind="$attrs">
+  <ReButton class="google-button" size="large" v-bind="$attrs" @click="handleLogin">
     <template #icon>
-      <ReIcon class="google-button__icon" :name="$icons.google" />
+      <ReIcon class="google-button__icon" :name="isLoading ? $icons.loading : $icons.google" />
     </template>
     <slot />
   </ReButton>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { ReButton } from "@reservando/design-system";
+import { Auth } from "@reservando/commons/types";
+import FirebaseService from "@/services/firebase";
 
 const GoogleButton = defineComponent({
   components: {
     ReButton,
+  },
+  emits: ["success", "error"],
+  setup(props, context) {
+    const isLoading = ref(false);
+
+    const handleLogin = async (): Promise<void> => {
+      isLoading.value = true;
+      const firebaseService = new FirebaseService();
+      try {
+        const token = await firebaseService.googleSignup();
+        const account: Auth.AccountProvider = {
+          token,
+          provider: "google",
+        };
+        context.emit("success", account);
+      } catch (e) {
+        context.emit("error");
+      }
+      isLoading.value = false;
+    };
+
+    return {
+      isLoading,
+      handleLogin,
+    };
   },
 });
 export default GoogleButton;

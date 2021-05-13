@@ -23,6 +23,7 @@ export const state: SignupState = {
       for8: 0,
     },
   },
+  userId: null,
   notifications: {
     whatsapp: {
       enabled: false,
@@ -39,6 +40,9 @@ export const actions: ActionTree<SignupState, SignupState> = {
   async loadDefaultState(): Promise<void> {},
   setName({ commit }, name: string): void {
     commit("changeState", { property: "name", value: name });
+  },
+  setUser({ commit }, uid: string): void {
+    commit("changeState", { property: "userId", value: uid });
   },
   addCalendar({ state, commit }, calendar: Calendar): void {
     const calendars = state.calendars;

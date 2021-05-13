@@ -10,6 +10,7 @@ export interface SignupState extends RootState {
     whatsapp: Notification;
     email: Notification;
   };
+  userId: null | string;
 }
 
 export interface ModulesQuery {

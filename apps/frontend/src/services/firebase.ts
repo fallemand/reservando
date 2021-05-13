@@ -46,6 +46,16 @@ class Firebase {
     return token;
   }
 
+  async googleSignup(): Promise<string> {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const { user } = await firebase.auth().signInWithPopup(provider);
+    if (user) {
+      const token = await user.getIdToken();
+      return token;
+    }
+    throw new Error("missing user");
+  }
+
   async logoutUser(): Promise<void> {
     await firebase.auth().signOut();
     window.location.assign(urls.login);

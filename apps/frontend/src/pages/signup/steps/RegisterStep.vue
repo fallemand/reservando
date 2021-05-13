@@ -8,34 +8,50 @@
     <FacebookButton class="register-step__button">
       {{ $t("signup.registerStep.facebook") }}
     </FacebookButton>
-    <GoogleButton class="register-step__button">
+    <GoogleButton class="register-step__button" @success="handleSuccess" @error="handleError">
       {{ $t("signup.registerStep.google") }}
     </GoogleButton>
-    <ContinueButton class="register-step__continue" @click="$router.push('notifications')">
-      {{ $t("controls.continue") }}
-    </ContinueButton>
+    <p v-if="error">
+      {{ error }}
+    </p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { ReButton } from "@reservando/design-system";
-import ContinueButton from "../components/ContinueButton.vue";
 import signupSvg from "@/assets/images/signup.svg";
 import FacebookButton from "@/components/FacebookButton.vue";
 import GoogleButton from "@/components/GoogleButton.vue";
+import { useStore } from "../store";
+import { useRouter } from "vue-router";
 
 const RegisterStep = defineComponent({
   components: {
     ReButton,
-    ContinueButton,
     FacebookButton,
     GoogleButton,
   },
-  computed: {
-    signupSvg(): string {
-      return signupSvg;
-    },
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+    const error = ref("");
+
+    const handleSuccess = (uid: string) => {
+      store.dispatch("setUser", uid);
+      router.push("notifications");
+    };
+
+    const handleError = (message: string) => {
+      error.value = message;
+    };
+
+    return {
+      signupSvg,
+      handleSuccess,
+      handleError,
+      error,
+    };
   },
 });
 export default RegisterStep;
