@@ -5,7 +5,7 @@
     <ReButton class="register-step__button">
       {{ $t("signup.registerStep.email") }}
     </ReButton>
-    <FacebookButton class="register-step__button">
+    <FacebookButton class="register-step__button" @success="handleSuccess" @error="handleError">
       {{ $t("signup.registerStep.facebook") }}
     </FacebookButton>
     <GoogleButton class="register-step__button" @success="handleSuccess" @error="handleError">

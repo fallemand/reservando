@@ -10,7 +10,6 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { ReButton } from "@reservando/design-system";
-import { Auth } from "@reservando/commons/types";
 import FirebaseService from "@/services/firebase";
 
 const GoogleButton = defineComponent({
@@ -26,11 +25,7 @@ const GoogleButton = defineComponent({
       const firebaseService = new FirebaseService();
       try {
         const token = await firebaseService.googleSignup();
-        const account: Auth.AccountProvider = {
-          token,
-          provider: "google",
-        };
-        context.emit("success", account);
+        context.emit("success", token);
       } catch (e) {
         context.emit("error");
       }

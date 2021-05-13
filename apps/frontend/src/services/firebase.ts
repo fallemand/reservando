@@ -56,6 +56,16 @@ class Firebase {
     throw new Error("missing user");
   }
 
+  async facebookSignup(): Promise<string> {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    const { user } = await firebase.auth().signInWithPopup(provider);
+    if (user) {
+      const token = await user.getIdToken();
+      return token;
+    }
+    throw new Error("missing user");
+  }
+
   async logoutUser(): Promise<void> {
     await firebase.auth().signOut();
     window.location.assign(urls.login);
