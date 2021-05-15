@@ -1,6 +1,10 @@
 import { InjectionKey } from "vue";
 import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from "vuex";
-import { SignupState, ChangeStatePayload, Calendar, Sector } from "./types";
+import { SignupState, ChangeStatePayload } from "./types";
+import { Shops } from "@reservando/commons/types";
+import SignupService from "./service";
+
+const signupService = new SignupService();
 
 export const state: SignupState = {
   name: "",
@@ -34,6 +38,7 @@ export const state: SignupState = {
       value: "",
     },
   },
+  error: null,
 };
 
 export const actions: ActionTree<SignupState, SignupState> = {
@@ -44,7 +49,7 @@ export const actions: ActionTree<SignupState, SignupState> = {
   setUser({ commit }, uid: string): void {
     commit("changeState", { property: "userId", value: uid });
   },
-  addCalendar({ state, commit }, calendar: Calendar): void {
+  addCalendar({ state, commit }, calendar: Shops.Calendar): void {
     const calendars = state.calendars;
     const editIndex = calendars.findIndex((cal) => calendar.id === cal.id);
     if (editIndex > -1) {
@@ -54,7 +59,7 @@ export const actions: ActionTree<SignupState, SignupState> = {
     }
     commit("changeState", { property: "calendars", value: calendars });
   },
-  deleteCalendar({ state, commit }, calendar: Calendar): void {
+  deleteCalendar({ state, commit }, calendar: Shops.Calendar): void {
     const calendars = state.calendars;
     const deleteIndex = calendars.findIndex((cal) => calendar.id === cal.id);
     if (deleteIndex > -1) {
@@ -62,12 +67,29 @@ export const actions: ActionTree<SignupState, SignupState> = {
       commit("changeState", { property: "calendars", value: calendars });
     }
   },
-  updateSector({ state, commit }, sector: Sector): void {
+  updateSector({ state, commit }, sector: Shops.Sector): void {
     state.sectors[sector.id] = sector;
     commit("changeState", { property: "sectors", value: state.sectors });
   },
   updateNotifications({ commit }, notifications: SignupState["notifications"]): void {
     commit("changeState", notifications);
+  },
+  createShop({ state, commit }): void {
+    try {
+      const { name, calendars, sectors, notifications } = state;
+      const shop: Shops.Shop = {
+        id: "new",
+        userId: "new",
+        name,
+        calendars,
+        sectors,
+        notifications,
+      };
+      signupService.create(shop);
+    } catch (e) {
+      const message = e.response ? e.response.message : e.toString();
+      commit("changeState", { property: "error", value: message });
+    }
   },
 };
 

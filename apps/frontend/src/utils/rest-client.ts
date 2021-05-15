@@ -13,11 +13,8 @@ interface Params {
 }
 
 const RestClient = (params: Params = {}): AxiosInstance => {
-  const mocksEnabled = config.useMocks;
-  const baseURL =
-    mocksEnabled && GLOBAL.ENV.isDevelopment
-      ? "/mocks"
-      : params.baseURL || "http://localhost:3005/api/";
+  const mocksEnabled = config.useMocks && GLOBAL.ENV.isDevelopment;
+  const baseURL = mocksEnabled ? "/mocks" : params.baseURL || "http://localhost:3005/api/";
 
   const restClient = axios.create({
     ...params,

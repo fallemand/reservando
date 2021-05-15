@@ -13,6 +13,10 @@
         "path": "apps/storybook"
       },
       {
+        "name": "📦 @reservando/commons",
+        "path": "packages/commons"
+      },
+      {
         "name": "📦 @reservando/design-system",
         "path": "packages/design-system"
       }

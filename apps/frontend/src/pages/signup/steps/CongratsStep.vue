@@ -2,6 +2,9 @@
   <div class="congrats-step">
     <ReTransition mode="out-in">
       <ReLoading v-if="loading" class="congrats-step__loading" />
+      <p v-else-if="state.error" class="congrats-step__error">
+        {{ state.error }}
+      </p>
       <div v-else class="congrats-step__container">
         <img class="congrats-step__image" :src="congratsSvg" alt="Singup" />
         <h2 class="congrats-step__title">{{ $t("signup.congratsStep.title") }}</h2>
@@ -20,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import { ReButton, ReLoading, ReTransition } from "@reservando/design-system";
 import congratsSvg from "@/assets/images/congrats.svg";
 import { useStore } from "../store";
@@ -31,9 +34,11 @@ const WelcomeHeader = defineComponent({
   setup() {
     const store = useStore();
     const loading = ref(true);
-    setTimeout(() => {
+
+    onMounted(async () => {
+      await store.dispatch("createShop");
       loading.value = false;
-    }, 3000);
+    });
 
     return {
       state: store.state,

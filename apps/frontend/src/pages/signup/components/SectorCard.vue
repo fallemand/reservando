@@ -35,7 +35,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref } from "vue";
 import { ReCardToggle, ReCounter } from "@reservando/design-system";
-import { Sector } from "../types";
+import { Shops } from "@reservando/commons/types";
 
 const SectorCard = defineComponent({
   components: {
@@ -48,13 +48,13 @@ const SectorCard = defineComponent({
       required: true,
     },
     sector: {
-      type: Object as PropType<Sector>,
+      type: Object as PropType<Shops.Sector>,
       required: true,
     },
   },
   emits: ["change"],
   setup(props, context) {
-    const values = ref<Sector>(JSON.parse(JSON.stringify(props.sector)));
+    const values = ref<Shops.Sector>(JSON.parse(JSON.stringify(props.sector)));
 
     const handleChange = () => {
       context.emit("change", values.value);

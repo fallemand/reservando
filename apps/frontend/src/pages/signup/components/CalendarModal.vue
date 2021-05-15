@@ -76,7 +76,7 @@ import {
   ReCheckboxGroup,
 } from "@reservando/design-system";
 import CalendarTimeSelector from "./CalendarTimeSelector.vue";
-import { Calendar } from "../types";
+import { Shops } from "@reservando/commons/types";
 
 const CalendarStep = defineComponent({
   components: {
@@ -90,7 +90,7 @@ const CalendarStep = defineComponent({
   },
   props: {
     calendar: {
-      type: Object as PropType<Calendar>,
+      type: Object as PropType<Shops.Calendar>,
       required: true,
     },
   },

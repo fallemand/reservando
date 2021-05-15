@@ -28,9 +28,10 @@ export default (role: Auth.Role) => async (ctx: Context, next: Next): Promise<vo
     }
 
     const user = await getUser(bearerToken);
+    console.log(user);
     ctx.state.user = user;
 
-    if (!user.role || user.role !== role) {
+    if (!user.role || (user.role !== "admin" && user.role !== role)) {
       ctx.throw(UNAUTHORIZED_STATUS);
     }
 

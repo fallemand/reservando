@@ -1,6 +1,6 @@
 import { Context } from "koa";
 import Router from "@koa/router";
-import users from "./controllers/users";
+import shops from "./controllers/shops";
 import auth from "./services/auth";
 
 const router = new Router({
@@ -8,7 +8,7 @@ const router = new Router({
 });
 
 // Add controllers routes
-router.post("/users/create", auth("admin"), users.create);
+router.post("/shops/create", auth("user"), shops.create);
 
 // // Add mocks route
 // if (env.isDevelopment) {

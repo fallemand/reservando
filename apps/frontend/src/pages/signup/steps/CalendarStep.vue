@@ -71,11 +71,11 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { ReButton, ReTransitionGroup } from "@reservando/design-system";
+import { Shops } from "@reservando/commons/types";
 import CalendarModal from "../components/CalendarModal.vue";
 import CalendarTime from "../components/CalendarTime.vue";
 import ContinueButton from "../components/ContinueButton.vue";
 import { useStore } from "../store";
-import { Calendar } from "../types";
 
 const CalendarStep = defineComponent({
   components: {
@@ -88,10 +88,10 @@ const CalendarStep = defineComponent({
   setup() {
     const store = useStore();
     const calendars = ref(store.state.calendars);
-    const calendarToUpdate = ref<Calendar>();
+    const calendarToUpdate = ref<Shops.Calendar>();
 
     const handleShowModal = () => {
-      const newCalendar: Calendar = {
+      const newCalendar: Shops.Calendar = {
         id: store.state.calendars.length + 1,
         name: "",
         openingTimes: [
@@ -104,14 +104,14 @@ const CalendarStep = defineComponent({
       };
       calendarToUpdate.value = newCalendar;
     };
-    const handleAddCalendar = (calendar: Calendar) => {
+    const handleAddCalendar = (calendar: Shops.Calendar) => {
       calendarToUpdate.value = undefined;
       store.dispatch("addCalendar", calendar);
     };
-    const handleDeleteCalendar = (calendar: Calendar) => {
+    const handleDeleteCalendar = (calendar: Shops.Calendar) => {
       store.dispatch("deleteCalendar", calendar);
     };
-    const handleUpdateCalendar = (calendar: Calendar) => {
+    const handleUpdateCalendar = (calendar: Shops.Calendar) => {
       calendarToUpdate.value = calendar;
     };
 

@@ -27,14 +27,14 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { ReCard, ReButton } from "@reservando/design-system";
-import { Calendar } from "../types";
+import { Shops } from "@reservando/commons/types";
 
 const CalendarTime = defineComponent({
   components: { ReCard, ReButton },
   props: {
     calendar: {
       required: true,
-      type: Object as PropType<Calendar>,
+      type: Object as PropType<Shops.Calendar>,
     },
   },
   emits: ["update", "delete"],

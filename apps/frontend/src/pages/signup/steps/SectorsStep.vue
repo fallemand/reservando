@@ -24,7 +24,7 @@ import { defineComponent } from "vue";
 import SectorCard from "../components/SectorCard.vue";
 import ContinueButton from "../components/ContinueButton.vue";
 import { useStore } from "../store";
-import { Sector } from "../types";
+import { Shops } from "@reservando/commons/types";
 
 const RegisterStep = defineComponent({
   components: {
@@ -35,7 +35,7 @@ const RegisterStep = defineComponent({
     const store = useStore();
     const state = store.state;
 
-    const updateSector = (sector: Sector) => {
+    const updateSector = (sector: Shops.Sector) => {
       store.dispatch("updateSector", sector);
     };
 
