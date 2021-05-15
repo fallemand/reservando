@@ -9,12 +9,21 @@ const getUser = async (bearerToken: string): Promise<Auth.User> => {
   const decoded = await firebaseAdmin.auth().verifyIdToken(token);
   const { uid } = decoded;
   const firebaseUser = await firebaseAdmin.auth().getUser(uid);
+
+  // Set default role
+  if (!firebaseUser.customClaims?.role) {
+    firebaseAdmin.auth().setCustomUserClaims(firebaseUser.uid, {
+      role: "user",
+    });
+  }
+
+  // Return user
   const user: Auth.User = {
     id: firebaseUser.uid,
     email: firebaseUser.email || "",
     emailVerified: firebaseUser.emailVerified,
     displayName: firebaseUser.displayName || "",
-    role: firebaseUser.customClaims?.roles[0],
+    role: firebaseUser.customClaims?.role,
   };
   return user;
 };
@@ -28,7 +37,6 @@ export default (role: Auth.Role) => async (ctx: Context, next: Next): Promise<vo
     }
 
     const user = await getUser(bearerToken);
-    console.log(user);
     ctx.state.user = user;
 
     if (!user.role || (user.role !== "admin" && user.role !== role)) {
