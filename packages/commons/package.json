@@ -4,7 +4,11 @@
   "description": "Reservando commons for FE & BE",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "typescript-json-schema types/index.ts Shops.Shop -o schema.json --required"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript-json-schema": "^0.50.0"
+  }
 }

@@ -29,6 +29,7 @@
     "axios": ">=0.21.1",
     "firebase-admin": "^9.5.0",
     "if-env": "^1.0.4",
+    "jsonschema": "^1.4.0",
     "koa": "2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-helmet": "6.0.0"

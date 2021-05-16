@@ -26,7 +26,14 @@ export namespace Time {
     | "22"
     | "23";
   export type Minute = "00" | "15" | "30" | "45";
-  export type DayName = "monday" | "tuesday" | "wednesday" | "thursday" | "saturday" | "sunday";
+  export type DayName =
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday"
+    | "saturday"
+    | "sunday";
   export type Time = `${Hour}:${Minute}`;
   export interface OpeningTime {
     from: Time;
