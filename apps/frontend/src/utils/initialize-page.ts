@@ -15,10 +15,10 @@ const initializePage = async (params: Params = {}): Promise<Auth.User | null> =>
     throw "Redirecting | logged user";
   }
   if (
-    (!user && params.requiredRole) ||
-    (user && params.requiredRole && params.requiredRole !== user.role && user.role !== "admin")
+    params.requiredRole &&
+    (!user || (user.role !== "admin" && params.requiredRole !== user.role))
   ) {
-    // window.location.assign(urls.login);
+    window.location.assign(urls.login);
     throw "Redirecting | missing role";
   }
   return user;
