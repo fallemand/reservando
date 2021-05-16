@@ -9,6 +9,7 @@ const router = new Router({
 
 // Add controllers routes
 router.post("/shops/create", auth("user"), shops.create);
+router.post("/shops/list", auth("user"), shops.list);
 
 // // Add mocks route
 // if (env.isDevelopment) {

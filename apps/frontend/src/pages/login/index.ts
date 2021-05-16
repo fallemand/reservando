@@ -5,9 +5,7 @@ import i18n from "@/utils/i18n";
 import LoginPage from "./LoginPage.vue";
 import plugins from "@/utils/vue-plugins";
 
-initializePage({
-  redirectIfLoggedIn: true,
-})
+initializePage({ redirectIfLoggedIn: true })
   .then((user): void => {
     createApp(LoginPage).use(i18n).use(plugins, user).mount("#app");
   })

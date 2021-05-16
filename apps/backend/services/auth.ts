@@ -25,6 +25,7 @@ const getUser = async (bearerToken: string): Promise<Auth.User> => {
     displayName: firebaseUser.displayName || "",
     role: firebaseUser.customClaims?.role,
   };
+  console.log(user);
   return user;
 };
 

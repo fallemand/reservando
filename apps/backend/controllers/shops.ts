@@ -30,6 +30,22 @@ export const create = async (ctx: Context): Promise<void> => {
   }
 };
 
+export const list = async (ctx: Context): Promise<void> => {
+  try {
+    const user: Auth.User = ctx.state.user;
+    const documents = await db.collection("shops").where("userId", "==", user.id).get();
+    const shops: Shops.Shop[] = [];
+    documents.forEach((doc) => shops.push(doc.data() as Shops.Shop));
+
+    // Response
+    ctx.status = 200;
+    ctx.body = shops;
+  } catch (error) {
+    console.error("Error listing user documents: ", error);
+  }
+};
+
 export default {
   create,
+  list,
 };

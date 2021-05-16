@@ -1,13 +1,20 @@
 import { InjectionKey } from "vue";
 import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from "vuex";
 import { HomeState, ChangeStatePayload } from "./types";
+import HomeService from "./service";
+
+const homeService = new HomeService();
 
 export const state: HomeState = {
   name: "",
+  shops: [],
 };
 
 export const actions: ActionTree<HomeState, HomeState> = {
-  async loadDefaultState(): Promise<void> {},
+  async loadDefaultState({ commit }): Promise<void> {
+    const shops = await homeService.listShops();
+    commit("changeState", { property: "shops", value: shops });
+  },
   setName({ commit }, name: string): void {
     commit("changeState", { property: "name", value: name });
   },

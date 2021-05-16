@@ -35,7 +35,7 @@ class Firebase {
       email: firebaseUser.email || "",
       emailVerified: firebaseUser.emailVerified,
       displayName: firebaseUser.displayName || "",
-      role: idTokenResult.claims.roles ? idTokenResult.claims.roles[0] : null,
+      role: idTokenResult.claims.role,
     };
     return user;
   }

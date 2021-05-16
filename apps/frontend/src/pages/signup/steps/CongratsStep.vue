@@ -11,7 +11,7 @@
         <p class="congrats-step__description">
           {{ $t("signup.congratsStep.description", [state.name]) }}
         </p>
-        <ReButton class="congrats-step__cta" size="large">
+        <ReButton class="congrats-step__cta" size="large" :href="$urls.home">
           {{ $t("signup.congratsStep.dashboard") }}
         </ReButton>
         <ReButton class="congrats-step__cta" modifier="secondary" size="large">
