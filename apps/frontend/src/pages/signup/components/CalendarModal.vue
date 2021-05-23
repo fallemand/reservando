@@ -11,10 +11,10 @@
           v-model="calendarValues.name"
           class="calendar-modal__input"
           modifier="underline"
-          :placeholder="$t('signup.calendarStep.modal.titlePlaceholder')"
+          :placeholder="$t('signup.openDaysStep.modal.titlePlaceholder')"
         />
       </ReFormField>
-      <p class="calendar-modal__label">{{ $t("signup.calendarStep.modal.openHours") }}</p>
+      <p class="calendar-modal__label">{{ $t("signup.openDaysStep.modal.openHours") }}</p>
       <div
         v-for="(openingTime, index) in calendarValues.openingTimes"
         :key="index"
@@ -38,11 +38,11 @@
         modifier="secondary-outline"
         @click="addOpeningTime"
       >
-        {{ $t("signup.calendarStep.modal.addOpenHours") }}
+        {{ $t("signup.openDaysStep.modal.addOpenHours") }}
       </ReButton>
       <hr class="calendar-modal__separator" />
       <p class="calendar-modal__label">
-        {{ $t("signup.calendarStep.modal.repeat") }}
+        {{ $t("signup.openDaysStep.modal.repeat") }}
       </p>
       <ReFormField
         :error="isSubmitted && !calendarValues.days.length && $t('general.validation.required')"

@@ -11,19 +11,8 @@
         "question": "¿Cuál es el nombre de tu bar o restaurante?",
         "inputPlaceholder": "Nombre..."
       },
-      "calendarStep": {
-        "hint": "Bienvenido {0},",
-        "intro": "Crea tu primer calendario de reservas",
-        "inputPlaceholder": "Deli Resto",
-        "tips": {
-          "title": "PRO TIPS",
-          "description1": "Dale un nombre descriptivo a tu calendario",
-          "description2": "Agrupa los días que tienen los mismos horarios de reserva en un sólo calendario.",
-          "description3": "Puedes crear más de un calendario de ser necesario."
-        },
-        "ctaCreate": "Crear calendario",
-        "ctaAddNew": "Agregar otro calendario",
-        "personalizeLater": "Podras personalizar aún mas tus reservas más adelante.",
+      "openDaysStep": {
+        "intro": "¿Qué días estas abierto al publico?",
         "modal": {
           "titlePlaceholder": "Agregar título",
           "openHours": "¿En qué franja horaria se puede reservar?",

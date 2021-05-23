@@ -41,7 +41,7 @@ const NameStep = defineComponent({
     const handleContinue = () => {
       isSubmitted.value = true;
       if (store.state.name) {
-        router.push("calendar");
+        router.push("open-days");
       }
     };
 

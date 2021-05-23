@@ -17,8 +17,7 @@ export namespace Shops {
   }
 
   export interface Calendar {
-    id: number;
-    name: string;
+    id?: number;
     openingTimes: Time.OpeningTime[];
     days: Time.DayName[];
   }

@@ -1,14 +1,17 @@
 import { InjectionKey } from "vue";
 import { useStore as baseUseStore, createStore, Store, MutationTree, ActionTree } from "vuex";
 import { SignupState, ChangeStatePayload } from "./types";
-import { Shops } from "@reservando/commons/types";
+import { Shops, Time } from "@reservando/commons/types";
 import SignupService from "./service";
 
 const signupService = new SignupService();
 
 export const state: SignupState = {
   name: "",
-  calendars: [],
+  calendar: {
+    openingTimes: [],
+    days: [],
+  },
   sectors: {
     inside: {
       id: "inside",
@@ -49,23 +52,16 @@ export const actions: ActionTree<SignupState, SignupState> = {
   setUser({ commit }, uid: string): void {
     commit("changeState", { property: "userId", value: uid });
   },
-  addCalendar({ state, commit }, calendar: Shops.Calendar): void {
-    const calendars = state.calendars;
-    const editIndex = calendars.findIndex((cal) => calendar.id === cal.id);
-    if (editIndex > -1) {
-      calendars.splice(editIndex, 1, calendar);
-    } else {
-      calendars.push(calendar);
-    }
-    commit("changeState", { property: "calendars", value: calendars });
+  setOpeningDays({ state, commit }, days: Time.DayName[]): void {
+    const calendar = state.calendar;
+    calendar.days = days;
+    commit("changeState", { property: "calendar", value: calendar });
   },
-  deleteCalendar({ state, commit }, calendar: Shops.Calendar): void {
-    const calendars = state.calendars;
-    const deleteIndex = calendars.findIndex((cal) => calendar.id === cal.id);
-    if (deleteIndex > -1) {
-      calendars.splice(deleteIndex, 1);
-      commit("changeState", { property: "calendars", value: calendars });
-    }
+  setOpeningTimes({ state, commit }, openingTimes: Time.OpeningTime[]): void {
+    const calendar = state.calendar;
+    calendar.openingTimes = openingTimes;
+    console.log(openingTimes);
+    commit("changeState", { property: "calendars", value: calendar });
   },
   updateSector({ state, commit }, sector: Shops.Sector): void {
     state.sectors[sector.id] = sector;
@@ -76,12 +72,12 @@ export const actions: ActionTree<SignupState, SignupState> = {
   },
   createShop({ state, commit }): void {
     try {
-      const { name, calendars, sectors, notifications } = state;
+      const { name, calendar, sectors, notifications } = state;
       const shop: Shops.Shop = {
         id: "new",
         userId: "new",
         name,
-        calendars,
+        calendars: [calendar],
         sectors,
         notifications,
       };

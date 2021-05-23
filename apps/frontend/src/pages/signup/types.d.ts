@@ -3,7 +3,7 @@ import { Shops } from "@reservando/commons/types";
 
 export interface SignupState extends RootState {
   name: string;
-  calendars: Shops.Calendar[];
+  calendar: Shops.Calendar;
   sectors: {
     [key in Shops.SectorId]: Shops.Sector;
   };
