@@ -20,6 +20,11 @@
           "repeat": "Repetir cada:"
         }
       },
+      "openTimesStep": {
+        "intro": "¿En que horarios se puede reservar?",
+        "hint": "¿Tienes horarios diferentes para cada día de la semana? No te preocupes, podras personalizar aún mas tus reservas más adelante.",
+        "addOpenHours": "Agregar otra franja horaria"
+      },
       "sectorsStep": {
         "question": "Selecciona los sectores disponibles y cantidad de mesas por sector.",
         "inside": "Interior",

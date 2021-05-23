@@ -9,7 +9,12 @@ const signupService = new SignupService();
 export const state: SignupState = {
   name: "",
   calendar: {
-    openingTimes: [],
+    openingTimes: [
+      {
+        from: "18:00",
+        to: "00:00",
+      },
+    ],
     days: [],
   },
   sectors: {
@@ -60,8 +65,7 @@ export const actions: ActionTree<SignupState, SignupState> = {
   setOpeningTimes({ state, commit }, openingTimes: Time.OpeningTime[]): void {
     const calendar = state.calendar;
     calendar.openingTimes = openingTimes;
-    console.log(openingTimes);
-    commit("changeState", { property: "calendars", value: calendar });
+    commit("changeState", { property: "calendar", value: calendar });
   },
   updateSector({ state, commit }, sector: Shops.Sector): void {
     state.sectors[sector.id] = sector;

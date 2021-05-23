@@ -2,7 +2,7 @@
   <ScrollPicker
     class="re-scroll-picker"
     :options="[options]"
-    v-bind="{ ...$attrs, modelValue: [$attrs.modelValue], 'onUpdate:modelValue': handleChange }"
+    v-bind="{ ...$attrs, modelValue: [modelValue], 'onUpdate:modelValue': handleChange }"
     active-class="re-scroll-picker__selected"
   />
 </template>
@@ -27,6 +27,7 @@ const ReScrollPicker = defineComponent({
       type: Array as () => ReScrollPickerOption[],
       required: true,
     },
+    modelValue: { type: String, required: true },
   },
   methods: {
     handleChange(value: string[] | number[]) {

@@ -34,7 +34,8 @@ import { Time } from "@reservando/commons/types";
 import ContinueButton from "../components/ContinueButton.vue";
 import { useStore } from "../store";
 
-const CalendarStep = defineComponent({
+export default defineComponent({
+  name: "OpenDayStep",
   components: {
     ContinueButton,
     ReCheckboxGroup,
@@ -52,7 +53,7 @@ const CalendarStep = defineComponent({
 
     const handleContinue = () => {
       if (store.state.calendar.openingTimes.length) {
-        router.push("congrats");
+        router.push("open-times");
       } else {
         isSubmitted.value = true;
       }
@@ -66,7 +67,6 @@ const CalendarStep = defineComponent({
     };
   },
 });
-export default CalendarStep;
 </script>
 
 <style lang="scss">

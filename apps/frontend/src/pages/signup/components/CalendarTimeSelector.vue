@@ -6,7 +6,7 @@
       class="calendar-time-selector__input"
       readonly
       modifier="outline"
-      :value="$attrs.modelValue"
+      :value="modelValue"
       @click="showSelector = !showSelector"
     />
     <ReTransition name="height">
@@ -14,6 +14,7 @@
         v-show="showSelector"
         class="calendar-time-selector__scroll-picker"
         v-bind="$attrs"
+        :model-value="modelValue"
         @click="showSelector = false"
       />
     </ReTransition>
@@ -21,9 +22,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import { ReInput, ReTransition } from "@reservando/design-system";
 import TimeSelector from "@/components/TimeSelector/TimeSelector.vue";
+import { Time } from "@reservando/commons/types";
 
 const CalendarTimeSelector = defineComponent({
   components: {
@@ -34,6 +36,7 @@ const CalendarTimeSelector = defineComponent({
   inheritAttrs: false,
   props: {
     id: { type: String, required: true },
+    modelValue: { type: String as PropType<Time.Time>, required: true },
     label: { type: String, default: "" },
   },
   data() {
@@ -64,6 +67,10 @@ export default CalendarTimeSelector;
   &__input {
     flex-shrink: 0;
     flex-basis: 40%;
+
+    input {
+      cursor: pointer;
+    }
   }
   &__scroll-picker {
     max-height: 210px;

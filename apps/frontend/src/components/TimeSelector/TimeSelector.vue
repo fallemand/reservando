@@ -1,14 +1,18 @@
 <template>
-  <ReScrollPicker v-bind="$attrs" :options="options" />
+  <ReScrollPicker v-bind="$attrs" :model-value="modelValue" :options="options" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import { ReScrollPicker } from "@reservando/design-system";
+import { Time } from "@reservando/commons/types";
 
 const CalendarStep = defineComponent({
   components: {
     ReScrollPicker,
+  },
+  props: {
+    modelValue: { type: String as PropType<Time.Time>, required: true },
   },
   computed: {
     times(): string[] {
