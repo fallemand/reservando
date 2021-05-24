@@ -7,6 +7,8 @@ export namespace Shops {
     userId: string;
     name: string;
     calendars: Calendar[];
+    duration: Time.Duration;
+    interval: Time.Interval;
     sectors: {
       [key in SectorId]: Sector;
     };

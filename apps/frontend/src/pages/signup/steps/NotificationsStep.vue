@@ -12,7 +12,11 @@
       :label="$t('general.social.whatsapp')"
       @change="updateNotifications"
     >
-      <ReInput v-model="notifications.whatsapp.value" @change="updateNotifications" placeholder="3513160567" />
+      <ReInput
+        v-model="notifications.whatsapp.value"
+        placeholder="3513160567"
+        @change="updateNotifications"
+      />
     </ReCardToggle>
     <ReCardToggle
       v-model="notifications.email.enabled"
@@ -20,7 +24,11 @@
       :label="$t('general.social.email')"
       @change="updateNotifications"
     >
-      <ReInput v-model="notifications.email.value" @change="updateNotifications" placeholder="bookings@my-restaurant.com" />
+      <ReInput
+        v-model="notifications.email.value"
+        placeholder="bookings@my-restaurant.com"
+        @change="updateNotifications"
+      />
     </ReCardToggle>
     <ContinueButton class="notifications-step__continue" @click="$router.push('congrats')">
       {{ $t("controls.continue") }}

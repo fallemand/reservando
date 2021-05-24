@@ -43,6 +43,7 @@ export default SignupPage;
 
   &__hint {
     @extend .re-body-14;
+    color: $grey-700;
     margin-bottom: $bdu * 1.5;
   }
 

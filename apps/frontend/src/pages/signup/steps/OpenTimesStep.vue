@@ -11,7 +11,7 @@
         class="times-step__time-selector"
         :model-value="openingTime.from"
         :label="`${$t('controls.from')}:`"
-        @update:movelValue="(value) => handleChangeFrom(index, value)"
+        @update:modelValue="(value) => handleChangeFrom(index, value)"
       />
       <CalendarTimeSelector
         :id="`to-${index}`"
@@ -61,14 +61,16 @@ export default defineComponent({
     };
 
     const handleContinue = () => {
-      router.push("sectors");
+      router.push("interval");
     };
     const handleChangeFrom = (index: number, value: Time.Time) => {
+      console.log(index, value);
       openingTimes[index].from = value;
       store.dispatch("setOpeningTimes", openingTimes);
     };
     const handleChangeTo = (index: number, value: Time.Time) => {
       openingTimes[index].to = value;
+      console.log(index, value);
       store.dispatch("setOpeningTimes", openingTimes);
     };
 
@@ -98,7 +100,6 @@ export default defineComponent({
   }
   &__hint {
     margin-top: $bdu * 2.5;
-    color: $grey-700;
   }
 }
 </style>

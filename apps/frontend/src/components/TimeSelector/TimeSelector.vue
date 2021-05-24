@@ -1,5 +1,10 @@
 <template>
-  <ReScrollPicker v-bind="$attrs" :model-value="modelValue" :options="options" />
+  <ReScrollPicker
+    v-bind="$attrs"
+    :model-value="modelValue"
+    :options="options"
+    @update:modelValue="(value) => $emit('update:modelValue', value)"
+  />
 </template>
 
 <script lang="ts">

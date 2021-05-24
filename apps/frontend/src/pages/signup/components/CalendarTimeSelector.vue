@@ -15,6 +15,7 @@
         class="calendar-time-selector__scroll-picker"
         v-bind="$attrs"
         :model-value="modelValue"
+        @update:modelValue="(value) => $emit('update:modelValue', value)"
         @click="showSelector = false"
       />
     </ReTransition>

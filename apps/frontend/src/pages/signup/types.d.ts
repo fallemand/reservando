@@ -1,5 +1,5 @@
 import { RootState } from "@/types/globals";
-import { Shops } from "@reservando/commons/types";
+import { Shops, Time } from "@reservando/commons/types";
 
 export interface SignupState extends RootState {
   name: string;
@@ -11,6 +11,8 @@ export interface SignupState extends RootState {
     whatsapp: Shops.Notification;
     email: Shops.Notification;
   };
+  interval: Time.Interval;
+  duration: Time.Duration;
   userId: null | string;
   error: string | null;
 }

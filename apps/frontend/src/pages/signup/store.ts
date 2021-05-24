@@ -17,6 +17,8 @@ export const state: SignupState = {
     ],
     days: [],
   },
+  interval: 30,
+  duration: 120,
   sectors: {
     inside: {
       id: "inside",
@@ -67,6 +69,12 @@ export const actions: ActionTree<SignupState, SignupState> = {
     calendar.openingTimes = openingTimes;
     commit("changeState", { property: "calendar", value: calendar });
   },
+  setInterval({ commit }, interval: Time.Interval): void {
+    commit("changeState", { property: "interval", value: interval });
+  },
+  setDuration({ commit }, duration: Time.Duration): void {
+    commit("changeState", { property: "duration", value: duration });
+  },
   updateSector({ state, commit }, sector: Shops.Sector): void {
     state.sectors[sector.id] = sector;
     commit("changeState", { property: "sectors", value: state.sectors });
@@ -76,12 +84,14 @@ export const actions: ActionTree<SignupState, SignupState> = {
   },
   createShop({ state, commit }): void {
     try {
-      const { name, calendar, sectors, notifications } = state;
+      const { name, calendar, sectors, notifications, duration, interval } = state;
       const shop: Shops.Shop = {
         id: "new",
         userId: "new",
         name,
         calendars: [calendar],
+        duration,
+        interval,
         sectors,
         notifications,
       };

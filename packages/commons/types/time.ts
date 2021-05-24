@@ -26,6 +26,8 @@ export namespace Time {
     | "22"
     | "23";
   export type Minute = "00" | "15" | "30" | "45";
+  export type Interval = 15 | 30 | 45 | 60;
+  export type Duration = 30 | 60 | 90 | 120;
   export type DayName =
     | "monday"
     | "tuesday"

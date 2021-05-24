@@ -25,6 +25,16 @@
         "hint": "¿Tienes horarios diferentes para cada día de la semana? No te preocupes, podras personalizar aún mas tus reservas más adelante.",
         "addOpenHours": "Agregar otra franja horaria"
       },
+      "intervalStep": {
+        "intro": "Selecciona el intevalo entre reservas:",
+        "intervalLabel": "Cada {0} minutos",
+        "hint": "Ejemplo: Tus clientes podrán reservar a las {0}, {1}, {2}, {3}, etc."
+      },
+      "durationStep": {
+        "intro": "Selecciona la duración de la reserva:",
+        "label": "{0} minutos",
+        "hint": "La mesa no podrá volver a reservarse por {0} minutos."
+      },
       "sectorsStep": {
         "question": "Selecciona los sectores disponibles y cantidad de mesas por sector.",
         "inside": "Interior",
