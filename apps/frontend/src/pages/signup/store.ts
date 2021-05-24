@@ -106,6 +106,7 @@ export const actions: ActionTree<SignupState, SignupState> = {
 export const mutations: MutationTree<SignupState> = {
   changeState(state, payload: ChangeStatePayload) {
     const { property, value } = payload;
+    // @ts-ignore: TODO fix error.
     state[property] = value;
   },
 };

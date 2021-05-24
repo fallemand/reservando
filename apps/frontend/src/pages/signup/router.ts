@@ -20,7 +20,7 @@ const routes = [
   { path: "/sectors", component: SectorsStep, meta: { header: true } },
   { path: "/register", component: RegisterStep, meta: { header: true } },
   { path: "/notifications", component: NotificationsStep, meta: { header: true } },
-  { path: "/congrats", component: CongratsStep, meta: { header: true } },
+  { path: "/congrats", component: CongratsStep, meta: { header: true, headerHighlight: true } },
 ];
 
 const router = createRouter({

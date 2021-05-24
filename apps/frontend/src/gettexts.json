@@ -52,10 +52,12 @@
         "question": "¿Dónde quieres ser notificado en caso de una nueva reserva?"
       },
       "congratsStep": {
-        "title": "¡Felicitaciones!",
-        "description": "{0} está listo para recibir reservas",
-        "simulateReservation": "Simular reserva",
-        "dashboard": "Ir al dashboard"
+        "hint": "¡Felicitaciones!",
+        "title": "{0} está listo para recibir reservas",
+        "shareLinkDescription": "Compartí este link en tus redes sociales para comenzar a recibir reservas...",
+        "portalLinkDescription": "... o conoce tu portal de reservas para personalizar tu calendario.",
+        "previewUrl": "rsvd.club/{0}",
+        "dashboard": "Ir al portal de reservas"
       }
     },
     "controls": {

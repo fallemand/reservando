@@ -7,7 +7,15 @@ import schema from "@reservando/commons/schema.json";
 
 export const create = async (ctx: Context): Promise<void> => {
   try {
-    const { name, userId, calendars, sectors, notifications } = ctx.request.body;
+    const {
+      name,
+      userId,
+      calendars,
+      sectors,
+      notifications,
+      duration,
+      interval,
+    } = ctx.request.body;
 
     const result = validate(ctx.request.body, schema);
     if (!result.valid) {
@@ -23,6 +31,8 @@ export const create = async (ctx: Context): Promise<void> => {
     const shop: Shops.Shop = {
       id: docRef.id,
       name,
+      duration,
+      interval,
       sectors,
       userId: shopUserId,
       calendars,

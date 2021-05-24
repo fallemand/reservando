@@ -1,5 +1,5 @@
 <template>
-  <div class="signup-header">
+  <div class="signup-header" :class="{ 'signup-header--highlight': highlight }">
     <a class="signup-header__back" @click="handleBack">
       <ReIcon class="signup-header__back-img" :name="$icons.arrowLeft" />
     </a>
@@ -14,7 +14,12 @@ import { defineComponent } from "vue";
 import logoSvg from "@reservando/design-system/images/logo.svg";
 
 const Page = defineComponent({
-  props: {},
+  props: {
+    highlight: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
     logoSvg(): string {
       return logoSvg;
@@ -37,6 +42,10 @@ export default Page;
   display: flex;
   align-items: center;
   padding: $bdu * 2;
+
+  &--highlight {
+    background-color: $primary-100;
+  }
 
   &__back {
     flex-shrink: 0;

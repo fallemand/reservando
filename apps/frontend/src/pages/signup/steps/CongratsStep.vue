@@ -6,16 +6,29 @@
         {{ state.error }}
       </p>
       <div v-else class="congrats-step__container">
-        <img class="congrats-step__image" :src="congratsSvg" alt="Singup" />
-        <h2 class="congrats-step__title">{{ $t("signup.congratsStep.title") }}</h2>
-        <p class="congrats-step__description">
-          {{ $t("signup.congratsStep.description", [state.name]) }}
+        <div class="congrats-step__highlight">
+          <p class="congrats-step__hint">{{ $t("signup.congratsStep.hint") }}</p>
+          <h2
+            class="congrats-step__title"
+            v-html="$t('signup.congratsStep.title', [`<strong>${state.name}</strong>`])"
+          />
+          <div class="congrats-step__image-container">
+            <img class="congrats-step__image" :src="congratsImage" alt="Singup" />
+          </div>
+        </div>
+
+        <p class="congrats-step__link-description">
+          {{ $t("signup.congratsStep.shareLinkDescription") }}
         </p>
-        <ReButton class="congrats-step__cta" size="large" :href="$urls.home">
-          {{ $t("signup.congratsStep.dashboard") }}
+        <ReButton class="congrats-step__cta" size="large" modifier="secondary" :href="$urls.home">
+          {{ $t("signup.congratsStep.previewUrl", [state.name.toLowerCase().replace(" ", "-")]) }}
         </ReButton>
-        <ReButton class="congrats-step__cta" modifier="secondary" size="large">
-          {{ $t("signup.congratsStep.simulateReservation") }}
+
+        <p class="congrats-step__link-description">
+          {{ $t("signup.congratsStep.portalLinkDescription") }}
+        </p>
+        <ReButton class="congrats-step__cta" modifier="secondary-outline" size="large">
+          {{ $t("signup.congratsStep.dashboard") }}
         </ReButton>
       </div>
     </ReTransition>
@@ -25,7 +38,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
 import { ReButton, ReLoading, ReTransition } from "@reservando/design-system";
-import congratsSvg from "@/assets/images/congrats.svg";
+import congratsImage from "@/assets/images/signup-congrats.png";
 import { useStore } from "../store";
 
 const WelcomeHeader = defineComponent({
@@ -43,7 +56,7 @@ const WelcomeHeader = defineComponent({
     return {
       state: store.state,
       loading,
-      congratsSvg,
+      congratsImage,
     };
   },
 });
@@ -55,38 +68,54 @@ export default WelcomeHeader;
 @import "~@reservando/design-system/styles/mixins";
 
 .congrats-step {
-  text-align: center;
-
   &__container {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
+  &__highlight {
+    margin: (-$bdu * 4) (-$bdu * 4) ($bdu * 4);
+    padding: $bdu * 4;
+    padding-bottom: 0;
+    background-color: $primary-100;
+  }
+
   &__image {
-    max-width: 200px;
     min-height: 208px;
-    margin: 0 auto;
-    margin-bottom: $bdu * 6;
+    max-width: 200px;
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__hint {
+    @extend .re-body-18;
+    color: $grey-800;
+    margin-bottom: $bdu * 2;
   }
 
   &__title {
-    @extend .re-title-20;
-    margin-bottom: $bdu * 2;
-  }
-
-  &__description {
-    @extend .re-body-18;
+    @extend .re-title-28;
     margin-bottom: $bdu * 2;
     flex-grow: 1;
+    color: $grey-800;
+
+    strong {
+      color: $primary-500;
+    }
+  }
+
+  &__link-description {
+    @extend .re-body-16;
+    margin-bottom: $bdu * 1.5;
   }
 
   &__cta {
-    margin-bottom: $bdu;
-
-    &:last-child {
-      margin-bottom: $bdu * 4;
-    }
+    text-align: center;
+    margin-bottom: $bdu * 4;
   }
 }
 </style>

@@ -2,7 +2,11 @@
   <Page id="signup" :header="false" :footer="false">
     <router-view v-slot="{ Component, route }">
       <transition name="fade">
-        <SignupHeader v-if="route.meta.header" class="signup__header" />
+        <SignupHeader
+          v-if="route.meta.header"
+          :highlight="route.meta.headerHighlight"
+          class="signup__header"
+        />
       </transition>
       <div class="signup__content">
         <transition :name="route.meta.transitionName">
@@ -57,7 +61,7 @@ export default SignupPage;
   &__pinned {
     position: absolute;
     overflow-y: scroll;
-    top: $bdu * 8;
+    top: $bdu * 7.5;
     padding: ($bdu * 4) ($bdu * 4) 0;
     bottom: 0;
     right: 0;
