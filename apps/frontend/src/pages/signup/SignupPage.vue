@@ -37,7 +37,8 @@ export default SignupPage;
 
   &__intro {
     @extend .re-title-20;
-    margin-bottom: $bdu * 6;
+    text-align: left;
+    margin-bottom: $bdu * 4;
   }
 
   &__hint {

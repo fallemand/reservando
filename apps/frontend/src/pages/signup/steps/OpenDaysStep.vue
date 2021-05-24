@@ -7,7 +7,7 @@
       "
     >
       <ReCheckboxGroup
-        :checked="state.calendar.openingTimes"
+        :checked="state.calendar.days"
         class="days-step__days"
         @update:checked="handleChangeDays"
       >
@@ -48,11 +48,11 @@ export default defineComponent({
     const router = useRouter();
 
     const handleChangeDays = (days: Time.DayName[]) => {
-      store.dispatch("setOpeningTimes", days);
+      store.dispatch("setOpeningDays", days);
     };
 
     const handleContinue = () => {
-      if (store.state.calendar.openingTimes.length) {
+      if (store.state.calendar.days.length) {
         router.push("open-times");
       } else {
         isSubmitted.value = true;
