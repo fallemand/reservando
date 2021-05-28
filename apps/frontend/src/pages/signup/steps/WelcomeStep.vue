@@ -1,27 +1,30 @@
 <template>
   <div class="welcome-step">
-    <p class="signup__hint">{{ $t("signup.welcomeStep.intro") }}</p>
+    <p class="welcome-step__hint signup__hint">{{ $t("signup.welcomeStep.intro") }}</p>
     <img class="welcome-step__logo" :src="logoSvg" alt="Reservando" />
     <p class="welcome-step__description">
       {{ $t("signup.welcomeStep.description") }}
     </p>
-    <router-link class="welcome-step__cta" to="/name">
+    <ReButton @click="$router.push('name')">
       {{ $t("signup.welcomeStep.cta") }}
-    </router-link>
-    <img class="welcome-step__image" :src="tableSvg" alt="Dinner table" />
+    </ReButton>
+    <div class="welcome-step__image-container">
+      <img class="welcome-step__image" :src="welcomeImage" alt="Reservando demo" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import tableSvg from "@/assets/images/table.svg";
+import { ReButton } from "@reservando/design-system";
+import welcomeImage from "@/assets/images/signup-welcome.png";
 import logoSvg from "@reservando/design-system/images/logo.svg";
 
 const WelcomeHeader = defineComponent({
-  props: {},
+  components: { ReButton },
   computed: {
-    tableSvg(): string {
-      return tableSvg;
+    welcomeImage(): string {
+      return welcomeImage;
     },
     logoSvg(): string {
       return logoSvg;
@@ -39,29 +42,31 @@ export default WelcomeHeader;
 @import "~@reservando/design-system/styles/mixins";
 
 .welcome-step {
-  text-align: center;
+  background-color: $primary-100;
+  top: 0;
+  display: block;
+  padding-top: $bdu * 8;
+
+  &__hint {
+    @extend .re-caption-up;
+  }
 
   &__logo {
-    max-width: 300px;
+    max-width: 260px;
     width: 100%;
-    margin: 0 auto ($bdu * 3);
+    margin-bottom: $bdu * 3;
   }
 
   &__description {
-    @extend .re-body-18;
-    margin-bottom: $bdu * 6;
+    @extend .re-body-16;
+    margin-bottom: $bdu * 4;
   }
 
-  &__cta {
-    @extend .re-body-strong-16;
-    margin-bottom: $bdu * 8;
-    color: $primary-700;
-    text-decoration: none;
-    display: block;
+  &__image-container {
+    text-align: right;
   }
-
   &__image {
-    max-width: 100%;
+    margin-right: -$bdu;
   }
 }
 </style>

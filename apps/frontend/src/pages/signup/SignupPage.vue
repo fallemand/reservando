@@ -62,7 +62,7 @@ export default SignupPage;
     position: absolute;
     overflow-y: scroll;
     top: $bdu * 7.5;
-    padding: ($bdu * 4) ($bdu * 4) 0;
+    padding: ($bdu * 4) ($bdu * 3) 0;
     bottom: 0;
     right: 0;
     left: 0;
