@@ -88,5 +88,9 @@
     "ignore": [
       "dist/*"
     ]
+  },
+  "engines": {
+    "npm": ">7",
+    "node": ">14"
   }
 }

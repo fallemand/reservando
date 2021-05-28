@@ -4,12 +4,12 @@
   "description": "Reservando monorepo",
   "main": "index.js",
   "scripts": {
-    "start": "lerna run start --stream",
-    "start:storybook": "lerna run start --scope @reservando/storybook --stream",
-    "start:frontend": "lerna run start --scope @reservando/frontend --stream",
-    "build": "lerna run build --stream",
-    "watch": "lerna run watch --parallel",
-    "watch:frontend": "lerna run watch --scope @reservando/frontend --parallel",
+    "start": "npm run start -w @reservando/frontend & npm run start -w @reservando/backend",
+    "start:storybook": "npm run start -w @reservando/storybook",
+    "start:frontend": "npm run start -w @reservando/frontend",
+    "build": "npm run build -w @reservando/frontend -w @reservando/backend",
+    "watch": "npm run watch -w @reservando/frontend & npm run npm -w @reservando/backend",
+    "watch:frontend": "npm run watch -w @reservando/frontend",
     "test": "NODE_ENV=test jest",
     "test:clean-cache": "npm run test -- --clearCache",
     "test:update": "npm run test -- --updateSnapshot",
@@ -20,9 +20,7 @@
     "lint:prettier": "prettier --check '**/*.{md,mdx,scss,json}'",
     "copy": "rm -rf ./public/* && cp -r ./apps/frontend/dist/* ./public && mkdir ./public/design-system && cp -r ./apps/storybook/dist/* ./public/design-system",
     "deploy": "npm run build && npm run copy && firebase deploy",
-    "create:page": "hygen page new",
-    "prune:all": "npm prune --production && (cd ./frontend && npm prune --production) && (cd ./backend && npm prune --production)",
-    "postinstall": "lerna bootstrap"
+    "create:page": "hygen page new"
   },
   "repository": {
     "type": "git",
@@ -48,7 +46,6 @@
     "codecov": "^3.8.1",
     "hygen": "^6.0.4",
     "jest": "^26.6.3",
-    "lerna": "^3.22.1",
     "typescript": "^4.1.5",
     "vue-jest": "^3.0.7"
   },
@@ -60,5 +57,13 @@
   "lint-staged": {
     "*.{js,ts,vue}": "eslint --fix",
     "*.{md,scss,json}": "prettier --write"
+  },
+  "workspaces": [
+    "./apps/*",
+    "./packages/*"
+  ],
+  "engines": {
+    "npm": ">7",
+    "node": ">14"
   }
 }

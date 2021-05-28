@@ -40,5 +40,9 @@
       "start": "kill-port 3005,9229",
       "restart": "kill-port 3005,9229"
     }
+  },
+  "engines": {
+    "npm": ">7",
+    "node": ">14"
   }
 }
