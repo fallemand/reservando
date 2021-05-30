@@ -2,7 +2,7 @@
 /.secret
 /coverage
 /monitoring
-/node_modules
+node_modules
 /secrets
 /spinnaker
 /public

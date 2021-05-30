@@ -1,12 +1,9 @@
 /.idea
 /.secret
 /coverage
-dist
 /monitoring
-/node_modules
+**/node_modules/
+**/dist/
 /secrets
 /spinnaker
-/apps/backend/dist
-/apps/frontend/dist
-/apps/storybook/dist
 /public

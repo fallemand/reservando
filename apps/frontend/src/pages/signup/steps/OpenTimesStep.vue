@@ -1,26 +1,39 @@
 <template>
   <div class="times-step">
     <p class="signup__intro">{{ $t("signup.openTimesStep.intro") }}</p>
-    <div
-      v-for="(openingTime, index) in openingTimes"
-      :key="index"
-      class="times-step__opening-times"
-    >
-      <CalendarTimeSelector
-        :id="`from-${index}`"
-        class="times-step__time-selector"
-        :model-value="openingTime.from"
-        :label="`${$t('controls.from')}:`"
-        @update:modelValue="(value) => handleChangeFrom(index, value)"
-      />
-      <CalendarTimeSelector
-        :id="`to-${index}`"
-        :model-value="openingTime.to"
-        class="times-step__time-selector"
-        :label="`${$t('controls.to')}:`"
-        @update:modelValue="(value) => handleChangeTo(index, value)"
-      />
-    </div>
+    <ReTransitionGroup>
+      <div
+        v-for="(openingTime, index) in openingTimes"
+        :key="index"
+        class="times-step__opening-times"
+      >
+        <div class="times-step__times-container">
+          <CalendarTimeSelector
+            :id="`from-${index}`"
+            class="times-step__time-selector"
+            :model-value="openingTime.from"
+            :label="`${$t('controls.from')}:`"
+            @update:modelValue="(value) => handleChangeFrom(index, value)"
+          />
+          <CalendarTimeSelector
+            :id="`to-${index}`"
+            :model-value="openingTime.to"
+            class="times-step__time-selector"
+            :label="`${$t('controls.to')}:`"
+            @update:modelValue="(value) => handleChangeTo(index, value)"
+          />
+        </div>
+        <ReButton
+          class="times-step__delete"
+          :disabled="index === 0"
+          size="small"
+          modifier="secondary-outline"
+          @click="deleteOpeningTime(index)"
+        >
+          <ReIcon name="trash-2" />
+        </ReButton>
+      </div>
+    </ReTransitionGroup>
     <ReButton class="times-step__add-times" modifier="secondary-outline" @click="addOpeningTime">
       {{ $t("signup.openTimesStep.addOpenHours") }}
     </ReButton>
@@ -32,9 +45,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
-import { ReButton } from "@reservando/design-system";
+import { ReButton, ReIcon, ReTransitionGroup } from "@reservando/design-system";
 import { Time } from "@reservando/commons/types";
 import ContinueButton from "../components/ContinueButton.vue";
 import { useStore } from "../store";
@@ -44,7 +57,9 @@ export default defineComponent({
   name: "OpenTimesStep",
   components: {
     ContinueButton,
+    ReTransitionGroup,
     ReButton,
+    ReIcon,
     CalendarTimeSelector,
   },
   setup() {
@@ -59,12 +74,15 @@ export default defineComponent({
       });
       store.dispatch("setOpeningTimes", openingTimes);
     };
+    const deleteOpeningTime = (index: number): void => {
+      openingTimes.splice(index, 1);
+      store.dispatch("setOpeningTimes", openingTimes);
+    };
 
     const handleContinue = () => {
       router.push("interval");
     };
     const handleChangeFrom = (index: number, value: Time.Time) => {
-      console.log(index, value);
       openingTimes[index].from = value;
       store.dispatch("setOpeningTimes", openingTimes);
     };
@@ -80,6 +98,7 @@ export default defineComponent({
       handleChangeFrom,
       handleChangeTo,
       addOpeningTime,
+      deleteOpeningTime,
       handleContinue,
     };
   },
@@ -91,12 +110,27 @@ export default defineComponent({
 @import "~@reservando/design-system/styles/mixins";
 
 .times-step {
+  &__opening-times {
+    display: flex;
+    margin-bottom: $bdu;
+  }
+  &__times-container {
+    flex-grow: 1;
+  }
+  &__delete {
+    margin-left: $bdu;
+    flex-shrink: 0;
+  }
   &__add-times {
     margin-top: $bdu * 2.5;
     width: 100%;
   }
   &__time-selector {
     margin-bottom: $bdu;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   &__hint {
     margin-top: $bdu * 2.5;
