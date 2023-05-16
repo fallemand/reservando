@@ -1,7 +1,7 @@
 {
   "name": "reservando",
   "version": "1.0.0",
-  "description": "Reservando monorepo",
+  "description": "Reservando monorepo :)",
   "main": "index.js",
   "scripts": {
     "start": "npm run start -w @reservando/frontend & npm run start -w @reservando/backend",
