@@ -3,7 +3,7 @@
 > Monorepo with all the reservando modules, including the frontend and the api.
 
 ```sh
-supplier-portal
+reservando
 ├── apps
 │   ├── frontend   # Frontend App
 │   └── backend    # Node API
