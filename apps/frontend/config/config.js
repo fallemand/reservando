@@ -16,12 +16,12 @@ const config = {
     "@": path.resolve(__dirname, "../src"),
   },
   firebaseClientConfig: {
-    apiKey: "AIzaSyBa6F9Xgl5tiSuCR75oR1-2lmsBSzbgjfk",
+    apiKey: "redacted",
     authDomain: "reservando-club.firebaseapp.com",
     projectId: "reservando-club",
     storageBucket: "reservando-club.appspot.com",
     messagingSenderId: "660411980358",
-    appId: "1:660411980358:web:47e51c0e967db71336c847",
+    appId: "redacted",
   },
   extensions: [".vue", ".ts", ".js", ".css", ".d.ts"],
   dateFormatOptions: {
